@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+// tag
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: $color_darkGray;
+}
+
+// vue transition
+.jsFade {
+  &-enter-active,
+  &-leave-active {
+      transition: 0.3s;
+  }
+}
+.jsFade {
+  &-enter,
+  &-leave-to {
+      opacity: 0;
+  }
+}
