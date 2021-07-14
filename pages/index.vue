@@ -99,9 +99,17 @@ export default {
     overflow: hidden;
     opacity: 0;
     transition: 1s 2s;
+    animation: 2s scrollIcon infinite;
     &.jsAnimation {
       opacity: 1;
     }
+  }
+  &__scrollIconBorder {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: block;
+    animation: 2s scrollIcon infinite;
   }
   @keyframes scrollIcon {
     0% {
@@ -110,14 +118,6 @@ export default {
     100% {
       transform: translateY(100%);
     }
-  }
-  &__scrollIconBorder {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    display: block;
-    animation: 2s scrollIcon infinite;
   }
   &__border {
     background-color: #ffffff;
