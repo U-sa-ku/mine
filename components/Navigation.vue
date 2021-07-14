@@ -48,7 +48,6 @@ export default {
 .navigation {
   width: 100vw;
   height: 100vh;
-  height: -webkit-fill-available;
   background-color: $color_darkGray;
   padding: 10px;
   display: grid;
