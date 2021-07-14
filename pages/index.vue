@@ -66,6 +66,7 @@ export default {
 .mainvisual {
   width: 100vw;
   height: 100vh;
+  height: -webkit-fill-available;
   background: $gradient_primary;
   margin-bottom: 100vh;
   position: relative;

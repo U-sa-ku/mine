@@ -56,6 +56,7 @@ export default {
   position: relative;
   @media (max-width: 767px) {
     height: 100vw;
+    height: -webkit-fill-available;
   }
   $mainvisualAnimationStartDelay: 0.5s;
   &__cover {
