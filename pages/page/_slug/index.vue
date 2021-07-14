@@ -100,7 +100,7 @@ export default {
     }
     &.jsAnimation {
       opacity: 1;
-      transform: scaleY(100%) rotate(-90deg);
+      transform: scaleY(1) rotate(-90deg);
     }
   }
   &__title {
@@ -117,7 +117,7 @@ export default {
     bottom: 0vw;
     z-index: 1;
     opacity: 0;
-    transform: scaleY(0%);
+    transform: scaleY(0);
     transform-origin: 0% 100%;
     transition: 1s $mainvisualAnimationStartDelay + 1.5s;
     @media (max-width: 767px) {
@@ -125,7 +125,7 @@ export default {
     }
     &.jsAnimation {
       opacity: 1;
-      transform: scaleY(100%);
+      transform: scaleY(1);
     }
   }
   &__since {
@@ -138,7 +138,7 @@ export default {
     bottom: -3vw;
     z-index: 1;
     opacity: 0;
-    transform: scaleY(0%);
+    transform: scaleY(0);
     transform-origin: 0% 100%;
     transition: 1s $mainvisualAnimationStartDelay + 2s;
     @media (max-width: 767px) {
@@ -146,7 +146,7 @@ export default {
     }
     &.jsAnimation {
       opacity: 1;
-      transform: scaleY(100%);
+      transform: scaleY(1);
     }
   }
 }

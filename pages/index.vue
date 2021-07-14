@@ -121,10 +121,10 @@ export default {
     background-color: #ffffff;
     position: absolute;
     z-index: 2;
-    transform: scale(0%);
+    transform: scale(0);
     transition: 1s;
     &.jsAnimation {
-      transform: scale(100%);
+      transform: scale(1);
     }
     $borderOffset: 10px;
     &--top {
