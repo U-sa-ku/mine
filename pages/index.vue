@@ -113,7 +113,7 @@ export default {
     0% {
       transform: translateY(-100%);
     }
-    100% {
+    99.9% {
       transform: translateY(100%);
     }
   }
