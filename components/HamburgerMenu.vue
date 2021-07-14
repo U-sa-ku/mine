@@ -43,8 +43,8 @@ export default {
     @media (max-width: 767px) {
       width: 30px;
       height: 30px;
-      right: 20px;
-      top: 15px;
+      right: 25px;
+      top: 20px;
     }
     &:before,
     &:after {
@@ -72,9 +72,15 @@ export default {
     &.jsClose {
       &:before {
         transform: translate(-50%, 7px) rotate(45deg);
+        @media (max-width: 767px) {
+          top: 7px;
+        }
       }
       &:after {
         transform: translate(-50%, -7px) rotate(-45deg);
+        @media (max-width: 767px) {
+          bottom: 7px;
+        }
       }
     }
   }
