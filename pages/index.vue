@@ -63,7 +63,16 @@ export default {
   }
 }
 </script>
-
+<style>
+@keyframes scrollIcon {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+</style>
 <style lang="scss" scoped>
 .mainvisual {
   width: 100vw;
@@ -99,7 +108,6 @@ export default {
     overflow: hidden;
     opacity: 0;
     transition: 1s 2s;
-    animation: 2s scrollIcon infinite;
     &.jsAnimation {
       opacity: 1;
     }
@@ -110,14 +118,6 @@ export default {
     background-color: #ffffff;
     display: block;
     animation: 2s scrollIcon infinite;
-  }
-  @keyframes scrollIcon {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(100%);
-    }
   }
   &__border {
     background-color: #ffffff;
