@@ -3,7 +3,7 @@
     <HamburgerMenu/>
     <div class="mainvisual">
       <div :class="['mainvisual__cover', {jsAnimation: isLoaded}]"></div>
-      <img :src="mainvisual.url"
+      <img :src="mainvisualUrl"
         :alt="name"
         :class="['mainvisual__image', {jsAnimation: isLoaded}]"
         @load="onLoad"
@@ -13,7 +13,11 @@
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since }}</p>
 
     </div>
-    <div class="description" v-html="description"></div>
+    <div
+      :class="['mainvisual__description', {jsAnimation: isLoaded}]"
+      v-html="description"
+    >    
+    </div>
     <siteFooter/> 
   </main>
 </template>
@@ -37,8 +41,17 @@ export default {
   },
   data() {
     return {
-      isLoaded: false
+      isLoaded: false,
+      mainvisualUrl: ""
     }
+  },
+  mounted() {
+    if(window.innerWidth <= 768) {
+      this.mainvisualUrl = this.mainvisual_sp.url
+    } else {
+      this.mainvisualUrl = this.mainvisual.url
+    }
+    console.log(this.mainvisualUrl)
   },
   methods: {
     onLoad() {
@@ -55,7 +68,7 @@ export default {
   padding: 10px;
   position: relative;
   @media (max-width: 767px) {
-    height: 100vw;
+    height: 140vw;
   }
   $mainvisualAnimationStartDelay: 0.5s;
   &__cover {
@@ -107,7 +120,7 @@ export default {
     width: 100vw;
     color: $color_lightGray;
     font-family: $fontFamily_english;
-    font-size: 6vw;
+    font-size: 9vw;
     line-height: 1;
     text-align: right;
     mix-blend-mode: difference;
@@ -142,60 +155,93 @@ export default {
     transform-origin: 0% 100%;
     transition: 1s $mainvisualAnimationStartDelay + 2s;
     @media (max-width: 767px) {
-      bottom: -4vw;
+      font-size: 4vw;
+      bottom: -6vw;
     }
     &.jsAnimation {
       opacity: 1;
       transform: scaleY(1);
     }
   }
-}
-.description {
-  padding: 0px 5vw 150px;
-  @media (max-width: 767px) {
-    padding-bottom: 75px;
-  }
-  /deep/ h1,
-  /deep/ h2,
-  /deep/ h3,
-  /deep/ p,
-  /deep/ span {
-    color: $color_lightGray !important;
-    font-weight: normal;
-    line-height: 2;
-    letter-spacing: 0.2em;
-  }
-  /deep/ h1,
-  /deep/ h2,
-  /deep/ h3,
-  /deep/ img {
-    margin: 150px 0px;
+  &__description {
+    padding: 0px 5vw 150px;
+    opacity: 0;
+    transition: 1s $mainvisualAnimationStartDelay + 2.5s;
     @media (max-width: 767px) {
+      padding-bottom: 75px;
+    }
+    &.jsAnimation {
+      opacity: 1;
+    }
+    /deep/ h1,
+    /deep/ h2,
+    /deep/ h3,
+    /deep/ p,
+    /deep/ span {
+      color: $color_lightGray !important;
+      font-weight: normal;
+      line-height: 2;
+      letter-spacing: 0.15em;
+    }
+    /deep/ h1,
+    /deep/ h2,
+    /deep/ h3 {
+      margin: 150px 0px;
+      @media (max-width: 767px) {
+        margin: 75px 0px;
+      }
+    }
+    /deep/ h1,
+    /deep/ h2,
+    /deep/ h3 {
+      position: relative;
+      @media (max-width: 767px) {
+        br {
+          display: none;
+        }
+      }
+    }
+    /deep/ img {
       margin: 75px 0px;
+      @media (max-width: 767px) {
+        margin: 30px 0px;
+      }
     }
-  }
-  /deep/ h1 {
-    font-size: 4rem;
-    @media (max-width: 767px) {
+    /deep/ h1 {
+      font-size: 4rem;
+      @media (max-width: 767px) {
+        font-size: 3rem;
+      }
+    }
+    /deep/ h2 {
       font-size: 3rem;
+      &:before {
+        content: "";
+        width: 100px;
+        height: 2px;
+        background: $gradient_primary;
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: -25px;
+        z-index: 1;
+        transform: translateX(-50%);
+      }
+      @media (max-width: 767px) {
+        font-size: 2rem;
+      }
     }
-  }
-  /deep/ h2 {
-    font-size: 3rem;
-    @media (max-width: 767px) {
+    /deep/ h3 {
       font-size: 2rem;
+      @media (max-width: 767px) {
+        font-size: 1.8rem;
+      }
     }
-  }
-  /deep/ h3 {
-    font-size: 2rem;
-    @media (max-width: 767px) {
+    /deep/ p {
       font-size: 1.8rem;
-    }
-  }
-  /deep/ p {
-    font-size: 1.8rem;
-    @media (max-width: 767px) {
-      font-size: 1.3rem;
+      @media (max-width: 767px) {
+        font-size: 1.3rem;
+      }
     }
   }
 }

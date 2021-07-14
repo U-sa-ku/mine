@@ -40,10 +40,16 @@ export default {
     top: 30px;
     z-index: 10;
     cursor: pointer;
+    @media (max-width: 767px) {
+      width: 30px;
+      height: 30px;
+      right: 20px;
+      top: 15px;
+    }
     &:before,
     &:after {
       content: "";
-      width: 40px;
+      width: 100%;
       height: 2px;
       background-color: #ffffff;
       position: absolute;
@@ -53,9 +59,15 @@ export default {
     }
     &:before {
       top: 12px;
+      @media (max-width: 767px) {
+        top: 9px;
+      }
     }
     &:after {
       bottom: 12px;
+      @media (max-width: 767px) {
+        bottom: 9px;
+      }
     }
     &.jsClose {
       &:before {
