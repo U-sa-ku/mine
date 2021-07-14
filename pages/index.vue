@@ -5,7 +5,9 @@
       <h1 class="mainvisual__logo">
         <MineLogo :isLoaded="isLoaded"/>
       </h1>
-      <i :class="[`mainvisual__scrollIcon`, {jsAnimation: isLoaded}]"></i>
+      <i :class="[`mainvisual__scrollIcon`, {jsAnimation: isLoaded}]">
+        <i class="mainvisual__scrollIconBorder"></i>
+      </i>
       <figure class="mainvisual__border mainvisual__border--top"
         :class="{jsAnimation: isLoaded}"
       >
@@ -97,23 +99,23 @@ export default {
     overflow: hidden;
     opacity: 0;
     transition: 1s 2s;
-    &:before {
-      content: "";
-      width: 100%;
-      height: 100%;
-      background-color: #ffffff;
-      display: block;
-      animation: 2s scrollIcon infinite;
-    }
     &.jsAnimation {
       opacity: 1;
     }
+  }
+  &__scrollIconBorder {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: block;
+    animation: 2s scrollIcon infinite;
   }
   @keyframes scrollIcon {
     0% {
       transform: translateY(-100%);
     }
-    99.9% {
+    100% {
       transform: translateY(100%);
     }
   }
