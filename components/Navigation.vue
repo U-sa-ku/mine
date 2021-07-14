@@ -5,9 +5,14 @@
       v-for="content in datas.contents"
       :key="content.id"
     >
-      <nuxt-link :to="`/page/${content.slug}`" class="navigation__link">
+      <nuxt-link :to="`/page/${content.slug}/`" class="navigation__link">
         <p class="navigation__caption">{{ content.caption }}</p>
-        <img :src="content.photo.url" alt="" :class="['navigation__image', {jsAnimation: isShow}]">
+        <img
+          :src="content.photo.url"
+          alt=""
+          :class="['navigation__image', {jsAnimation: isLoaded}]"
+          @load="onLoad"
+        >
       </nuxt-link>
     </div>
   </nav>
@@ -17,11 +22,11 @@
 export default {
   data() {
     return {
-      datas: []
+      datas: [],
+      isLoaded: false
     }
   },
   props: {
-    isShow: Boolean,
     isScrolledWindowHeight: Boolean
   },
   async fetch() {
@@ -29,6 +34,12 @@ export default {
       'https://mine.microcms.io/api/v1/navigation',
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
+  },
+  methods: {
+    onLoad() {
+      this.isLoaded = true
+      this.$emit("onLoad")
+    }
   }
 }
 </script>
@@ -49,7 +60,7 @@ export default {
   box-sizing: border-box;
   @media (max-width: 767px) {
     padding: 5px 10px;
-    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-rows: 40% 20% 40%;
     grid-template-columns: 100%;
   }
   &__item {
@@ -69,7 +80,7 @@ export default {
     &:nth-child(2) {
       grid-area: 1 / 3 / 2 / 4;
       @media (max-width: 767px) {
-        grid-area: 4 / 1 / 5 / 2;
+        grid-area: 2 / 1 / 3 / 2;
       }
       .navigation__image {
         transform: translateX(-100%);
@@ -78,7 +89,7 @@ export default {
     &:nth-child(3) {
       grid-area: 3 / 3 / 6 / 3;
       @media (max-width: 767px) {
-        grid-area: 2 / 1 / 3 / 2;
+        grid-area: 3 / 1 / 4 / 2;
       }
       .navigation__image {
         transform: translateY(100%);

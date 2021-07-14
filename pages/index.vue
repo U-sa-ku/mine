@@ -6,14 +6,26 @@
         <MineLogo :isLoaded="isLoaded"/>
       </h1>
       <i :class="[`mainvisual__scrollIcon`, {jsAnimation: isLoaded}]"></i>
-      <figure class="mainvisual__border mainvisual__border--top" :class="{jsAnimation: isLoaded}"></figure>
-      <figure class="mainvisual__border mainvisual__border--right" :class="{jsAnimation: isLoaded}"></figure>
-      <figure class="mainvisual__border mainvisual__border--bottom" :class="{jsAnimation: isLoaded}"></figure>
-      <figure class="mainvisual__border mainvisual__border--left" :class="{jsAnimation: isLoaded}"></figure>
+      <figure class="mainvisual__border mainvisual__border--top"
+        :class="{jsAnimation: isLoaded}"
+      >
+      </figure>
+      <figure class="mainvisual__border mainvisual__border--right"
+        :class="{jsAnimation: isLoaded}"
+      >
+      </figure>
+      <figure class="mainvisual__border mainvisual__border--bottom"
+        :class="{jsAnimation: isLoaded}"
+      >
+      </figure>
+      <figure class="mainvisual__border mainvisual__border--left"
+        :class="{jsAnimation: isLoaded}"
+      >
+      </figure>
     </div>
     <Navigation
-      :isShow="isLoaded"
       :isScrolledWindowHeight="isScrolledWindowHeight"
+      @onLoad="onLoad"
     />
     <siteFooter/>
   </main>
@@ -25,11 +37,11 @@ export default {
   data() {
     return {
       isLoaded: false,
-      isScrolledWindowHeight: false
+      isScrolledWindowHeight: false,
+      loading: true
     }
   },
   mounted() {
-    window.addEventListener('load', this.onLoad)
     window.addEventListener('scroll', this.onScroll)
   },
   methods: {
