@@ -8,24 +8,25 @@
       <i :class="[`mainvisual__scrollIcon`, {jsAnimation: isLoaded}]">
         <i class="mainvisual__scrollIconBorder"></i>
       </i>
-      <figure class="mainvisual__border mainvisual__border--top"
+      <figure class="mainvisual__frame mainvisual__frame--top"
         :class="{jsAnimation: isLoaded}"
       >
       </figure>
-      <figure class="mainvisual__border mainvisual__border--right"
+      <figure class="mainvisual__frame mainvisual__frame--right"
         :class="{jsAnimation: isLoaded}"
       >
       </figure>
-      <figure class="mainvisual__border mainvisual__border--bottom"
+      <figure class="mainvisual__frame mainvisual__frame--bottom"
         :class="{jsAnimation: isLoaded}"
       >
       </figure>
-      <figure class="mainvisual__border mainvisual__border--left"
+      <figure class="mainvisual__frame mainvisual__frame--left"
         :class="{jsAnimation: isLoaded}"
       >
       </figure>
     </div>
     <Navigation
+      class="navigation--top"
       :isScrolledWindowHeight="isScrolledWindowHeight"
       @onLoad="onLoad"
     />
@@ -63,16 +64,7 @@ export default {
   }
 }
 </script>
-<style>
-@keyframes scrollIcon {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-</style>
+
 <style lang="scss" scoped>
 .mainvisual {
   width: 100vw;
@@ -117,9 +109,17 @@ export default {
     height: 100%;
     background-color: #ffffff;
     display: block;
-    animation: 2s scrollIcon infinite;
+    animation: 2s scrollIconBorder infinite;
   }
-  &__border {
+  @keyframes scrollIconBorder {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  &__frame {
     background-color: #ffffff;
     position: absolute;
     z-index: 2;
@@ -162,6 +162,30 @@ export default {
 .navigation {
   &.jsScrolledWindowHeight {
     position: static;
+  }
+}
+</style>
+<style lang="scss">
+.navigation--top {
+  .navigation {
+    &__item {
+      font-size: 2px;
+      &:nth-child(1) .navigation__image {
+        transform: translateY(-100%);
+      }
+      &:nth-child(2) .navigation__image {
+        transform: translateX(-100%);
+      }
+      &:nth-child(3) .navigation__image {
+        transform: translateY(100%);
+      }
+    }
+    &__image {
+      transition: 1s 1s ease-out;
+      &.jsAnimation {
+        transform: translate(0%, 0%) !important;
+      }
+    }
   }
 }
 </style>

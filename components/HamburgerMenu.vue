@@ -26,7 +26,6 @@ export default {
 
 <style lang="scss" scoped>
 .navigation {
-  position: fixed !important;
   z-index: 9 !important;
 }
 

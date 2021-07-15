@@ -73,26 +73,17 @@ export default {
       @media (max-width: 767px) {
         grid-area: 1 / 1 / 2 / 2;
       }
-      .navigation__image {
-        transform: translateY(-100%);
-      }
     }
     &:nth-child(2) {
       grid-area: 1 / 3 / 2 / 4;
       @media (max-width: 767px) {
         grid-area: 2 / 1 / 3 / 2;
       }
-      .navigation__image {
-        transform: translateX(-100%);
-      }
     }
     &:nth-child(3) {
       grid-area: 3 / 3 / 6 / 3;
       @media (max-width: 767px) {
         grid-area: 3 / 1 / 4 / 2;
-      }
-      .navigation__image {
-        transform: translateY(100%);
       }
     }
   }
@@ -134,10 +125,6 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: 1s 1s ease-out;
-    &.jsAnimation {
-      transform: translate(0%, 0%) !important;
-    }
   }
 }
 </style>

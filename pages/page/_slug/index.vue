@@ -186,35 +186,9 @@ export default {
     /deep/ h1,
     /deep/ h2,
     /deep/ h3 {
-      margin: 150px 0px;
-      @media (max-width: 767px) {
-        margin: 75px 0px;
-      }
-    }
-    /deep/ h1,
-    /deep/ h2,
-    /deep/ h3 {
-      position: relative;
-      @media (max-width: 767px) {
-        br {
-          display: none;
-        }
-      }
-    }
-    /deep/ img {
-      margin: 75px 0px;
-      @media (max-width: 767px) {
-        margin: 30px 0px;
-      }
-    }
-    /deep/ h1 {
-      font-size: 4rem;
-      @media (max-width: 767px) {
-        font-size: 3rem;
-      }
-    }
-    /deep/ h2 {
       font-size: 3rem;
+      margin: 150px 0px;
+      position: relative;
       &:before {
         content: "";
         width: 100px;
@@ -229,18 +203,22 @@ export default {
       }
       @media (max-width: 767px) {
         font-size: 2rem;
-      }
-    }
-    /deep/ h3 {
-      font-size: 2rem;
-      @media (max-width: 767px) {
-        font-size: 1.8rem;
+        margin: 75px 0px;
+        br {
+          display: none;
+        }
       }
     }
     /deep/ p {
       font-size: 1.8rem;
       @media (max-width: 767px) {
         font-size: 1.3rem;
+      }
+    }
+    /deep/ img {
+      margin: 75px 0px;
+      @media (max-width: 767px) {
+        margin: 30px 0px;
       }
     }
   }
