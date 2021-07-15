@@ -50,8 +50,11 @@ export default {
     list-style-type: none;
     background: #000000;
     padding: 10px;
-    column-count: 2;
+    column-count: 3;
     column-gap: 10px;
+    @media (max-width: 999px) {
+      column-count: 2;
+    }
     @media (max-width: 767px) {
       padding-bottom: 0px;
       column-count: 1;
