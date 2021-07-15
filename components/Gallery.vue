@@ -55,10 +55,10 @@ export default {
     @media (max-width: 999px) {
       column-count: 2;
     }
-    // @media (max-width: 767px) {
-    //   padding-bottom: 0px;
-    //   column-count: 1;
-    // }
+    @media (max-width: 767px) {
+      padding-bottom: 0px;
+      column-count: 1;
+    }
   }
   &__listItem {
     margin-bottom: 10px;
