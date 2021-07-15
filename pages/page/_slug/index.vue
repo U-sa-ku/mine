@@ -13,12 +13,13 @@
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since }}</p>
 
     </div>
-    <div
-      :class="['mainvisual__description', {jsAnimation: isLoaded}]"
+    <section
+      :class="['description', {jsAnimation: isLoaded}]"
       v-html="description"
-    >    
-    </div>
-    <siteFooter/> 
+    >
+    </section>
+    <Gallery :category="id"/>
+    <SiteFooter/> 
   </main>
 </template>
 
@@ -47,11 +48,10 @@ export default {
   },
   mounted() {
     if(window.innerWidth <= 768) {
-      this.mainvisualUrl = this.mainvisual_sp.url
+      this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=355&q=90`
     } else {
-      this.mainvisualUrl = this.mainvisual.url
+      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260&q=90`
     }
-    console.log(this.mainvisualUrl)
   },
   methods: {
     onLoad() {
@@ -62,6 +62,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$mainvisualAnimationStartDelay: 0.5s;
 .mainvisual {
   height: 60vw;
   background: $gradient_primary;
@@ -70,7 +71,6 @@ export default {
   @media (max-width: 767px) {
     height: 140vw;
   }
-  $mainvisualAnimationStartDelay: 0.5s;
   &__cover {
     width: 100%;
     height: 100%;
@@ -163,63 +163,53 @@ export default {
       transform: scaleY(1);
     }
   }
-  &__description {
-    padding: 0px 5vw 150px;
-    opacity: 0;
-    transition: 1s $mainvisualAnimationStartDelay + 2.5s;
+}
+.description {
+  padding: 0px 5vw;
+  opacity: 0;
+  transition: 1s $mainvisualAnimationStartDelay;
+  @media (max-width: 767px) {
+  }
+  &.jsAnimation {
+    opacity: 1;
+  }
+  /deep/ h1,
+  /deep/ h2,
+  /deep/ h3,
+  /deep/ p,
+  /deep/ span {
+    color: $color_lightGray !important;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+  }
+  /deep/ h1,
+  /deep/ h2,
+  /deep/ h3 {
+    @include sectionTitle;
+    font-size: 3rem;
+    line-height: 1.8;
+    margin: 100px 0px;
     @media (max-width: 767px) {
-      padding-bottom: 75px;
+      font-size: 2rem;
+      margin: 70px 0px;
     }
-    &.jsAnimation {
-      opacity: 1;
+  }
+  /deep/ p {
+    font-size: 1.8rem;
+    line-height: 2;
+    @media (max-width: 767px) {
+      font-size: 1.3rem;
+      text-align: center !important;
     }
-    /deep/ h1,
-    /deep/ h2,
-    /deep/ h3,
-    /deep/ p,
-    /deep/ span {
-      color: $color_lightGray !important;
-      font-weight: normal;
-      line-height: 2;
-      letter-spacing: 0.15em;
+  }
+  /deep/ img {
+    display: inline;
+    @media (min-width: 767px) {
+      max-width: 80%;
+      margin: 70px -5vw 60px;
     }
-    /deep/ h1,
-    /deep/ h2,
-    /deep/ h3 {
-      font-size: 3rem;
-      margin: 150px 0px;
-      position: relative;
-      &:before {
-        content: "";
-        width: 100px;
-        height: 2px;
-        background: $gradient_primary;
-        display: block;
-        position: absolute;
-        left: 50%;
-        bottom: -25px;
-        z-index: 1;
-        transform: translateX(-50%);
-      }
-      @media (max-width: 767px) {
-        font-size: 2rem;
-        margin: 75px 0px;
-        br {
-          display: none;
-        }
-      }
-    }
-    /deep/ p {
-      font-size: 1.8rem;
-      @media (max-width: 767px) {
-        font-size: 1.3rem;
-      }
-    }
-    /deep/ img {
-      margin: 75px 0px;
-      @media (max-width: 767px) {
-        margin: 30px 0px;
-      }
+    @media (max-width: 767px) {
+      margin: 40px 0px 30px;
     }
   }
 }

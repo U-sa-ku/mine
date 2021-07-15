@@ -28,6 +28,13 @@ export default {
     '@/assets/scss/global.scss'
   ],
 
+  styleResources: {
+    scss: [
+      '@/assets/scss/variable.scss',
+      '@/assets/scss/mixin.scss'
+    ]
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
@@ -43,12 +50,6 @@ export default {
   modules: [
     '@nuxtjs/style-resources'
   ],
-
-  styleResources: {
-    scss: [
-      '@/assets/scss/variable.scss' // 読みませたいscssファイルを指定します。
-    ]
-  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

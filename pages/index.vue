@@ -30,18 +30,17 @@
       :isScrolledWindowHeight="isScrolledWindowHeight"
       @onLoad="onLoad"
     />
-    <siteFooter/>
+    <Gallery/>
+    <SiteFooter/>
   </main>
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   data() {
     return {
       isLoaded: false,
-      isScrolledWindowHeight: false,
-      loading: true
+      isScrolledWindowHeight: false
     }
   },
   mounted() {

@@ -1,15 +1,15 @@
 <template>
   <nav :class="['navigation', {jsScrolledWindowHeight: isScrolledWindowHeight}]">
     <div
-      :class="`navigation__item navigation__item--${content.slug}`"
-      v-for="content in datas.contents"
-      :key="content.id"
+      :class="`navigation__item navigation__item--${navigation.slug}`"
+      v-for="navigation in navigations.contents"
+      :key="navigation.id"
     >
-      <nuxt-link :to="`/page/${content.slug}/`" class="navigation__link">
-        <p class="navigation__caption">{{ content.caption }}</p>
+      <nuxt-link :to="`/page/${navigation.slug}/`" class="navigation__link">
+        <p class="navigation__caption">{{ navigation.caption }}</p>
         <img
-          :src="content.photo.url"
-          alt=""
+          :src="`${navigation.photo.url}?dpr=2&w=625&q=90`"
+          :alt="navigation.caption"
           :class="['navigation__image', {jsAnimation: isLoaded}]"
           @load="onLoad"
         >
@@ -20,20 +20,20 @@
 
 <script>
 export default {
+  async fetch() {
+    this.navigations = await fetch(
+      'https://mine.microcms.io/api/v1/navigation',
+      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+    ).then(res => res.json())
+  },
   data() {
     return {
-      datas: [],
+      navigations: [],
       isLoaded: false
     }
   },
   props: {
     isScrolledWindowHeight: Boolean
-  },
-  async fetch() {
-    this.datas = await fetch(
-      'https://mine.microcms.io/api/v1/navigation',
-      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-    ).then(res => res.json())
   },
   methods: {
     onLoad() {
@@ -51,37 +51,34 @@ export default {
   background-color: $color_darkGray;
   padding: 10px;
   display: grid;
-  grid-template-rows: calc(33% - 10px) 10px calc(34% - 10px) 10px 33%;
-  grid-template-columns: calc(50% - 5px) 10px calc(50% - 5px);
+  grid-template-rows: calc(33% - 10px) 34% calc(33% - 10px);
+  grid-template-columns: 50% 50%;
+  grid-gap: 10px;
   position: fixed;
   left: 0px;
   top: 0px;
   z-index: 0;
   box-sizing: border-box;
   @media (max-width: 767px) {
-    padding: 5px 10px;
-    grid-template-rows: 40% 20% 40%;
+    grid-template-rows: calc(40% - 10px) 20% calc(40% - 10px);
     grid-template-columns: 100%;
   }
   &__item {
     position: relative;
-    @media (max-width: 767px) {
-      margin: 5px 0px;
-    }
     &:nth-child(1) {
-      grid-area: 1 / 1 / 6 / 2;
+      grid-area: 1 / 1 / 4 / 2;
       @media (max-width: 767px) {
         grid-area: 1 / 1 / 2 / 2;
       }
     }
     &:nth-child(2) {
-      grid-area: 1 / 3 / 2 / 4;
+      grid-area: 1 / 2 / 2 / 3;
       @media (max-width: 767px) {
         grid-area: 2 / 1 / 3 / 2;
       }
     }
     &:nth-child(3) {
-      grid-area: 3 / 3 / 6 / 3;
+      grid-area: 2 / 2 / 4 / 3;
       @media (max-width: 767px) {
         grid-area: 3 / 1 / 4 / 2;
       }
