@@ -64,8 +64,8 @@ export default {
     'og:title': 'mine',
     description: 'mine',
     'og:description': 'mine',
-    theme_color: '#ffffff',
-    background_color: '#ffffff'
+    theme_color: '#252525',
+    background_color: '#252525'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
