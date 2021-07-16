@@ -7,11 +7,14 @@
         v-for="photo in gallery.contents"
         :key="gallery.id"
       >
-        <img
-          :src="`${photo.photo.url}?dpr=2&w=625&q=90`"
-          alt=""
-          class="gallery__image"
-        > 
+        <picture>
+          <source :srcset="`${photo.photo.url}?dpr=2&w=355&q=90`" media="(max-width: 767px)">
+          <img
+            :src="`${photo.photo.url}?dpr=2&w=413&q=90`"
+            alt=""
+            class="gallery__image"
+          >
+        </picture>
       </li>
     </ul>
   </section>
