@@ -30,7 +30,7 @@
       :isScrolledWindowHeight="isScrolledWindowHeight"
       @onLoad="onLoad"
     />
-    <Gallery/>
+    <Photogragh/>
     <SiteFooter/>
   </main>
 </template>

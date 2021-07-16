@@ -18,7 +18,7 @@
       v-html="description"
     >
     </section>
-    <Gallery :category="id"/>
+    <Photogragh :category="id"/>
     <SiteFooter/> 
   </main>
 </template>

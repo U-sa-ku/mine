@@ -1,18 +1,18 @@
 <template>
-  <section class="gallery">
-    <h2 class="gallery__title">gallery</h2>
-    <ul class="gallery__list">
+  <section class="photogragh">
+    <h2 class="photogragh__title">photogragh</h2>
+    <ul class="photogragh__list">
       <li
-        class="gallery__listItem"
-        v-for="photo in gallery.contents"
-        :key="gallery.id"
+        class="photogragh__listItem"
+        v-for="photo in photogragh.contents"
+        :key="photogragh.id"
       >
         <picture>
           <source :srcset="`${photo.photo.url}?dpr=2&w=355&q=90`" media="(max-width: 767px)">
           <img
             :src="`${photo.photo.url}?dpr=2&w=413&q=90`"
             alt=""
-            class="gallery__image"
+            class="photogragh__image"
           >
         </picture>
       </li>
@@ -23,14 +23,14 @@
 <script>
 export default {
   async fetch() {
-    this.gallery = await fetch(
-      `https://mine.microcms.io/api/v1/gallery?limit=50${this.category === undefined ? '' : `&filters=category[equals]${this.category}`}`,
+    this.photogragh = await fetch(
+      `https://mine.microcms.io/api/v1/photogragh?limit=50${this.category === undefined ? '' : `&filters=category[equals]${this.category}`}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
   },
   data() {
     return {
-      gallery: [],
+      photogragh: [],
       isShow: false
     }
   },
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.gallery {
+.photogragh {
   padding: 10vw 0vw;
   @media (max-width: 767px) {
     padding: 15vw 0vw;
