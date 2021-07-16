@@ -48,8 +48,25 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/pwa'
   ],
+
+  /*
+   ** @nuxtjs/pwa Configuration
+   ** https://github.com/nuxt-community/pwa-module
+   */
+  manifest: {
+    name: 'mine',
+    lang: 'ja',
+    short_name: 'mine',
+    title: 'mine',
+    'og:title': 'mine',
+    description: 'mine',
+    'og:description': 'mine',
+    theme_color: '#ffffff',
+    background_color: '#ffffff'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
