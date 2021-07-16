@@ -83,17 +83,17 @@ export default {
 
   generate: {
     async routes() {
-      const pages = await axios
-        .get('https://mine.microcms.io/api/v1/page?limit=100', {
+      const sidekicks = await axios
+        .get('https://mine.microcms.io/api/v1/sidekick?limit=100', {
           headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' }
         })
         .then((res) =>
           res.data.contents.map((content) => ({
-            route: `/page/${content.id}`,
+            route: `/sidekick/${content.id}`,
             payload: content
           }))
         )
-      return pages
+      return sidekicks
     }
   }
 }

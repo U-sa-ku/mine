@@ -5,7 +5,7 @@
       v-for="navigation in navigations.contents"
       :key="navigation.id"
     >
-      <nuxt-link :to="`/page/${navigation.slug}/`" class="navigation__link">
+      <nuxt-link :to="`/sidekick/${navigation.slug}/`" class="navigation__link">
         <p class="navigation__caption">{{ navigation.caption }}</p>
         <img
           :src="`${navigation.photo.url}${mainvisualUrlParam}`"

@@ -28,7 +28,7 @@ import axios from 'axios'
 export default {
   async asyncData({ params }) {
     const { data } = await axios.get(
-      `https://mine.microcms.io/api/v1/page/${params.slug}`,
+      `https://mine.microcms.io/api/v1/sidekick/${params.slug}`,
       {
         headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' }
       }
