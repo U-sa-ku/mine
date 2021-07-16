@@ -57,7 +57,7 @@ export default {
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 0;
+  z-index: 9;
   box-sizing: border-box;
   @media (max-width: 767px) {
     grid-template-rows: calc(40% - 10px) 20% calc(40% - 10px);

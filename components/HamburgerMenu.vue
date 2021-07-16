@@ -1,7 +1,7 @@
 <template>
   <div class="humburgerMenu">
     <div
-      :class="['humburgerMenu__button', {jsClose: isShow}]"
+      :class="['humburgerMenu__button', {jsClose: isShow}, {jsAnimation: isLoaded}]"
       @click="isShow = !isShow"
     >
     </div>
@@ -20,15 +20,14 @@ export default {
     return {
       isShow: false
     }
+  },
+  props: {
+    isLoaded: Boolean
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.navigation {
-  z-index: 9 !important;
-}
-
 .humburgerMenu {
   &__button {
     width: 40px;
@@ -36,14 +35,19 @@ export default {
     border-radius: 100%;
     position: fixed;
     right: 30px;
-    top: 30px;
+    top: 18px;
     z-index: 10;
     cursor: pointer;
+    opacity: 0;
+    transition: 1s 1s;
+    &.jsAnimation {
+      opacity: 1;
+    }
     @media (max-width: 767px) {
       width: 30px;
       height: 30px;
       right: 25px;
-      top: 20px;
+      top: 16px;
     }
     &:before,
     &:after {

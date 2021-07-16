@@ -1,6 +1,6 @@
 <template>
   <main>
-    <HamburgerMenu/>
+    <HamburgerMenu :isLoaded="isLoaded"/>
     <div :class="['mainvisual', {jsScrolledWindowHeight: isScrolledWindowHeight}]">
       <h1 class="mainvisual__logo">
         <MineLogo :isLoaded="isLoaded"/>
@@ -166,6 +166,7 @@ export default {
 </style>
 <style lang="scss">
 .navigation--top {
+  z-index: 0 !important;
   .navigation {
     &__item {
       font-size: 2px;
