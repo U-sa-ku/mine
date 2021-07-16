@@ -21,7 +21,7 @@
 export default {
   async fetch() {
     this.gallery = await fetch(
-      `https://mine.microcms.io/api/v1/gallery?limit=20${this.category === undefined ? '' : `&filters=category[equals]${this.category}`}`,
+      `https://mine.microcms.io/api/v1/gallery?limit=50${this.category === undefined ? '' : `&filters=category[equals]${this.category}`}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
   },
