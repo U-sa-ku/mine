@@ -8,7 +8,7 @@
       <nuxt-link :to="`/page/${navigation.slug}/`" class="navigation__link">
         <p class="navigation__caption">{{ navigation.caption }}</p>
         <img
-          :src="`${navigation.photo.url}?dpr=2&w=625&q=90`"
+          :src="`${navigation.photo.url}${mainvisualUrlParam}`"
           :alt="navigation.caption"
           :class="['navigation__image', {jsAnimation: isLoaded}]"
           @load="onLoad"
@@ -29,11 +29,19 @@ export default {
   data() {
     return {
       navigations: [],
+      mainvisualUrlParam: '',
       isLoaded: false
     }
   },
   props: {
     isScrolledWindowHeight: Boolean
+  },
+  mounted() {
+    if(window.innerWidth <= 767) {
+      this.mainvisualUrlParam = `?dpr=2&w=340&q=90`
+    } else {
+      this.mainvisualUrlParam = `?dpr=2&w=625&q=90`
+    }
   },
   methods: {
     onLoad() {
