@@ -33,14 +33,14 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'modern-css-reset',
-    '@/assets/scss/global.scss'
   ],
 
   styleResources: {
     scss: [
+      '@/assets/scss/reset.scss',
       '@/assets/scss/variable.scss',
-      '@/assets/scss/mixin.scss'
+      '@/assets/scss/mixin.scss',
+      '@/assets/scss/global.scss'
     ]
   },
 
