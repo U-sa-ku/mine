@@ -10,7 +10,7 @@
       >
       <p :class="['mainvisual__category', {jsAnimation: isLoaded}]">{{ id }}</p>
       <h1 :class="['mainvisual__title', {jsAnimation: isLoaded}]">{{ maker }}<br>{{ name }}</h1>
-      <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since }}</p>
+      <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since_year }}.{{ since_month }}</p>
 
     </div>
     <section
@@ -37,7 +37,14 @@ export default {
   },
   head(){
     return {
-      title: `${this.maker} ${this.name} | mine`
+      title: `${this.maker} ${this.name} | mine`,
+      meta: [
+        { hid: 'description', name: 'description', content: `${this.since_year}年${this.since_month}月から所有している${this.maker}の${this.name}。` },
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+        { hid: 'og:title', property: 'og:title', content: `${this.maker} ${this.name} | mine` },
+        { hid: 'og:description', property: 'og:description', content: `${this.since_year}年${this.since_month}月から所有している${this.maker}の${this.name}。` },
+        { hid: 'og:url', property: 'og:url', content: this.mainvisualUrl}
+      ]
     }
   },
   data() {
@@ -109,7 +116,7 @@ $mainvisualAnimationStartDelay: 0.5s;
     transition: 1s $mainvisualAnimationStartDelay + 1s;
     @media (max-width: 767px) {
       width: 90%;
-      font-size: 10vw;
+      font-size: 15vw;
     }
     &.jsAnimation {
       opacity: 1;
@@ -134,7 +141,7 @@ $mainvisualAnimationStartDelay: 0.5s;
     transform-origin: 0% 100%;
     transition: 1s $mainvisualAnimationStartDelay + 1.5s;
     @media (max-width: 767px) {
-      font-size: 10vw;
+      font-size: 15vw;
     }
     &.jsAnimation {
       opacity: 1;
