@@ -86,13 +86,13 @@ export default {
   }
   &__link {
     height: 100%;
-    filter: grayscale(100%);
+    filter: grayscale(100%) contrast(120%);
     display: block;
     overflow: hidden;
     transition: 0.3s;
     @media (min-width: 768px) {
       &:hover {
-        filter: grayscale(0%);
+        filter: grayscale(0%) contrast(1);
         .navigation__caption {
           opacity: 1;
         }
