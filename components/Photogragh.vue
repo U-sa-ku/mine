@@ -104,7 +104,7 @@ export default {
     background-color: #000000;
     position: relative;
     @media (max-width: 767px) {
-      height: 116vw;
+      height: 120vw;
     }
   }
   &__image {
