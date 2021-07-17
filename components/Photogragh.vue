@@ -28,9 +28,9 @@
           :key="photogragh.id"
         >
           <picture>
-            <source :srcset="`${photo.photo.url}?dpr=2&w=355&q=90`" media="(max-width: 767px)">
+            <source :srcset="`${photo.photo.url}?dpr=2&w=340&q=90`" media="(max-width: 767px)">
             <img
-              :src="`${photo.photo.url}?dpr=2&w=1280&q=90`"
+              :src="`${photo.photo.url}?dpr=2&w=1163&q=90`"
               alt=""
               class="photogragh__image"
             >
