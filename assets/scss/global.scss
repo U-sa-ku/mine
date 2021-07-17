@@ -26,3 +26,11 @@ body {
       opacity: 0;
   }
 }
+
+//
+// swiper
+//////////////////////////////////////////////////////////////////////
+.swiper-slide {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

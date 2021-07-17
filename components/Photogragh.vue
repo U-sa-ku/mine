@@ -115,6 +115,7 @@ export default {
     top: 50%;
     z-index: 1;
     transform: translate(-50%, -50%);
+    pointer-events: none;
   }
   .swiper-button {
     &-prev:after,
