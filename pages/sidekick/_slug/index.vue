@@ -172,10 +172,13 @@ $mainvisualAnimationStartDelay: 0.5s;
   }
 }
 .description {
-  padding: 0px 5vw;
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 0px 30px;
   opacity: 0;
   transition: 1s $mainvisualAnimationStartDelay;
   @media (max-width: 767px) {
+    padding: 0px 15px;
   }
   &.jsAnimation {
     opacity: 1;
@@ -195,10 +198,10 @@ $mainvisualAnimationStartDelay: 0.5s;
     @include sectionTitle;
     font-size: 3rem;
     line-height: 1.8;
-    margin: 100px 0px;
+    margin: 8vw 0px 10px;
     @media (max-width: 767px) {
-      font-size: 2rem;
-      margin: 70px 0px;
+      font-size: 1.8rem;
+      margin: 15vw 0px 20px;
     }
   }
   /deep/ p {
@@ -213,10 +216,10 @@ $mainvisualAnimationStartDelay: 0.5s;
     display: inline;
     @media (min-width: 767px) {
       max-width: 80%;
-      margin: 70px -5vw 60px;
+      margin: 70px -30px 60px;
     }
     @media (max-width: 767px) {
-      margin: 40px 0px 30px;
+      margin: 40px 0px 20px;
     }
   }
 }

@@ -75,9 +75,9 @@ export default {
 
 <style lang="scss" scoped>
 .photogragh {
-  padding: 10vw 0vw;
+  padding: 150px 0px;
   @media (max-width: 767px) {
-    padding: 15vw 0vw;
+    padding: 80px 0px;
   }
   &__title {
     @include sectionTitle;
