@@ -5,7 +5,9 @@
 //////////////////////////////////////////////////////////////////////
 @mixin sectionTitle {
   color: $color_lightGray;
+  font-family: $fontFamily_english;
   font-size: 4rem;
+  font-weight: bold;
   line-height: 1.6;
   letter-spacing: 0.08em;
   text-align: center;
@@ -19,7 +21,6 @@
     content: "";
     width: 100px;
     height: 2px;
-    font-size: 3rem;
     background: $gradient_primary;
     display: block;
     position: absolute;

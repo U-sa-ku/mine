@@ -13,10 +13,9 @@
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since_year }}.{{ since_month }}</p>
 
     </div>
-    <section
-      :class="['description', {jsAnimation: isLoaded}]"
-      v-html="description"
-    >
+    <section :class="['description', {jsAnimation: isLoaded}]">
+       <div class="description__title" v-html="description_title"></div>
+       <div class="description__body" v-html="description_body"></div>
     </section>
     <Photogragh :category="id"/>
     <SiteFooter/> 
@@ -183,43 +182,90 @@ $mainvisualAnimationStartDelay: 0.5s;
   &.jsAnimation {
     opacity: 1;
   }
-  /deep/ h1,
-  /deep/ h2,
-  /deep/ h3,
-  /deep/ p,
-  /deep/ span {
-    color: $color_lightGray !important;
-    font-weight: normal;
-    letter-spacing: 0.15em;
+  &__title {
+    /deep/ h1,
+    /deep/ h2,
+    /deep/ h3,
+    /deep/ p,
+    /deep/ span {
+      color: $color_lightGray !important;
+      font-weight: normal;
+      letter-spacing: 0.15em;
+    }
+    /deep/ h1,
+    /deep/ h2,
+    /deep/ h3,
+    /deep/ p {
+      @include sectionTitle;
+      font-family: $fontFamily_japanese;
+      font-size: 3rem;
+      line-height: 1.8;
+      margin: 8vw 0px 10px;
+      @media (max-width: 767px) {
+        font-size: 1.8rem;
+        margin: 15vw 0px 20px;
+      }
+    }
   }
-  /deep/ h1,
-  /deep/ h2,
-  /deep/ h3 {
-    @include sectionTitle;
-    font-size: 3rem;
-    line-height: 1.8;
-    margin: 8vw 0px 10px;
-    @media (max-width: 767px) {
+  &__body {
+    /deep/ h1,
+    /deep/ h2,
+    /deep/ h3,
+    /deep/ p,
+    /deep/ span {
+      color: $color_lightGray !important;
+      font-weight: normal;
+      letter-spacing: 0.15em;
+    }
+    /deep/ h1,
+    /deep/ h2,
+    /deep/ h3 {
+      @include sectionTitle;
+      line-height: 1.8;
+      margin: 8vw 0px 10px;
+      @media (max-width: 767px) {
+        margin: 15vw 0px 20px;
+      }
+    }
+    /deep/ p {
       font-size: 1.8rem;
-      margin: 15vw 0px 20px;
+      line-height: 2;
+      @media (max-width: 767px) {
+        font-size: 1.3rem;
+        text-align: center !important;
+      }
     }
-  }
-  /deep/ p {
-    font-size: 1.8rem;
-    line-height: 2;
-    @media (max-width: 767px) {
-      font-size: 1.3rem;
-      text-align: center !important;
+    /deep/ img,
+    /deep/ iframe {
+      @media (min-width: 767px) {
+        margin: 70px 0px 60px;
+      }
+      @media (max-width: 767px) {
+        margin: 40px 0px 20px;
+      }
     }
-  }
-  /deep/ img {
-    display: inline;
-    @media (min-width: 767px) {
-      max-width: 80%;
-      margin: 70px -30px 60px;
+    /deep/ img {
+      display: inline;
+      @media (min-width: 768px) {
+        max-width: 80%;
+      }
     }
-    @media (max-width: 767px) {
-      margin: 40px 0px 20px;
+    /deep/ iframe {
+      width: 80%;
+      height: 42vw;
+      margin-right: auto;
+      margin-left: auto;
+      display: block;
+      @media (min-width: 1260px) {
+        height: 510px;
+      }
+      @media (max-width: 767px) {
+        width: 100%;
+        height: 51vw;
+      }
+      + p {
+        display: none;
+      }
     }
   }
 }
