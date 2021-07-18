@@ -238,7 +238,7 @@ $mainvisualAnimationStartDelay: 0.5s;
     /deep/ img,
     /deep/ iframe {
       @media (min-width: 767px) {
-        margin: 70px 0px 60px;
+        margin: 90px 0px 60px;
       }
       @media (max-width: 767px) {
         margin: 40px 0px 20px;
