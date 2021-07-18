@@ -200,10 +200,10 @@ $mainvisualAnimationStartDelay: 0.5s;
       font-family: $fontFamily_japanese;
       font-size: 3rem;
       line-height: 1.8;
-      margin: 8vw 0px 10px;
+      margin: 10vw 0px 10px;
       @media (max-width: 767px) {
         font-size: 1.8rem;
-        margin: 15vw 0px 20px;
+        margin: 20vw 0px 20px;
       }
     }
   }
