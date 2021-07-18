@@ -33,15 +33,15 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    //'swiper/dist/css/swiper.css'
+    '@/assets/scss/reset.scss',
+    '@/assets/scss/global.scss'
   ],
 
   styleResources: {
     scss: [
-      '@/assets/scss/reset.scss',
+      
       '@/assets/scss/variable.scss',
-      '@/assets/scss/mixin.scss',
-      '@/assets/scss/global.scss'
+      '@/assets/scss/mixin.scss'
     ]
   },
 
