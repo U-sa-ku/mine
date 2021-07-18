@@ -222,9 +222,9 @@ $mainvisualAnimationStartDelay: 0.5s;
     /deep/ h3 {
       @include sectionTitle;
       line-height: 1.8;
-      margin: 8vw 0px 10px;
+      margin: 150px 0px 10px;
       @media (max-width: 767px) {
-        margin: 15vw 0px 20px;
+        margin: 80px 0px 20px;
       }
     }
     /deep/ p {
