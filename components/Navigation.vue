@@ -5,7 +5,10 @@
       v-for="navigation in navigations.contents"
       :key="navigation.id"
     >
-      <nuxt-link :to="`/sidekick/${navigation.slug}/`" class="navigation__link">
+      <nuxt-link
+        :to="`/sidekick/${navigation.slug}/`"
+        class="navigation__link"
+      >
         <p class="navigation__caption">{{ navigation.caption }}</p>
         <img
           :src="`${navigation.photo.url}${mainvisualUrlParam}`"
@@ -93,12 +96,13 @@ export default {
     }
   }
   &__link {
+    color: inherit;
     height: 100%;
     filter: grayscale(100%) contrast(120%);
     display: block;
     overflow: hidden;
     transition: 0.3s;
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
       &:hover {
         filter: grayscale(0%) contrast(1);
         .navigation__caption {
@@ -106,12 +110,11 @@ export default {
         }
       }
     }
-    @media (max-width: 767px) {
-      filter: grayscale(0%);
+    @media (max-width: 768px) {
+      filter: grayscale(0%) contrast(100%);
     }
   }
   &__caption {
-    color: $color_lightGray;
     font-family: $fontFamily_english;
     font-size: 9vw;
     line-height: 1;

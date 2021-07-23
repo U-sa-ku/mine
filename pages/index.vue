@@ -8,22 +8,10 @@
       <i :class="[`mainvisual__scrollIcon`, {jsAnimation: isLoaded}]">
         <i class="mainvisual__scrollIconBorder"></i>
       </i>
-      <figure class="mainvisual__frame mainvisual__frame--top"
-        :class="{jsAnimation: isLoaded}"
-      >
-      </figure>
-      <figure class="mainvisual__frame mainvisual__frame--right"
-        :class="{jsAnimation: isLoaded}"
-      >
-      </figure>
-      <figure class="mainvisual__frame mainvisual__frame--bottom"
-        :class="{jsAnimation: isLoaded}"
-      >
-      </figure>
-      <figure class="mainvisual__frame mainvisual__frame--left"
-        :class="{jsAnimation: isLoaded}"
-      >
-      </figure>
+      <figure :class="['mainvisual__frame','mainvisual__frame--top',{jsAnimation: isLoaded}]"></figure>
+      <figure :class="['mainvisual__frame','mainvisual__frame--right',{jsAnimation: isLoaded}]"></figure>
+      <figure :class="['mainvisual__frame','mainvisual__frame--bottom',{jsAnimation: isLoaded}]"></figure>
+      <figure :class="['mainvisual__frame','mainvisual__frame--left',{jsAnimation: isLoaded}]"></figure>
     </div>
     <Navigation
       class="navigation--top"
@@ -31,6 +19,7 @@
       @onLoad="onLoad"
     />
     <Photogragh/>
+    <Notebook/>
     <SiteFooter/>
   </main>
 </template>
@@ -128,15 +117,16 @@ export default {
       transform: scale(1);
     }
     $borderOffset: 10px;
+    $borderWidth: 4px;
     &--top {
       width: calc(100% - #{$borderOffset*2});
-      height: 4px;
+      height: $borderWidth;
       left: $borderOffset;
       top: $borderOffset;
       transform-origin: 0% 0%;
     }
     &--right {
-      width: 4px;
+      width: $borderWidth;
       height: calc(100% - #{$borderOffset*2});
       right: $borderOffset;
       top: $borderOffset;
@@ -144,13 +134,13 @@ export default {
     }
     &--bottom {
       width: calc(100% - #{$borderOffset*2});
-      height: 4px;
+      height: $borderWidth;
       left: $borderOffset;
       bottom: $borderOffset;
       transform-origin: 100% 100%;
     }
     &--left {
-      width: 4px;
+      width: $borderWidth;
       height: calc(100% - #{$borderOffset*2});
       left: $borderOffset;
       top: $borderOffset;

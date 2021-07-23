@@ -20,17 +20,17 @@
     <client-only>
       <swiper
         class="photogragh__slider photogragh__slider--hero"
-        :options="swiperHeroOption"
+        :options="swiperOption"
       >
         <swiper-slide
           class="photogragh__slide"
-          v-for="photo in photogragh.contents"
+          v-for="photogragh in photograghs.contents"
           :key="photogragh.id"
         >
           <picture>
-            <source :srcset="`${photo.photo.url}?dpr=2&w=340&q=90`" media="(max-width: 767px)">
+            <source :srcset="`${photogragh.photo.url}?dpr=2&w=340&q=90`" media="(max-width: 767px)">
             <img
-              :src="`${photo.photo.url}?dpr=2&w=1163&q=90`"
+              :src="`${photogragh.photo.url}?dpr=2&w=1163&q=90`"
               alt=""
               class="photogragh__image"
             >
@@ -46,16 +46,15 @@
 <script>
 export default {
   async fetch() {
-    this.photogragh = await fetch(
+    this.photograghs = await fetch(
       `https://mine.microcms.io/api/v1/photogragh?limit=50${this.category === undefined ? '' : `&filters=category[equals]${this.category}`}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
   },
   data() {
     return {
-      photogragh: [],
-      isShow: false,
-      swiperHeroOption: {
+      photograghs: [],
+      swiperOption: {
         slidesPerView: 1.1,
         spaceBetween: 10,
         centeredSlides: true,
@@ -75,9 +74,9 @@ export default {
 
 <style lang="scss" scoped>
 .photogragh {
-  padding: 150px 0px;
+  padding-top: 150px;
   @media (max-width: 767px) {
-    padding: 80px 0px;
+    padding-top: 80px;
   }
   &__title {
     @include sectionTitle;
