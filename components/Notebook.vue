@@ -40,7 +40,7 @@ import moment from 'moment'
 export default {
   async fetch() {
     this.notebooks = await fetch(
-      `https://mine.microcms.io/api/v1/notebook?limit=5&filters=id[not_equals]${this.currentAritcle}`,
+      `https://mine.microcms.io/api/v1/notebook?limit=6&filters=id[not_equals]${this.currentAritcle}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
   },
