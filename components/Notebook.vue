@@ -62,9 +62,9 @@ export default {
 
 <style lang="scss" scoped>
 .notebook {
-  padding: 150px 30px;
+  padding: 150px 30px 0px;
   @media (max-width: 767px) {
-    padding: 80px 15px;
+    padding: 80px 15px 0px;
   }
   &__title {
     @include sectionTitle;

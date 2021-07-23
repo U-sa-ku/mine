@@ -20,12 +20,14 @@ export default {
 <style lang="scss" scoped>
 .siteFooter {
   background: $gradient_primary;
+  margin-top: 150px;
   padding: 30px 5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   @media (max-width: 767px) {
     text-align: center;
+    margin-top: 80px;
     display: block;
   }
   &__logo {
