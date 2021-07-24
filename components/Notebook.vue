@@ -82,6 +82,9 @@ export default {
   }
   &__listItem {
     margin-bottom: 4%;
+    @media (max-width: 767px) {
+      margin-bottom: 10%;
+    }
   }
   &__link {
     color: inherit;
