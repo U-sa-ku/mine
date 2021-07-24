@@ -40,13 +40,13 @@ export default {
   },
   head(){
     return {
-      title: `${this.title} | mine`,
+      title: `${this.title} | notebook | mine`,
       meta: [
-        { hid: 'description', name: 'description', content: '' },
+        { hid: 'description', name: 'description', content: this.title },
         { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: '' },
-        { hid: 'og:description', property: 'og:description', content: '' },
-        { hid: 'og:url', property: 'og:url', content: ''}
+        { hid: 'og:title', property: 'og:title', content: this.title },
+        { hid: 'og:description', property: 'og:description', content: this.title },
+        { hid: 'og:url', property: 'og:url', content: this.mainvisual.url }
       ]
     }
   },
