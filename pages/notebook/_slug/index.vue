@@ -4,7 +4,7 @@
     <article class="article">
       <div class="article__mainvisual">
         <img
-          :src="`${mainvisual.url}?dpr=2&w=1163&q=90`"
+          :src="`${mainvisual.url}${mainvisualUrlParam}`"
           alt=""
           class="article__mainvisualImage"
           @load="onLoad"
@@ -58,9 +58,9 @@ export default {
   },
   mounted() {
     if(window.innerWidth <= 767) {
-      this.mainvisualUrlParam = `?dpr=2&w=375&q=90`
+      this.mainvisualUrlParam = `?dpr=2&h=667&q=90`
     } else {
-      this.mainvisualUrlParam = `?dpr=2&w=1800&q=90`
+      this.mainvisualUrlParam = `?dpr=2&w=1280&q=90`
     }
   },
   methods: {
