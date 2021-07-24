@@ -13,7 +13,7 @@
         >
           <div class="notebook__imageBox">
             <picture>
-              <source :srcset="`${notebook.mainvisual.url}?dpr=2&w=340&q=90`" media="(max-width: 767px)">
+              <source :srcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=90`" media="(max-width: 767px)">
               <img
                 :src="`${notebook.mainvisual.url}?dpr=2&w=1163&q=90`"
                 alt=""
