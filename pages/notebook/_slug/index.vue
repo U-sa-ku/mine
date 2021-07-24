@@ -17,6 +17,7 @@
             <span :class="['article__articleOverviewTextBackground',{jsAnimation: isLoaded}]">{{ title }}</span>
           </p>
         </div>
+        <div :class="['article__mainvisualCover',{jsAnimation: isLoaded}]"></div>
       </div>
       <div class="article__body" v-html="body"></div>
     </article>
@@ -88,10 +89,27 @@ export default {
     height: 100%;
     object-fit: cover;
   }
+  $mainvisualAnimationStartDelay: 1s;
+  &__mainvisualCover {
+    width: 100%;
+    height: 100%;
+    background: $gradient_primary;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+    opacity: 1;
+    transition: 1s;
+    &.jsAnimation {
+      opacity: 0;
+    }
+  }
   &__articleOverview {
     position: absolute;
     right: 0%;
     top: 50%;
+    z-index: 1;
     transform: translateY(-50%);
   }
   &__articleDate,
@@ -127,6 +145,9 @@ export default {
     @media (max-width: 767px) {
       font-size: 1.5rem;
     }
+    .article__articleOverviewTextBackground:before {
+      transition-delay: $mainvisualAnimationStartDelay;
+    }
   }
   &__articleTitle {
     font-size: 3rem;
@@ -135,7 +156,7 @@ export default {
       font-size: 2.5rem;
     }
     .article__articleOverviewTextBackground:before {
-      transition-delay: 0.5s;
+      transition-delay: $mainvisualAnimationStartDelay + 0.5s;
     }
   }
   &__body {
