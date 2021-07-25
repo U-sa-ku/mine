@@ -37,7 +37,7 @@
         to="/notebook/"
         class="notebook__moreLink"
       >
-        more
+        more notebooks
       </nuxt-link>
     </div>
   </section>
