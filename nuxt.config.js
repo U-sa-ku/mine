@@ -103,7 +103,7 @@ export default {
         })
         .then((res) =>
           range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
-            route: `/notebook/page/${p}`,
+            route: `/notebooks/page/${p}`,
           }))
         )
       return notebooks
@@ -113,7 +113,7 @@ export default {
   router: {
     extendRoutes(routes, resolve) {
       routes.push({
-        path: '/notebook/page/:p',
+        path: '/notebooks/page/:p',
         component: resolve(__dirname,'pages/notebook/index.vue'),
         name: 'notebooks',
       })

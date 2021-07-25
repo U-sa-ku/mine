@@ -41,7 +41,7 @@
           v-for="n of pagenationLength" :key="n">
           <nuxt-link
             class="notebook__pagenationLink"
-            :to="`/notebook/page/${n}`">
+            :to="`/notebooks/page/${n}`">
             {{ n }}
           </nuxt-link>
         </li>
@@ -225,7 +225,6 @@ export default {
   }
   &__pagenationLink {
     color: inherit;
-    font-family: $fontFamily_english;
     font-size: 2rem;
     text-decoration: none;
     @media (max-width: 767px) {
