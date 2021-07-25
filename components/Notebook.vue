@@ -48,7 +48,7 @@ import moment from 'moment'
 export default {
   async fetch() {
     this.notebooks = await fetch(
-      `https://mine.microcms.io/api/v1/notebook?limit=6&filters=id[not_equals]${this.currentArticle}`,
+      `https://mine.microcms.io/api/v1/notebook?limit=3&filters=id[not_equals]${this.currentArticle}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
   },
@@ -203,14 +203,14 @@ export default {
     }
     &:before {
       content: "";
-      width: 150%;
+      width: 120%;
       height: 50%;
       border-width: 0px 2px 1px 0px;
       border-style: solid;
       border-color: $color_lightGray;
       display: block;
       position: absolute;
-      left: -25%;
+      left: -12%;
       bottom: -5px;
       z-index: 0;
       transform: skewX(45deg);
