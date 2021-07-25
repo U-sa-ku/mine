@@ -92,17 +92,31 @@ export default {
 
   generate: {
     async routes() {
-      const sidekicks = await axios
-        .get('https://mine.microcms.io/api/v1/sidekick?limit=100', {
-          headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' }
+      const limit = 6
+      const range = (start, end) =>
+        [...Array(end - start + 1)].map((_, i) => start + i)
+
+      // 一覧のページング
+      const notebooks = await axios
+        .get(`https://mine.microcms.io/api/v1/notebook?limit=0`, {
+          headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' },
         })
         .then((res) =>
-          res.data.contents.map((content) => ({
-            route: `/sidekick/${content.id}`,
-            payload: content
+          range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
+            route: `/notebook/page/${p}`,
           }))
         )
-      return sidekicks
+      return notebooks
+    },
+  },
+
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '/notebook/page/:p',
+        component: resolve(__dirname,'pages/notebook/index.vue'),
+        name: 'notebooks',
+      })
     }
   }
 }

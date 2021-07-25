@@ -21,7 +21,7 @@
       </div>
       <div class="article__body" v-html="body"></div>
     </article>
-    <Notebook :currentAritcle="id"/>
+    <Notebook :currentArticle="id"/>
     <SiteFooter/>
   </main>
 </template>
@@ -161,10 +161,11 @@ export default {
   }
   &__body {
     max-width: 1200px;
-    margin: 0px auto;
-    padding: 50px 30px;
+    margin: 90px auto 0px;
+    padding: 0px 30px;
     @media (max-width: 767px) {
-      padding: 25px 15px;
+      margin: 40px auto 0px;
+      padding: 0px 15px;
     }
     /deep/ h1,
     /deep/ h2,

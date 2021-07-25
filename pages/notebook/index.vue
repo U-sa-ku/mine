@@ -1,68 +1,86 @@
 <template>
-  <section class="notebook">
-    <h2 class="notebook__title">Notebook</h2>
-    <ul class="notebook__list">
-      <li
-        class="notebook__listItem"
-        v-for="notebook in notebooks.contents"
-        :key="notebooks.id"
-      >
-        <nuxt-link
-          :to="`/notebook/${notebook.id}/`"
-          class="notebook__link"
+  <main>
+    <HamburgerMenu :isLoaded="isLoaded"/>
+    <section :class="['notebook',{jsAnimation:isLoaded}]">
+      <h2 class="notebook__title">Notebook</h2>
+      <ul class="notebook__list">
+        <li
+          class="notebook__listItem"
+          v-for="notebook in contents"
+          :key="contents.id"
         >
-          <div class="notebook__imageBox">
-            <picture>
-              <source :srcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=90`" media="(max-width: 767px)">
-              <img
-                :src="`${notebook.mainvisual.url}?dpr=2&w=1163&q=90`"
-                alt=""
-                class="notebook__image"
-              >
-            </picture>
-            <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--top"></figure>
-            <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--right"></figure>
-            <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--bottom"></figure>
-            <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--left"></figure>
-          </div>
-          <div class="notebook__articleOverview">
-            <p class="notebook__articleDate">{{ notebook.publishedAt | moment }}</p>
-            <p class="notebook__articleTitle">{{ notebook.title }}</p>
-          </div>
-        </nuxt-link>
-      </li>
-    </ul>
-    <div class="notebook__moreButton">
-      <nuxt-link
-        to="/notebook/"
-        class="notebook__moreLink"
-      >
-        more
-      </nuxt-link>
-    </div>
-  </section>
+          <nuxt-link
+            :to="`/notebook/${notebook.id}/`"
+            class="notebook__link"
+          >
+            <div class="notebook__imageBox">
+              <picture>
+                <source :srcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=90`" media="(max-width: 767px)">
+                <img
+                  :src="`${notebook.mainvisual.url}?dpr=2&w=1163&q=90`"
+                  alt=""
+                  class="notebook__image"
+                  @load="onLoad"
+                >
+              </picture>
+              <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--top"></figure>
+              <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--right"></figure>
+              <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--bottom"></figure>
+              <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--left"></figure>
+            </div>
+            <div class="notebook__articleOverview">
+              <p class="notebook__articleDate">{{ notebook.publishedAt | moment }}</p>
+              <p class="notebook__articleTitle">{{ notebook.title }}</p>
+            </div>
+          </nuxt-link>
+        </li>
+      </ul>
+      <ul class="notebook__pagenation">
+        <li
+          class="notebook__pagenationItem"
+          v-for="n of pagenationLength" :key="n">
+          <nuxt-link
+            class="notebook__pagenationLink"
+            :to="`/notebook/page/${n}`">
+            {{ n }}
+          </nuxt-link>
+        </li>
+      </ul>
+    </section>
+    <SiteFooter/>
+  </main>
 </template>
 
 <script>
 import moment from 'moment'
+import axios from 'axios'
 export default {
-  async fetch() {
-    this.notebooks = await fetch(
-      `https://mine.microcms.io/api/v1/notebook?limit=6&filters=id[not_equals]${this.currentArticle}`,
+  async asyncData({ params }) {
+    const page = params.p || '1'
+    const limit = 6
+    const { data } = await axios.get(
+      `https://mine.microcms.io/api/v1/notebook?limit=${limit}&offset=${(page - 1) * limit}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-    ).then(res => res.json())
+    )
+    return data
   },
   data() {
     return {
-      notebooks: []
+      isLoaded: false,
+      pagenationLength: null
     }
-  },
-  props: {
-    currentArticle: ""
   },
   filters: {
     moment: (date) => {
       return moment(date).format('YYYY.MM.DD')
+    }
+  },
+  mounted() {
+    this.pagenationLength = Math.ceil(this.totalCount / this.limit)
+  },
+  methods: {
+    onLoad() {
+      this.isLoaded = true
     }
   }
 }
@@ -70,16 +88,24 @@ export default {
 
 <style lang="scss" scoped>
 .notebook {
-  padding: 150px 30px 0px;
+  min-height: calc(100vh - 241px);
+  padding: 90px 30px 0px;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: 1s 0.5s;
   @media (max-width: 767px) {
-    padding: 80px 15px 0px;
+    padding: 60px 15px 0px;
+  }
+  &.jsAnimation {
+    transform: translateY(0px);
+    opacity: 1;
   }
   &__title {
     @include sectionTitle;
   }
   &__list {
     list-style-type: none;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     padding: 0px;
     display: grid;
     grid-template-columns: 32% 32% 32%;
@@ -89,7 +115,7 @@ export default {
       grid-gap: 4%;
     }
     @media (max-width: 767px) {
-      margin-bottom: 10px;
+       margin-bottom: 25px;
       grid-template-columns: 100%;
       grid-gap: 0%;
     }
@@ -188,38 +214,22 @@ export default {
       font-size: 1.4rem;
     }
   }
-  &__moreButton {
-    text-align: center;
+  &__pagenation {
+    list-style-type: none;
+    padding-left: 0px;
+    display: flex;
+    justify-content: center;
   }
-  &__moreLink {
+  &__pagenationItem {
+    margin: 0px 15px;
+  }
+  &__pagenationLink {
     color: inherit;
     font-family: $fontFamily_english;
     font-size: 2rem;
-    letter-spacing: 0.1em;
     text-decoration: none;
-    position: relative;
     @media (max-width: 767px) {
       font-size: 1.6rem;
-    }
-    &:before {
-      content: "";
-      width: 150%;
-      height: 50%;
-      border-width: 0px 2px 1px 0px;
-      border-style: solid;
-      border-color: $color_lightGray;
-      display: block;
-      position: absolute;
-      left: -25%;
-      bottom: -5px;
-      z-index: 0;
-      transform: skewX(45deg);
-      transition: 0.3s;
-    }
-    @media (min-width: 769px) {
-      &:hover:before {
-        transform: skewX(45deg) translateX(10px);
-      }
     }
   }
 }
