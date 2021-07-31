@@ -26,7 +26,7 @@
             <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--left"></figure>
           </div>
           <div class="notebook__articleOverview">
-            <p class="notebook__articleDate">{{ notebook.publishedAt | moment }}</p>
+            <p class="notebook__articleDate">{{ notebook.date | moment }}</p>
             <p class="notebook__articleTitle">{{ notebook.title }}</p>
           </div>
         </nuxt-link>

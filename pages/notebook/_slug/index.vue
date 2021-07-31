@@ -11,7 +11,7 @@
         >
         <div class="article__articleOverview">
           <p class="article__articleDate">
-            <span :class="['article__articleOverviewTextBackground',{jsAnimation: isLoaded}]">{{ publishedAt | moment }}</span>
+            <span :class="['article__articleOverviewTextBackground',{jsAnimation: isLoaded}]">{{ date | moment }}</span>
           </p>
           <p class="article__articleTitle">
             <span :class="['article__articleOverviewTextBackground',{jsAnimation: isLoaded}]">{{ title }}</span>
