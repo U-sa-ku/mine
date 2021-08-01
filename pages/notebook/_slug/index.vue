@@ -6,7 +6,7 @@
         <img
           :src="`${mainvisual.url}${mainvisualUrlParam}`"
           alt=""
-          class="article__mainvisualImage"
+          :class="['article__mainvisualImage',{jsAnimation: isLoaded}]"
           @load="onLoad"
         >
         <div class="article__articleOverview">
@@ -79,6 +79,7 @@ export default {
 
 <style lang="scss" scoped>
 .article {
+  $mainvisualAnimationStartDelay: 1s;
   &__mainvisual {
     height: 100vh;
     background-color: #000000;
@@ -88,8 +89,12 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: 1s;
+    &.jsAnimation {
+      opacity: 1;
+    }
   }
-  $mainvisualAnimationStartDelay: 1s;
   &__mainvisualCover {
     width: 100%;
     height: 100%;
@@ -99,7 +104,6 @@ export default {
     left: 0px;
     top: 0px;
     z-index: 2;
-    opacity: 1;
     transition: 1s;
     &.jsAnimation {
       opacity: 0;

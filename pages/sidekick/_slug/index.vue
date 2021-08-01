@@ -86,7 +86,6 @@ $mainvisualAnimationStartDelay: 0.5s;
     left: 0px;
     top: 0px;
     z-index: 2;
-    opacity: 1;
     transition: 1s $mainvisualAnimationStartDelay;
     &.jsAnimation {
       opacity: 0;
@@ -96,6 +95,11 @@ $mainvisualAnimationStartDelay: 0.5s;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: 1s;
+    &.jsAnimation {
+      opacity: 1;
+    }
   }
   &__category {
     width: 60%;
