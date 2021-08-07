@@ -118,12 +118,20 @@ export default {
     }
     $borderOffset: 10px;
     $borderWidth: 4px;
+    $borderOffsetSp: 5px;
+    $borderWidthSp: 2px;
     &--top {
       width: calc(100% - #{$borderOffset*2});
       height: $borderWidth;
       left: $borderOffset;
       top: $borderOffset;
       transform-origin: 0% 0%;
+      @media (max-width: 767px) {
+        width: calc(100% - #{$borderOffsetSp*2});
+        height: $borderWidthSp;
+        left: $borderOffsetSp;
+        top: $borderOffsetSp;
+      }
     }
     &--right {
       width: $borderWidth;
@@ -131,6 +139,12 @@ export default {
       right: $borderOffset;
       top: $borderOffset;
       transform-origin: 100% 0%;
+      @media (max-width: 767px) {
+        width: $borderWidthSp;
+        height: calc(100% - #{$borderOffsetSp*2});
+        right: $borderOffsetSp;
+        top: $borderOffsetSp;
+      }
     }
     &--bottom {
       width: calc(100% - #{$borderOffset*2});
@@ -138,6 +152,12 @@ export default {
       left: $borderOffset;
       bottom: $borderOffset;
       transform-origin: 100% 100%;
+      @media (max-width: 767px) {
+        width: calc(100% - #{$borderOffsetSp*2});
+        height: $borderWidthSp;
+        left: $borderOffsetSp;
+        bottom: $borderOffsetSp;
+      }
     }
     &--left {
       width: $borderWidth;
@@ -145,6 +165,12 @@ export default {
       left: $borderOffset;
       top: $borderOffset;
       transform-origin: 0% 100%;
+      @media (max-width: 767px) {
+        width: $borderWidthSp;
+        height: calc(100% - #{$borderOffsetSp*2});
+        left: $borderOffsetSp;
+        top: $borderOffsetSp;
+      }
     }
   }
 }

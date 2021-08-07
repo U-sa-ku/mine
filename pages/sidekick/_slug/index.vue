@@ -76,6 +76,7 @@ $mainvisualAnimationStartDelay: 0.5s;
   position: relative;
   @media (max-width: 767px) {
     height: 140vw;
+    padding: 5px;
   }
   &__cover {
     width: 100%;
