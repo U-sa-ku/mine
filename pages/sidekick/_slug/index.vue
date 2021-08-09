@@ -54,7 +54,7 @@ export default {
   },
   mounted() {
     if(window.innerWidth <= 767) {
-      this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=355&q=90`
+      this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=350&q=90`
     } else {
       this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260&q=90`
     }
