@@ -97,25 +97,26 @@ export default {
         [...Array(end - start + 1)].map((_, i) => start + i)
 
       // 一覧のページング
-      const notebooks = await axios
+      const notebook = await axios
         .get(`https://mine.microcms.io/api/v1/notebook?limit=0`, {
           headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' },
         })
         .then((res) =>
           range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
-            route: `/notebooks/page/${p}`,
+            route: `/notebook/page/${p}`,
           }))
         )
-      return notebooks
+      return notebook
     },
   },
 
   router: {
+    linkActiveClass: '--active',
     extendRoutes(routes, resolve) {
       routes.push({
-        path: '/notebooks/page/:p',
+        path: '/notebook/page/:p',
         component: resolve(__dirname,'pages/notebook/index.vue'),
-        name: 'notebooks',
+        name: 'notebook',
       })
     }
   }

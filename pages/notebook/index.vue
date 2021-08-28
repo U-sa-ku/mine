@@ -17,7 +17,7 @@
               <picture>
                 <source :srcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=90`" media="(max-width: 767px)">
                 <img
-                  :src="`${notebook.mainvisual.url}?dpr=2&w=1163&q=90`"
+                  :src="`${notebook.mainvisual.url}?dpr=2&w=585&q=90`"
                   alt=""
                   class="notebook__image"
                   @load="onLoad"
@@ -40,8 +40,8 @@
           class="notebook__pagenationItem"
           v-for="n of pagenationLength" :key="n">
           <nuxt-link
-            class="notebook__pagenationLink"
-            :to="`/notebooks/page/${n}`">
+            :class="['notebook__pagenationLink', currentPage ==  n ? '--active' : '']"
+            :to="`/notebook/page/${n}`">
             {{ n }}
           </nuxt-link>
         </li>
@@ -57,7 +57,8 @@ import axios from 'axios'
 export default {
   async asyncData({ params }) {
     const page = params.p || '1'
-    const limit = 6
+    console.log(page)
+    const limit = 2
     const { data } = await axios.get(
       `https://mine.microcms.io/api/v1/notebook?limit=${limit}&offset=${(page - 1) * limit}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
@@ -67,7 +68,8 @@ export default {
   data() {
     return {
       isLoaded: false,
-      pagenationLength: null
+      pagenationLength: null,
+      currentPage: !this.$route.params.p ? 1 : null
     }
   },
   filters: {
@@ -105,23 +107,20 @@ export default {
   }
   &__list {
     list-style-type: none;
-    margin-bottom: 50px;
+    margin-top: 0px;
+    margin-bottom: 30px;
     padding: 0px;
     display: grid;
-    grid-template-columns: 32% 32% 32%;
-    grid-gap: 2%;
-    @media (max-width: 999px) {
-      grid-template-columns: 48% 48%;
-      grid-gap: 4%;
-    }
+    grid-template-columns: 48% 48%;
+    column-gap: 4%;
     @media (max-width: 767px) {
-       margin-bottom: 25px;
+      margin-bottom: 10px;
       grid-template-columns: 100%;
       grid-gap: 0%;
     }
   }
   &__listItem {
-    margin-bottom: 4%;
+    margin-bottom: 6%;
     @media (max-width: 767px) {
       margin-bottom: 10%;
     }
@@ -224,11 +223,29 @@ export default {
     margin: 0px 15px;
   }
   &__pagenationLink {
+    width: 30px;
+    height: 30px;
     color: inherit;
     font-size: 2rem;
+    text-align: center;
     text-decoration: none;
+    border-radius: 100%;
+    display: inline-block;
+    transition: 0.3s;
     @media (max-width: 767px) {
       font-size: 1.6rem;
+    }
+    @mixin pagenationHoverActive {
+        color: $color_darkGray;
+        background-color: $color_lightGray;
+    }
+    @media (min-width: 769px) {
+      &:hover {
+        @include pagenationHoverActive;
+      }
+    }
+    &.--active {
+      @include pagenationHoverActive;
     }
   }
 }

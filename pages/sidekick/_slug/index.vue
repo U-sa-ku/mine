@@ -233,7 +233,7 @@ $mainvisualAnimationStartDelay: 0.5s;
       }
     }
     /deep/ p {
-      font-size: 1.8rem;
+      font-size: 2rem;
       line-height: 2;
       @media (max-width: 767px) {
         font-size: 1.3rem;

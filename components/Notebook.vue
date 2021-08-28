@@ -15,7 +15,7 @@
             <picture>
               <source :srcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=90`" media="(max-width: 767px)">
               <img
-                :src="`${notebook.mainvisual.url}?dpr=2&w=1163&q=90`"
+                :src="`${notebook.mainvisual.url}?dpr=2&w=585&q=90`"
                 alt=""
                 class="notebook__image"
               >
@@ -37,7 +37,7 @@
         to="/notebook/"
         class="notebook__moreLink"
       >
-        more notebooks
+        more notebook
       </nuxt-link>
     </div>
   </section>
@@ -48,7 +48,7 @@ import moment from 'moment'
 export default {
   async fetch() {
     this.notebooks = await fetch(
-      `https://mine.microcms.io/api/v1/notebook?limit=3&filters=id[not_equals]${this.currentArticle}`,
+      `https://mine.microcms.io/api/v1/notebook?limit=4&filters=id[not_equals]${this.currentArticle}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
   },
@@ -79,15 +79,12 @@ export default {
   }
   &__list {
     list-style-type: none;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 30px;
     padding: 0px;
     display: grid;
-    grid-template-columns: 32% 32% 32%;
-    grid-gap: 2%;
-    @media (max-width: 999px) {
-      grid-template-columns: 48% 48%;
-      grid-gap: 4%;
-    }
+    grid-template-columns: 48% 48%;
+    column-gap: 4%;
     @media (max-width: 767px) {
       margin-bottom: 10px;
       grid-template-columns: 100%;
@@ -95,7 +92,7 @@ export default {
     }
   }
   &__listItem {
-    margin-bottom: 4%;
+    margin-bottom: 6%;
     @media (max-width: 767px) {
       margin-bottom: 10%;
     }

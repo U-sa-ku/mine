@@ -181,7 +181,7 @@ export default {
       letter-spacing: 0.15em;
     }
     /deep/ p {
-      font-size: 1.8rem;
+      font-size: 2rem;
       line-height: 2;
       @media (max-width: 767px) {
         font-size: 1.3rem;
@@ -199,9 +199,6 @@ export default {
     }
     /deep/ img {
       display: inline;
-      @media (min-width: 768px) {
-        max-width: 60%;
-      }
     }
   }
 }
