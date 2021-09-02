@@ -54,14 +54,23 @@ export default {
   data() {
     return {
       isLoaded: false,
-      mainvisualUrlParam: ""
+      mainvisualUrlParam: "",
+      body: this.$route.body
     }
   },
   mounted() {
     if(window.innerWidth <= 767) {
       this.mainvisualUrlParam = `?dpr=2&h=667&q=90`
+      this.body = this.body.replace(
+        /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
+        '"$1?dpr=2&w=345&q=90"',
+      )
     } else {
       this.mainvisualUrlParam = `?dpr=2&w=1280&q=90`
+      this.body = this.body.replace(
+        /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
+        '"$1?dpr=2&w=912&q=90"',
+      )
     }
   },
   methods: {
@@ -198,6 +207,7 @@ export default {
       }
     }
     /deep/ img {
+      max-width: 80%;
       display: inline;
     }
   }
