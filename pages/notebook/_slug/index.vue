@@ -207,8 +207,10 @@ export default {
       }
     }
     /deep/ img {
-      max-width: 80%;
       display: inline;
+      @media (min-width: 768px) {
+        max-width: 80%;
+      }
     }
   }
 }
