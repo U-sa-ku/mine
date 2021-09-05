@@ -1,8 +1,5 @@
 <template>
   <footer class="siteFooter">
-    <nuxt-link to="/">
-      <MineLogo class="siteFooter__logo" :isLoaded="true"/>
-    </nuxt-link>
     <p class="siteFooter__copyright">&copy;mine All Rights Reserved</p>
   </footer>
 </template>
@@ -21,26 +18,17 @@ export default {
 .siteFooter {
   background: $gradient_primary;
   margin-top: 150px;
-  padding: 30px 5vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 20px 5vw;
   @media (max-width: 767px) {
     text-align: center;
     margin-top: 80px;
     display: block;
   }
-  &__logo {
-    width: 80px;
-    @media (max-width: 767px) {
-      width: 60px;
-      margin-bottom: 20px;
-    }
-  }
   &__copyright {
     color: #ffffff;
     font-family: $fontFamily_english;
     font-size: 1rem;
+    text-align: center;
     @media (max-width: 767px) {
       font-size: 0.8rem;
     }

@@ -44,10 +44,10 @@ export default {
       opacity: 1;
     }
     @media (max-width: 767px) {
-      width: 30px;
-      height: 30px;
-      right: 25px;
-      top: 16px;
+      width: 24px;
+      height: 26px;
+      right: 10px;
+      top: 5px;
     }
     &:before,
     &:after {
@@ -76,13 +76,13 @@ export default {
       &:before {
         transform: translate(-50%, 7px) rotate(45deg);
         @media (max-width: 767px) {
-          top: 7px;
+          top: 5px;
         }
       }
       &:after {
         transform: translate(-50%, -7px) rotate(-45deg);
         @media (max-width: 767px) {
-          bottom: 7px;
+          bottom: 5px;
         }
       }
     }

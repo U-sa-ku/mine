@@ -1,5 +1,6 @@
 <template>
   <main>
+    <SiteHeaderLogo/>
     <HamburgerMenu :isLoaded="isLoaded"/>
     <article class="article">
       <div class="article__mainvisual">

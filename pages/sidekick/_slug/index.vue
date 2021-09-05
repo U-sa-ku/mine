@@ -1,5 +1,6 @@
 <template>
   <main>
+    <SiteHeaderLogo/>
     <HamburgerMenu :isLoaded="isLoaded"/>
     <div class="mainvisual">
       <div :class="['mainvisual__cover', {jsAnimation: isLoaded}]"></div>

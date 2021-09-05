@@ -1,5 +1,6 @@
 <template>
   <main>
+    <SiteHeaderLogo/>
     <HamburgerMenu :isLoaded="isLoaded"/>
     <section :class="['notebook',{jsAnimation:isLoaded}]">
       <h2 class="notebook__title">Notebook</h2>
