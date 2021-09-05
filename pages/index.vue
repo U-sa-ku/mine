@@ -4,6 +4,7 @@
     <div :class="['mainvisual', {jsScrolledWindowHeight: isScrolledWindowHeight}]">
       <h1 class="mainvisual__logo">
         <MineLogo :isLoaded="isLoaded"/>
+        <MineText :isLoaded="isLoaded"/>
       </h1>
       <i :class="[`mainvisual__scrollIcon`, {jsAnimation: isLoaded}]">
         <i class="mainvisual__scrollIconBorder"></i>
@@ -71,9 +72,14 @@ export default {
     z-index: 2;
     transform: translate(-50%, -50%);
     svg {
-      width: 150px;
+      width: 100px;
+      margin-bottom: 5px;
+      display: block;
+      &:last-child {
+        margin-bottom: 0px;
+      }
       @media (max-width: 767px) {
-        width: 120px;
+        width: 70px;
       }
     }
   }
