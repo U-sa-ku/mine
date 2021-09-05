@@ -41,9 +41,9 @@ export default {
   },
   mounted() {
     if(window.innerWidth <= 767) {
-      this.mainvisualUrlParam = `?dpr=2&w=355&q=90`
+      this.mainvisualUrlParam = `?dpr=2&w=340&q=80&`
     } else {
-      this.mainvisualUrlParam = `?dpr=2&w=625&q=90`
+      this.mainvisualUrlParam = `?dpr=2&w=630&q=80&`
     }
   },
   methods: {

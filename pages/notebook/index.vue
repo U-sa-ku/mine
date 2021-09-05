@@ -16,9 +16,9 @@
           >
             <div class="notebook__imageBox">
               <picture>
-                <source :srcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=90`" media="(max-width: 767px)">
+                <source :srcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=80`" media="(max-width: 767px)">
                 <img
-                  :src="`${notebook.mainvisual.url}?dpr=2&w=585&q=90`"
+                  :src="`${notebook.mainvisual.url}?dpr=2&w=585&q=80`"
                   alt=""
                   class="notebook__image"
                   @load="onLoad"

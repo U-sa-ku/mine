@@ -56,16 +56,16 @@ export default {
   },
   mounted() {
     if(window.innerWidth <= 767) {
-      this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=350&q=90`
+      this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=350&q=80`
       this.description_body = this.description_body.replace(
         /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
-        '"$1?dpr=2&w=345&q=90"',
+        '"$1?dpr=2&w=345&q=80"',
       )
     } else {
-      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260&q=90`
+      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260&q=80`
       this.description_body = this.description_body.replace(
         /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
-        '"$1?dpr=2&w=912&q=90"',
+        '"$1?dpr=2&w=912&q=80"',
       )
     }
     const img = document.createElement('img');
@@ -245,7 +245,7 @@ $mainvisualAnimationStartDelay: 0.5s;
       }
     }
     /deep/ p {
-      font-size: 2rem;
+      font-size: 1.6rem;
       line-height: 2;
       @media (max-width: 767px) {
         font-size: 1.3rem;

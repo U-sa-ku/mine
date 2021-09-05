@@ -1,22 +1,6 @@
 <template>
   <section class="photogragh">
     <h2 class="photogragh__title">photogragh</h2>
-    <!-- <ul class="photogragh__list">
-      <li
-        class="photogragh__listItem"
-        v-for="photo in photogragh.contents"
-        :key="photogragh.id"
-      >
-        <picture>
-          <source :srcset="`${photo.photo.url}?dpr=2&w=355&q=90`" media="(max-width: 767px)">
-          <img
-            :src="`${photo.photo.url}?dpr=2&w=413&q=90`"
-            alt=""
-            class="photogragh__image"
-          >
-        </picture>
-      </li>
-    </ul> -->
     <client-only>
       <swiper
         class="photogragh__slider photogragh__slider--hero"
@@ -28,9 +12,9 @@
           :key="photogragh.id"
         >
           <picture>
-            <source :srcset="`${photogragh.photo.url}?dpr=2&w=340&q=90`" media="(max-width: 767px)">
+            <source :srcset="`${photogragh.photo.url}?dpr=2&w=340&q=80`" media="(max-width: 767px)">
             <img
-              :src="`${photogragh.photo.url}?dpr=2&w=1163&q=90`"
+              :src="`${photogragh.photo.url}?dpr=2&w=1163&q=80`"
               alt=""
               class="photogragh__image"
             >
@@ -81,23 +65,6 @@ export default {
   &__title {
     @include sectionTitle;
   }
-  // &__list {
-  //   list-style-type: none;
-  //   background: #000000;
-  //   padding: 10px;
-  //   column-count: 3;
-  //   column-gap: 10px;
-  //   @media (max-width: 999px) {
-  //     column-count: 2;
-  //   }
-  //   @media (max-width: 767px) {
-  //     padding-bottom: 0px;
-  //     column-count: 1;
-  //   }
-  // }
-  // &__listItem {
-  //   margin-bottom: 10px;
-  // }
   &__slide {
     height: 51vw;
     background-color: #000000;

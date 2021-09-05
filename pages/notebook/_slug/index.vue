@@ -61,16 +61,16 @@ export default {
   },
   mounted() {
     if(window.innerWidth <= 767) {
-      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&h=667&q=90`
+      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&h=667&q=80`
       this.body = this.body.replace(
         /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
-        '"$1?dpr=2&w=345&q=90"',
+        '"$1?dpr=2&w=345&q=80"',
       )
     } else {
-      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1280&q=90`
+      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1280&q=80`
       this.body = this.body.replace(
         /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
-        '"$1?dpr=2&w=912&q=90"',
+        '"$1?dpr=2&w=798&q=80"',
       )
     }
     const img = document.createElement('img');
@@ -193,7 +193,7 @@ export default {
       letter-spacing: 0.15em;
     }
     /deep/ p {
-      font-size: 2rem;
+      font-size: 1.6rem;
       line-height: 2;
       @media (max-width: 767px) {
         font-size: 1.3rem;
@@ -212,7 +212,7 @@ export default {
     /deep/ img {
       display: inline;
       @media (min-width: 768px) {
-        max-width: 80%;
+        max-width: 70%;
       }
     }
   }
