@@ -117,7 +117,7 @@ export default {
       transform: scale(1);
     }
     $borderOffset: 10px;
-    $borderWidth: 4px;
+    $borderWidth: 2px;
     $borderOffsetSp: 5px;
     $borderWidthSp: 2px;
     &--top {

@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .siteHeaderlogo {
   width: 100%;
-  height: 80px;
+  height: 70px;
   position: fixed;
   left: 0px;
   top: 0px;
@@ -51,8 +51,8 @@ export default {
   &__logo {
     width: 80px;
     position: absolute;
-    left: 30px;
-    top: 25px;
+    left: 26px;
+    top: 22px;
     @media (max-width: 767px) {
       width: 60px;
       left: 12px;

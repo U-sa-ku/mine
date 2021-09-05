@@ -31,11 +31,11 @@ export default {
 .humburgerMenu {
   &__button {
     width: 40px;
-    height: 40px;
+    height: 36px;
     border-radius: 100%;
     position: fixed;
-    right: 30px;
-    top: 18px;
+    right: 26px;
+    top: 14px;
     z-index: 10;
     cursor: pointer;
     opacity: 0;
@@ -74,12 +74,14 @@ export default {
     }
     &.jsClose {
       &:before {
+        top: 10px;
         transform: translate(-50%, 7px) rotate(45deg);
         @media (max-width: 767px) {
           top: 5px;
         }
       }
       &:after {
+        bottom: 10px;
         transform: translate(-50%, -7px) rotate(-45deg);
         @media (max-width: 767px) {
           bottom: 5px;
