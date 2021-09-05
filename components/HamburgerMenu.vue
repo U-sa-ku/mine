@@ -46,8 +46,8 @@ export default {
     @media (max-width: 767px) {
       width: 24px;
       height: 26px;
-      right: 10px;
-      top: 5px;
+      right: 12px;
+      top: 7px;
     }
     &:before,
     &:after {

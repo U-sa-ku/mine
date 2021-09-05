@@ -40,7 +40,7 @@ export default {
   z-index: 8;
   @media (max-width: 767px) {
     width: 60px;
-    left: 10px;
+    left: 12px;
     top: 10px;
   }
 }
