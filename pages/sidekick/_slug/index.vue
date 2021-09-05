@@ -81,7 +81,7 @@ export default {
 <style lang="scss" scoped>
 $mainvisualAnimationStartDelay: 0.5s;
 .mainvisual {
-  height: 60vw;
+  height: 65vw;
   background: $gradient_primary;
   padding: 10px;
   position: relative;
