@@ -1,10 +1,13 @@
 <template>
   <div :class="['siteHeaderlogo',{jsAnimation: isScrolledWindowHeight}]">
     <div class="siteHeaderlogo__logo">
-      <nuxt-link to="/">
-        <MineLogo :isLoaded="isScrolledWindowHeight"/>
-      </nuxt-link>
+      <MineLogo :isLoaded="isScrolledWindowHeight"/>
     </div>
+    <nuxt-link
+      to="/"
+      class="siteHeaderlogo__link"
+    >
+    </nuxt-link>
   </div>
 </template>
 
@@ -48,7 +51,8 @@ export default {
   &.jsAnimation {
     background: rgba(0,0,0,0.5);
   }
-  &__logo {
+  &__logo,
+  &__link {
     width: 80px;
     position: absolute;
     left: 26px;
@@ -57,6 +61,12 @@ export default {
       width: 60px;
       left: 12px;
       top: 10px;
+    }
+  }
+  &__link {
+    height: 30px;
+    @media (max-width: 767px) {
+      height: 23px;
     }
   }
 }
