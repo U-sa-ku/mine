@@ -19,6 +19,7 @@
        <div class="description__body" v-html="description_body"></div>
     </section>
     <Photogragh :category="id"/>
+    <Notebook/>
     <SiteFooter/> 
   </main>
 </template>
