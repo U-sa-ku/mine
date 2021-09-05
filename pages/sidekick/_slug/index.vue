@@ -66,6 +66,8 @@ export default {
         '"$1?dpr=2&w=912&q=90"',
       )
     }
+    const img = document.createElement('img');
+    img.src = this.mainvisualUrl;
   },
   methods: {
     onLoad() {
