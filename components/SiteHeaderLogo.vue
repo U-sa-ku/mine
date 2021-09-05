@@ -67,7 +67,7 @@ export default {
     top: 15px;
     @media (max-width: 767px) {
       left: 8px;
-      top: 8px;
+      top: 7px;
     }
   }
   &__link {
