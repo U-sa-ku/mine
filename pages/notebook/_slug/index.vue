@@ -1,5 +1,6 @@
 <template>
   <main>
+    <Loading :isLoaded="isLoaded"/>
     <SiteHeaderLogo/>
     <HamburgerMenu :isLoaded="isLoaded"/>
     <article class="article">

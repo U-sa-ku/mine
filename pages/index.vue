@@ -1,5 +1,6 @@
 <template>
   <main>
+    <Loading :isLoaded="isLoaded"/>
     <HamburgerMenu :isLoaded="isLoaded"/>
     <div :class="['mainvisual', {jsScrolledWindowHeight: isScrolledWindowHeight}]">
       <h1 class="mainvisual__logo">
@@ -13,6 +14,7 @@
       <figure :class="['mainvisual__frame','mainvisual__frame--right',{jsAnimation: isLoaded}]"></figure>
       <figure :class="['mainvisual__frame','mainvisual__frame--bottom',{jsAnimation: isLoaded}]"></figure>
       <figure :class="['mainvisual__frame','mainvisual__frame--left',{jsAnimation: isLoaded}]"></figure>
+      <div class="mainvisual__background"></div>
     </div>
     <Navigation
       class="navigation--top"
@@ -58,7 +60,6 @@ export default {
 .mainvisual {
   width: 100vw;
   height: 100vh;
-  background: $gradient_primary;
   margin-bottom: 100vh;
   position: relative;
   z-index: 1;
@@ -178,6 +179,16 @@ export default {
         top: $borderOffsetSp;
       }
     }
+  }
+  &__background {
+    width: 100vw;
+    height: 100vh;
+    background: $gradient_primary;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+    opacity: 0.98;
   }
 }
 .navigation {

@@ -1,9 +1,9 @@
 <template>
   <main>
+    <Loading :isLoaded="isLoaded"/>
     <SiteHeaderLogo/>
     <HamburgerMenu :isLoaded="isLoaded"/>
     <div class="mainvisual">
-      <div :class="['mainvisual__cover', {jsAnimation: isLoaded}]"></div>
       <img :src="mainvisualUrl"
         :alt="name"
         :class="['mainvisual__image', {jsAnimation: isLoaded}]"
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$mainvisualAnimationStartDelay: 0.5s;
+$mainvisualAnimationStartDelay: 0s;
 .mainvisual {
   height: 65vw;
   background: $gradient_primary;
