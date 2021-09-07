@@ -27,7 +27,7 @@ export default {
   top: 0px;
   z-index: 11;
   &.jsHidden {
-    animation: fadeOut 1s forwards;
+    //animation: fadeOut 1s forwards;
   }
   @keyframes fadeOut {
     0% {
@@ -64,10 +64,11 @@ export default {
     @keyframes m {
       0%,
       20% {
-        transform: translate(-50px, 50px) rotate(-45deg);
+        transform: translate(0px, 0px);
+        
       }
       100% {
-        transform: translate(0px, 0px);
+        transform: translate(-50px, 50px) rotate(-45deg);
       }
     }
     &--i {
@@ -79,10 +80,10 @@ export default {
     @keyframes i {
       0%,
       20% {
-        transform: translate(-23px, 20px) rotate(-45deg);
+        transform: translate(0px, 0px);
       }
       100% {
-        transform: translate(0px, 0px);
+        transform: translate(-23px, 20px) rotate(-45deg);
       }
     }
     &--n {
@@ -91,10 +92,10 @@ export default {
     @keyframes n {
       0%,
       20% {
-        transform: translate(15px, -15px) rotate(-45deg);
+        transform: translate(0px, 0px);
       }
       100% {
-        transform: translate(0px, 0px);
+        transform: translate(15px, -15px) rotate(-45deg);
       }
     }
     &--e {
@@ -104,10 +105,10 @@ export default {
     @keyframes e {
       0%,
       20% {
-        transform: translate(65px, -65px) rotate(-45deg);
+        transform: translate(0px, 0px) rotate(90deg);
       }
       100% {
-        transform: translate(0px, 0px) rotate(90deg);
+        transform: translate(65px, -65px) rotate(-45deg);
       }
     }
   }
