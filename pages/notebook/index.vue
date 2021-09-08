@@ -4,7 +4,7 @@
     <SiteHeaderLogo/>
     <HamburgerMenu :isLoaded="isLoaded"/>
     <section :class="['notebook',{jsAnimation:isLoaded}]">
-      <h2 class="notebook__title">Notebook</h2>
+      <h2 class="notebook__title">notebook</h2>
       <ul class="notebook__list">
         <li
           class="notebook__listItem"
@@ -68,11 +68,11 @@ export default {
   },
   head(){
     return {
-      title: `Notebook | mine`,
+      title: `notebook | mine`,
       meta: [
         { hid: 'description', name: 'description', content: 'とある1日の出来事' },
         { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: `Notebook | mine` },
+        { hid: 'og:title', property: 'og:title', content: `notebook | mine` },
         { hid: 'og:description', property: 'og:description', content: 'とある1日の出来事' },
         { hid: 'og:url', property: 'og:url', content: 'https://mine-u-saku.netlify.app/ogp.png' }
       ]

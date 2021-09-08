@@ -43,11 +43,11 @@ export default {
   },
   head(){
     return {
-      title: `${this.title} | Notebook | mine`,
+      title: `${this.title} | notebook | mine`,
       meta: [
         { hid: 'description', name: 'description', content: 'とある1日の出来事' },
         { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: `${this.title} | Notebook | mine` },
+        { hid: 'og:title', property: 'og:title', content: `${this.title} | notebook | mine` },
         { hid: 'og:description', property: 'og:description', content: 'とある1日の出来事' },
         { hid: 'og:url', property: 'og:url', content: this.mainvisual.url }
       ]

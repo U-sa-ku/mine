@@ -1,6 +1,6 @@
 <template>
   <section class="notebook">
-    <h2 class="notebook__title">Notebook</h2>
+    <h2 class="notebook__title">notebook</h2>
     <ul class="notebook__list">
       <li
         class="notebook__listItem"
