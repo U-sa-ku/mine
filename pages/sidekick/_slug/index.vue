@@ -38,11 +38,11 @@ export default {
   },
   head(){
     return {
-      title: `${this.maker} ${this.name} | sidekick | mine`,
+      title: `${this.maker} ${this.name} | Sidekick | mine`,
       meta: [
         { hid: 'description', name: 'description', content: `${this.since_year}年${this.since_month}月から所有している${this.maker}の${this.name}。` },
         { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: `${this.maker} ${this.name} | sidekick | mine` },
+        { hid: 'og:title', property: 'og:title', content: `${this.maker} ${this.name} | Sidekick | mine` },
         { hid: 'og:description', property: 'og:description', content: `${this.since_year}年${this.since_month}月から所有している${this.maker}の${this.name}。` },
         { hid: 'og:url', property: 'og:url', content: this.mainvisualUrl}
       ]

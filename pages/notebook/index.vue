@@ -68,11 +68,11 @@ export default {
   },
   head(){
     return {
-      title: `notebook | mine`,
+      title: `Notebook | mine`,
       meta: [
         { hid: 'description', name: 'description', content: 'とある1日の出来事' },
         { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: `notebook | mine` },
+        { hid: 'og:title', property: 'og:title', content: `Notebook | mine` },
         { hid: 'og:description', property: 'og:description', content: 'とある1日の出来事' },
         { hid: 'og:url', property: 'og:url', content: 'https://mine-u-saku.netlify.app/ogp.png' }
       ]
