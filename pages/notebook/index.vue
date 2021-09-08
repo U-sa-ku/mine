@@ -68,7 +68,7 @@ export default {
   },
   head(){
     return {
-      title: `${this.title} | notebook | mine`,
+      title: `notebook | mine`,
       meta: [
         { hid: 'description', name: 'description', content: 'とある1日の出来事' },
         { hid: 'og:type', property: 'og:type', content: 'article' },
