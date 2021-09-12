@@ -90,6 +90,9 @@ $mainvisualAnimationStartDelay: 0s;
     height: 140vw;
     padding: 5px;
   }
+  @media (min-width: 1921px) {
+    height: 100vh;
+  }
   &__cover {
     width: 100%;
     height: 100%;

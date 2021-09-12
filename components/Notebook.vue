@@ -70,6 +70,8 @@ export default {
 
 <style lang="scss" scoped>
 .notebook {
+  max-width: 1280px;
+  margin: 0px auto;
   padding: 150px 30px 0px;
   @media (max-width: 767px) {
     padding: 80px 15px 0px;

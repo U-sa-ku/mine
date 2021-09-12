@@ -46,6 +46,14 @@ export default {
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
+        },
+        breakpoints: {
+          1281: {
+            slidesPerView: 1.5
+          },
+          1921: {
+            slidesPerView: 2
+          }
         }
       }
     }
@@ -66,11 +74,19 @@ export default {
     @include sectionTitle;
   }
   &__slide {
-    height: 51vw;
     background-color: #000000;
     position: relative;
     @media (max-width: 767px) {
       height: 121vw;
+    }
+    @media (min-width: 768px) {
+      height: 51vw;
+    }
+    @media (min-width: 1281px) {
+      height: 37.4vw;
+    }
+    @media (min-width: 1921px) {
+      height: 28vw;
     }
   }
   &__image {
