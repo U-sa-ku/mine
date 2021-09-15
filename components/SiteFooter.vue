@@ -16,12 +16,15 @@ export default {
 
 <style lang="scss" scoped>
 .siteFooter {
+  width: 100%;
   background: $gradient_primary;
-  margin-top: 150px;
   padding: 20px 5vw;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: 1;
   @media (max-width: 767px) {
     text-align: center;
-    margin-top: 80px;
     display: block;
   }
   &__copyright {

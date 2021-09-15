@@ -13,6 +13,17 @@ body {
 }
 
 //
+// contents wrapper
+//////////////////////////////////////////////////////////////////////
+.contentsWrapper {
+  padding-bottom: 205px;
+  position: relative;
+  @media (max-width: 767px) {
+    padding-bottom: 135px;
+  }
+}
+
+//
 // vue transition
 //////////////////////////////////////////////////////////////////////
 .jsFade {

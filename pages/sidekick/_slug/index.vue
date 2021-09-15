@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div class="contentsWrapper">
     <Loading :isLoaded="isLoaded"/>
     <SiteHeaderLogo/>
     <HamburgerMenu :isLoaded="isLoaded"/>
@@ -21,7 +21,7 @@
     <Photogragh :category="id"/>
     <Notebook/>
     <SiteFooter/> 
-  </main>
+  </div>
 </template>
 
 <script>

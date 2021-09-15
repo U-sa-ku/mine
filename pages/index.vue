@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div class="contentsWrapper">
     <Loading :isLoaded="isLoaded"/>
     <HamburgerMenu :isLoaded="isLoaded"/>
     <div :class="['mainvisual', {jsScrolledWindowHeight: isScrolledWindowHeight}]">
@@ -24,7 +24,7 @@
     <Photogragh/>
     <Notebook/>
     <SiteFooter/>
-  </main>
+  </div>
 </template>
 
 <script>

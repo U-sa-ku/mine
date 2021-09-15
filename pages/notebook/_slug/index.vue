@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div class="contentsWrapper">
     <Loading :isLoaded="isLoaded"/>
     <SiteHeaderLogo/>
     <HamburgerMenu :isLoaded="isLoaded"/>
@@ -25,7 +25,7 @@
     </article>
     <Notebook :currentArticle="id"/>
     <SiteFooter/>
-  </main>
+  </div>
 </template>
 
 <script>

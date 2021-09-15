@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div class="contentsWrapper">
     <Loading :isLoaded="isLoaded"/>
     <SiteHeaderLogo/>
     <HamburgerMenu :isLoaded="isLoaded"/>
@@ -50,7 +50,7 @@
       </ul>
     </section>
     <SiteFooter/>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -234,20 +234,26 @@ export default {
     justify-content: center;
   }
   &__pagenationItem {
-    margin: 0px 15px;
+    margin: 0px 10px;
+    @media (max-width: 767px) {
+      margin: 0px 5px;
+    }
   }
   &__pagenationLink {
     width: 30px;
     height: 30px;
     color: inherit;
-    font-size: 2rem;
+    font-family: $fontFamily_english;
+    font-size: 1.6rem;
     text-align: center;
     text-decoration: none;
     border-radius: 100%;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: 0.3s;
     @media (max-width: 767px) {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
     }
     @mixin pagenationHoverActive {
         color: $color_darkGray;
