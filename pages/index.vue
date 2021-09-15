@@ -95,6 +95,9 @@ export default {
     overflow: hidden;
     opacity: 0;
     transition: 1s 2s;
+    @media (max-width: 767px) {
+      bottom: 5px;
+    }
     &.jsAnimation {
       opacity: 1;
     }
