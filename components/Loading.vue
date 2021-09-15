@@ -48,7 +48,10 @@ export default {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.8);
+    @media (max-width: 767px) {
+      transform: translate(-50%, -50%) rotate(45deg) scale(0.5);
+    }
   }
   &__image {
     height: 60px;
