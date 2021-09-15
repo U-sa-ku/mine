@@ -1,7 +1,7 @@
 <template>
   <div class="contentsWrapper">
     <Loading :isLoaded="isLoaded"/>
-    <SiteHeaderLogo/>
+    <SiteHeaderLogo :isLoaded="isLoaded"/>
     <HamburgerMenu :isLoaded="isLoaded"/>
     <section :class="['notebook',{jsAnimation:isLoaded}]">
       <h2 class="notebook__title">notebook</h2>
@@ -105,12 +105,12 @@ export default {
 .notebook {
   max-width: 1280px;
   margin: 0px auto;
-  padding: 90px 30px 0px;
+  padding: 150px 30px 0px;
   opacity: 0;
   transform: translateY(100px);
   transition: 1s 0.5s;
   @media (max-width: 767px) {
-    padding: 60px 15px 0px;
+    padding: 90px 15px 0px;
   }
   &.jsAnimation {
     transform: translateY(0px);

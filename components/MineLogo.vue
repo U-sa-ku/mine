@@ -1,5 +1,9 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" :class="{jsAnimation: isLoaded}">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 500 500"
+    :class="[{jsAnimation: isShowScroll}, {jsAnimation: isShowInit}]"
+  >
   <style type="text/css">
     .st0{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
   </style>
@@ -17,7 +21,8 @@
 <script>
 export default {
   props: {
-    isLoaded: Boolean
+    isShowScroll: Boolean,
+    isShowInit: Boolean
   }
 }
 </script>
