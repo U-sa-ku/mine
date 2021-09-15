@@ -4,8 +4,8 @@
     <HamburgerMenu :isLoaded="isLoaded"/>
     <div :class="['mainvisual', {jsScrolledWindowHeight: isScrolledWindowHeight}]">
       <h1 class="mainvisual__logo">
-        <MineLogo :isLoaded="isLoaded"/>
-        <MineText :isLoaded="isLoaded"/>
+        <MineLogo :isShowInit="isLoaded"/>
+        <MineText :isShowInit="isLoaded"/>
       </h1>
       <i :class="[`mainvisual__scrollIcon`, {jsAnimation: isLoaded}]">
         <i class="mainvisual__scrollIconBorder"></i>
