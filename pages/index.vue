@@ -89,7 +89,7 @@ export default {
     height: 10%;
     position: absolute;
     left: 50%;
-    bottom: 15px;
+    bottom: 10px;
     z-index: 1;
     transform: translateX(-50%);
     overflow: hidden;
