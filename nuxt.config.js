@@ -12,12 +12,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '相棒たち。' },
+      { hid: 'description', name: 'description', content: '車とバイクとカメラと日記' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'mine' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:url', property: 'og:url', content: 'https://mine-u-saku.netlify.app/' },
       { hid: 'og:title', property: 'og:title', content: 'mine' },
-      { hid: 'og:description', property: 'og:description', content: '相棒たち。' },
+      { hid: 'og:description', property: 'og:description', content: '車とバイクとカメラと日記' },
       { hid: 'og:image', property: 'og:image', content: 'https://mine-u-saku.netlify.app/ogp.png' },
       { name: 'twitter:card', content: 'summary' },
       { name: 'format-detection', content: 'telephone=no' }
