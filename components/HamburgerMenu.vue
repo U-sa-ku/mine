@@ -8,7 +8,6 @@
     <transition name="jsFade">
       <Navigation
         v-if="isShow"
-        :isShow="isShow"
       />
     </transition>
   </div>
