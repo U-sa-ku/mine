@@ -5,11 +5,7 @@
       @click="isShow = !isShow"
     >
     </div>
-    <transition name="jsFade">
-      <Navigation
-        v-if="isShow"
-      />
-    </transition>
+    <Navigation :class="{jsShow: isShow}"/>
   </div>
 </template>
 
@@ -87,6 +83,13 @@ export default {
         }
       }
     }
+  }
+}
+.navigation {
+  transform: translateX(100%);
+  transition: 0.5s;
+  &.jsShow {
+    transform: translateX(0%);
   }
 }
 </style>

@@ -194,18 +194,15 @@ export default {
     opacity: 0.98;
   }
 }
-.navigation {
-  &.jsScrolledWindowHeight {
-    position: static;
-  }
-}
 </style>
 <style lang="scss">
 .navigation--top {
-  z-index: 0 !important;
+   z-index: 0 !important;
+  &.jsScrolledWindowHeight {
+    position: static !important;
+  }
   .navigation {
     &__item {
-      font-size: 2px;
       &:nth-child(1) .navigation__image {
         transform: translateY(-100%);
       }
