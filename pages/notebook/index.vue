@@ -17,11 +17,11 @@
           >
             <div class="notebook__imageBox">
               <picture>
-                <source :srcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=80`" media="(max-width: 767px)">
+                <source :data-rcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=80`" media="(max-width: 767px)">
                 <img
-                  :src="`${notebook.mainvisual.url}?dpr=2&w=585&q=80`"
+                  :data-src="`${notebook.mainvisual.url}?dpr=2&w=585&q=80`"
                   alt=""
-                  class="notebook__image"
+                  class="notebook__image lazyload lazyloadImage"
                   @load="onLoad"
                 >
               </picture>

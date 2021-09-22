@@ -17,7 +17,7 @@
               <img
                 :data-src="`${notebook.mainvisual.url}?dpr=2&w=585&q=80`"
                 alt=""
-                class="notebook__image lazyload"
+                class="notebook__image lazyload lazyloadImage"
               >
             </picture>
             <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--top"></figure>

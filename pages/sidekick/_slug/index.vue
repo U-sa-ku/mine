@@ -68,7 +68,10 @@ export default {
         '"$1?dpr=2&w=912&q=80"',
       )
     }
-    this.description_body = this.description_body.replace(/<img src=/g, '<img class="lazyload lazyloadImage" data-src=')
+    this.description_body = this.description_body.replace(
+      /<img src=/g,
+      '<img class="lazyload lazyloadImage" data-src='
+    )
   },
   methods: {
     onLoad() {
