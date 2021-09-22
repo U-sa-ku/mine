@@ -74,7 +74,7 @@ export default {
         '"$1?dpr=2&w=798&q=80"',
       )
     }
-    this.body = this.body.replace(/<img src=/g, '<img class="lazyload" data-src=')
+    this.body = this.body.replace(/<img src=/g, '<img class="lazyload lazyloadImage" data-src=')
   },
   methods: {
     onLoad() {

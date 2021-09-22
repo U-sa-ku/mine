@@ -65,7 +65,7 @@ export default {
 
       // Example for a custom component
       AppImage: ['source-md-url', 'image-url'],
-    },
+    }
   },
 
   moment: {

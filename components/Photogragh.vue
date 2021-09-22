@@ -16,7 +16,7 @@
             <img
               :data-src="`${photogragh.photo.url}?dpr=2&w=1163&q=80`"
               alt=""
-              class="photogragh__image lazyload"
+              class="photogragh__image lazyload lazyloadImage"
             >
           </picture>
         </swiper-slide>

@@ -31,3 +31,14 @@ body {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
+
+//
+// lazysizes
+//////////////////////////////////////////////////////////////////////
+.lazyloadImage {
+  opacity: 0;
+  transition: 1s;
+}
+.lazyloaded {
+  opacity: 1;
+}
