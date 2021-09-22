@@ -74,8 +74,7 @@ export default {
         '"$1?dpr=2&w=798&q=80"',
       )
     }
-    const img = document.createElement('img');
-    img.src = this.mainvisualUrl;
+    this.body = this.body.replace(/<img src=/g, '<img class="lazyload" data-src=')
   },
   methods: {
     onLoad() {

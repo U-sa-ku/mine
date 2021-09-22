@@ -54,8 +54,19 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    'nuxt-lazysizes'
   ],
+
+  lazySizes: {
+    extendAssetUrls: {
+      img: ['src', 'srcset', 'data-src', 'data-srcset'],
+      source: ['src', 'srcset', 'data-src', 'data-srcset'],
+
+      // Example for a custom component
+      AppImage: ['source-md-url', 'image-url'],
+    },
+  },
 
   moment: {
     locales: ['ja']

@@ -12,11 +12,11 @@
           :key="photogragh.id"
         >
           <picture>
-            <source :srcset="`${photogragh.photo.url}?dpr=2&w=340&q=80`" media="(max-width: 767px)">
+            <source :data-srcset="`${photogragh.photo.url}?dpr=2&w=340&q=80`" media="(max-width: 767px)">
             <img
-              :src="`${photogragh.photo.url}?dpr=2&w=1163&q=80`"
+              :data-src="`${photogragh.photo.url}?dpr=2&w=1163&q=80`"
               alt=""
-              class="photogragh__image"
+              class="photogragh__image lazyload"
             >
           </picture>
         </swiper-slide>

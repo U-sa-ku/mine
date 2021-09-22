@@ -16,7 +16,7 @@
     </div>
     <section :class="['description', {jsAnimation: isLoaded}]">
        <div class="description__title" v-html="description_title"></div>
-       <div class="description__body" v-html="description_body"></div>
+       <div class="description__body js-descriptionBody" v-html="description_body"></div>
     </section>
     <Photogragh :category="id"/>
     <Notebook/>
@@ -68,8 +68,7 @@ export default {
         '"$1?dpr=2&w=912&q=80"',
       )
     }
-    const img = document.createElement('img');
-    img.src = this.mainvisualUrl;
+    this.description_body = this.description_body.replace(/<img src=/g, '<img class="lazyload" data-src=')
   },
   methods: {
     onLoad() {
