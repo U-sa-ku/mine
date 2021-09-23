@@ -145,7 +145,7 @@ $mainvisualAnimationStartDelay: 0s;
     }
   }
   &__title {
-    width: 100vw;
+    width: 100%;
     color: $color_lightGray;
     font-family: $fontFamily_english;
     font-size: 9vw;

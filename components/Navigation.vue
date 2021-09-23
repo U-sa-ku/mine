@@ -57,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
 .navigation {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: $color_darkGray;
   padding: 10px;
