@@ -9,6 +9,13 @@ $color_lightGray: #dedede;
 //
 // font family
 //////////////////////////////////////////////////////////////////////
+@font-face {
+  font-family: "Noto Sans JP";
+  font-style: normal;
+  font-weight: 400;
+  src: url("@/assets/font/NotoSansJP-Light_subset.woff2") format("woff2");
+  font-display: swap;
+}
 $fontFamily_japanese: 'Noto Sans JP', sans-serif;
 $fontFamily_english: 'Raleway', cursive;
 
