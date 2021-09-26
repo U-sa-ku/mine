@@ -56,16 +56,16 @@ export default {
   },
   mounted() {
     if(window.innerWidth <= 767) {
-      this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=350&q=80`
+      this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=365`
       this.description_body = this.description_body.replace(
         /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
         '"$1?dpr=2&w=345&q=80"',
       )
     } else {
-      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260&q=80`
+      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260`
       this.description_body = this.description_body.replace(
         /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
-        '"$1?dpr=2&w=912&q=80"',
+        '"$1?dpr=2&w=690&q=80"',
       )
     }
     this.description_body = this.description_body.replace(
