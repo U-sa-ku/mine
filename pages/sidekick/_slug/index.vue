@@ -14,11 +14,11 @@
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since_year }}.{{ since_month }}</p>
     </div>
     <section :class="['description', 'js-description', {jsAnimation: isLoaded}]">
-      <h2
+      <div
         class="description__title"
         v-html="description_title"
       >
-      </h2>
+      </div>
       <div class="description__bodyWrapper">
         <div
           class="description__body"
@@ -37,8 +37,8 @@
             v-html="body.lead"
           >
           </div>
-         </div>
-       </div>
+        </div>
+      </div>
     </section>
     <section
       class="movie"
