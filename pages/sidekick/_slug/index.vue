@@ -12,11 +12,38 @@
       <p :class="['mainvisual__category', {jsAnimation: isLoaded}]">{{ id }}</p>
       <h1 :class="['mainvisual__title', {jsAnimation: isLoaded}]">{{ maker }}<br>{{ name }}</h1>
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since_year }}.{{ since_month }}</p>
-
     </div>
-    <section :class="['description', {jsAnimation: isLoaded}]">
-       <div class="description__title" v-html="description_title"></div>
-       <div class="description__body js-descriptionBody" v-html="description_body"></div>
+    <section :class="['description', 'js-description', {jsAnimation: isLoaded}]">
+      <h2
+        class="description__title"
+        v-html="description_title"
+      >
+      </h2>
+      <div class="description__bodyWrapper">
+        <div
+          class="description__body"
+          v-for="body in description_body"
+          :key="description_body.index"
+        >
+          <div class="description__imageBox">
+            <img
+              :data-src="`${body.image.url}${descriptionImageParam}`"
+              alt=""
+              class="description__image lazyload lazyloadImage"
+            >
+          </div>
+          <div
+            class="description__leadBox"
+            v-html="body.lead"
+          >
+          </div>
+         </div>
+       </div>
+    </section>
+    <section
+      class="movie"
+      v-html="movie"
+    >
     </section>
     <Photogragh :category="id"/>
     <Notebook/>
@@ -51,27 +78,18 @@ export default {
   data() {
     return {
       isLoaded: false,
-      mainvisualUrl: ""
+      mainvisualUrl: "",
+      descriptionImageParam: ""
     }
   },
   mounted() {
     if(window.innerWidth <= 767) {
       this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=365`
-      this.description_body = this.description_body.replace(
-        /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
-        '"$1?dpr=2&w=345&q=80"',
-      )
+      this.descriptionImageParam = '?dpr=2&w=375'
     } else {
       this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260`
-      this.description_body = this.description_body.replace(
-        /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
-        '"$1?dpr=2&w=690&q=80"',
-      )
+      this.descriptionImageParam = '?dpr=2&w=640'
     }
-    this.description_body = this.description_body.replace(
-      /<img src=/g,
-      '<img class="lazyload lazyloadImage" data-src='
-    )
   },
   methods: {
     onLoad() {
@@ -193,101 +211,112 @@ $mainvisualAnimationStartDelay: 0s;
   }
 }
 .description {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0px auto;
-  padding: 0px 30px;
-  opacity: 0;
-  transition: 1s $mainvisualAnimationStartDelay;
-  @media (max-width: 767px) {
-    padding: 0px 15px;
-  }
-  &.jsAnimation {
-    opacity: 1;
-  }
   &__title {
-    /deep/ h1,
-    /deep/ h2,
-    /deep/ h3,
-    /deep/ p,
-    /deep/ span {
-      color: $color_lightGray !important;
-      font-weight: normal;
-      letter-spacing: 0.15em;
-    }
-    /deep/ h1,
-    /deep/ h2,
-    /deep/ h3,
-    /deep/ p {
+    /deep/ h2 {
       @include sectionTitle;
       font-family: $fontFamily_japanese;
       font-size: 3rem;
       line-height: 1.8;
-      margin: 10vw 0px 10px;
+      margin-top: 10vw;
       @media (max-width: 767px) {
         font-size: 1.8rem;
-        margin: 20vw 0px 20px;
+        margin-top: 20vw;
       }
     }
   }
   &__body {
-    /deep/ h1,
-    /deep/ h2,
-    /deep/ h3,
-    /deep/ p,
-    /deep/ span {
-      color: $color_lightGray !important;
-      font-weight: normal;
-      letter-spacing: 0.15em;
+    height: 50vw;
+    display: flex;
+    justify-content: space-between;
+    @media (min-width: 1601px) {
+      height: 800px;
     }
-    /deep/ h1,
-    /deep/ h2,
-    /deep/ h3 {
-      @include sectionTitle;
-      line-height: 1.8;
-      margin: 150px 0px 10px;
-      @media (max-width: 767px) {
-        margin: 80px 0px 20px;
+    @media (max-width: 767px) {
+      height: auto;
+      margin-bottom: 35px;
+      display: block;
+      &:last-child {
+        margin-bottom: 0px;
       }
     }
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
+  }
+  &__imageBox {
+    width: 50%;
+    @media (max-width: 767px) {
+      width: 100%;
+      height: 100vw;
+      margin-bottom: 30px;
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__leadBox {
+    width: 50%;
+    background-color: #101010;
+    display: flex;
+    align-items: center;
+    @media (max-width: 767px) {
+      width: 100%;
+      background-color: transparent;
+    }
     /deep/ p {
+      width: 100%;
+      color: $color_lightGray !important;
       font-size: 1.6rem;
-      line-height: 2;
+      font-weight: normal;
+      line-height: 2.5;
+      letter-spacing: 0.2em;
+      text-align: center !important;
       @media (max-width: 767px) {
         font-size: 1.3rem;
         text-align: center !important;
       }
     }
-    /deep/ img,
-    /deep/ iframe {
-      @media (min-width: 767px) {
-        margin: 90px 0px 60px;
-      }
-      @media (max-width: 767px) {
-        margin: 40px 0px 20px;
-      }
+  }
+}
+.js-description {
+  opacity: 0;
+  transition: 1s $mainvisualAnimationStartDelay;
+  &.jsAnimation {
+    opacity: 1;
+  }
+}
+.movie {
+  max-width: 1280px;
+  margin: 0px auto;
+  /deep/ h1,
+  /deep/ h2,
+  /deep/ h3 {
+    @include sectionTitle;
+    line-height: 1.8;
+    margin: 150px 0px 10px;
+    @media (max-width: 767px) {
+      margin: 80px 0px 20px;
     }
-    /deep/ img {
-      display: inline;
-      @media (min-width: 768px) {
-        max-width: 80%;
-      }
+  }
+  /deep/ iframe {
+    width: 70%;
+    height: 42vw;
+    margin: 90px auto 60px;
+    display: block;
+    @media (min-width:1281px) {
+      height: 538px;
     }
-    /deep/ iframe {
-      width: 80%;
-      height: 42vw;
-      margin-right: auto;
-      margin-left: auto;
-      display: block;
-      @media (min-width: 1260px) {
-        height: 510px;
-      }
-      @media (max-width: 767px) {
-        width: 100%;
-        height: 51vw;
-      }
-      + p {
-        display: none;
-      }
+    @media (max-width: 767px) {
+      width: 100%;
+      height: 56vw;
+      margin: 40px 0px 20px;
+    }
+    + p {
+      display: none;
     }
   }
 }

@@ -49,7 +49,7 @@ export default {
         },
         breakpoints: {
           1281: {
-            slidesPerView: 1.5
+            slidesPerView: 1.2
           },
           1921: {
             slidesPerView: 2
@@ -83,7 +83,7 @@ export default {
       height: 51vw;
     }
     @media (min-width: 1281px) {
-      height: 37.4vw;
+      height: 46.5vw;
     }
     @media (min-width: 1921px) {
       height: 28vw;
