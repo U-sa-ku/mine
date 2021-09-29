@@ -277,6 +277,7 @@ $mainvisualAnimationStartDelay: 0s;
       text-align: center !important;
       @media (max-width: 767px) {
         font-size: 1.3rem;
+        letter-spacing: 0.15em;
         text-align: center !important;
       }
     }
