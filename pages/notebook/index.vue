@@ -109,6 +109,9 @@ export default {
   opacity: 0;
   transform: translateY(100px);
   transition: 1s 0.5s;
+  @media (max-width: 999px) {
+    padding-top: 90px;
+  }
   @media (max-width: 767px) {
     padding: 90px 15px 0px;
   }
@@ -215,7 +218,7 @@ export default {
     font-size: 1.4rem;
     text-align: center;
     margin-right: 10px;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       font-size: 1.2rem;
     }
   }
@@ -223,7 +226,7 @@ export default {
     font-size: 1.8rem;
     letter-spacing: 0.1em;
     text-align: center;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       font-size: 1.4rem;
     }
   }
@@ -252,7 +255,7 @@ export default {
     justify-content: center;
     align-items: center;
     transition: 0.3s;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       font-size: 1.4rem;
     }
     @mixin pagenationHoverActive {

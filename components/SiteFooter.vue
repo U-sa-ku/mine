@@ -32,7 +32,7 @@ export default {
     font-family: $fontFamily_english;
     font-size: 1rem;
     text-align: center;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       font-size: 0.8rem;
     }
   }

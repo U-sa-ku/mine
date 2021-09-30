@@ -67,7 +67,7 @@ export default {
 <style lang="scss" scoped>
 .photogragh {
   padding-top: 150px;
-  @media (max-width: 767px) {
+  @media (max-width: 999px) {
     padding-top: 80px;
   }
   &__title {
@@ -114,7 +114,7 @@ export default {
     }
     &-prev {
       transform: scaleY(2);
-      @media (max-width: 767px) {
+      @media (max-width: 768px) {
         display: none;
       }
       &:after {
@@ -124,7 +124,7 @@ export default {
     }
     &-next {
       transform: scaleY(2);
-      @media (max-width: 767px) {
+      @media (max-width: 768px) {
         display: none;
       }
       &:after {

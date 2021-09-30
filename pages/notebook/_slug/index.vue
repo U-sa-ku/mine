@@ -161,7 +161,7 @@ export default {
     font-family: $fontFamily_english;
     font-size: 2rem;
     margin-bottom: 10px;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       font-size: 1.5rem;
     }
     .article__articleOverviewTextBackground:before {
@@ -171,7 +171,7 @@ export default {
   &__articleTitle {
     font-size: 3rem;
     letter-spacing: 0.1em;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       font-size: 2.5rem;
     }
     .article__articleOverviewTextBackground:before {
@@ -182,7 +182,7 @@ export default {
     max-width: 1200px;
     margin: 90px auto 0px;
     padding: 0px 30px;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       margin: 40px auto 0px;
       padding: 0px 15px;
     }
@@ -198,17 +198,15 @@ export default {
     /deep/ p {
       font-size: 1.6rem;
       line-height: 2;
-      @media (max-width: 767px) {
+      @media (max-width: 999px) {
         font-size: 1.3rem;
         text-align: center !important;
       }
     }
     /deep/ img,
     /deep/ iframe {
-      @media (min-width: 767px) {
-        margin: 90px 0px 60px;
-      }
-      @media (max-width: 767px) {
+      margin: 90px 0px 60px;
+      @media (max-width: 999px) {
         margin: 40px 0px 20px;
       }
     }

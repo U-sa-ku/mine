@@ -79,7 +79,7 @@ export default {
       &:last-child {
         margin-bottom: 0px;
       }
-      @media (max-width: 767px) {
+      @media (max-width: 768px) {
         width: 70px;
       }
     }
@@ -95,7 +95,7 @@ export default {
     overflow: hidden;
     opacity: 0;
     transition: 1s 2s;
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       bottom: 5px;
     }
     &.jsAnimation {
@@ -136,7 +136,7 @@ export default {
       left: $borderOffset;
       top: $borderOffset;
       transform-origin: 0% 0%;
-      @media (max-width: 767px) {
+      @media (max-width: 768px) {
         width: calc(100% - #{$borderOffsetSp*2});
         height: $borderWidthSp;
         left: $borderOffsetSp;
@@ -149,7 +149,7 @@ export default {
       right: $borderOffset;
       top: $borderOffset;
       transform-origin: 100% 0%;
-      @media (max-width: 767px) {
+      @media (max-width: 768px) {
         width: $borderWidthSp;
         height: calc(100% - #{$borderOffsetSp*2});
         right: $borderOffsetSp;
@@ -162,7 +162,7 @@ export default {
       left: $borderOffset;
       bottom: $borderOffset;
       transform-origin: 100% 100%;
-      @media (max-width: 767px) {
+      @media (max-width: 768px) {
         width: calc(100% - #{$borderOffsetSp*2});
         height: $borderWidthSp;
         left: $borderOffsetSp;
@@ -175,7 +175,7 @@ export default {
       left: $borderOffset;
       top: $borderOffset;
       transform-origin: 0% 100%;
-      @media (max-width: 767px) {
+      @media (max-width: 768px) {
         width: $borderWidthSp;
         height: calc(100% - #{$borderOffsetSp*2});
         left: $borderOffsetSp;

@@ -38,7 +38,7 @@ export default {
     &.jsAnimation {
       opacity: 1;
     }
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       width: 24px;
       height: 26px;
       right: 12px;
@@ -57,13 +57,13 @@ export default {
     }
     &:before {
       top: 12px;
-      @media (max-width: 767px) {
+      @media (max-width: 999px) {
         top: 9px;
       }
     }
     &:after {
       bottom: 12px;
-      @media (max-width: 767px) {
+      @media (max-width: 999px) {
         bottom: 9px;
       }
     }
@@ -71,14 +71,14 @@ export default {
       &:before {
         top: 10px;
         transform: translate(-50%, 7px) rotate(45deg);
-        @media (max-width: 767px) {
+        @media (max-width: 999px) {
           top: 5px;
         }
       }
       &:after {
         bottom: 10px;
         transform: translate(-50%, -7px) rotate(-45deg);
-        @media (max-width: 767px) {
+        @media (max-width: 999px) {
           bottom: 5px;
         }
       }

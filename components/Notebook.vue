@@ -73,7 +73,7 @@ export default {
   max-width: 1280px;
   margin: 0px auto;
   padding: 150px 30px 0px;
-  @media (max-width: 767px) {
+  @media (max-width: 999px) {
     padding: 80px 15px 0px;
   }
   &__title {
@@ -175,7 +175,7 @@ export default {
     font-size: 1.4rem;
     text-align: center;
     margin-right: 10px;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       font-size: 1.2rem;
     }
   }
@@ -183,7 +183,7 @@ export default {
     font-size: 1.8rem;
     letter-spacing: 0.1em;
     text-align: center;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       font-size: 1.4rem;
     }
   }
@@ -197,7 +197,7 @@ export default {
     letter-spacing: 0.1em;
     text-decoration: none;
     position: relative;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       font-size: 1.6rem;
     }
     &:before {

@@ -63,7 +63,7 @@ export default {
   padding: 10px;
   display: grid;
   grid-template-rows: calc(33% - 10px) 34% calc(33% - 10px);
-  grid-template-columns: 50% 50%;
+  grid-template-columns: calc(50% - 5px) calc(50% - 5px);
   grid-gap: 10px;
   position: fixed;
   left: 0px;
@@ -110,7 +110,7 @@ export default {
         }
       }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       filter: grayscale(0%) contrast(100%);
     }
   }

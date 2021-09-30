@@ -106,9 +106,11 @@ $mainvisualAnimationStartDelay: 0s;
   background: $gradient_primary;
   padding: 10px;
   position: relative;
+  @media (max-width: 999px) {
+    padding: 5px;
+  }
   @media (max-width: 767px) {
     height: 140vw;
-    padding: 5px;
   }
   @media (min-width: 1921px) {
     height: 100vh;
@@ -275,7 +277,7 @@ $mainvisualAnimationStartDelay: 0s;
       line-height: 2.5;
       letter-spacing: 0.2em;
       text-align: center !important;
-      @media (max-width: 767px) {
+      @media (max-width: 999px) {
         font-size: 1.3rem;
         letter-spacing: 0.15em;
         text-align: center !important;
@@ -293,28 +295,29 @@ $mainvisualAnimationStartDelay: 0s;
 .movie {
   max-width: 1280px;
   margin: 0px auto;
+  padding-top: 150px;
+  @media (max-width: 999px) {
+    padding-top: 80px;
+  }
   /deep/ h1,
   /deep/ h2,
   /deep/ h3 {
     @include sectionTitle;
-    line-height: 1.8;
-    margin: 150px 0px 10px;
-    @media (max-width: 767px) {
-      margin: 80px 0px 20px;
-    }
   }
   /deep/ iframe {
     width: 70%;
     height: 42vw;
-    margin: 90px auto 60px;
+    margin: 0px auto 60px;
     display: block;
     @media (min-width:1281px) {
       height: 538px;
     }
+    @media (max-width: 999px) {
+      margin-bottom: 20px;
+    }
     @media (max-width: 767px) {
       width: 100%;
       height: 56vw;
-      margin: 40px 0px 20px;
     }
     + p {
       display: none;

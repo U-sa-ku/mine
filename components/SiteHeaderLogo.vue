@@ -57,7 +57,7 @@ export default {
   top: 0px;
   z-index: 8;
   transition: 1s;
-  @media (max-width: 767px) {
+  @media (max-width: 999px) {
     height: 40px;
   }
   &.jsAnimation {
@@ -70,7 +70,7 @@ export default {
     position: absolute;
     left: 26px;
     top: 15px;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       left: 8px;
       top: 7px;
     }
@@ -78,7 +78,7 @@ export default {
   &__link {
     width: 125px;
     height: 40px;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       width: 90px;
       height: 28px;
     }
@@ -86,14 +86,14 @@ export default {
   &__logo {
     width: 40px;
     margin-right: 4px;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       width: 28px;
       margin-right: 2px;
     }
   }
   &__text {
     width: 80px;
-    @media (max-width: 767px) {
+    @media (max-width: 999px) {
       width: 60px;
     }
   }
