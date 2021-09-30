@@ -42,7 +42,9 @@
     </section>
     <section
       class="movie"
-      v-html="movie"
+      v-for="movie in movie"
+      :key="movie.index"
+      v-html="movie.movie"
     >
     </section>
     <Photogragh :category="id"/>
@@ -90,6 +92,8 @@ export default {
       this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260`
       this.descriptionImageParam = '?dpr=2&w=640'
     }
+
+    console.log(this.movie)
   },
   methods: {
     onLoad() {
@@ -313,7 +317,7 @@ $mainvisualAnimationStartDelay: 0s;
       height: 538px;
     }
     @media (max-width: 999px) {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     @media (max-width: 767px) {
       width: 100%;
