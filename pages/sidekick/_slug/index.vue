@@ -256,7 +256,7 @@ $mainvisualAnimationStartDelay: 0s;
     @media (max-width: 767px) {
       width: 100%;
       height: 100vw;
-      margin-bottom: 30px;
+      margin-bottom: 0px;
     }
   }
   &__image {
@@ -270,8 +270,23 @@ $mainvisualAnimationStartDelay: 0s;
     display: flex;
     align-items: center;
     @media (max-width: 767px) {
-      width: 100%;
+      width: 85%;
       background-color: transparent;
+      border: 1px solid rgba(222,222,222,0.5);
+      margin: -10px auto 0px;
+      padding: 30px 0px;
+      position: relative;
+      &:before {
+        content: "";
+        width: 1px;
+        height: 40px;
+        background-color: rgba(222,222,222,0.5);
+        position: absolute;
+        left: 50%;
+        top: -20px;
+        z-index: 1;
+        transform: -50%;
+      }
     }
     /deep/ p {
       width: 100%;
@@ -282,7 +297,7 @@ $mainvisualAnimationStartDelay: 0s;
       letter-spacing: 0.2em;
       text-align: center !important;
       @media (max-width: 999px) {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         letter-spacing: 0.15em;
         text-align: center !important;
       }
