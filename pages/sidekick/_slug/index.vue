@@ -241,7 +241,7 @@ $mainvisualAnimationStartDelay: 0s;
     }
     @media (max-width: 767px) {
       height: auto;
-      margin-bottom: 35px;
+      margin-bottom: 60px;
       display: block;
       &:last-child {
         margin-bottom: 0px;
@@ -272,20 +272,27 @@ $mainvisualAnimationStartDelay: 0s;
     @media (max-width: 767px) {
       width: 85%;
       background-color: transparent;
-      border: 1px solid rgba(222,222,222,0.5);
+      border-width: 1px 0px 1px 0px;
+      border-style: solid;
+      border-color: rgba(222,222,222,0.6);
       margin: -10px auto 0px;
-      padding: 30px 0px;
+      padding: 20px 0px;
       position: relative;
-      &:before {
+      &:before,
+      &:after {
         content: "";
         width: 1px;
-        height: 40px;
-        background-color: rgba(222,222,222,0.5);
+        height: calc(100% - 30px);
+        background-color: rgba(222,222,222,0.6);
         position: absolute;
-        left: 50%;
-        top: -20px;
+        top: 15px;
         z-index: 1;
-        transform: -50%;
+      }
+      &:before {
+        left: -15px;
+      }
+      &:after {
+        right: -15px;
       }
     }
     /deep/ p {
