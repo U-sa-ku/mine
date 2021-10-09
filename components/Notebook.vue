@@ -202,22 +202,22 @@ export default {
     }
     &:before {
       content: "";
-      width: 120%;
+      width: calc(100% + 40px);
       height: 50%;
       border-width: 0px 2px 1px 0px;
       border-style: solid;
       border-color: $color_lightGray;
       display: block;
       position: absolute;
-      left: -12%;
+      left: 50%;
       bottom: -5px;
       z-index: 0;
-      transform: skewX(45deg);
+      transform: translateX(-50%) skewX(45deg);
       transition: 0.3s;
     }
     @media (min-width: 769px) {
       &:hover:before {
-        transform: skewX(45deg) translateX(10px);
+        transform: translateX(calc(-50% + 10px)) skewX(45deg);
       }
     }
   }
