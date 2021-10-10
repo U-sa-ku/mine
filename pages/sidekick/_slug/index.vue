@@ -48,7 +48,7 @@
     >
     </section>
     <Photogragh :category="id"/>
-    <Notebook/>
+    <NotebookList/>
     <SiteFooter/> 
   </div>
 </template>

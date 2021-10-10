@@ -22,7 +22,7 @@
       @onLoad="onLoad"
     />
     <Photogragh/>
-    <Notebook/>
+    <NotebookList/>
     <SiteFooter/>
   </div>
 </template>

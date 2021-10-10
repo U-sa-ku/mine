@@ -1,41 +1,41 @@
 <template>
-  <section class="notebook">
-    <h2 class="notebook__title">notebook</h2>
-    <ul class="notebook__list">
+  <section class="notebookList">
+    <h2 class="notebookList__title">notebook</h2>
+    <ul class="notebookList__list">
       <li
-        class="notebook__listItem"
+        class="notebookList__listItem"
         v-for="notebook in notebooks.contents"
         :key="notebooks.id"
       >
         <nuxt-link
           :to="`/notebook/${notebook.id}/`"
-          class="notebook__link"
+          class="notebookList__link"
         >
-          <div class="notebook__imageBox">
+          <div class="notebookList__imageBox">
             <picture>
               <source :data-srcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=80`" media="(max-width: 767px)">
               <img
                 :data-src="`${notebook.mainvisual.url}?dpr=2&w=585&q=80`"
                 alt=""
-                class="notebook__image lazyload lazyloadImage"
+                class="notebookList__image lazyload lazyloadImage"
               >
             </picture>
-            <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--top"></figure>
-            <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--right"></figure>
-            <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--bottom"></figure>
-            <figure class="notebook__imageBoxFrame notebook__imageBoxFrame--left"></figure>
+            <figure class="notebookList__imageBoxFrame notebookList__imageBoxFrame--top"></figure>
+            <figure class="notebookList__imageBoxFrame notebookList__imageBoxFrame--right"></figure>
+            <figure class="notebookList__imageBoxFrame notebookList__imageBoxFrame--bottom"></figure>
+            <figure class="notebookList__imageBoxFrame notebookList__imageBoxFrame--left"></figure>
           </div>
-          <div class="notebook__articleOverview">
-            <p class="notebook__articleDate">{{ notebook.date | moment }}</p>
-            <p class="notebook__articleTitle">{{ notebook.title }}</p>
+          <div class="notebookList__notebookOverview">
+            <p class="notebookList__notebookDate">{{ notebook.date | moment }}</p>
+            <p class="notebookList__notebookTitle">{{ notebook.title }}</p>
           </div>
         </nuxt-link>
       </li>
     </ul>
-    <div class="notebook__moreButton">
+    <div class="notebookList__moreButton">
       <nuxt-link
         to="/notebook/"
-        class="notebook__moreLink"
+        class="notebookList__moreLink"
       >
         more notebook
       </nuxt-link>
@@ -69,7 +69,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.notebook {
+.notebookList {
   max-width: 1280px;
   margin: 0px auto;
   padding: 150px 30px 0px;
@@ -105,7 +105,7 @@ export default {
     display: block;
     @media (min-width: 769px) {
       &:hover {
-        .notebook__imageBoxFrame {
+        .notebookList__imageBoxFrame {
           transform: scale(1);
         }
       }
@@ -165,12 +165,12 @@ export default {
       transform-origin: 0% 100%;
     }
   }
-  &__articleOverview {
+  &__notebookOverview {
     display: flex;
     justify-content: flex-end;
     align-items: center;
   }
-  &__articleDate {
+  &__notebookDate {
     font-family: $fontFamily_english;
     font-size: 1.4rem;
     text-align: center;
@@ -179,7 +179,7 @@ export default {
       font-size: 1.2rem;
     }
   }
-  &__articleTitle {
+  &__notebookTitle {
     font-size: 1.8rem;
     letter-spacing: 0.1em;
     text-align: center;

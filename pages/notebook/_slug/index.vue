@@ -3,45 +3,45 @@
     <Loading :isLoaded="isLoaded"/>
     <SiteHeaderLogo/>
     <HamburgerMenu :isLoaded="isLoaded"/>
-    <article class="article">
-      <div class="article__mainvisual">
+    <article class="notebook">
+      <div class="notebook__mainvisual">
         <img
           :src="`${mainvisualUrl}`"
           alt=""
-          :class="['article__mainvisualImage',{jsAnimation: isLoaded}]"
+          :class="['notebook__mainvisualImage',{jsAnimation: isLoaded}]"
           @load="onLoad"
         >
-        <div class="article__articleOverview">
-          <p class="article__articleDate">
-            <span :class="['article__articleOverviewTextBackground',{jsAnimation: isLoaded}]">{{ date | moment }}</span>
+        <div class="notebook__overview">
+          <p class="notebook__date">
+            <span :class="['notebook__overviewTextBackground',{jsAnimation: isLoaded}]">{{ date | moment }}</span>
           </p>
-          <p class="article__articleTitle">
-            <span :class="['article__articleOverviewTextBackground',{jsAnimation: isLoaded}]">{{ title }}</span>
+          <p class="notebook__title">
+            <span :class="['notebook__overviewTextBackground',{jsAnimation: isLoaded}]">{{ title }}</span>
           </p>
         </div>
-        <div :class="['article__mainvisualCover',{jsAnimation: isLoaded}]"></div>
+        <div :class="['notebook__mainvisualCover',{jsAnimation: isLoaded}]"></div>
       </div>
-      <div class="article__body" v-html="body"></div>
+      <div class="notebook__body" v-html="body"></div>
     </article>
-    <nav class="navigation">
+    <nav class="notebookNavigation">
       <nuxt-link
        :to="`/notebook/${prevNotebook.id}`"
        v-if="isShowPrevNotebook"
-       class="navigation__link navigation__link--prev"
+       class="notebookNavigation__link notebookNavigation__link--prev"
       >
-        prev notebook<br>
+        <span class="notebookNavigation__caption">prev notebook</span><br>
         {{ prevNotebook.title }}
       </nuxt-link>
       <nuxt-link
         :to="`/notebook/${nextNotebook.id}`"
         v-if="isShowNextNotebook"
-        class="navigation__link navigation__link--next"
+        class="notebookNavigation__link notebookNavigation__link--next"
       >
-        next notebook<br>
+        <span class="notebookNavigation__caption">next notebook</span><br>
         {{ nextNotebook.title }}
       </nuxt-link>
     </nav>
-    <Notebook :currentArticle="id"/>
+    <NotebookList :currentArticle="id"/>
     <SiteFooter/>
   </div>
 </template>
@@ -135,7 +135,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.article {
+.notebook {
   margin-bottom: 50px;
   $mainvisualAnimationStartDelay: 1s;
   &__mainvisual {
@@ -167,18 +167,18 @@ export default {
       opacity: 0;
     }
   }
-  &__articleOverview {
+  &__overview {
     position: absolute;
     right: 0%;
     top: 50%;
     z-index: 1;
     transform: translateY(-50%);
   }
-  &__articleDate,
-  &__articleTitle {
+  &__date,
+  &__title {
     text-align: right;
   }
-  &__articleOverviewTextBackground {
+  &__overviewTextBackground {
     background: $gradient_primary;
     padding: 3px 5px;
     position: relative;
@@ -200,24 +200,24 @@ export default {
       transform: scaleX(0);
     }
   }
-  &__articleDate {
+  &__date {
     font-family: $fontFamily_english;
     font-size: 2rem;
     margin-bottom: 10px;
     @media (max-width: 999px) {
       font-size: 1.5rem;
     }
-    .article__articleOverviewTextBackground:before {
+    .notebook__overviewTextBackground:before {
       transition-delay: $mainvisualAnimationStartDelay;
     }
   }
-  &__articleTitle {
+  &__title {
     font-size: 3rem;
     letter-spacing: 0.1em;
     @media (max-width: 999px) {
       font-size: 2.5rem;
     }
-    .article__articleOverviewTextBackground:before {
+    .notebook__overviewTextBackground:before {
       transition-delay: $mainvisualAnimationStartDelay + 0.5s;
     }
   }
@@ -261,7 +261,7 @@ export default {
     }
   }
 }
-.navigation {
+.notebookNavigation {
   padding-top: 60px;
   position: relative;
   @media (max-width: 767px) {
@@ -270,7 +270,6 @@ export default {
   &__link {
     width: 400px;
     color: inherit;
-    font-family: $fontFamily_english;
     font-size: 1.8rem;
     letter-spacing: 0.1em;
     text-decoration: none;
@@ -339,6 +338,9 @@ export default {
         right: -20px;
       }
     }
+  }
+  &__caption {
+    font-family: $fontFamily_english;
   }
 }
 </style>
