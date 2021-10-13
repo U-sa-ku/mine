@@ -4,6 +4,7 @@
       :class="`navigation__item navigation__item--${navigation.slug}`"
       v-for="navigation in navigations.contents"
       :key="navigation.id"
+      @click="initShow"
     >
       <nuxt-link
         :to="`/sidekick/${navigation.slug}/`"
@@ -49,7 +50,10 @@ export default {
   methods: {
     onLoad() {
       this.isLoaded = true
-      this.$emit("onLoad")
+      this.$emit('onLoad')
+    },
+    initShow() {
+      this.$emit('initShow')
     }
   }
 }

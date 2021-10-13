@@ -4,18 +4,17 @@
     viewBox="0 0 500 500"
     :class="[{jsAnimation: isShowScroll}, {jsAnimation: isShowInit}]"
   >
-  <style type="text/css">
-    .st0{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
-  </style>
-  <g>
-    <rect x="361.4" y="78.6" transform="matrix(0.7071 -0.7071 0.7071 0.7071 37.868 308.5786)" class="st0 svg-elem-1" width="60" height="60"></rect>
-    <path class="st0 svg-elem-2" d="M419.7,207.6l-42.4-42.4l-42.4-42.4l-42.4-42.4L250,37.9l-42.4,42.4l-42.4,42.4l-42.4,42.4l-42.4,42.4
-      L37.9,250l42.4,42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4,42.4L250,207.6L207.6,250l-42.4,42.4l-42.4,42.4l42.4,42.4
-      l42.4,42.4l42.4,42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4L419.7,207.6z M334.9,292.4l-42.4,42.4L250,377.3
-      l-42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4,42.4L334.9,292.4z"></path>
-  </g>
+    <style type="text/css">
+      .st0{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
+    </style>
+    <g>
+      <rect x="361.4" y="78.6" transform="matrix(0.7071 -0.7071 0.7071 0.7071 37.868 308.5786)" class="st0 svg-elem-1" width="60" height="60"></rect>
+      <path class="st0 svg-elem-2" d="M419.7,207.6l-42.4-42.4l-42.4-42.4l-42.4-42.4L250,37.9l-42.4,42.4l-42.4,42.4l-42.4,42.4l-42.4,42.4
+        L37.9,250l42.4,42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4,42.4L250,207.6L207.6,250l-42.4,42.4l-42.4,42.4l42.4,42.4
+        l42.4,42.4l42.4,42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4L419.7,207.6z M334.9,292.4l-42.4,42.4L250,377.3
+        l-42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4,42.4L334.9,292.4z"></path>
+    </g>
   </svg>
-
 </template>
 
 <script>
@@ -42,12 +41,10 @@ svg .svg-elem-1 {
           transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
                 fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
 }
-
 svg.jsAnimation .svg-elem-1 {
   stroke-dashoffset: 0;
   fill: rgb(255, 255, 255);
 }
-
 svg .svg-elem-2 {
   stroke-dashoffset: 2160.796875px;
   stroke-dasharray: 2160.796875px;
@@ -57,10 +54,8 @@ svg .svg-elem-2 {
           transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0.12s,
                 fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
 }
-
 svg.jsAnimation .svg-elem-2 {
   stroke-dashoffset: 0;
   fill: rgb(255, 255, 255);
 }
-
 </style>

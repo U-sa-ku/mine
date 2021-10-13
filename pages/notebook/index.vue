@@ -1,8 +1,5 @@
 <template>
-  <div class="contentsWrapper">
-    <Loading :isLoaded="isLoaded"/>
-    <SiteHeaderLogo :isLoaded="isLoaded"/>
-    <HamburgerMenu :isLoaded="isLoaded"/>
+  <main class="mainContents">
     <section :class="['notebookList',{jsAnimation:isLoaded}]">
       <h2 class="notebookList__title">notebook</h2>
       <ul class="notebookList__list">
@@ -49,8 +46,7 @@
         </li>
       </ul>
     </section>
-    <SiteFooter/>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -96,6 +92,7 @@ export default {
   methods: {
     onLoad() {
       this.isLoaded = true
+      this.$nuxt.$emit("onLoad", this.isLoaded)
     }
   }
 }
@@ -259,8 +256,8 @@ export default {
       font-size: 1.4rem;
     }
     @mixin pagenationHoverActive {
-        color: $color_darkGray;
-        background-color: $color_lightGray;
+      color: $color_darkGray;
+      background-color: $color_lightGray;
     }
     @media (min-width: 769px) {
       &:hover {

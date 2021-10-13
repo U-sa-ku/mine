@@ -1,11 +1,14 @@
 <template>
   <div class="humburgerMenu">
     <div
-      :class="['humburgerMenu__button', {jsClose: isShow}, {jsAnimation: isLoaded}]"
+      :class="['humburgerMenu__button', {jsClose: isShow}]"
       @click="isShow = !isShow"
     >
     </div>
-    <Navigation :class="{jsShow: isShow}"/>
+    <objectsNavigation
+      :class="{jsShow: isShow}"
+      @initShow="initShow"
+    />
   </div>
 </template>
 
@@ -16,8 +19,10 @@ export default {
       isShow: false
     }
   },
-  props: {
-    isLoaded: Boolean
+  methods: {
+    initShow() {
+      this.isShow = false
+    }
   }
 }
 </script>
@@ -33,11 +38,6 @@ export default {
     top: 14px;
     z-index: 10;
     cursor: pointer;
-    opacity: 0;
-    transition: 1s 1s;
-    &.jsAnimation {
-      opacity: 1;
-    }
     @media (max-width: 999px) {
       width: 24px;
       height: 26px;

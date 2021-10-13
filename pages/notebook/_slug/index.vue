@@ -1,8 +1,5 @@
 <template>
-  <div class="contentsWrapper">
-    <Loading :isLoaded="isLoaded"/>
-    <SiteHeaderLogo/>
-    <HamburgerMenu :isLoaded="isLoaded"/>
+  <main class="mainContents">
     <article class="notebook">
       <div class="notebook__mainvisual">
         <img
@@ -41,9 +38,8 @@
         {{ nextNotebook.title }}
       </nuxt-link>
     </nav>
-    <NotebookList :currentArticle="id"/>
-    <SiteFooter/>
-  </div>
+    <sectionsNotebookList :currentArticle="id"/>
+  </main>
 </template>
 
 <script>
@@ -124,6 +120,7 @@ export default {
   methods: {
     onLoad() {
       this.isLoaded = true
+      this.$nuxt.$emit("onLoad", this.isLoaded)
     }
   },
   filters: {

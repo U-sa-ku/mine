@@ -1,8 +1,5 @@
 <template>
-  <div class="contentsWrapper">
-    <Loading :isLoaded="isLoaded"/>
-    <SiteHeaderLogo/>
-    <HamburgerMenu :isLoaded="isLoaded"/>
+  <main class="mainContents">
     <div class="mainvisual">
       <img :src="mainvisualUrl"
         :alt="name"
@@ -47,10 +44,9 @@
       v-html="movie.movie"
     >
     </section>
-    <Photogragh :category="id"/>
-    <NotebookList/>
-    <SiteFooter/> 
-  </div>
+    <sectionsPhotogragh :category="id"/>
+    <sectionsNotebookList/>
+  </main>
 </template>
 
 <script>
@@ -92,12 +88,11 @@ export default {
       this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260`
       this.descriptionImageParam = '?dpr=2&w=640'
     }
-
-    console.log(this.movie)
   },
   methods: {
     onLoad() {
       this.isLoaded = true
+      this.$nuxt.$emit("onLoad", this.isLoaded)
     }
   }
 }

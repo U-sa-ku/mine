@@ -1,11 +1,9 @@
 <template>
-  <div class="contentsWrapper">
-    <Loading :isLoaded="isLoaded"/>
-    <HamburgerMenu :isLoaded="isLoaded"/>
+  <main class="mainContents">
     <div :class="['mainvisual', {jsScrolledWindowHeight: isScrolledWindowHeight}]">
       <h1 class="mainvisual__logo">
-        <MineLogo :isShowInit="isLoaded"/>
-        <MineText :isShowInit="isLoaded"/>
+        <partsMineLogo :isShowInit="isLoaded"/>
+        <partsMineText :isShowInit="isLoaded"/>
       </h1>
       <i :class="[`mainvisual__scrollIcon`, {jsAnimation: isLoaded}]">
         <i class="mainvisual__scrollIconBorder"></i>
@@ -16,19 +14,19 @@
       <figure :class="['mainvisual__frame','mainvisual__frame--left',{jsAnimation: isLoaded}]"></figure>
       <div class="mainvisual__background"></div>
     </div>
-    <Navigation
+    <objectsNavigation
       class="navigation--top"
       :isScrolledWindowHeight="isScrolledWindowHeight"
       @onLoad="onLoad"
     />
-    <Photogragh/>
-    <NotebookList/>
-    <SiteFooter/>
-  </div>
+    <sectionsPhotogragh/>
+    <sectionsNotebookList/>
+  </main>
 </template>
 
 <script>
 export default {
+  layout: 'no-site-header',
   data() {
     return {
       isLoaded: false,
@@ -41,6 +39,7 @@ export default {
   methods: {
     onLoad() {
       this.isLoaded = true
+      this.$nuxt.$emit("onLoad", this.isLoaded)
     },
     onScroll() {
       const windowHeight = window.innerHeight

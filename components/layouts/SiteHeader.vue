@@ -1,20 +1,18 @@
 <template>
-  <div :class="['siteHeaderlogo',{jsAnimation: isScrolledWindowHeight}, {jsAnimation: isLoaded}]">
-    <div class="siteHeaderlogo__wrapper">
-      <MineLogo
-        class="siteHeaderlogo__logo"
+  <div :class="['siteHeader', {jsAnimation: isScrolledWindowHeight}]">
+    <div class="siteHeader__logoWrapper">
+      <partsMineLogo
+        class="siteHeader__logo siteHeader__logo--siteHeader"
         :isShowScroll="isScrolledWindowHeight"
-        :isShowInit="isLoaded"
       />
-      <MineText
-        class="siteHeaderlogo__text"
+      <partsMineText
+        class="siteHeader__text siteHeader__text--siteHeader"
         :isShowScroll="isScrolledWindowHeight"
-        :isShowInit="isLoaded"
       />
     </div>
     <nuxt-link
       to="/"
-      class="siteHeaderlogo__link"
+      class="siteHeader__link"
     >
     </nuxt-link>
   </div>
@@ -38,7 +36,7 @@ export default {
       const windowHeight = window.innerHeight
       let scrollTop = window.scrollY
 
-      if(scrollTop >= windowHeight / 3) {
+      if(scrollTop >= windowHeight / 2) {
         this.isScrolledWindowHeight = true
       } else {
         this.isScrolledWindowHeight = false
@@ -49,21 +47,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.siteHeaderlogo {
+.siteHeader {
   width: 100%;
   height: 70px;
   position: fixed;
   left: 0px;
   top: 0px;
   z-index: 8;
-  transition: 1s;
   @media (max-width: 999px) {
     height: 40px;
   }
   &.jsAnimation {
     background: rgba(0,0,0,0.5);
   }
-  &__wrapper,
+  &__logoWrapper,
   &__link {
     display: flex;
     align-items: center;
