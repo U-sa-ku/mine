@@ -26,6 +26,11 @@ export default {
     onLoad(isLoaded) {
       this.isLoaded = isLoaded
     }
+  },
+  watch: {
+    $route() {
+      this.isLoaded = false
+    }
   }
 }
 </script>
