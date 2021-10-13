@@ -105,7 +105,7 @@ export default {
   padding: 150px 30px 0px;
   opacity: 0;
   transform: translateY(100px);
-  transition: 1s 0.5s;
+  transition: 1s 1s;
   @media (max-width: 999px) {
     padding-top: 90px;
   }

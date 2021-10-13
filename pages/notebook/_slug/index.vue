@@ -134,7 +134,7 @@ export default {
 <style lang="scss" scoped>
 .notebook {
   margin-bottom: 50px;
-  $mainvisualAnimationStartDelay: 1s;
+  $mainvisualAnimationStartDelay: 1.5s;
   &__mainvisual {
     height: 100vh;
     background-color: #000000;

@@ -5,11 +5,11 @@
     :class="[{jsAnimation: isShowScroll}, {jsAnimation: isShowInit}]"
   >
     <style type="text/css">
-      .st0{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
+      .mineLogoSvg{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
     </style>
     <g>
-      <rect x="361.4" y="78.6" transform="matrix(0.7071 -0.7071 0.7071 0.7071 37.868 308.5786)" class="st0 svg-elem-1" width="60" height="60"></rect>
-      <path class="st0 svg-elem-2" d="M419.7,207.6l-42.4-42.4l-42.4-42.4l-42.4-42.4L250,37.9l-42.4,42.4l-42.4,42.4l-42.4,42.4l-42.4,42.4
+      <rect x="361.4" y="78.6" transform="matrix(0.7071 -0.7071 0.7071 0.7071 37.868 308.5786)" class="mineLogoSvg svg-elem-1" width="60" height="60"></rect>
+      <path class="mineLogoSvg svg-elem-2" d="M419.7,207.6l-42.4-42.4l-42.4-42.4l-42.4-42.4L250,37.9l-42.4,42.4l-42.4,42.4l-42.4,42.4l-42.4,42.4
         L37.9,250l42.4,42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4,42.4L250,207.6L207.6,250l-42.4,42.4l-42.4,42.4l42.4,42.4
         l42.4,42.4l42.4,42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4L419.7,207.6z M334.9,292.4l-42.4,42.4L250,377.3
         l-42.4-42.4l42.4-42.4l42.4-42.4l42.4-42.4l42.4,42.4L334.9,292.4z"></path>

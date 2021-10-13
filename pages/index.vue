@@ -2,8 +2,8 @@
   <main class="mainContents">
     <div :class="['mainvisual', {jsScrolledWindowHeight: isScrolledWindowHeight}]">
       <h1 class="mainvisual__logo">
-        <partsMineLogo :isShowInit="isLoaded"/>
-        <partsMineText :isShowInit="isLoaded"/>
+        <partsMineLogo :isShowInit="isLoadedLogo"/>
+        <partsMineText :isShowInit="isLoadedLogo"/>
       </h1>
       <i :class="[`mainvisual__scrollIcon`, {jsAnimation: isLoaded}]">
         <i class="mainvisual__scrollIconBorder"></i>
@@ -30,6 +30,7 @@ export default {
   data() {
     return {
       isLoaded: false,
+      isLoadedLogo : false,
       isScrolledWindowHeight: false
     }
   },
@@ -39,6 +40,12 @@ export default {
   methods: {
     onLoad() {
       this.isLoaded = true
+
+      const onLoadLogo = () => {
+        this.isLoadedLogo = true
+      }
+      setTimeout(onLoadLogo, 3000)
+
       this.$nuxt.$emit("onLoad", this.isLoaded)
     },
     onScroll() {
@@ -56,12 +63,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$mainvisualAnimationStartDelay: 2s;
 .mainvisual {
   width: 100%;
   height: 100vh;
   margin-bottom: 100vh;
   position: relative;
   z-index: 1;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100vh;
+    background: $gradient_primary;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+    opacity: 0.98;
+  }
   &.jsScrolledWindowHeight {
     margin-bottom: 0vh;
   }
@@ -93,7 +113,7 @@ export default {
     transform: translateX(-50%);
     overflow: hidden;
     opacity: 0;
-    transition: 1s 2s;
+    transition: 1s $mainvisualAnimationStartDelay + 1s;
     @media (max-width: 768px) {
       bottom: 5px;
     }
@@ -121,7 +141,7 @@ export default {
     position: absolute;
     z-index: 2;
     transform: scale(0);
-    transition: 1s;
+    transition: 1s $mainvisualAnimationStartDelay;
     &.jsAnimation {
       transform: scale(1);
     }
@@ -182,19 +202,10 @@ export default {
       }
     }
   }
-  &__background {
-    width: 100%;
-    height: 100vh;
-    background: $gradient_primary;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 0;
-    opacity: 0.98;
-  }
 }
 </style>
 <style lang="scss">
+$mainvisualAnimationStartDelay: 1s;
 .navigation--top {
    z-index: 0 !important;
   &.jsScrolledWindowHeight {
@@ -213,7 +224,7 @@ export default {
       }
     }
     &__image {
-      transition: 1s 1s ease-out;
+      transition: 1s $mainvisualAnimationStartDelay + 1s ease-out;
       &.jsAnimation {
         transform: translate(0%, 0%) !important;
       }

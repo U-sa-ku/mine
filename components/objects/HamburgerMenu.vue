@@ -86,6 +86,7 @@ export default {
   }
 }
 .navigation {
+  z-index: 12;
   transform: translateX(100%);
   transition: 0.5s;
   &.jsShow {
