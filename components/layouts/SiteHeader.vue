@@ -50,15 +50,21 @@ export default {
 .siteHeader {
   width: 100%;
   height: 70px;
+  background: rgba(0,0,0,0.5);
   position: fixed;
   left: 0px;
   top: 0px;
   z-index: 8;
+  opacity: 0;
+  transition: 1s;
   @media (max-width: 999px) {
     height: 40px;
   }
   &.jsAnimation {
-    background: rgba(0,0,0,0.5);
+    opacity: 1;
+    .siteHeader__link {
+      z-index: 1;
+    }
   }
   &__logoWrapper,
   &__link {
@@ -70,14 +76,6 @@ export default {
     @media (max-width: 999px) {
       left: 8px;
       top: 7px;
-    }
-  }
-  &__link {
-    width: 125px;
-    height: 40px;
-    @media (max-width: 999px) {
-      width: 90px;
-      height: 28px;
     }
   }
   &__logo {
@@ -92,6 +90,15 @@ export default {
     width: 80px;
     @media (max-width: 999px) {
       width: 60px;
+    }
+  }
+  &__link {
+    width: 125px;
+    height: 40px;
+    z-index: -1;
+    @media (max-width: 999px) {
+      width: 90px;
+      height: 28px;
     }
   }
 }
