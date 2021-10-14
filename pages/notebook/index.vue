@@ -1,6 +1,6 @@
 <template>
   <main class="mainContents">
-    <section :class="['notebookList',{jsAnimation:isLoaded}]">
+    <section :class="['notebookList','js-notebookList',{jsAnimation:isLoaded}]">
       <h2 class="notebookList__title">notebook</h2>
       <ul class="notebookList__list">
         <li
@@ -103,18 +103,11 @@ export default {
   max-width: 1280px;
   margin: 0px auto;
   padding: 150px 30px 0px;
-  opacity: 0;
-  transform: translateY(100px);
-  transition: 1s 1s;
   @media (max-width: 999px) {
     padding-top: 90px;
   }
   @media (max-width: 767px) {
     padding: 90px 15px 0px;
-  }
-  &.jsAnimation {
-    transform: translateY(0px);
-    opacity: 1;
   }
   &__title {
     @include sectionTitle;
@@ -267,6 +260,15 @@ export default {
     &.--active {
       @include pagenationHoverActive;
     }
+  }
+}
+.js-notebookList {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: 1s 1s;
+  &.jsAnimation {
+    transform: translateY(0px);
+    opacity: 1;
   }
 }
 </style>

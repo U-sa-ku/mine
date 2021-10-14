@@ -308,9 +308,11 @@ $mainvisualAnimationStartDelay: 1s;
 }
 .js-description {
   opacity: 0;
-  transition: 1s $mainvisualAnimationStartDelay;
+  transform: translateY(100px);
+  transition: 1s $mainvisualAnimationStartDelay + 2.5s;
   &.jsAnimation {
     opacity: 1;
+    transform: translateY(0px);
   }
 }
 .movie {

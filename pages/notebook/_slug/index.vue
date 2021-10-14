@@ -106,7 +106,7 @@ export default {
         '"$1?dpr=2&w=330&q=80"',
       )
     } else {
-      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260&q=80`
+      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1280&q=80`
       this.body = this.body.replace(
         /"(https?:\/\/images\.microcms-assets\.io\/.+?\.(jpe?g|gif|png))"/g,
         '"$1?dpr=2&w=798&q=80"',
