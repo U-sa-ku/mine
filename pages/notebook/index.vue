@@ -14,7 +14,7 @@
           >
             <div class="notebookList__imageBox">
               <picture>
-                <source :data-rcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=80`" media="(max-width: 767px)">
+                <source :data-srcset="`${notebook.mainvisual.url}?dpr=2&w=345&q=80`" media="(max-width: 767px)">
                 <img
                   :data-src="`${notebook.mainvisual.url}?dpr=2&w=585&q=80`"
                   alt=""
