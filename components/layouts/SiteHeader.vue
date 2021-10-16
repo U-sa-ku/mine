@@ -1,13 +1,15 @@
 <template>
-  <div :class="['siteHeader', {jsAnimation: isScrolledWindowHeight}]">
+  <div :class="['siteHeader', {jsAnimation: isScrolledWindowHeight}, {jsAnimation: isInitShow}]">
     <div class="siteHeader__logoWrapper">
       <partsMineLogo
         class="siteHeader__logo siteHeader__logo--siteHeader"
         :isShowScroll="isScrolledWindowHeight"
+        :isInitShow="isInitShow"
       />
       <partsMineText
         class="siteHeader__text siteHeader__text--siteHeader"
         :isShowScroll="isScrolledWindowHeight"
+        :isInitShow="isInitShow"
       />
     </div>
     <nuxt-link
@@ -26,7 +28,8 @@ export default {
     }
   },
   props: {
-    isLoaded: Boolean
+    isLoaded: Boolean,
+    isInitShow: Boolean
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)

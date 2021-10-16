@@ -2,7 +2,7 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 500 500"
-    :class="[{jsAnimation: isShowScroll}, {jsAnimation: isShowInit}]"
+    :class="[{jsAnimation: isShowScroll}, {jsAnimation: isInitShow}]"
   >
     <style type="text/css">
       .mineLogoSvg{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
@@ -21,7 +21,7 @@
 export default {
   props: {
     isShowScroll: Boolean,
-    isShowInit: Boolean
+    isInitShow: Boolean
   }
 }
 </script>

@@ -1,8 +1,8 @@
 <template>
   <div class="contentsWrapper">
     <objectsLoading :isLoaded="isLoaded"/>
-    <objectsHamburgerMenu ref="HamburgerMenu"/>
-    <LayoutsSiteHeader/>
+    <objectsHamburgerMenu/>
+    <LayoutsSiteHeader :isInitShow="isInitShow"/>
     <Nuxt/>
     <LayoutsSiteFooter/>
   </div>
@@ -13,7 +13,8 @@ export default {
   name: 'default',
   data() {
     return {
-      isLoaded: false
+      isLoaded: false,
+      isInitShow: false,
     }
   },
   created() {
@@ -22,14 +23,19 @@ export default {
   methods: {
     setListener() {
       this.$nuxt.$on('onLoad', this.onLoad)
+      this.$nuxt.$on('initShowSiteHeader', this.initShowSiteHeader)
     },
     onLoad(isLoaded) {
       this.isLoaded = isLoaded
+    },
+    initShowSiteHeader() {
+      this.isInitShow = true
     }
   },
   watch: {
     $route() {
       this.isLoaded = false
+      this.isInitShow = false
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="contentsWrapper">
     <objectsLoading :isLoaded="isLoaded"/>
-    <objectsHamburgerMenu ref="HamburgerMenu"/>
+    <objectsHamburgerMenu/>
     <Nuxt/>
     <LayoutsSiteFooter/>
   </div>

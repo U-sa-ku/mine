@@ -93,6 +93,7 @@ export default {
     onLoad() {
       this.isLoaded = true
       this.$nuxt.$emit("onLoad", this.isLoaded)
+      this.$nuxt.$emit("initShowSiteHeader")
     }
   }
 }

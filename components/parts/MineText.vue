@@ -2,7 +2,7 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 164.36 55.63"
-    :class="[{jsAnimation: isShowScroll}, {jsAnimation: isShowInit}]"
+    :class="[{jsAnimation: isShowScroll}, {jsAnimation: isInitShow}]"
   >
     <defs>
       <style>.mineTextSvg{fill:transparent;stroke:#ffffff;stroke-miterlimit:10;}</style>
@@ -23,7 +23,7 @@
 export default {
   props: {
     isShowScroll: Boolean,
-    isShowInit: Boolean
+    isInitShow: Boolean
   }
 }
 </script>
