@@ -40,13 +40,12 @@ export default {
   methods: {
     onLoad() {
       this.isLoaded = true
+      this.$nuxt.$emit("onLoad", this.isLoaded)
 
       const onLoadLogo = () => {
         this.isLoadedLogo = true
       }
       setTimeout(onLoadLogo, 3000)
-
-      this.$nuxt.$emit("onLoad", this.isLoaded)
     },
     onScroll() {
       const windowHeight = window.innerHeight
