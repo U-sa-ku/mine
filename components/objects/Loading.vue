@@ -58,7 +58,7 @@ export default {
     position: absolute;
     left: 0px;
     top: 0px;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     &--m {
