@@ -2,8 +2,8 @@
   <main class="mainContents">
     <div :class="['mainvisual', {jsScrolledWindowHeight: isScrolledWindowHeight}]">
       <h1 class="mainvisual__logo">
-        <partsMineLogo :isShowInit="isLoadedLogo"/>
-        <partsMineText :isShowInit="isLoadedLogo"/>
+        <partsMineLogo :isInitShow="isLoadedLogo"/>
+        <partsMineText :isInitShow="isLoadedLogo"/>
       </h1>
       <i :class="[`mainvisual__scrollIcon`, {jsAnimation: isLoaded}]">
         <i class="mainvisual__scrollIconBorder"></i>
