@@ -243,17 +243,37 @@ export default {
         text-align: center !important;
       }
     }
-    /deep/ img,
-    /deep/ iframe {
-      margin: 90px 0px 60px;
-      @media (max-width: 999px) {
-        margin: 40px 0px 20px;
-      }
-    }
     /deep/ img {
+      margin: 90px 0px 60px;
       display: inline;
       @media (min-width: 768px) {
         max-width: 70%;
+        max-height: 700px;
+      }
+      @media (max-width: 999px) {
+        margin: 40px 0px 20px;
+      }
+      @media (max-width: 767px) {
+        max-height: 100vw;
+      }
+    }
+    /deep/ iframe {
+      width: 70%;
+      height: 42vw;
+      margin: 90px auto 60px;
+      display: block;
+      @media (min-width:1281px) {
+        height: 538px;
+      }
+      @media (max-width: 999px) {
+        margin: 40px auto 20px;
+      }
+      @media (max-width: 767px) {
+        width: 100%;
+        height: 56vw;
+      }
+      + p {
+        display: none;
       }
     }
   }
