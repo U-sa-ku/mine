@@ -21,22 +21,24 @@
       <div class="notebook__body" v-html="body"></div>
     </article>
     <nav class="notebookNavigation">
-      <nuxt-link
-       :to="`/notebook/${prevNotebook.id}`"
-       v-if="isShowPrevNotebook"
-       class="notebookNavigation__link notebookNavigation__link--prev"
-      >
-        <span class="notebookNavigation__caption">prev notebook</span><br>
-        {{ prevNotebook.title }}
-      </nuxt-link>
-      <nuxt-link
-        :to="`/notebook/${nextNotebook.id}`"
-        v-if="isShowNextNotebook"
-        class="notebookNavigation__link notebookNavigation__link--next"
-      >
-        <span class="notebookNavigation__caption">next notebook</span><br>
-        {{ nextNotebook.title }}
-      </nuxt-link>
+      <div class="notebookNavigation__inner">
+        <nuxt-link
+         :to="`/notebook/${prevNotebook.id}`"
+         v-if="isShowPrevNotebook"
+         class="notebookNavigation__link notebookNavigation__link--prev"
+        >
+          <span class="notebookNavigation__caption">prev notebook</span><br>
+          {{ prevNotebook.title }}
+        </nuxt-link>
+        <nuxt-link
+          :to="`/notebook/${nextNotebook.id}`"
+          v-if="isShowNextNotebook"
+          class="notebookNavigation__link notebookNavigation__link--next"
+        >
+          <span class="notebookNavigation__caption">next notebook</span><br>
+          {{ nextNotebook.title }}
+        </nuxt-link>
+      </div>
     </nav>
     <sectionsNotebookList :currentArticle="id"/>
   </main>
@@ -137,6 +139,7 @@ export default {
   $mainvisualAnimationStartDelay: 1.5s;
   &__mainvisual {
     height: 100vh;
+    max-height: 1000px;
     background-color: #000000;
     position: relative;
   }
@@ -219,7 +222,7 @@ export default {
     }
   }
   &__body {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 90px auto 0px;
     padding: 0px 30px;
     @media (max-width: 999px) {
@@ -279,17 +282,22 @@ export default {
   }
 }
 .notebookNavigation {
-  padding-top: 60px;
-  position: relative;
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 0px 30px;
   @media (max-width: 767px) {
-    padding: 0px 45px;
+    padding: 0px 15px;
+  }
+  &__inner {
+    padding-top: 60px;
+    position: relative;
   }
   &__link {
     width: 400px;
     color: inherit;
     font-size: 1.8rem;
-    letter-spacing: 0.1em;
     text-decoration: none;
+    letter-spacing: 0.1em;
     display: block;
     position: absolute;
     top: 0px;
@@ -311,18 +319,13 @@ export default {
       content: "";
       width: 100%;
       height: 15px;
-      border-width: 0px 2px 1px 0px;
       border-style: solid;
       border-color: $color_lightGray;
       display: block;
       position: absolute;
       bottom: -5px;
       z-index: 0;
-      transform: skewX(45deg);
       transition: 0.3s;
-      @media (max-width: 767px) {
-        width: calc(100% + 55px);
-      }
     }
     @media (min-width: 769px) {
       &:hover:before {
@@ -330,13 +333,15 @@ export default {
       }
     }
     &--prev {
-      left: 50px;
+      padding-left: 30px;
+      left: 0px;
       @media (max-width: 767px) {
         left: 0px;
       }
       &:before {
         border-width: 0px 0px 1px 2px;
-        left: -20px;
+        left: 0px;
+        transform-origin: 0% 100%;
         transform: skewX(-45deg);
       }
       @media (min-width: 769px) {
@@ -347,12 +352,16 @@ export default {
     }
     &--next {
       text-align: right;
-      right: 50px;
+      padding-right: 30px;
+      right: 0px;
       @media (max-width: 767px) {
         right: 0px;
       }
       &:before {
-        right: -20px;
+        border-width: 0px 2px 1px 0px;
+        transform-origin: 1000% 100%;
+        transform: skewX(45deg);
+        right: 0px;
       }
     }
   }
