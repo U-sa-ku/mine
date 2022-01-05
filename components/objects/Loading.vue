@@ -1,10 +1,10 @@
 <template>
   <div :class="['loading', {jsHidden: isLoaded}]">
     <div class="loading__logo">
-      <img src="@/assets/img/logo_mine_m.svg" alt="" class="loading__image loading__image--m">
-      <img src="@/assets/img/logo_mine_i.svg" alt="" class="loading__image loading__image--i">
-      <img src="@/assets/img/logo_mine_n.svg" alt="" class="loading__image loading__image--n">
-      <img src="@/assets/img/logo_mine_e.svg" alt="" class="loading__image loading__image--e">
+      <img src="@/assets/img/logo_mine_m.svg" alt="m" class="loading__image loading__image--m">
+      <img src="@/assets/img/logo_mine_i.svg" alt="i" class="loading__image loading__image--i">
+      <img src="@/assets/img/logo_mine_n.svg" alt="n" class="loading__image loading__image--n">
+      <img src="@/assets/img/logo_mine_e.svg" alt="e" class="loading__image loading__image--e">
     </div>
   </div>
 </template>
