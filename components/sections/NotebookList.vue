@@ -1,7 +1,7 @@
 <template>
   <section class="notebookList">
     <h2 class="notebookList__title">notebook</h2>
-    <ul class="notebookList__list">
+    <ul class="notebookList__list" v-if="notebooks.totalCount != 0">
       <li
         class="notebookList__listItem"
         v-for="notebook in notebooks.contents"
@@ -32,7 +32,8 @@
         </nuxt-link>
       </li>
     </ul>
-    <div class="notebookList__moreButton">
+    <p class="notebookList__noPost" v-if="notebooks.totalCount == 0">no post</p>
+    <div class="notebookList__moreButton" v-if="notebooks.totalCount != 0">
       <nuxt-link
         to="/notebook/"
         class="notebookList__moreLink"
@@ -221,6 +222,13 @@ export default {
         transform: translateX(calc(-50% + 10px)) skewX(45deg);
       }
     }
+  }
+  &__noPost {
+    font-family: $fontFamily_english;
+    font-size: 2.4rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin: 100px 0px;
   }
 }
 </style>
