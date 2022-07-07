@@ -1,5 +1,5 @@
 <template>
-  <section class="notebookList" v-if="notebooks.totalCount != 0">
+  <section class="notebookList">
     <h2 class="notebookList__title">notebook</h2>
     <ul class="notebookList__list">
       <li
