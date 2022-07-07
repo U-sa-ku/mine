@@ -229,6 +229,10 @@ export default {
     text-align: center;
     letter-spacing: 0.1em;
     margin: 100px 0px;
+    @media (max-width: 999px) {
+      font-size: 1.8rem;
+      margin: 70px 0px;
+    }
   }
 }
 </style>
