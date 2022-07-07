@@ -223,6 +223,7 @@ export default {
   }
   &__body {
     max-width: 1280px;
+    text-align: center;
     margin: 90px auto 0px;
     padding: 0px 30px;
     @media (max-width: 999px) {
@@ -247,14 +248,14 @@ export default {
       }
     }
     /deep/ img {
-      margin: 90px 0px 60px;
+      margin: 90px 0px 20px;
       display: inline;
       @media (min-width: 768px) {
         max-width: 70%;
         max-height: 700px;
       }
       @media (max-width: 999px) {
-        margin: 40px 0px 20px;
+        margin-top: 40px;
       }
       @media (max-width: 767px) {
         max-height: 100vw;
