@@ -49,7 +49,7 @@ export default {
         },
         breakpoints: {
           1281: {
-            slidesPerView: 1.3
+            slidesPerView: 1.295
           },
           1921: {
             slidesPerView: 2

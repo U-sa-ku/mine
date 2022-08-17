@@ -43,6 +43,7 @@
       :key="movie.index"
       v-html="movie.movie"
     >
+      <h2>movie</h2>
     </section>
     <sectionsPhotogragh :category="id"/>
     <sectionsNotebookList/>
@@ -215,16 +216,14 @@ $mainvisualAnimationStartDelay: 1s;
   max-width: 1600px;
   margin: 0px auto;
   &__title {
-    /deep/ h2 {
-      @include sectionTitle;
-      font-family: $fontFamily_japanese;
-      font-size: 3rem;
-      line-height: 1.8;
-      margin-top: 10vw;
-      @media (max-width: 767px) {
-        font-size: 1.8rem;
-        margin-top: 20vw;
-      }
+    @include sectionTitle;
+    font-family: $fontFamily_japanese;
+    font-size: 3rem;
+    line-height: 1.8;
+    margin-top: 10vw;
+    @media (max-width: 767px) {
+      font-size: 1.8rem;
+      margin-top: 20vw;
     }
   }
   &__body {
