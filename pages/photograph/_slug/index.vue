@@ -124,6 +124,7 @@ export default {
     margin-top: 40px;
   }
   @media (max-width: 767px) {
+    height: auto;
     padding-top: 133.4%;
   }
   &__image {
