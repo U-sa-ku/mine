@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$mainvisualAnimationStartDelay: 1s;
+$mainvisualAnimationStartDelay: 0s;
 .mainvisual {
   height: 65vw;
   background: $gradient_primary;

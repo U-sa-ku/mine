@@ -27,7 +27,7 @@ export default {
   top: 0px;
   z-index: 11;
   &.jsHidden {
-    animation: fadeOut 2s 1s forwards;
+    animation: fadeOut 2s forwards;
   }
   @keyframes fadeOut {
     0% {
