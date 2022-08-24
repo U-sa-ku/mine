@@ -111,18 +111,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.siteHeader {
-  background: none !important;
-}
-.contentsWrapper {
-  padding-bottom: 55px;
-}
 .photograph {
   background-color: #000000;
   margin-bottom: 15px;
   position: relative;
   @media (min-width: 768px) {
-    height: calc(100vh - 75px);
+    height: calc(100vh - 145px);
+    margin-top: 70px;
+  }
+  @media (max-width: 999px) {
+    height: calc(100vh - 110px);
+    margin-top: 40px;
   }
   @media (max-width: 767px) {
     padding-top: 133.4%;
