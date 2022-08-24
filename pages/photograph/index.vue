@@ -9,7 +9,7 @@
           :key="contents.id"
         >
           <nuxt-link
-            :to="`/photograph/${photograph.id}/?pagenation=${currentPage}`"
+            :to="`/photograph/${photograph.id}/`"
             class="photographList__link"
           >
             <div class="photographList__imageBox">
