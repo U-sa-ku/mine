@@ -67,7 +67,6 @@ $mainvisualAnimationStartDelay: 1s;
   height: 100vh;
   height: 100dvh;
   margin-bottom: 100vh;
-  margin-bottom: 100dvh;
   position: relative;
   z-index: 1;
   &:before {
