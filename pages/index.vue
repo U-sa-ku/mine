@@ -65,13 +65,16 @@ $mainvisualAnimationStartDelay: 1s;
 .mainvisual {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   margin-bottom: 100vh;
+  margin-bottom: 100dvh;
   position: relative;
   z-index: 1;
   &:before {
     content: "";
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     background: $gradient_primary;
     display: block;
     position: absolute;

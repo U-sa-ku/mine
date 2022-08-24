@@ -11,24 +11,31 @@
     <nav class="photographNavigation">
       <div class="photographNavigation__inner">
         <nuxt-link
-         :to="`/photograph/${prevphotograph.id}`"
-         v-if="isShowPrevphotograph"
+         :to="`/photograph/${prevPhotograph.id}`"
+         v-if="isShowPrevPhotograph"
          class="photographNavigation__link photographNavigation__link--prev"
         >
           <span class="photographNavigation__caption">prev</span>
         </nuxt-link>
-
         <nuxt-link
-         :to="`/photograph/`"
+         :to="`/photograph/page/${$route.query.pagenation}/`"
          class="photographNavigation__link photographNavigation__link--list"
         >
-          <span class="photographNavigation__caption">list</span>
+          <span class="photographNavigation__listIcon">
+            <i class="photographNavigation__listIconSquare"></i>
+            <i class="photographNavigation__listIconSquare"></i>
+            <i class="photographNavigation__listIconSquare"></i>
+            <i class="photographNavigation__listIconSquare"></i>
+            <i class="photographNavigation__listIconSquare"></i>
+            <i class="photographNavigation__listIconSquare"></i>
+            <i class="photographNavigation__listIconSquare"></i>
+            <i class="photographNavigation__listIconSquare"></i>
+            <i class="photographNavigation__listIconSquare"></i>
+          </span>
         </nuxt-link>
-
-
         <nuxt-link
-          :to="`/photograph/${nextphotograph.id}`"
-          v-if="isShowNextphotograph"
+          :to="`/photograph/${nextPhotograph.id}`"
+          v-if="isShowNextPhotograph"
           class="photographNavigation__link photographNavigation__link--next"
         >
           <span class="photographNavigation__caption">next</span>
@@ -51,23 +58,23 @@ export default {
     return data
   },
   async fetch() {
-    const prevphotographRespons = await fetch(
-      `https://mine.microcms.io/api/v1/photograph?limit=1&fields=id&orders-=publishedAt&filters=publishedAt[less_than]${this.publishedAt}`,
+    const prevPhotographRespons = await fetch(
+      `https://mine.microcms.io/api/v1/photograph?limit=1&fields=id&orders=-publishedAt&filters=publishedAt[less_than]${this.publishedAt}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
-    const nextphotographRespons = await fetch(
+    const nextPhotographRespons = await fetch(
       `https://mine.microcms.io/api/v1/photograph?limit=1&fields=id&orders=publishedAt&filters=publishedAt[greater_than]${this.publishedAt}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
 
-    if(prevphotographRespons.contents.length != 0) {
-      this.prevphotograph = prevphotographRespons.contents[0]
-      this.isShowPrevphotograph = true
+    if(prevPhotographRespons.contents.length != 0) {
+      this.prevPhotograph = prevPhotographRespons.contents[0]
+      this.isShowPrevPhotograph = true
     }
 
-    if(nextphotographRespons.contents.length != 0) {
-      this.nextphotograph = nextphotographRespons.contents[0]
-      this.isShowNextphotograph = true
+    if(nextPhotographRespons.contents.length != 0) {
+      this.nextPhotograph = nextPhotographRespons.contents[0]
+      this.isShowNextPhotograph = true
     }
   },
   head(){
@@ -87,18 +94,19 @@ export default {
       isLoaded: false,
       photoUrl: "",
       body: this.$route.body,
-      prevphotograph: [],
-      isShowPrevphotograph: false,
-      nextphotograph: [],
-      isShowNextphotograph: false
+      prevPhotograph: [],
+      isShowPrevPhotograph: false,
+      nextPhotograph: [],
+      isShowNextPhotograph: false
     }
   },
   mounted() {
     if(window.innerWidth <= 767) {
-      this.photoUrl = `${this.photo.url}?dpr=2&w=365`
+      this.photoUrl = `${this.photo.url}?dpr=2&w=375`
     } else {
       this.photoUrl = `${this.photo.url}?dpr=2&w=1260`
     }
+    console.log(this.$route.params.page)
   },
   methods: {
     onLoad() {
@@ -121,11 +129,8 @@ export default {
   }
   @media (max-width: 999px) {
     height: calc(100vh - 110px);
+    height: calc(100dvh - 110px);
     margin-top: 40px;
-  }
-  @media (max-width: 767px) {
-    height: auto;
-    padding-top: 133.4%;
   }
   &__image {
     max-width: 100%;
@@ -156,21 +161,21 @@ export default {
     }
   }
   &__link {
-    width: 110px;
     color: inherit;
     font-size: 1.8rem;
     text-decoration: none;
     letter-spacing: 0.1em;
     display: block;
     position: absolute;
-    top: 0px;
     z-index: 1;
-    @media (max-width: 999px) {
-      width: 90px;
-      font-size: 1.4rem;
-    }
     &--prev,
     &--next {
+      width: 110px;
+      top: 0px;
+      @media (max-width: 999px) {
+        width: 90px;
+        font-size: 1.4rem;
+      }
       &:before {
         content: "";
         width: 100%;
@@ -216,32 +221,30 @@ export default {
       }
     }
     &--list {
-      text-align: center;
       position: absolute;
       left: 50%;
+      top: 5px;
       z-index: 1;
       transform: translateX(-50%);
-      &:before {
-        content: "";
-        width: 100%;
-        height: 1px;
-        background-color: $color_lightGray;
-        position: absolute;
-        left: 50%;
-        bottom: -5px;
-        z-index: 0;
-        transform: translateX(-50%);
-        transition: 0.3s;
-      }
     }
   }
   &__caption {
     font-family: $fontFamily_english;
   }
-}
-</style>
-<style lang="scss">
-.siteHeader {
-  background: none;
+  &__listIcon {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    grid-template-columns: 24% 24% 24%;
+    grid-template-rows: 24% 24% 24%;
+    gap: 14%;
+    @media (max-width: 999px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__listIconSquare {
+    background-color: $color_lightGray;
+  }
 }
 </style>

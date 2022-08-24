@@ -63,6 +63,7 @@ export default {
 .navigation {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   background-color: $color_darkGray;
   padding: 10px;
   display: grid;

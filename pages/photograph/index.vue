@@ -9,14 +9,14 @@
           :key="contents.id"
         >
           <nuxt-link
-            :to="`/photograph/${photograph.id}/`"
+            :to="`/photograph/${photograph.id}/?pagenation=${currentPage}`"
             class="photographList__link"
           >
             <div class="photographList__imageBox">
               <picture>
-                <source :data-srcset="`${photograph.photo.url}?dpr=2&w=345&q=80`" media="(max-width: 767px)">
+                <source :data-srcset="`${photograph.photo.url}?dpr=2&w=172&q=80`" media="(max-width: 767px)">
                 <img
-                  :data-src="`${photograph.photo.url}?dpr=2&w=585&q=80`"
+                  :data-src="`${photograph.photo.url}?dpr=2&w=305&q=80`"
                   alt=""
                   class="photographList__image lazyload lazyloadImage"
                   @load="onLoad"
@@ -52,7 +52,7 @@ export default {
     const page = params.p || '1'
     const limit = 20
     const { data } = await axios.get(
-      `https://mine.microcms.io/api/v1/photograph?limit=${limit}&offset=${(page - 1) * limit}`,
+      `https://mine.microcms.io/api/v1/photograph?limit=${limit}&orders=-publishedAt&offset=${(page - 1) * limit}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     )
     return data
@@ -73,7 +73,7 @@ export default {
     return {
       isLoaded: false,
       pagenationLength: null,
-      currentPage: !this.$route.params.p ? 1 : null
+      currentPage: !this.$route.params.p ? 1 : this.$route.params.p
     }
   },
   mounted() {
@@ -94,6 +94,7 @@ export default {
   max-width: 1280px;
   margin: 0px auto;
   padding: 150px 30px 0px;
+  overflow: hidden;
   @media (max-width: 999px) {
     padding-top: 90px;
   }
@@ -105,13 +106,14 @@ export default {
   }
   &__list {
     list-style-type: none;
-    margin-top: 0px;
     margin-bottom: 30px;
     padding: 0px;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
+    gap: 1px;
     @media (max-width: 767px) {
-      grid-template-columns: 50% 50%;
+      margin: 0px -20px 30px;
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
   &__listItem {
