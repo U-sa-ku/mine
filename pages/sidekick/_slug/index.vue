@@ -46,7 +46,6 @@
       <h2>movie</h2>
     </section>
     <sectionsPhotograph :category="id"/>
-    <sectionsNotebookList/>
   </main>
 </template>
 

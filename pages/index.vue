@@ -20,7 +20,6 @@
       @onLoad="onLoad"
     />
     <sectionsPhotograph/>
-    <sectionsNotebookList/>
   </main>
 </template>
 
@@ -62,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$mainvisualAnimationStartDelay: 2s;
+$mainvisualAnimationStartDelay: 1s;
 .mainvisual {
   width: 100%;
   height: 100vh;
