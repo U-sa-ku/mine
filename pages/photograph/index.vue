@@ -50,7 +50,7 @@ import axios from 'axios'
 export default {
   async asyncData({ params }) {
     const page = params.p || '1'
-    const limit = 20
+    const limit = 24
     const { data } = await axios.get(
       `https://mine.microcms.io/api/v1/photograph?limit=${limit}&orders=-publishedAt&offset=${(page - 1) * limit}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
