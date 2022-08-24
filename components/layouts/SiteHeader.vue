@@ -1,5 +1,5 @@
 <template>
-  <div :class="['siteHeader', {jsAnimation: isScrolledWindowHeight}, {jsAnimation: isInitShow}]">
+  <header :class="['siteHeader', {jsAnimation: isScrolledWindowHeight}, {jsAnimation: isInitShow}]">
     <div class="siteHeader__logoWrapper">
       <partsMineLogo
         class="siteHeader__logo siteHeader__logo--siteHeader"
@@ -17,7 +17,7 @@
       class="siteHeader__link"
     >
     </nuxt-link>
-  </div>
+  </header>
 </template>
 
 <script>

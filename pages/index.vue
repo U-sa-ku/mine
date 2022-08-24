@@ -19,7 +19,7 @@
       :isScrolledWindowHeight="isScrolledWindowHeight"
       @onLoad="onLoad"
     />
-    <sectionsPhotogragh/>
+    <sectionsPhotograph/>
     <sectionsNotebookList/>
   </main>
 </template>
