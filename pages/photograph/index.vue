@@ -226,7 +226,7 @@ export default {
 .js-photographList {
   opacity: 0;
   transform: translateY(100px);
-  transition: 1s 1s;
+  transition: 1s 0.5s;
   &.jsAnimation {
     transform: translateY(0px);
     opacity: 1;
