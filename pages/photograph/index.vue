@@ -94,12 +94,11 @@ export default {
   max-width: 1280px;
   margin: 0px auto;
   padding: 150px 30px 0px;
-  overflow: hidden;
   @media (max-width: 999px) {
     padding-top: 90px;
   }
   @media (max-width: 767px) {
-    padding: 90px 15px 0px;
+    padding: 90px 0px 0px;
   }
   &__title {
     @include sectionTitle;
@@ -112,7 +111,6 @@ export default {
     grid-template-columns: 25% 25% 25% 25%;
     gap: 1px;
     @media (max-width: 767px) {
-      margin: 0px -20px 30px;
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
