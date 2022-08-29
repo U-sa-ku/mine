@@ -48,9 +48,10 @@ export default {
     },
     onScroll() {
       const windowHeight = window.innerHeight
+      const triggerPosition = windowHeight * 2;
       let scrollTop = window.scrollY
 
-      if(scrollTop >= windowHeight) {
+      if(scrollTop >= triggerPosition) {
         this.isScrolledWindowHeight = true
       } else {
         this.isScrolledWindowHeight = false
@@ -66,7 +67,7 @@ $mainvisualAnimationStartDelay: 1s;
   width: 100%;
   height: 100vh;
   height: 100dvh;
-  margin-bottom: 100vh;
+  margin-bottom: 200vh;
   position: relative;
   z-index: 1;
   &:before {
@@ -83,6 +84,7 @@ $mainvisualAnimationStartDelay: 1s;
     opacity: 0.98;
   }
   &.jsScrolledWindowHeight {
+    margin-top: 100vh;
     margin-bottom: 0vh;
   }
   &__logo {
