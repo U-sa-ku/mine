@@ -91,9 +91,7 @@ export default {
 
 <style lang="scss" scoped>
 .photographList {
-  max-width: 1280px;
-  margin: 0px auto;
-  padding: 150px 30px 0px;
+  padding: 150px 0px 0px;
   @media (max-width: 999px) {
     padding-top: 90px;
   }
@@ -108,7 +106,7 @@ export default {
     margin-bottom: 30px;
     padding: 0px;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1px;
     @media (max-width: 767px) {
       grid-template-columns: 1fr 1fr 1fr;
