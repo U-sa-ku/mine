@@ -78,7 +78,6 @@ export default {
   },
   mounted() {
     this.pagenationLength = Math.ceil(this.totalCount / this.limit)
-    console.log(this.contents)
   },
   methods: {
     onLoad() {

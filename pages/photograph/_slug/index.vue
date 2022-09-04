@@ -107,7 +107,6 @@ export default {
     } else {
       this.photoUrl = `${this.photo.url}?dpr=2&w=1260`
     }
-    console.log(this.$route.params.page)
   },
   methods: {
     onLoad() {
