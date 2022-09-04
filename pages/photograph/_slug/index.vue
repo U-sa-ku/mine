@@ -42,6 +42,7 @@
         </nuxt-link>
       </div>
     </nav>
+    {{$route.query.list}}
   </main>
 </template>
 
