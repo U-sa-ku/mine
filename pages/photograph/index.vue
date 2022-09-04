@@ -78,7 +78,7 @@ export default {
   },
   mounted() {
     this.pagenationLength = Math.ceil(this.totalCount / this.limit)
-    currentPage: !this.$route.params.p ? 1 : this.$route.params.p
+    this.currentPage = !this.$route.params.p ? 1 : this.$route.params.p
   },
   methods: {
     onLoad() {
