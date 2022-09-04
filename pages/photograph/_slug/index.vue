@@ -18,7 +18,7 @@
           <span class="photographNavigation__caption">prev</span>
         </nuxt-link>
         <nuxt-link
-         :to="`/photograph/page/${listNumber}`"
+         :to="`/photograph/page/${listNumber}/`"
          class="photographNavigation__link photographNavigation__link--list"
         >
           <span class="photographNavigation__listIcon">
