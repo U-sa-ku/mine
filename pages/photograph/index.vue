@@ -73,11 +73,12 @@ export default {
     return {
       isLoaded: false,
       pagenationLength: null,
-      currentPage: !this.$route.params.p ? 1 : this.$route.params.p
+      currentPage: null,
     }
   },
   mounted() {
     this.pagenationLength = Math.ceil(this.totalCount / this.limit)
+    currentPage: !this.$route.params.p ? 1 : this.$route.params.p
   },
   methods: {
     onLoad() {
