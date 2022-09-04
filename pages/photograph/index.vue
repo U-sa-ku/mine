@@ -9,7 +9,7 @@
           :key="contents.id"
         >
           <nuxt-link
-            :to="`/photograph/${photograph.id}/`"
+            :to="`/photograph/${photograph.id}/?list=${currentPage}`"
             class="photographList__link"
           >
             <div class="photographList__imageBox">
@@ -36,7 +36,7 @@
           v-for="n of pagenationLength" :key="n">
           <nuxt-link
             :class="['photographList__pagenationLink', currentPage ==  n ? '--active' : '']"
-            :to="`/photograph/page/${n}`">
+            :to="`/photograph/page/${n}/`">
             {{ n }}
           </nuxt-link>
         </li>
@@ -78,6 +78,7 @@ export default {
   },
   mounted() {
     this.pagenationLength = Math.ceil(this.totalCount / this.limit)
+    console.log(this.contents)
   },
   methods: {
     onLoad() {

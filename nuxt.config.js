@@ -116,38 +116,39 @@ export default {
         })
         .then((res) =>
           range(1, Math.ceil(res.data.totalCount / notebookLimit)).map((p) => ({
-            route: `/notebook/page/${p}`,
+            route: `/notebook/page/${p}/`,
           }))
         )
 
-        // photograph一覧のページング
-        const photogpraghLimit = 20
-        const photograph = await axios
-          .get(`https://mine.microcms.io/api/v1/photograph?limit=0`, {
-            headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' },
-          })
-          .then((res) =>
-            range(1, Math.ceil(res.data.totalCount / photogpraghLimit)).map((p) => ({
-              route: `/photograph/page/${p}`,
-            }))
-          )
+      // photograph一覧のページング
+      const photogpraghLimit = 20
+      const photograph = await axios
+        .get(`https://mine.microcms.io/api/v1/photograph?limit=0`, {
+          headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' },
+        })
+        .then((res) =>
+          range(1, Math.ceil(res.data.totalCount / photogpraghLimit)).map((p) => ({
+            route: `/photograph/page/${p}/`,
+          }))
+        )
 
-      return notebook
-      return photograph
+      return notebook, photograph
     },
   },
 
   router: {
+    trailingSlash: true,
+    middleware: "redirect",
     linkActiveClass: '--active',
     extendRoutes(routes, resolve) {
       routes.push(
         {
-          path: '/notebook/page/:p',
+          path: '/notebook/page/:p/',
           component: resolve(__dirname,'pages/notebook/index.vue'),
           name: 'notebook',
         },
         {
-          path: '/photograph/page/:p',
+          path: '/photograph/page/:p/',
           component: resolve(__dirname,'pages/photograph/index.vue'),
           name: 'photograph',
         }
