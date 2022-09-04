@@ -18,7 +18,7 @@
           <span class="photographNavigation__caption">prev</span>
         </nuxt-link>
         <nuxt-link
-         :to="`/photograph/page/${listNumber}/`"
+         :to="`/photograph/page/${!$route.query.list ? 1 : $route.query.list}/`"
          class="photographNavigation__link photographNavigation__link--list"
         >
           <span class="photographNavigation__listIcon">
@@ -42,7 +42,6 @@
         </nuxt-link>
       </div>
     </nav>
-    {{$route.query.list}}
   </main>
 </template>
 
@@ -98,12 +97,8 @@ export default {
       prevPhotograph: [],
       isShowPrevPhotograph: false,
       nextPhotograph: [],
-      isShowNextPhotograph: false,
-      listNumber: null
+      isShowNextPhotograph: false
     }
-  },
-  created() {
-    this.setQuery()
   },
   mounted() {
     if(window.innerWidth <= 767) {
@@ -117,9 +112,6 @@ export default {
       this.isLoaded = true
       this.$nuxt.$emit("onLoad", this.isLoaded)
       this.$nuxt.$emit("initShowSiteHeader")
-    },
-    setQuery() {
-      this.listNumber = !this.$route.query.list ? 1 : this.$route.query.list
     }
   }
 }
