@@ -98,8 +98,11 @@ export default {
       isShowPrevPhotograph: false,
       nextPhotograph: [],
       isShowNextPhotograph: false,
-      listNumber: !this.$route.query.list ? 1 : this.$route.query.list
+      listNumber: null
     }
+  },
+  created() {
+    this.setQuery()
   },
   mounted() {
     if(window.innerWidth <= 767) {
@@ -113,6 +116,9 @@ export default {
       this.isLoaded = true
       this.$nuxt.$emit("onLoad", this.isLoaded)
       this.$nuxt.$emit("initShowSiteHeader")
+    },
+    setQuery() {
+      this.listNumber = !this.$route.query.list ? 1 : this.$route.query.list
     }
   }
 }
