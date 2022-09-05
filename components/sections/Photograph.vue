@@ -12,14 +12,12 @@
             v-for="photograph in photographs.contents"
             :key="photograph.id"
           >
-            <picture>
-              <source :data-srcset="`${photograph.photo.url}?dpr=2&w=340&q=80`" media="(max-width: 767px)">
-              <img
-                :data-src="`${photograph.photo.url}?dpr=2&w=1163&q=80`"
-                alt=""
-                class="photograph__image lazyload lazyloadImage"
-              >
-            </picture>
+            <img
+              :data-src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+              alt=""
+              class="photograph__image lazyload lazyloadImage"
+            >
+            <ObjectsImageLoading/>
           </swiper-slide>
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
@@ -67,11 +65,19 @@ export default {
             slidesPerView: 2
           }
         }
-      }
+      },
+      photoWidth: null
     }
   },
   props: {
     category: undefined
+  },
+  mounted() {
+    if(window.innerWidth <= 767) {
+      this.photoWidth = 340
+    } else {
+      this.photoWidth = 1210
+    }
   }
 }
 </script>

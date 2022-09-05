@@ -13,19 +13,17 @@
             class="photographList__link"
           >
             <div class="photographList__imageBox">
-              <picture>
-                <source :data-srcset="`${photograph.photo.url}?dpr=2&w=172&q=80`" media="(max-width: 767px)">
-                <img
-                  :data-src="`${photograph.photo.url}?dpr=2&w=305&q=80`"
-                  alt=""
-                  class="photographList__image lazyload lazyloadImage"
-                  @load="onLoad"
-                >
-              </picture>
+              <img
+                :data-src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+                alt=""
+                class="photographList__image lazyload lazyloadImage"
+                @load="onLoad"
+              >
               <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--top"></figure>
               <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--right"></figure>
               <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--bottom"></figure>
               <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--left"></figure>
+              <ObjectsImageLoading/>
             </div>
           </nuxt-link>
         </li>
@@ -74,11 +72,18 @@ export default {
       isLoaded: false,
       pagenationLength: null,
       currentPage: null,
+      photoWidth: null
     }
   },
   mounted() {
     this.pagenationLength = Math.ceil(this.totalCount / this.limit)
     this.currentPage = !this.$route.params.p ? '1' : this.$route.params.p
+
+    if(window.innerWidth <= 767) {
+      this.photoWidth = 124
+    } else {
+      this.photoWidth = 355
+    }
   },
   methods: {
     onLoad() {
