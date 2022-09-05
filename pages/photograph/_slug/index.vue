@@ -11,7 +11,7 @@
     <nav class="photographNavigation">
       <div class="photographNavigation__inner">
         <nuxt-link
-         :to="`/photograph/${prevPhotograph.id}/`"
+         :to="`/photograph/${prevPhotograph.id}/?list=${listNumber}`"
          v-if="isShowPrevPhotograph"
          class="photographNavigation__link photographNavigation__link--prev"
         >
@@ -34,7 +34,7 @@
           </span>
         </nuxt-link>
         <nuxt-link
-          :to="`/photograph/${nextPhotograph.id}/`"
+          :to="`/photograph/${nextPhotograph.id}/?list=${listNumber}`"
           v-if="isShowNextPhotograph"
           class="photographNavigation__link photographNavigation__link--next"
         >
@@ -108,8 +108,7 @@ export default {
       this.photoUrl = `${this.photo.url}?dpr=2&w=1260`
     }
 
-    this.listNumber = !this.$route.query.list ? 1 : this.$route.query.list
-    console.log(this.listNumber)
+    this.listNumber = !this.$route.query.list ? '1' : this.$route.query.list
   },
   methods: {
     onLoad() {
