@@ -58,6 +58,7 @@ export default {
     return data
   },
   async fetch() {
+    console.log(this.$route.query.list)
     const prevPhotographRespons = await fetch(
       `https://mine.microcms.io/api/v1/photograph?limit=1&fields=id&orders=-publishedAt&filters=publishedAt[less_than]${this.publishedAt}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
