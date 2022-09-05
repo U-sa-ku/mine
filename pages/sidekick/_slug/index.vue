@@ -28,6 +28,7 @@
               alt=""
               class="description__image lazyload lazyloadImage"
             >
+            <ObjectsImageLoading/>
           </div>
           <div
             class="description__leadBox"
@@ -246,6 +247,8 @@ $mainvisualAnimationStartDelay: 0s;
   }
   &__imageBox {
     width: 50%;
+    background-color: #000000;
+    position: relative;
     @media (max-width: 767px) {
       width: 100%;
       height: 100vw;
@@ -330,6 +333,9 @@ $mainvisualAnimationStartDelay: 0s;
     height: 42vw;
     margin: 0px auto 60px;
     display: block;
+    &:last-of-type {
+      margin-bottom: 0px;
+    }
     @media (min-width:1281px) {
       height: 538px;
     }

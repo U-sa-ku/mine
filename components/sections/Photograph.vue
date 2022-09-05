@@ -86,7 +86,7 @@ export default {
 .photograph {
   padding-top: 150px;
   @media (max-width: 999px) {
-    padding-top: 80px;
+    padding-top: 75px;
   }
   &__title {
     @include sectionTitle;

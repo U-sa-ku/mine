@@ -31,7 +31,7 @@ export default {
     color: #ffffff;
     font-family: $fontFamily_english;
     font-size: 1rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
     text-align: center;
     @media (max-width: 999px) {
       font-size: 0.8rem;
