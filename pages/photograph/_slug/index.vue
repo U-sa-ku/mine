@@ -105,7 +105,7 @@ export default {
     if(window.innerWidth <= 767) {
       this.photoUrl = `${this.photo.url}?dpr=2&w=375`
     } else {
-      this.photoUrl = `${this.photo.url}?dpr=2&w=1260`
+      this.photoUrl = `${this.photo.url}?dpr=2&w=1440`
     }
 
     this.listNumber = !this.$route.query.list ? '1' : this.$route.query.list
