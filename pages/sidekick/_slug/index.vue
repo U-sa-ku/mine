@@ -143,7 +143,7 @@ $mainvisualAnimationStartDelay: 0s;
     width: 60%;
     color: $color_lightGray;
     font-family: $fontFamily_english;
-    font-size: 7.7vw;
+    font-size: 7.6vw;
     line-height: 1;
     text-align: right;
     mix-blend-mode: overlay;
@@ -157,17 +157,20 @@ $mainvisualAnimationStartDelay: 0s;
     transition: 1s $mainvisualAnimationStartDelay + 1s;
     @media (max-width: 767px) {
       width: 90%;
+      transform: translateY(10vw) rotate(-90deg);
     }
     &.jsAnimation {
       opacity: 1;
-      transform: scaleY(1) rotate(-90deg);
+      @media (max-width: 767px) {
+        transform: translateY(0vw) rotate(-90deg);
+      }
     }
   }
   &__title {
     width: 100%;
     color: $color_lightGray;
     font-family: $fontFamily_english;
-    font-size: 7.7vw;
+    font-size: 7.6vw;
     line-height: 1;
     text-align: right;
     mix-blend-mode: overlay;
