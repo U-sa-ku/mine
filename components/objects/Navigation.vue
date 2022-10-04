@@ -124,11 +124,11 @@ export default {
     font-size: 9vw;
     line-height: 1;
     position: absolute;
-    right: 0%;
-    bottom: 0%;
+    right: -0.5vw;
+    bottom: -0.9vw;
     z-index: 1;
     opacity: 1;
-    mix-blend-mode: exclusion;
+    mix-blend-mode: soft-light;
     transition: 0.3s;
     @media (max-width: 767px) {
       font-size: 17vw;

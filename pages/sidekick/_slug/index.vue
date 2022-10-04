@@ -7,7 +7,7 @@
         @load="onLoad"
       >
       <p :class="['mainvisual__category', {jsAnimation: isLoaded}]">{{ id }}</p>
-      <h1 :class="['mainvisual__title', {jsAnimation: isLoaded}]">{{ maker }}<br>{{ name }}</h1>
+      <h1 :class="['mainvisual__title', {jsAnimation: isLoaded}]">{{ maker }} {{ name }}</h1>
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since_year }}.{{ since_month }}</p>
     </div>
     <section :class="['description', 'js-description', {jsAnimation: isLoaded}]">
@@ -143,10 +143,10 @@ $mainvisualAnimationStartDelay: 0s;
     width: 60%;
     color: $color_lightGray;
     font-family: $fontFamily_english;
-    font-size: 9vw;
+    font-size: 7.7vw;
     line-height: 1;
     text-align: right;
-    mix-blend-mode: difference;
+    mix-blend-mode: overlay;
     position: absolute;
     right: 101vw;
     top: 0px;
@@ -157,7 +157,6 @@ $mainvisualAnimationStartDelay: 0s;
     transition: 1s $mainvisualAnimationStartDelay + 1s;
     @media (max-width: 767px) {
       width: 90%;
-      font-size: 15vw;
     }
     &.jsAnimation {
       opacity: 1;
@@ -168,10 +167,10 @@ $mainvisualAnimationStartDelay: 0s;
     width: 100%;
     color: $color_lightGray;
     font-family: $fontFamily_english;
-    font-size: 9vw;
+    font-size: 7.7vw;
     line-height: 1;
     text-align: right;
-    mix-blend-mode: difference;
+    mix-blend-mode: overlay;
     margin-bottom: -0.8vw;
     position: absolute;
     right: 0vw;
@@ -181,18 +180,15 @@ $mainvisualAnimationStartDelay: 0s;
     transform: scaleY(0);
     transform-origin: 0% 100%;
     transition: 1s $mainvisualAnimationStartDelay + 1.5s;
-    @media (max-width: 767px) {
-      font-size: 15vw;
-    }
     &.jsAnimation {
       opacity: 1;
       transform: scaleY(1);
     }
   }
   &__since {
-    color: #ffffff;
+    color: $color_lightGray;
     font-family: $fontFamily_english;
-    font-size: 2vw;
+    font-size: 1.8vw;
     letter-spacing: 0.1em;
     position: absolute;
     right: 0px;
@@ -203,7 +199,7 @@ $mainvisualAnimationStartDelay: 0s;
     transform-origin: 0% 100%;
     transition: 1s $mainvisualAnimationStartDelay + 2s;
     @media (max-width: 767px) {
-      font-size: 4vw;
+      font-size: 3vw;
       bottom: -6vw;
     }
     &.jsAnimation {
@@ -218,11 +214,11 @@ $mainvisualAnimationStartDelay: 0s;
   &__title {
     @include sectionTitle;
     font-family: $fontFamily_japanese;
-    font-size: 3rem;
+    font-size: 2.6rem;
     line-height: 1.8;
     margin-top: 10vw;
     @media (max-width: 767px) {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       margin-top: 20vw;
     }
   }
