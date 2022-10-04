@@ -7,7 +7,9 @@
         @load="onLoad"
       >
       <p :class="['mainvisual__category', {jsAnimation: isLoaded}]">{{ id }}</p>
-      <h1 :class="['mainvisual__title', {jsAnimation: isLoaded}]">{{ maker }} {{ name }}</h1>
+      <h1 :class="['mainvisual__title', {jsAnimation: isLoaded}]">
+        <span class="mainvisual__titleInner">{{ maker }} {{ name }}</span>
+      </h1>
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since_year }}.{{ since_month }}</p>
     </div>
     <section :class="['description', 'js-description', {jsAnimation: isLoaded}]">
@@ -175,11 +177,11 @@ $mainvisualAnimationStartDelay: 0s;
     line-height: 1;
     text-align: right;
     mix-blend-mode: exclusion;
-    margin-bottom: -0.6vw;
     position: absolute;
     right: 0vw;
     bottom: 0vw;
     z-index: 1;
+    overflow: hidden;
     opacity: 0;
     transform: scaleY(0);
     transform-origin: 0% 100%;
@@ -191,6 +193,10 @@ $mainvisualAnimationStartDelay: 0s;
       opacity: 1;
       transform: scaleY(1);
     }
+  }
+  &__titleInner {
+    display: inline-block;
+    transform: translate(0.4vw, 0.6vw);
   }
   &__since {
     color: $color_lightGray;
