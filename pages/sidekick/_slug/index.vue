@@ -206,7 +206,7 @@ $mainvisualAnimationStartDelay: 0s;
     transform-origin: 0% 100%;
     transition: 1s $mainvisualAnimationStartDelay + 2s;
     @media (max-width: 767px) {
-      font-size: 3vw;
+      font-size: 3.4vw;
       bottom: -6vw;
     }
     &.jsAnimation {
