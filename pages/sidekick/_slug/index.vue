@@ -157,7 +157,7 @@ $mainvisualAnimationStartDelay: 0s;
     transition: 1s $mainvisualAnimationStartDelay + 1s;
     @media (max-width: 767px) {
       width: 90%;
-      font-size: 10vw;
+      font-size: 9.6vw;
       transform: translateY(10vw) rotate(-90deg);
     }
     &.jsAnimation {
@@ -185,7 +185,7 @@ $mainvisualAnimationStartDelay: 0s;
     transform-origin: 0% 100%;
     transition: 1s $mainvisualAnimationStartDelay + 1.5s;
     @media (max-width: 767px) {
-      font-size: 10vw;
+      font-size: 9.6vw;
     }
     &.jsAnimation {
       opacity: 1;

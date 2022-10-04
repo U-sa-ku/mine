@@ -128,7 +128,7 @@ export default {
     bottom: -0.9vw;
     z-index: 1;
     opacity: 1;
-    mix-blend-mode: soft-light;
+    mix-blend-mode: exclusion;
     transition: 0.3s;
     @media (max-width: 767px) {
       font-size: 17vw;
