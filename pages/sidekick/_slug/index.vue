@@ -88,7 +88,7 @@ export default {
       this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=365`
       this.descriptionImageParam = '?dpr=2&w=375'
     } else {
-      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1260`
+      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1440`
       this.descriptionImageParam = '?dpr=2&w=640'
     }
   },
