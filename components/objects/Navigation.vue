@@ -1,19 +1,51 @@
 <template>
   <nav :class="['navigation', {jsScrolledWindowHeight: isScrolledWindowHeight}]">
     <div
-      :class="`navigation__item navigation__item--${navigation.slug}`"
-      v-for="navigation in navigations.contents"
-      :key="navigation.id"
+      :class="`navigation__item navigation__item--2wheels`"
       @click="initShow"
     >
       <nuxt-link
-        :to="`/sidekick/${navigation.slug}/`"
+        :to="`/sidekick/2wheels/`"
         class="navigation__link"
       >
-        <p class="navigation__caption">{{ navigation.caption }}</p>
+        <p class="navigation__caption">2wheels</p>
         <img
-          :src="`${navigation.photo.url}${mainvisualUrlParam}`"
-          :alt="navigation.caption"
+          :src="`https://images.microcms-assets.io/assets/7d34d4e4f5c644a5bdf1dcb3cbe69450/2e3b7f0d11de4b75aea928c30265ffee/img_navigation_2wheels.jpg${mainvisualUrlParam}`"
+          alt="2wheels"
+          :class="['navigation__image', {jsAnimation: isLoaded}]"
+          @load="onLoad"
+        >
+      </nuxt-link>
+    </div>
+    <div
+      :class="`navigation__item navigation__item--mirrorless`"
+      @click="initShow"
+    >
+      <nuxt-link
+        :to="`/sidekick/mirrorless/`"
+        class="navigation__link"
+      >
+        <p class="navigation__caption">mirrorless</p>
+        <img
+          :src="`https://images.microcms-assets.io/assets/7d34d4e4f5c644a5bdf1dcb3cbe69450/6f8c1337db264641adaf4f3215a8067c/img_navigation_mirrorless.jpg${mainvisualUrlParam}`"
+          alt="mirrorless"
+          :class="['navigation__image', {jsAnimation: isLoaded}]"
+          @load="onLoad"
+        >
+      </nuxt-link>
+    </div>
+    <div
+      :class="`navigation__item navigation__item--4wheels`"
+      @click="initShow"
+    >
+      <nuxt-link
+        :to="`/sidekick/4wheels/`"
+        class="navigation__link"
+      >
+        <p class="navigation__caption">4wheels</p>
+        <img
+          :src="`https://images.microcms-assets.io/assets/7d34d4e4f5c644a5bdf1dcb3cbe69450/65edafdbec594acf9913defb76711138/img_navigation_4wheels.jpg${mainvisualUrlParam}`"
+          alt="4wheels"
           :class="['navigation__image', {jsAnimation: isLoaded}]"
           @load="onLoad"
         >
@@ -24,15 +56,8 @@
 
 <script>
 export default {
-  async fetch() {
-    this.navigations = await fetch(
-      'https://mine.microcms.io/api/v1/navigation',
-      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-    ).then(res => res.json())
-  },
   data() {
     return {
-      navigations: [],
       mainvisualUrlParam: '',
       isLoaded: false
     }

@@ -1,44 +1,44 @@
 <template>
   <main class="mainContents">
-    <div class="photograph">
+    <div class="snapshot">
       <img
         :src="`${photoUrl}`"
         alt=""
-        :class="['photograph__image',{jsAnimation: isLoaded}]"
+        :class="['snapshot__image',{jsAnimation: isLoaded}]"
         @load="onLoad"
       >
     </div>
-    <nav class="photographNavigation">
-      <div class="photographNavigation__inner">
+    <nav class="snapshotNavigation">
+      <div class="snapshotNavigation__inner">
         <nuxt-link
-         :to="`/photograph/${prevPhotograph.id}/?list=${listNumber}`"
-         v-if="isShowPrevPhotograph"
-         class="photographNavigation__link photographNavigation__link--prev"
+         :to="`/snapshot/${prevsnapshot.id}/?list=${listNumber}`"
+         v-if="isShowPrevsnapshot"
+         class="snapshotNavigation__link snapshotNavigation__link--prev"
         >
-          <span class="photographNavigation__caption">prev</span>
+          <span class="snapshotNavigation__caption">prev</span>
         </nuxt-link>
         <nuxt-link
-         :to="`/photograph/page/${listNumber}/`"
-         class="photographNavigation__link photographNavigation__link--list"
+         :to="`/snapshot/page/${listNumber}/`"
+         class="snapshotNavigation__link snapshotNavigation__link--list"
         >
-          <span class="photographNavigation__listIcon">
-            <i class="photographNavigation__listIconSquare"></i>
-            <i class="photographNavigation__listIconSquare"></i>
-            <i class="photographNavigation__listIconSquare"></i>
-            <i class="photographNavigation__listIconSquare"></i>
-            <i class="photographNavigation__listIconSquare"></i>
-            <i class="photographNavigation__listIconSquare"></i>
-            <i class="photographNavigation__listIconSquare"></i>
-            <i class="photographNavigation__listIconSquare"></i>
-            <i class="photographNavigation__listIconSquare"></i>
+          <span class="snapshotNavigation__listIcon">
+            <i class="snapshotNavigation__listIconSquare"></i>
+            <i class="snapshotNavigation__listIconSquare"></i>
+            <i class="snapshotNavigation__listIconSquare"></i>
+            <i class="snapshotNavigation__listIconSquare"></i>
+            <i class="snapshotNavigation__listIconSquare"></i>
+            <i class="snapshotNavigation__listIconSquare"></i>
+            <i class="snapshotNavigation__listIconSquare"></i>
+            <i class="snapshotNavigation__listIconSquare"></i>
+            <i class="snapshotNavigation__listIconSquare"></i>
           </span>
         </nuxt-link>
         <nuxt-link
-          :to="`/photograph/${nextPhotograph.id}/?list=${listNumber}`"
-          v-if="isShowNextPhotograph"
-          class="photographNavigation__link photographNavigation__link--next"
+          :to="`/snapshot/${nextsnapshot.id}/?list=${listNumber}`"
+          v-if="isShowNextsnapshot"
+          class="snapshotNavigation__link snapshotNavigation__link--next"
         >
-          <span class="photographNavigation__caption">next</span>
+          <span class="snapshotNavigation__caption">next</span>
         </nuxt-link>
       </div>
     </nav>
@@ -50,7 +50,7 @@ import axios from 'axios'
 export default {
   async asyncData({ params }) {
     const { data } = await axios.get(
-      `https://mine.microcms.io/api/v1/photograph/${params.slug}`,
+      `https://mine.microcms.io/api/v1/snapshot/${params.slug}`,
       {
         headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' }
       }
@@ -58,33 +58,33 @@ export default {
     return data
   },
   async fetch() {
-    const prevPhotographRespons = await fetch(
-      `https://mine.microcms.io/api/v1/photograph?limit=1&fields=id&orders=-publishedAt&filters=publishedAt[less_than]${this.publishedAt}`,
+    const prevsnapshotRespons = await fetch(
+      `https://mine.microcms.io/api/v1/snapshot?limit=1&fields=id&orders=-publishedAt&filters=publishedAt[less_than]${this.publishedAt}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
-    const nextPhotographRespons = await fetch(
-      `https://mine.microcms.io/api/v1/photograph?limit=1&fields=id&orders=publishedAt&filters=publishedAt[greater_than]${this.publishedAt}`,
+    const nextsnapshotRespons = await fetch(
+      `https://mine.microcms.io/api/v1/snapshot?limit=1&fields=id&orders=publishedAt&filters=publishedAt[greater_than]${this.publishedAt}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
 
-    if(prevPhotographRespons.contents.length != 0) {
-      this.prevPhotograph = prevPhotographRespons.contents[0]
-      this.isShowPrevPhotograph = true
+    if(prevsnapshotRespons.contents.length != 0) {
+      this.prevsnapshot = prevsnapshotRespons.contents[0]
+      this.isShowPrevsnapshot = true
     }
 
-    if(nextPhotographRespons.contents.length != 0) {
-      this.nextPhotograph = nextPhotographRespons.contents[0]
-      this.isShowNextPhotograph = true
+    if(nextsnapshotRespons.contents.length != 0) {
+      this.nextsnapshot = nextsnapshotRespons.contents[0]
+      this.isShowNextsnapshot = true
     }
   },
   head(){
     return {
-      title: `photograph | mine`,
+      title: `snapshot | mine`,
       meta: [
-        { hid: 'description', name: 'description', content: 'ミラーレス一眼で撮った写真' },
+        { hid: 'description', name: 'description', content: 'スマートフォン一眼で撮った写真' },
         { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: `photograph | mine` },
-        { hid: 'og:description', property: 'og:description', content: 'ミラーレス一眼で撮った写真' },
+        { hid: 'og:title', property: 'og:title', content: `snapshot | mine` },
+        { hid: 'og:description', property: 'og:description', content: 'スマートフォン一眼で撮った写真' },
         { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` }
       ]
     }
@@ -93,10 +93,10 @@ export default {
     return {
       isLoaded: false,
       photoUrl: "",
-      prevPhotograph: [],
-      isShowPrevPhotograph: false,
-      nextPhotograph: [],
-      isShowNextPhotograph: false,
+      prevsnapshot: [],
+      isShowPrevsnapshot: false,
+      nextsnapshot: [],
+      isShowNextsnapshot: false,
       listNumber: null
     }
   },
@@ -120,7 +120,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.photograph {
+.snapshot {
   background-color: #000000;
   margin-bottom: 15px;
   position: relative;
@@ -148,7 +148,7 @@ export default {
     }
   }
 }
-.photographNavigation {
+.snapshotNavigation {
   max-width: 1280px;
   margin: 0px auto;
   padding: 0px 30px;

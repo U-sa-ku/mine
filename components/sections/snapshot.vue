@@ -1,21 +1,21 @@
 <template>
-  <section class="photograph">
-    <h2 class="photograph__title">photograph</h2>
-    <div class="photograph__slider">
+  <section class="snapshot">
+    <h2 class="snapshot__title">snapshot</h2>
+    <div class="snapshot__slider">
       <client-only>
         <swiper
-          class="photograph__slider photograph__slider--hero"
+          class="snapshot__slider snapshot__slider--hero"
           :options="swiperOption"
         >
           <swiper-slide
-            class="photograph__slide"
-            v-for="photograph in photographs.contents"
-            :key="photograph.id"
+            class="snapshot__slide"
+            v-for="snapshot in snapshots.contents"
+            :key="snapshot.id"
           >
             <img
-              :data-src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+              :data-src="`${snapshot.photo.url}?dpr=2&w=${photoWidth}&q=80`"
               alt=""
-              class="photograph__image lazyload lazyloadImage"
+              class="snapshot__image lazyload lazyloadImage"
             >
             <ObjectsImageLoading/>
           </swiper-slide>
@@ -24,13 +24,13 @@
         </swiper>
       </client-only>
     </div>
-    <p class="photograph__noPost" v-if="photographs.totalCount == 0">no post</p>
-    <div class="photograph__moreButton" v-if="photographs.totalCount != 0">
+    <p class="snapshot__noPost" v-if="snapshots.totalCount == 0">no post</p>
+    <div class="snapshot__moreButton" v-if="snapshots.totalCount != 0">
       <nuxt-link
-        to="/photograph/"
-        class="photograph__moreLink"
+        to="/snapshot/"
+        class="snapshot__moreLink"
       >
-        more photograph
+        more snapshot
       </nuxt-link>
     </div>
   </section>
@@ -39,14 +39,14 @@
 <script>
 export default {
   async fetch() {
-    this.photographs = await fetch(
-      `https://mine.microcms.io/api/v1/photograph?limit=50${this.category === undefined ? '&filters=pickup[equals]True' : `&filters=category[contains]${this.category}`}`,
+    this.snapshots = await fetch(
+      "https://mine.microcms.io/api/v1/snapshot?limit=50",
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
   },
   data() {
     return {
-      photographs: [],
+      snapshots: [],
       swiperOption: {
         slidesPerView: 1.1,
         spaceBetween: 10,
@@ -69,9 +69,6 @@ export default {
       photoWidth: null
     }
   },
-  props: {
-    category: undefined
-  },
   mounted() {
     if(window.innerWidth <= 767) {
       this.photoWidth = 340
@@ -83,7 +80,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.photograph {
+.snapshot {
   padding-top: 150px;
   @media (max-width: 999px) {
     padding-top: 75px;

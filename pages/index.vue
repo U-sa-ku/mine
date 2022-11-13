@@ -20,6 +20,7 @@
       @onLoad="onLoad"
     />
     <sectionsPhotograph/>
+    <sectionsSnapshot/>
   </main>
 </template>
 
@@ -150,7 +151,7 @@ $mainvisualAnimationStartDelay: 1s;
     $borderOffset: 10px;
     $borderWidth: 2px;
     $borderOffsetSp: 5px;
-    $borderWidthSp: 2px;
+    $borderWidthSp: 1px;
     &--top {
       width: calc(100% - #{$borderOffset*2});
       height: $borderWidth;

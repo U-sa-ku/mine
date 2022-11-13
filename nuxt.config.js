@@ -120,17 +120,17 @@ export default {
           }))
         )
 
-      // snapshot一覧のページング
-      // const snapshotLimit = 20
-      // const snapshot = await axios
-      //   .get(`https://mine.microcms.io/api/v1/snapshot?limit=0`, {
-      //     headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' },
-      //   })
-      //   .then((res) =>
-      //     range(1, Math.ceil(res.data.totalCount / snapshotLimit)).map((p) => ({
-      //       route: `/snapshot/page/${p}/`,
-      //     }))
-      //   )
+      snapshot一覧のページング
+      const snapshotLimit = 20
+      const snapshot = await axios
+        .get(`https://mine.microcms.io/api/v1/snapshot?limit=0`, {
+          headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' },
+        })
+        .then((res) =>
+          range(1, Math.ceil(res.data.totalCount / snapshotLimit)).map((p) => ({
+            route: `/snapshot/page/${p}/`,
+          }))
+        )
 
       return photograph
     },
@@ -147,11 +147,11 @@ export default {
           component: resolve(__dirname,'pages/photograph/index.vue'),
           name: 'photograph',
         },
-        // {
-        //   path: '/snapshot/page/:p/',
-        //   component: resolve(__dirname,'pages/snapshot/index.vue'),
-        //   name: 'snapshot',
-        // }
+        {
+          path: '/snapshot/page/:p/',
+          component: resolve(__dirname,'pages/snapshot/index.vue'),
+          name: 'snapshot',
+        }
       )
     }
   }
