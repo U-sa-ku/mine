@@ -1,40 +1,40 @@
 <template>
   <main class="mainContents">
-    <section :class="['photographList','js-photographList',{jsAnimation:isLoaded}]">
-      <h2 class="photographList__title">photograph</h2>
-      <ul class="photographList__list">
+    <section :class="['snapshotList','js-snapshotList',{jsAnimation:isLoaded}]">
+      <h2 class="snapshotList__title">snapshot</h2>
+      <ul class="snapshotList__list">
         <li
-          class="photographList__listItem"
-          v-for="photograph in contents"
+          class="snapshotList__listItem"
+          v-for="snapshot in contents"
           :key="contents.id"
         >
           <nuxt-link
-            :to="`/photograph/${photograph.id}/?list=${currentPage}`"
-            class="photographList__link"
+            :to="`/snapshot/${snapshot.id}/?list=${currentPage}`"
+            class="snapshotList__link"
           >
-            <div class="photographList__imageBox">
+            <div class="snapshotList__imageBox">
               <img
-                :data-src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+                :data-src="`${snapshot.photo.url}?dpr=2&w=${photoWidth}&q=80`"
                 alt=""
-                class="photographList__image lazyload lazyloadImage"
+                class="snapshotList__image lazyload lazyloadImage"
                 @load="onLoad"
               >
-              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--top"></figure>
-              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--right"></figure>
-              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--bottom"></figure>
-              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--left"></figure>
+              <figure class="snapshotList__imageBoxFrame snapshotList__imageBoxFrame--top"></figure>
+              <figure class="snapshotList__imageBoxFrame snapshotList__imageBoxFrame--right"></figure>
+              <figure class="snapshotList__imageBoxFrame snapshotList__imageBoxFrame--bottom"></figure>
+              <figure class="snapshotList__imageBoxFrame snapshotList__imageBoxFrame--left"></figure>
               <ObjectsImageLoading/>
             </div>
           </nuxt-link>
         </li>
       </ul>
-      <ul class="photographList__pagination">
+      <ul class="snapshotList__pagination">
         <li
-          class="photographList__paginationItem"
+          class="snapshotList__paginationItem"
           v-for="n of paginationLength" :key="n">
           <nuxt-link
-            :class="['photographList__paginationLink', currentPage ==  n ? '--active' : '']"
-            :to="`/photograph/page/${n}/`">
+            :class="['snapshotList__paginationLink', currentPage ==  n ? '--active' : '']"
+            :to="`/snapshot/page/${n}/`">
             {{ n }}
           </nuxt-link>
         </li>
@@ -50,19 +50,19 @@ export default {
     const page = params.p || '1'
     const limit = 24
     const { data } = await axios.get(
-      `https://mine.microcms.io/api/v1/photograph?limit=${limit}&orders=-publishedAt&offset=${(page - 1) * limit}`,
+      `https://mine.microcms.io/api/v1/snapshot?limit=${limit}&orders=-publishedAt&offset=${(page - 1) * limit}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     )
     return data
   },
   head(){
     return {
-      title: `photograph | mine`,
+      title: `snapshot | mine`,
       meta: [
-        { hid: 'description', name: 'description', content: 'ミラーレス一眼で撮った写真の一覧' },
+        { hid: 'description', name: 'description', content: 'スマートフォンで撮った写真の一覧' },
         { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: `photograph | mine` },
-        { hid: 'og:description', property: 'og:description', content: 'ミラーレス一眼で撮った写真の一覧' },
+        { hid: 'og:title', property: 'og:title', content: `snapshot | mine` },
+        { hid: 'og:description', property: 'og:description', content: 'スマートフォンで撮った写真の一覧' },
         { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` }
       ]
     }
@@ -96,7 +96,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.photographList {
+.snapshotList {
   padding: 150px 0px 0px;
   @media (max-width: 999px) {
     padding-top: 90px;
@@ -126,7 +126,7 @@ export default {
     display: block;
     @media (min-width: 769px) {
       &:hover {
-        .photographList__imageBoxFrame {
+        .snapshotList__imageBoxFrame {
           transform: scale(1);
         }
       }
@@ -227,7 +227,7 @@ export default {
     }
   }
 }
-.js-photographList {
+.js-snapshotList {
   opacity: 0;
   transform: translateY(100px);
   transition: 1s 0.5s;
