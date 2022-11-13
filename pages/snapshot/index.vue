@@ -40,6 +40,7 @@
         </li>
       </ul>
     </section>
+    <sectionsPhotograph/>
   </main>
 </template>
 

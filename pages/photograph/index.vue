@@ -40,6 +40,7 @@
         </li>
       </ul>
     </section>
+    <sectionsSnapshot/>
   </main>
 </template>
 

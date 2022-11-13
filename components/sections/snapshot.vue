@@ -81,7 +81,7 @@ export default {
 
 <style lang="scss" scoped>
 .snapshot {
-  padding-top: 150px;
+  padding-top: 200px;
   @media (max-width: 999px) {
     padding-top: 100px;
   }
