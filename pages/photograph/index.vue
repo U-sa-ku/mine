@@ -59,11 +59,11 @@ export default {
     return {
       title: `photograph | mine`,
       meta: [
-        { hid: 'description', name: 'description', content: 'ミラーレス一眼で撮った写真' },
+        { hid: 'description', name: 'description', content: 'ミラーレス一眼で撮った写真の一覧' },
         { hid: 'og:type', property: 'og:type', content: 'article' },
         { hid: 'og:title', property: 'og:title', content: `photograph | mine` },
-        { hid: 'og:description', property: 'og:description', content: 'ミラーレス一眼で撮った写真' },
-        { hid: 'og:url', property: 'og:url', content: 'https://mine-u-saku.netlify.app/ogp.png' }
+        { hid: 'og:description', property: 'og:description', content: 'ミラーレス一眼で撮った写真の一覧' },
+        { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` }
       ]
     }
   },
