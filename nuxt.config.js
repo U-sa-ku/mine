@@ -132,7 +132,7 @@ export default {
       //     }))
       //   )
 
-      return notebook, photograph, snapshot
+      return photograph, snapshot
     },
   },
 
