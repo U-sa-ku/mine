@@ -1,6 +1,6 @@
 <template>
-  <main class="mainContents">
-    <section :class="['snapshotList','js-snapshotList',{jsAnimation:isLoaded}]">
+  <main :class="['mainContents','js-mainContents',{jsAnimation:isLoaded}]">
+    <section class="snapshotList">
       <h2 class="snapshotList__title">snapshot</h2>
       <ul class="snapshotList__list">
         <li
@@ -228,7 +228,7 @@ export default {
     }
   }
 }
-.js-snapshotList {
+.js-mainContents {
   opacity: 0;
   transform: translateY(100px);
   transition: 1s 0.5s;

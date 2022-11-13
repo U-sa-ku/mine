@@ -1,6 +1,6 @@
 <template>
-  <main class="mainContents">
-    <section :class="['photographList','js-photographList',{jsAnimation:isLoaded}]">
+  <main :class="['mainContents','js-mainContents',{jsAnimation:isLoaded}]">
+    <section class="photographList">
       <h2 class="photographList__title">photograph</h2>
       <ul class="photographList__list">
         <li
@@ -228,7 +228,7 @@ export default {
     }
   }
 }
-.js-photographList {
+.js-mainContents {
   opacity: 0;
   transform: translateY(100px);
   transition: 1s 0.5s;
