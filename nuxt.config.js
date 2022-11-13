@@ -120,7 +120,7 @@ export default {
           }))
         )
 
-      snapshot一覧のページング
+      // snapshot一覧のページング
       const snapshotLimit = 20
       const snapshot = await axios
         .get(`https://mine.microcms.io/api/v1/snapshot?limit=0`, {
