@@ -51,18 +51,16 @@ export default {
         slidesPerView: 1.1,
         spaceBetween: 10,
         centeredSlides: true,
-        loop: true,
-        loopAdditionalSlides: 0,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         },
         breakpoints: {
-          1281: {
-            slidesPerView: 1.295
+          768: {
+            slidesPerView: 1
           },
           1921: {
-            slidesPerView: 2
+            slidesPerView: 1.5
           }
         }
       },
@@ -76,7 +74,7 @@ export default {
     if(window.innerWidth <= 767) {
       this.photoWidth = 340
     } else {
-      this.photoWidth = 1210
+      this.photoWidth = 1440
     }
   }
 }
@@ -107,10 +105,10 @@ export default {
       height: 51vw;
     }
     @media (min-width: 1281px) {
-      height: 43vw;
+      height: 55.7vw;
     }
     @media (min-width: 1921px) {
-      height: 28vw;
+      height: 37.2vw;
     }
   }
   &__image {
@@ -137,6 +135,7 @@ export default {
       top: 7px;
     }
     &-prev {
+      transition: 0.3s;
       transform: scaleY(2);
       @media (max-width: 768px) {
         display: none;
@@ -147,6 +146,7 @@ export default {
       }
     }
     &-next {
+      transition: 1s;
       transform: scaleY(2);
       @media (max-width: 768px) {
         display: none;
@@ -155,6 +155,9 @@ export default {
         right: 6px;
         transform: rotate(45deg);
       }
+    }
+    &-disabled {
+      opacity: 0;
     }
   }
   &__moreButton {
