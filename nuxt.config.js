@@ -138,7 +138,7 @@ export default {
 
   router: {
     trailingSlash: true,
-    middleware: "redirect",
+    //middleware: "redirect",
     linkActiveClass: '--active',
     extendRoutes(routes, resolve) {
       routes.push(
