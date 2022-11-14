@@ -132,8 +132,8 @@ export default {
           }))
         )
 
-      return photograph, snapshot
-    },
+      return [...photograph, ...snapshot]
+    }
   },
 
   router: {
