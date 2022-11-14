@@ -109,7 +109,7 @@ export default {
         [...Array(end - start + 1)].map((_, i) => start + i)
 
       // photograph一覧のページング
-      const photograghLimit = 20
+      const photograghLimit = 24
       const photograph = await axios
         .get(`https://mine.microcms.io/api/v1/photograph?limit=0`, {
           headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' },
@@ -121,7 +121,7 @@ export default {
         )
 
       // snapshot一覧のページング
-      const snapshotLimit = 20
+      const snapshotLimit = 24
       const snapshot = await axios
         .get(`https://mine.microcms.io/api/v1/snapshot?limit=0`, {
           headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' },
