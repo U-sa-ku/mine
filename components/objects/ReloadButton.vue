@@ -28,6 +28,12 @@ export default {
     right: 10px;
     bottom: 10px;
   }
+  @media (min-width: 769px) {
+    transition: 0.3s;
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
   &__icon {
     width: 40px;
     height: 40px;

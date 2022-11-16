@@ -67,6 +67,17 @@ export default {
         bottom: 9px;
       }
     }
+    @media (min-width: 769px) {
+      transition: 0.3s;
+      &:hover {
+        &:before {
+          transform: translate(-50%, -2px);
+        }
+        &:after {
+          transform: translate(-50%, 2px);
+        }
+      }
+    }
     &.jsClose {
       &:before {
         top: 10px;

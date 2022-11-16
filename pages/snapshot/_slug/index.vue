@@ -245,12 +245,19 @@ export default {
     width: 30px;
     height: 30px;
     display: grid;
-    grid-template-columns: 24% 24% 24%;
-    grid-template-rows: 24% 24% 24%;
-    gap: 14%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
     @media (max-width: 999px) {
       width: 24px;
       height: 24px;
+      gap: 4px;
+    }
+    @media (min-width: 769px) {
+      transition: 0.3s;
+      &:hover {
+        gap: 3px;
+      }
     }
   }
   &__listIconSquare {
