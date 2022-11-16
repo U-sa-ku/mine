@@ -18,14 +18,14 @@ export default {
 .siteFooter {
   width: 100%;
   background: $gradient_primary;
-  padding: 30px 0px;
+  padding: 32px 0px;
   position: absolute;
   left: 0px;
   bottom: 0px;
   z-index: 1;
   @media (max-width: 999px) {
     text-align: center;
-    padding: 15px 0px;
+    padding: 17px 0px;
     display: block;
   }
   &__copyright {

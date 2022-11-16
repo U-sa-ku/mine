@@ -30,10 +30,10 @@ export default {
   }
   &__icon {
     width: 40px;
-    height: 36px;
+    height: 40px;
     @media (max-width: 999px) {
-      width: 24px;
-      height: 26px;
+      width: 30px;
+      height: 30px;
     }
   }
 }

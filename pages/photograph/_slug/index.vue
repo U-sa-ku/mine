@@ -129,9 +129,10 @@ export default {
     margin-top: 70px;
   }
   @media (max-width: 999px) {
-    height: calc(100vh - 110px);
-    height: calc(100dvh - 110px);
+    height: calc(100vh - 93px);
+    height: calc(100dvh - 93px);
     margin-top: 40px;
+    margin-bottom: 10px;
   }
   &__image {
     max-width: 100%;
@@ -156,6 +157,8 @@ export default {
     padding: 0px 15px;
   }
   &__inner {
+    width: 24px;
+    margin: 0px auto;
     position: relative;
     @media (min-width: 768px) {
       padding-top: 60px;
@@ -197,7 +200,10 @@ export default {
     }
     &--prev {
       padding-left: 30px;
-      left: 0px;
+      right: 70px;
+      @media (max-width: 999px) {
+        right: 45px;
+      }
       &:before {
         border-width: 0px 0px 1px 2px;
         left: 0px;
@@ -213,7 +219,10 @@ export default {
     &--next {
       text-align: right;
       padding-right: 30px;
-      right: 0px;
+      left: 70px;
+      @media (max-width: 999px) {
+        left: 45px;
+      }
       &:before {
         border-width: 0px 2px 1px 0px;
         transform-origin: 1000% 100%;
