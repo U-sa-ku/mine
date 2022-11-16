@@ -1,6 +1,6 @@
 <template>
   <section class="photograph">
-    <h2 class="photograph__title">photographhhhhhh</h2>
+    <h2 class="photograph__title">photograph</h2>
     <div class="photograph__slider">
       <client-only>
         <swiper
