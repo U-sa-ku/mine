@@ -205,7 +205,7 @@ export default {
         right: 45px;
       }
       &:before {
-        border-width: 0px 0px 1px 2px;
+        border-width: 0px 0px 1px 1.5px;
         left: 0px;
         transform-origin: 0% 100%;
         transform: skewX(-45deg);
@@ -224,7 +224,7 @@ export default {
         left: 45px;
       }
       &:before {
-        border-width: 0px 2px 1px 0px;
+        border-width: 0px 1.5px 1px 0px;
         transform-origin: 1000% 100%;
         transform: skewX(45deg);
         right: 0px;
