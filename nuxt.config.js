@@ -96,13 +96,6 @@ export default {
     background_color: '#252525'
   },
 
-  pwa: {
-    workboxPluginMode: 'GenerateSW',
-    workboxOptions: {
-      exclude: /_redirects/
-    }
-  },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     vendor: [

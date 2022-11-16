@@ -17,6 +17,12 @@
       class="siteHeader__link"
     >
     </nuxt-link>
+    <div
+      class="updateButton"
+      @click="reload"
+    >
+      更新
+    </div>
   </header>
 </template>
 
@@ -44,12 +50,21 @@ export default {
       } else {
         this.isScrolledWindowHeight = false
       }
+    },
+    reload() {
+      location.reload();
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.updateButton {
+  position: absolute;
+  right: 100px;
+  top: 20px;
+  z-index: 10;
+}
 .siteHeader {
   width: 100%;
   height: 70px;
