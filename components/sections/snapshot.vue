@@ -48,7 +48,7 @@ export default {
     return {
       snapshots: [],
       swiperOption: {
-        slidesPerView: 1.1,
+        slidesPerView: 1,
         spaceBetween: 10,
         centeredSlides: true,
         navigation: {
@@ -57,10 +57,10 @@ export default {
         },
         breakpoints: {
           768: {
-            slidesPerView: 1.1
+            slidesPerView: 1
           },
           1921: {
-            slidesPerView: 1.5
+            slidesPerView: 1
           }
         }
       },
