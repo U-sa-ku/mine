@@ -48,7 +48,7 @@ export default {
     return {
       photographs: [],
       swiperOption: {
-        slidesPerView: 1,
+        slidesPerView: 1.1,
         spaceBetween: 10,
         centeredSlides: true,
         navigation: {
@@ -56,11 +56,8 @@ export default {
           prevEl: '.swiper-button-prev'
         },
         breakpoints: {
-          768: {
-            slidesPerView: 1
-          },
           1921: {
-            slidesPerView: 1
+            slidesPerView: 1.5
           }
         }
       },
