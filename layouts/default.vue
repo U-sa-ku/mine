@@ -1,7 +1,6 @@
 <template>
   <div class="contentsWrapper">
     <objectsLoading :isLoaded="isLoaded"/>
-    <objectsReloadButton/>
     <objectsHamburgerMenu/>
     <LayoutsSiteHeader :isInitShow="isInitShow"/>
     <Nuxt/>
