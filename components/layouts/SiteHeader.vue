@@ -17,12 +17,6 @@
       class="siteHeader__link"
     >
     </nuxt-link>
-    <div
-      class="updateButton"
-      @click="reload"
-    >
-      更新
-    </div>
   </header>
 </template>
 
@@ -50,9 +44,6 @@ export default {
       } else {
         this.isScrolledWindowHeight = false
       }
-    },
-    reload() {
-      location.reload();
     }
   }
 }
