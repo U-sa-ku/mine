@@ -12,19 +12,17 @@
             :to="`/photograph/${photograph.id}/?list=${currentPage}`"
             class="photographList__link"
           >
-            <div class="photographList__imageBox">
-              <img
-                :data-src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
-                alt=""
-                class="photographList__image lazyload lazyloadImage"
-                @load="onLoad"
-              >
-              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--top"></figure>
-              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--right"></figure>
-              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--bottom"></figure>
-              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--left"></figure>
-              <ObjectsImageLoading/>
-            </div>
+            <img
+              :data-src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+              alt=""
+              class="photographList__image lazyload lazyloadImage"
+              @load="onLoad"
+            >
+            <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--top"></figure>
+            <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--right"></figure>
+            <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--bottom"></figure>
+            <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--left"></figure>
+            <ObjectsImageLoading/>
           </nuxt-link>
         </li>
       </ul>
@@ -113,17 +111,28 @@ export default {
     margin-bottom: 30px;
     padding: 0px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1px;
     @media (max-width: 767px) {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    @media (min-width: 1921px) {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
     }
   }
   &__listItem {
+    padding-bottom: 100%;
+    position: relative;
   }
   &__link {
+    width: 100%;
+    height: 100%;
     color: inherit;
     text-decoration: none;
+    background-color: #000000;
+    position: absolute;
+    left: 0px;
+    top: 0px;
     display: block;
     @media (min-width: 769px) {
       &:hover {
@@ -133,21 +142,10 @@ export default {
       }
     }
   }
-  &__imageBox {
-    background-color: #000000;
-    padding-top: 100%;
-    position: relative;
-    overflow: hidden;
-  }
   &__image {
-    max-width: 100%;
-    max-height: 100%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    transition: 0.5s;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   &__imageBoxFrame {
     background-color: #ffffff;

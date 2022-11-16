@@ -48,21 +48,28 @@ export default {
     return {
       snapshots: [],
       swiperOption: {
-        slidesPerView: 1.1,
+        slidesPerView: 1.3,
         spaceBetween: 10,
         centeredSlides: true,
+        loop: true,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         },
         breakpoints: {
-          1921: {
+          768: {
             slidesPerView: 1.5
+          },
+          1921: {
+            slidesPerView: 2.5
           }
         }
       },
       photoWidth: null
     }
+  },
+  props: {
+    category: undefined
   },
   mounted() {
     if(window.innerWidth <= 767) {
@@ -90,16 +97,14 @@ export default {
     }
   }
   &__slide {
+    height: 44vw;
     background-color: #000000;
     position: relative;
     @media (max-width: 767px) {
-      height: 121vw;
-    }
-    @media (min-width: 768px) {
-      height: 50.6vw;
+      height: 101.6vw;
     }
     @media (min-width: 1921px) {
-      height: 37.2vw;
+      height: 25vw;
     }
   }
   &__image {
