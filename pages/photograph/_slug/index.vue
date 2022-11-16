@@ -251,6 +251,7 @@ export default {
     @media (max-width: 999px) {
       width: 24px;
       height: 24px;
+      gap: 4px;
     }
     @media (min-width: 769px) {
       transition: 0.3s;
