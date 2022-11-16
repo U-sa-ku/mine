@@ -13,10 +13,11 @@
             :key="photograph.id"
           >
             <img
-              :src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+              :data-src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
               alt=""
-              class="photograph__image"
+              class="photograph__image lazyload lazyloadImage"
             >
+            <ObjectsImageLoading/>
           </swiper-slide>
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
