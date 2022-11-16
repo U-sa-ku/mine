@@ -1,12 +1,14 @@
 <template>
   <main class="mainContents">
-    <p>404</p>
+    <objectsHamburgerMenu/>
+    <p>error</p>
+    <LayoutsSiteFooter/>
   </main>
 </template>
 
 <script>
 export default {
-
+  props: ['error']
 }
 </script>
 
