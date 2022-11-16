@@ -13,11 +13,10 @@
             :key="photograph.id"
           >
             <img
-              :data-src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+              :src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
               alt=""
-              class="photograph__image lazyload lazyloadImage"
+              class="photograph__image"
             >
-            <ObjectsImageLoading/>
           </swiper-slide>
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
@@ -40,7 +39,7 @@
 export default {
   async fetch() {
     this.photographs = await fetch(
-      `https://mine.microcms.io/api/v1/photograph?limit=1${this.category === undefined ? '&filters=pickup[equals]True' : `&filters=category[contains]${this.category}`}`,
+      `https://mine.microcms.io/api/v1/photograph?limit=50${this.category === undefined ? '&filters=pickup[equals]True' : `&filters=category[contains]${this.category}`}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
   },
