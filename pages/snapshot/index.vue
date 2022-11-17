@@ -13,8 +13,8 @@
             class="snapshotList__link"
           >
             <img
-              :data-src="`${snapshot.photo.url}?dpr=2&q=80&fit=max&${photoMaxSize}`"
-              alt=""
+              :data-src="`${snapshot.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+              alt="snapshot"
               class="snapshotList__image lazyload lazyloadImage"
               @load="onLoad"
             >
@@ -71,7 +71,7 @@ export default {
       isLoaded: false,
       paginationLength: null,
       currentPage: null,
-      photoMaxSize: null
+      photoWidth: null
     }
   },
   mounted() {
@@ -79,9 +79,9 @@ export default {
     this.currentPage = !this.$route.params.p ? '1' : this.$route.params.p
 
     if(window.innerWidth <= 767) {
-      this.photoMaxSize = 'w=124&h=124'
+      this.photoWidth = 187
     } else {
-      this.photoMaxSize = 'w=356&h=356'
+      this.photoWidth = 480
     }
   },
   methods: {
