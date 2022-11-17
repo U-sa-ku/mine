@@ -21,23 +21,15 @@ export default {
       { hid: 'og:image', property: 'og:image', content: 'https://mine-u-saku.netlify.app/ogp.png' },
       { name: 'twitter:card', content: 'summary' },
       { name: 'format-detection', content: 'telephone=no' }
+
+
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Barlow:wght@200&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.' },
-      { rel: 'apple-touch-startup-image', media: '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)', href: '/assets/img/ios_splash/splashscreens_iphone5_splash.png' },
-      { rel: 'apple-touch-startup-image', media: '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)', href: '/assets/img/ios_splash/splashscreens/splashscreens_iphone6_splash.png' },
-      { rel: 'apple-touch-startup-image', media: '(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)', href: '/assets/img/ios_splash/splashscreens/splashscreens_iphoneplus_splash.png' },
-      { rel: 'apple-touch-startup-image', media: '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)', href: '/assets/img/ios_splash/splashscreens/splashscreens_iphonex_splash.png' },
-      { rel: 'apple-touch-startup-image', media: '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)', href: '/assets/img/ios_splash/splashscreens/splashscreens_iphonexr_splash.png' },
-      { rel: 'apple-touch-startup-image', media: '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)', href: '/assets/img/ios_splash/splashscreens/splashscreens_iphonexsmax_splash.png' },
-      { rel: 'apple-touch-startup-image', media: '(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)', href: '/assets/img/ios_splash/splashscreens/splashscreens_ipad_splash.png' },
-      { rel: 'apple-touch-startup-image', media: '(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)', href: '/assets/img/ios_splash/splashscreens/splashscreens_ipadpro1_splash.png' },
-      { rel: 'apple-touch-startup-image', media: '(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)', href: '/assets/img/ios_splash/splashscreens/splashscreens_ipadpro3_splash.png' },
-      { rel: 'apple-touch-startup-image', media: '(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)', href: '/assets/img/ios_splash/splashscreens/splashscreens_ipadpro2_splash.png' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Barlow:wght@200&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.' }
     ]
   },
 
