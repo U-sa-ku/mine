@@ -104,8 +104,7 @@ export default {
   },
 
   generate: {
-    trailingSlash: true,
-    middleware: "redirect",
+    fallback: true,
     async routes() {
       const range = (start, end) =>
         [...Array(end - start + 1)].map((_, i) => start + i)
