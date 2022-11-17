@@ -1,7 +1,7 @@
 <template>
   <main :class="['mainContents','js-mainContents',{jsAnimation:isLoaded}]">
     <section class="photographList">
-      <h2 class="photographList__title">photograph</h2>
+      <h2 class="photographList__title">photographphotograph</h2>
       <ul class="photographList__list">
         <li
           class="photographList__listItem"
