@@ -152,6 +152,11 @@ export default {
           path: '/snapshot/page/:p/',
           component: resolve(__dirname,'pages/snapshot/index.vue'),
           name: 'snapshot',
+        },
+        {
+          path: '*',
+          component: resolve(__dirname,'pages/404.vue'),
+          name: '404error',
         }
       )
     }
