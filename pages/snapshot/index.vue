@@ -111,13 +111,13 @@ export default {
     margin-bottom: 30px;
     padding: 0px;
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1px;
-    @media (max-width: 999px) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
     @media (max-width: 767px) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    @media (min-width: 1921px) {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
     }
   }
   &__listItem {
