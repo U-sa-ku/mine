@@ -11,6 +11,17 @@
 <script>
 export default {
   name: 'default',
+  async asyncData({ params }) {
+    const workbox = await window.$workbox;
+
+    if (workbox) {
+      workbox.addEventListener('installed', (event) => {
+        if (event.isUpdate) {
+          alert('update')
+        }
+      });
+    }
+  },
   data() {
     return {
       isLoaded: false,
