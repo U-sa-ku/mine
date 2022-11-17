@@ -101,7 +101,7 @@ export default {
            {
              use: 'Expiration',
              config: {
-               maxAgeSeconds: 24 * 60 * 60 * 30
+               maxAgeSeconds: 10
              }
            }
          ]
