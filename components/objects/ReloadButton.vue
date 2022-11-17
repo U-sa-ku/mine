@@ -20,13 +20,13 @@ export default {
 <style lang="scss" scoped>
 .reloadButton {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 100px;
+  top: 12px;
   z-index: 10;
   cursor: pointer;
   @media (max-width: 999px) {
-    right: 10px;
-    bottom: 10px;
+    right: 60px;
+    top: 5px;
   }
   @media (min-width: 769px) {
     transition: 0.3s;
