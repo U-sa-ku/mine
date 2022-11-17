@@ -84,6 +84,32 @@ export default {
    ** @nuxtjs/pwa Configuration
    ** https://github.com/nuxt-community/pwa-module
    */
+  pwa: {
+   workbox: {
+     runtimeCaching: [
+       {
+         urlPattern: '^https://images.microcms-assets.io/.*',
+         handler: 'cacheFirst'
+       },
+       {
+         urlPattern: 'https://mine-u-saku.netlify.app/.*',
+         handler: 'staleWhileRevalidate',
+         strategyOptions: {
+           cacheName: 'site-cache',
+         },
+         strategyPlugins: [
+           {
+             use: 'Expiration',
+             config: {
+               maxAgeSeconds: 24 * 60 * 60 * 30
+             }
+           }
+         ]
+       }
+     ]
+   }
+  },
+
   manifest: {
     name: 'mine',
     lang: 'ja',
