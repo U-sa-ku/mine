@@ -81,7 +81,7 @@ export default {
     if(window.innerWidth <= 767) {
       this.photoWidth = 124
     } else {
-      this.photoWidth = 355
+      this.photoWidth = 359
     }
   },
   methods: {
