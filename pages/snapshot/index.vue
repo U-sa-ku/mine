@@ -154,7 +154,7 @@ export default {
     transform: scale(0);
     transition: 0.5s;
     $borderOffset: 10px;
-    $borderWidth: 2px;
+    $borderWidth: 1px;
     &--top {
       width: calc(100% - #{$borderOffset*2});
       height: $borderWidth;

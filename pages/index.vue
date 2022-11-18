@@ -26,7 +26,6 @@
 
 <script>
 export default {
-  layout: 'no-site-header',
   data() {
     return {
       isLoaded: false,
@@ -149,7 +148,7 @@ $mainvisualAnimationStartDelay: 1s;
       transform: scale(1);
     }
     $borderOffset: 10px;
-    $borderWidth: 2px;
+    $borderWidth: 1px;
     $borderOffsetSp: 5px;
     $borderWidthSp: 1px;
     &--top {

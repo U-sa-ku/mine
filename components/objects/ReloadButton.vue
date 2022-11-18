@@ -20,8 +20,8 @@ export default {
 <style lang="scss" scoped>
 .reloadButton {
   position: fixed;
-  right: 100px;
-  top: 12px;
+  right: 85px;
+  top: 13px;
   z-index: 7;
   cursor: pointer;
   @media (max-width: 999px) {
