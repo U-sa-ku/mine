@@ -148,9 +148,9 @@ $mainvisualAnimationStartDelay: 1s;
     &.jsAnimation {
       transform: scale(1);
     }
-    $borderOffset: 10px;
+    $borderOffset: 6px;
     $borderWidth: 1px;
-    $borderOffsetSp: 5px;
+    $borderOffsetSp: 4px;
     $borderWidthSp: 1px;
     &--top {
       width: calc(100% - #{$borderOffset*2});
