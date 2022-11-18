@@ -12,43 +12,45 @@
       </h1>
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since_year }}.{{ since_month }}</p>
     </div>
-    <section :class="['description', 'js-description', {jsAnimation: isLoaded}]">
-      <div
-        class="description__title"
-        v-html="description_title"
-      >
-      </div>
-      <div class="description__bodyWrapper">
+    <div class="contentsBody">
+      <section :class="['description', 'js-description', {jsAnimation: isLoaded}]">
         <div
-          class="description__body"
-          v-for="body in description_body"
-          :key="description_body.index"
+          class="description__title"
+          v-html="description_title"
         >
-          <div class="description__imageBox">
-            <img
-              :data-src="`${body.image.url}${descriptionImageParam}`"
-              alt=""
-              class="description__image lazyload lazyloadImage"
-            >
-            <ObjectsImageLoading/>
-          </div>
+        </div>
+        <div class="description__bodyWrapper">
           <div
-            class="description__leadBox"
-            v-html="body.lead"
+            class="description__body"
+            v-for="body in description_body"
+            :key="description_body.index"
           >
+            <div class="description__imageBox">
+              <img
+                :data-src="`${body.image.url}${descriptionImageParam}`"
+                alt=""
+                class="description__image lazyload lazyloadImage"
+              >
+              <ObjectsImageLoading/>
+            </div>
+            <div
+              class="description__leadBox"
+              v-html="body.lead"
+            >
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section
-      class="movie"
-      v-for="movie in movie"
-      :key="movie.index"
-      v-html="movie.movie"
-    >
-      <h2>movie</h2>
-    </section>
-    <sectionsPhotograph :category="id"/>
+      </section>
+      <section
+        class="movie"
+        v-for="movie in movie"
+        :key="movie.index"
+        v-html="movie.movie"
+      >
+        <h2>movie</h2>
+      </section>
+      <sectionsPhotograph :category="id"/>
+    </div>
   </main>
 </template>
 
@@ -108,6 +110,13 @@ $mainvisualAnimationStartDelay: 0s;
   background: $gradient_primary;
   padding: 10px;
   position: relative;
+  @media (max-width: 1920px) {
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+  }
   @media (max-width: 999px) {
     padding: 5px;
   }
@@ -116,20 +125,6 @@ $mainvisualAnimationStartDelay: 0s;
   }
   @media (min-width: 1921px) {
     height: 100vh;
-  }
-  &__cover {
-    width: 100%;
-    height: 100%;
-    background: $gradient_primary;
-    display: block;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 2;
-    transition: 1s $mainvisualAnimationStartDelay;
-    &.jsAnimation {
-      opacity: 0;
-    }
   }
   &__image {
     width: 100%;
@@ -150,8 +145,8 @@ $mainvisualAnimationStartDelay: 0s;
     text-align: right;
     mix-blend-mode: exclusion;
     position: absolute;
-    right: 100.6vw;
-    top: -0.3vw;
+    right: 100vw;
+    top: 0vw;
     z-index: 1;
     opacity: 0;
     transform: rotate(-90deg);
@@ -195,7 +190,6 @@ $mainvisualAnimationStartDelay: 0s;
   }
   &__titleInner {
     display: inline-block;
-    transform: translate(0.4vw, 0.6vw);
   }
   &__since {
     color: $color_lightGray;
@@ -204,7 +198,7 @@ $mainvisualAnimationStartDelay: 0s;
     letter-spacing: 0.1em;
     position: absolute;
     right: 0px;
-    bottom: -3vw;
+    bottom: -2vw;
     z-index: 1;
     opacity: 0;
     transform: scaleY(0);
@@ -220,6 +214,22 @@ $mainvisualAnimationStartDelay: 0s;
     }
   }
 }
+.contentsBody {
+  @media (max-width: 1920px) {
+    background-color: $color_darkGray;
+    margin-top: 70vw;
+    margin-bottom: -300px;
+    padding-top: 5vw;
+    padding-bottom: 300px;
+    position: relative;
+  }
+  @media (max-width: 767px) {
+    margin-top: 150vw;
+    margin-bottom: -200px;
+    padding-top: 10vw;
+    padding-bottom: 200px;
+  }
+}
 .description {
   max-width: 1600px;
   margin: 0px auto;
@@ -228,10 +238,11 @@ $mainvisualAnimationStartDelay: 0s;
     font-family: $fontFamily_japanese;
     font-size: 2.6rem;
     line-height: 1.8;
-    margin-top: 10vw;
     @media (max-width: 767px) {
       font-size: 1.6rem;
-      margin-top: 20vw;
+    }
+    @media (min-width: 1921px) {
+      margin-top: 10vw;
     }
   }
   &__body {

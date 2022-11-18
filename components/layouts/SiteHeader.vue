@@ -50,12 +50,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.updateButton {
-  position: absolute;
-  right: 100px;
-  top: 20px;
-  z-index: 10;
-}
 .siteHeader {
   width: 100%;
   height: 70px;
@@ -63,7 +57,7 @@ export default {
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 8;
+  z-index: 6;
   opacity: 0;
   transition: 1s;
   @media (max-width: 999px) {

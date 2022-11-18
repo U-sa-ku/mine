@@ -168,7 +168,7 @@ export default {
       content: "";
       width: calc(100% + 40px);
       height: 50%;
-      border-width: 0px 2px 1px 0px;
+      border-width: 0px 1.5px 1px 0px;
       border-style: solid;
       border-color: $color_lightGray;
       display: block;

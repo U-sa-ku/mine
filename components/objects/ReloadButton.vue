@@ -22,10 +22,10 @@ export default {
   position: fixed;
   right: 100px;
   top: 12px;
-  z-index: 10;
+  z-index: 7;
   cursor: pointer;
   @media (max-width: 999px) {
-    right: 60px;
+    right: 50px;
     top: 5px;
   }
   @media (min-width: 769px) {

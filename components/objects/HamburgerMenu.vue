@@ -36,7 +36,7 @@ export default {
     position: fixed;
     right: 26px;
     top: 14px;
-    z-index: 10;
+    z-index: 9;
     cursor: pointer;
     @media (max-width: 999px) {
       width: 24px;
