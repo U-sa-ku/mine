@@ -111,7 +111,7 @@ $mainvisualAnimationStartDelay: 1s;
     height: 10%;
     position: absolute;
     left: 50%;
-    bottom: 10px;
+    bottom: 6px;
     z-index: 1;
     transform: translateX(-50%);
     overflow: hidden;
