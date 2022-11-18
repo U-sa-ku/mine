@@ -313,13 +313,13 @@ $mainvisualAnimationStartDelay: 0s;
     /deep/ p {
       width: 100%;
       color: $color_lightGray !important;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: normal;
-      line-height: 2.5;
+      line-height: 2.2;
       letter-spacing: 0.2em;
       text-align: center !important;
       @media (max-width: 999px) {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         letter-spacing: 0.15em;
         text-align: center !important;
       }
