@@ -26,6 +26,7 @@
 
 <script>
 export default {
+  layout: 'no-site-header',
   data() {
     return {
       isLoaded: false,
