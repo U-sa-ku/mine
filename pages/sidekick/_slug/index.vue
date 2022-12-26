@@ -47,7 +47,6 @@
         :key="movie.index"
         v-html="movie.movie"
       >
-        <h2>movie</h2>
       </section>
       <sectionsPhotograph :category="id"/>
     </div>

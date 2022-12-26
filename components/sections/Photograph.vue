@@ -48,7 +48,7 @@ export default {
     return {
       photographs: [],
       swiperOption: {
-        slidesPerView: 1.3,
+        slidesPerView: 1.2,
         spaceBetween: 10,
         centeredSlides: true,
         navigation: {
