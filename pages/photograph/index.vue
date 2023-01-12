@@ -1,42 +1,44 @@
 <template>
-  <main :class="['mainContents','js-mainContents',{jsAnimation:isLoaded}]">
+  <main class="mainContents">
     <section class="photographList">
       <h2 class="photographList__title">photograph</h2>
-      <ul class="photographList__list">
-        <li
-          class="photographList__listItem"
-          v-for="photograph in contents"
-          :key="contents.id"
-        >
-          <nuxt-link
-            :to="`/photograph/${photograph.id}/?list=${currentPage}`"
-            class="photographList__link"
+      <div :class="['js-contentsBody',{jsAnimation:isLoaded}]">
+        <ul class="photographList__list">
+          <li
+            class="photographList__listItem"
+            v-for="photograph in contents"
+            :key="contents.id"
           >
-            <img
-              :data-src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
-              alt="photograph"
-              class="photographList__image lazyload lazyloadImage"
-              @load="onLoad"
+            <nuxt-link
+              :to="`/photograph/${photograph.id}/?list=${currentPage}`"
+              class="photographList__link"
             >
-            <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--top"></figure>
-            <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--right"></figure>
-            <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--bottom"></figure>
-            <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--left"></figure>
-            <ObjectsImageLoading/>
-          </nuxt-link>
-        </li>
-      </ul>
-      <ul class="photographList__pagination">
-        <li
-          class="photographList__paginationItem"
-          v-for="n of paginationLength" :key="n">
-          <nuxt-link
-            :class="['photographList__paginationLink', currentPage ==  n ? '--active' : '']"
-            :to="`/photograph/page/${n}/`">
-            {{ n }}
-          </nuxt-link>
-        </li>
-      </ul>
+              <img
+                :data-src="`${photograph.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+                alt="photograph"
+                class="photographList__image lazyload lazyloadImage"
+                @load="onLoad"
+              >
+              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--top"></figure>
+              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--right"></figure>
+              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--bottom"></figure>
+              <figure class="photographList__imageBoxFrame photographList__imageBoxFrame--left"></figure>
+              <ObjectsImageLoading/>
+            </nuxt-link>
+          </li>
+        </ul>
+        <ul class="photographList__pagination">
+          <li
+            class="photographList__paginationItem"
+            v-for="n of paginationLength" :key="n">
+            <nuxt-link
+              :class="['photographList__paginationLink', currentPage ==  n ? '--active' : '']"
+              :to="`/photograph/page/${n}/`">
+              {{ n }}
+            </nuxt-link>
+          </li>
+        </ul>
+      </div>
     </section>
     <sectionsSnapshot/>
   </main>
@@ -226,7 +228,7 @@ export default {
     }
   }
 }
-.js-mainContents {
+.js-contentsBody {
   opacity: 0;
   transform: translateY(100px);
   transition: 1s 0.5s;
