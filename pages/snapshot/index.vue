@@ -230,7 +230,7 @@ export default {
 }
 .js-contentsBody {
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateY(50px);
   transition: 1s 0.5s;
   &.jsAnimation {
     transform: translateY(0px);
