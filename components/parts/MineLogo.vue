@@ -5,7 +5,7 @@
     :class="[{jsAnimation: isShowScroll}, {jsAnimation: isInitShow}]"
   >
     <style type="text/css">
-      .mineLogoSvg{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
+      .mineLogoSvg{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:0;stroke-miterlimit:10;}
     </style>
     <g>
       <rect x="361.4" y="78.6" transform="matrix(0.7071 -0.7071 0.7071 0.7071 37.868 308.5786)" class="mineLogoSvg svg-elem-1" width="60" height="60"></rect>
@@ -37,9 +37,9 @@ svg .svg-elem-1 {
   stroke-dasharray: 242px;
   fill: transparent;
   -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
-                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
           transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
-                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
 }
 svg.jsAnimation .svg-elem-1 {
   stroke-dashoffset: 0;
@@ -50,9 +50,9 @@ svg .svg-elem-2 {
   stroke-dasharray: 2160.796875px;
   fill: transparent;
   -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0.12s,
-                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
           transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0.12s,
-                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
 }
 svg.jsAnimation .svg-elem-2 {
   stroke-dashoffset: 0;

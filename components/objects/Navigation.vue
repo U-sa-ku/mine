@@ -147,6 +147,7 @@ export default {
   &__caption {
     font-family: $fontFamily_english;
     font-size: 9vw;
+    font-weight: 100;
     line-height: 1;
     position: absolute;
     right: -0.5vw;

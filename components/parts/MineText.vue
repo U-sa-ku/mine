@@ -5,7 +5,7 @@
     :class="[{jsAnimation: isShowScroll}, {jsAnimation: isInitShow}]"
   >
     <defs>
-      <style>.mineTextSvg{fill:transparent;stroke:#ffffff;stroke-miterlimit:10;}</style>
+      <style>.mineTextSvg{fill:transparent;stroke:#ffffff;stroke-width:0;paint-order:stroke;stroke-miterlimit:10;}</style>
     </defs>
     <g id="logoText">
       <title>mine</title>
@@ -39,9 +39,9 @@ svg .svg-elem-1 {
   stroke-dasharray: 336.7806396484375px;
   fill: transparent;
   -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
-                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
           transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
-                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
 }
 svg.jsAnimation .svg-elem-1 {
   stroke-dashoffset: 0;
@@ -52,9 +52,9 @@ svg .svg-elem-2 {
   stroke-dasharray: 134.23880004882812px;
   fill: transparent;
   -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0.12s,
-                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
           transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0.12s,
-                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
 }
 svg.jsAnimation .svg-elem-2 {
   stroke-dashoffset: 0;
@@ -65,9 +65,9 @@ svg .svg-elem-3 {
   stroke-dasharray: 222.09339904785156px;
   fill: transparent;
   -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0.24s,
-                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
           transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0.24s,
-                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
 }
 svg.jsAnimation .svg-elem-3 {
   stroke-dashoffset: 0;
@@ -78,9 +78,9 @@ svg .svg-elem-4 {
   stroke-dasharray: 189.55348205566406px;
   fill: transparent;
   -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0.36s,
-                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.3s;
           transition: stroke-dashoffset 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0.36s,
-                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.3s;
 }
 svg.jsAnimation .svg-elem-4 {
   stroke-dashoffset: 0;

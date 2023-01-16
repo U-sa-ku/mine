@@ -140,6 +140,7 @@ $mainvisualAnimationStartDelay: 0s;
     color: $color_lightGray;
     font-family: $fontFamily_english;
     font-size: 6vw;
+    font-weight: 100;
     line-height: 1;
     text-align: right;
     mix-blend-mode: exclusion;
@@ -168,6 +169,7 @@ $mainvisualAnimationStartDelay: 0s;
     color: $color_lightGray;
     font-family: $fontFamily_english;
     font-size: 6vw;
+    font-weight: 300;
     line-height: 1;
     text-align: right;
     mix-blend-mode: exclusion;
@@ -180,7 +182,7 @@ $mainvisualAnimationStartDelay: 0s;
     transform-origin: 0% 100%;
     transition: 1s $mainvisualAnimationStartDelay + 1.5s;
     @media (max-width: 767px) {
-      font-size: 9vw;
+      font-size: 10.5vw;
     }
     &.jsAnimation {
       opacity: 1;
@@ -194,6 +196,7 @@ $mainvisualAnimationStartDelay: 0s;
     color: $color_lightGray;
     font-family: $fontFamily_english;
     font-size: 1.6vw;
+    font-weight: 100;
     letter-spacing: 0.1em;
     position: absolute;
     right: 0px;
