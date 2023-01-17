@@ -45,7 +45,7 @@ export default {
       const onLoadLogo = () => {
         this.isLoadedLogo = true
       }
-      setTimeout(onLoadLogo, 1000)
+      setTimeout(onLoadLogo, 1500)
     },
     onScroll() {
       const windowHeight = window.innerHeight
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$mainvisualAnimationStartDelay: 0s;
+$mainvisualAnimationStartDelay: 0.5s;
 .mainvisual {
   width: 100%;
   height: 100vh;
@@ -208,7 +208,7 @@ $mainvisualAnimationStartDelay: 0s;
 }
 </style>
 <style lang="scss">
-$mainvisualAnimationStartDelay: 0s;
+$mainvisualAnimationStartDelay: 0.5s;
 .navigation--top {
    z-index: 0 !important;
   &.jsScrolledWindowHeight {
@@ -227,7 +227,7 @@ $mainvisualAnimationStartDelay: 0s;
       }
     }
     &__image {
-      transition: 1s ease-out;
+      transition: 1s $mainvisualAnimationStartDelay ease-out;
       &.jsAnimation {
         transform: translate(0%, 0%) !important;
       }
