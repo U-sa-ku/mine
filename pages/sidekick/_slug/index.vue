@@ -43,10 +43,25 @@
       </section>
       <section
         class="movie"
-        v-for="movie in movie"
-        :key="movie.index"
-        v-html="movie.movie"
       >
+        <h2 class="movie__title">movie</h2>
+        <ul class="movie__list">
+          <li
+            class="movie__item"
+            v-for="movie in movie"
+            :key="movie.index"
+          >
+            <iframe
+              :data-src="`https://www.youtube.com/embed/${movie.movie_id}`"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
+              class="movie__iframe lazyload lazyloadImage"
+            >
+            </iframe>
+            <ObjectsImageLoading/>
+          </li>
+        </ul>
       </section>
       <sectionsPhotograph :category="id"/>
     </div>
@@ -81,7 +96,8 @@ export default {
     return {
       isLoaded: false,
       mainvisualUrl: "",
-      descriptionImageParam: ""
+      descriptionImageParam: "",
+      // movieLength: this.movie.length
     }
   },
   mounted() {
@@ -338,38 +354,45 @@ $mainvisualAnimationStartDelay: 0s;
   }
 }
 .movie {
-  max-width: 1280px;
+  max-width: 1600px;
   margin: 0px auto;
-  padding-top: 150px;
+  padding: 150px 10px 0px;
   @media (max-width: 999px) {
     padding-top: 80px;
   }
-  /deep/ h1,
-  /deep/ h2,
-  /deep/ h3 {
+  &__title {
     @include sectionTitle;
   }
-  /deep/ iframe {
-    width: 70%;
-    height: 42vw;
-    margin: 0px auto 60px;
-    display: block;
-    &:last-of-type {
-      margin-bottom: 0px;
-    }
-    @media (min-width:1281px) {
-      height: 538px;
-    }
-    @media (max-width: 999px) {
-      margin-bottom: 30px;
-    }
+  &__list {
+    list-style-type: none;
+    margin-bottom: -10px;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    width: calc(50% - 5px);
+    background-color: #000000;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 30%;
+    position: relative;
     @media (max-width: 767px) {
       width: 100%;
-      height: 56vw;
+      margin-right: 0%;
+      padding-bottom: 60%;
     }
-    + p {
-      display: none;
+    &:nth-child(2n) {
+      margin-right: 0%;
     }
+  }
+  &__iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
   }
 }
 </style>
