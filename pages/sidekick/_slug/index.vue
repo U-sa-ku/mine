@@ -43,6 +43,7 @@
       </section>
       <section
         class="movie"
+        v-if="movie != null"
       >
         <h2 class="movie__title">movie</h2>
         <ul class="movie__list">
@@ -97,7 +98,7 @@ export default {
       isLoaded: false,
       mainvisualUrl: "",
       descriptionImageParam: "",
-      // movieLength: this.movie.length
+      movieLength: this.movie
     }
   },
   mounted() {

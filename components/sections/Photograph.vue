@@ -19,13 +19,29 @@
             >
             <ObjectsImageLoading/>
           </swiper-slide>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
+          <div
+            class="swiper-button-prev"
+            slot="button-prev"
+          >
+          </div>
+          <div
+            class="swiper-button-next"
+            slot="button-next"
+          >
+          </div>
         </swiper>
       </client-only>
     </div>
-    <p class="photograph__noPost" v-if="photographs.totalCount == 0">no post</p>
-    <div class="photograph__moreButton" v-if="photographs.totalCount != 0">
+    <p
+      class="photograph__noPost"
+      v-if="photographs.totalCount == 0"
+    >
+      no post
+    </p>
+    <div
+      class="photograph__moreButton"
+      v-if="photographs.totalCount != 0"
+    >
       <nuxt-link
         to="/photograph/"
         class="photograph__moreLink"
