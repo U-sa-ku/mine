@@ -92,8 +92,8 @@ export default {
   background-color: $color_darkGray;
   padding: 10px;
   display: grid;
-  grid-template-rows: calc(33% - 10px) 34% calc(33% - 10px);
-  grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   position: fixed;
   left: 0px;
@@ -101,27 +101,29 @@ export default {
   z-index: 8;
   box-sizing: border-box;
   @media (max-width: 767px) {
-    grid-template-rows: calc(40% - 10px) 20% calc(40% - 10px);
+    padding: 5px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 100%;
+    grid-gap: 5px;
   }
   &__item {
     position: relative;
     &:nth-child(1) {
-      grid-area: 1 / 1 / 4 / 2;
+      grid-area: 1 / 1 / 6 / 2;
       @media (max-width: 767px) {
-        grid-area: 1 / 1 / 2 / 2;
+        grid-area: 1 / 1 / 4 / 2;
       }
     }
     &:nth-child(2) {
-      grid-area: 1 / 2 / 2 / 3;
+      grid-area: 1 / 2 / 3 / 3;
       @media (max-width: 767px) {
-        grid-area: 2 / 1 / 3 / 2;
+        grid-area: 4 / 1 / 6 / 2;
       }
     }
     &:nth-child(3) {
-      grid-area: 2 / 2 / 4 / 3;
+      grid-area: 3 / 2 / 6 / 3;
       @media (max-width: 767px) {
-        grid-area: 3 / 1 / 4 / 2;
+        grid-area: 6 / 1 / 9 / 2;
       }
     }
   }
