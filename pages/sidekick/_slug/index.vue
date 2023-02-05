@@ -65,6 +65,7 @@
         </ul>
       </section>
       <sectionsPhotograph :category="id"/>
+      <sectionsSnapshot/>
     </div>
   </main>
 </template>
