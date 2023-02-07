@@ -2,6 +2,7 @@
   <div
     class="reloadButton"
     @click="reload"
+    v-if="isPwa == true"
   >
     <img src="@/assets/img/icon_reload.svg" alt="reload" class="reloadButton__icon">
   </div>
@@ -9,6 +10,21 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isPwa: false
+    }
+  },
+  mounted() {
+    const url = new URL(window.location.href)
+    const params = url.searchParams
+
+    if(params && params.get('standalone') == true) {
+      this.isPwa = true
+    } else {
+      this.isPwa = false
+    }
+  },
   methods: {
     reload() {
       location.reload();
