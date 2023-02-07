@@ -25,7 +25,7 @@ export default {
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 10;
+  z-index: 9;
   &.jsHidden {
     animation: fadeOut 2s forwards;
   }
