@@ -16,13 +16,7 @@ export default {
     }
   },
   mounted() {
-    const url = new URL(window.location.href)
-    const params = url.searchParams
-    const paramStandalone = params.get('standalone')
-    console.log(params)
-    console.log(paramStandalone)
-
-    if(params && paramStandalone == 'true') {
+    if(window.matchMedia('(display-mode: standalone)').matches){
       this.isPwa = true
     } else {
       this.isPwa = false
