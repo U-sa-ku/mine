@@ -19,8 +19,10 @@ export default {
     const url = new URL(window.location.href)
     const params = url.searchParams
     const paramStandalone = params.get('standalone')
+    console.log(params)
+    console.log(paramStandalone)
 
-    if(params && paramStandalone) {
+    if(params && paramStandalone == 'true') {
       this.isPwa = true
     } else {
       this.isPwa = false
