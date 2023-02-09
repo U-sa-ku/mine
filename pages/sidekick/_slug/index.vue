@@ -238,7 +238,7 @@ $mainvisualAnimationStartDelay: 0s;
 }
 .contentsBody {
   @media (max-width: 1920px) {
-    background-color: $color_darkGray;
+    background-color: $color_middleGray;
     margin-top: 70vw;
     margin-bottom: -300px;
     padding-top: 5vw;
@@ -303,7 +303,7 @@ $mainvisualAnimationStartDelay: 0s;
   }
   &__leadBox {
     width: 50%;
-    background-color: #101010;
+    background-color: $color_darkGray;
     display: flex;
     align-items: center;
     @media (max-width: 767px) {

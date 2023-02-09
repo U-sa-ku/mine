@@ -89,7 +89,7 @@ export default {
   width: 100%;
   height: 100vh;
   height: 100dvh;
-  background-color: $color_darkGray;
+  background-color: $color_middleGray;
   padding: 10px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;

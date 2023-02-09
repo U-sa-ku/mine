@@ -217,7 +217,7 @@ export default {
       font-size: 1.4rem;
     }
     @mixin paginationHoverActive {
-      color: $color_darkGray;
+      color: $color_middleGray;
       background-color: $color_lightGray;
     }
     @media (min-width: 769px) {

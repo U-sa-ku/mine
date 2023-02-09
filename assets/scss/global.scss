@@ -9,7 +9,7 @@ html {
 body {
   color: $color_lightGray;
   font-family: $fontFamily_japanese;
-  background-color: $color_darkGray;
+  background-color: $color_middleGray;
 }
 
 //
@@ -28,7 +28,7 @@ body {
 // sub contents
 //////////////////////////////////////////////////////////////////////
 .standaloneContent {
-  background-color: #151515;
+  background-color: $color_darkGray;
   margin: 200px 0px -221px;
   padding-bottom: 221px;
   @media (max-width: 999px) {
