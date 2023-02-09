@@ -40,7 +40,9 @@
         </ul>
       </div>
     </section>
-    <sectionsPhotograph/>
+    <div class="standaloneContent">
+      <sectionsPhotograph/>
+    </div>
   </main>
 </template>
 

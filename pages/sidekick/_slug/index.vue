@@ -65,7 +65,9 @@
         </ul>
       </section>
       <sectionsPhotograph :category="id"/>
-      <sectionsSnapshot/>
+      <div class="standaloneContent">
+        <sectionsSnapshot/>
+      </div>
     </div>
   </main>
 </template>
@@ -357,9 +359,10 @@ $mainvisualAnimationStartDelay: 0s;
 }
 .movie {
   max-width: 1600px;
-  margin: 0px auto;
+  margin: 0px auto -50px;
   padding: 150px 10px 0px;
   @media (max-width: 999px) {
+    margin-bottom: -20px;
     padding-top: 80px;
   }
   &__title {

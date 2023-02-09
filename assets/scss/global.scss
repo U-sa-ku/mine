@@ -24,6 +24,18 @@ body {
     padding-bottom: 200px;
   }
 }
+//
+// sub contents
+//////////////////////////////////////////////////////////////////////
+.standaloneContent {
+  background-color: #151515;
+  margin: 200px 0px -221px;
+  padding-bottom: 221px;
+  @media (max-width: 999px) {
+    margin: 100px 0px -151px;
+    padding-bottom: 151px;
+  }
+}
 
 //
 // swiper

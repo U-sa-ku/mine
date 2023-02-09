@@ -40,7 +40,9 @@
         </ul>
       </div>
     </section>
-    <sectionsSnapshot/>
+    <div class="standaloneContent">
+      <sectionsSnapshot/>
+    </div>
   </main>
 </template>
 
