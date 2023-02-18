@@ -50,7 +50,7 @@ import axios from 'axios'
 export default {
   async asyncData({ params }) {
     const { data } = await axios.get(
-      `https://mine.microcms.io/api/v1/photograph/${params.slug}`,
+      `https://mine.microcms.io/api/v1/photo/${params.slug}`,
       {
         headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' }
       }
@@ -59,11 +59,11 @@ export default {
   },
   async fetch() {
     const prevPhotographRespons = await fetch(
-      `https://mine.microcms.io/api/v1/photograph?limit=1&fields=id&orders=-publishedAt&filters=publishedAt[less_than]${this.publishedAt}`,
+      `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=-publishedAt&filters=category[contains]photograph[and]publishedAt[less_than]${this.publishedAt}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
     const nextPhotographRespons = await fetch(
-      `https://mine.microcms.io/api/v1/photograph?limit=1&fields=id&orders=publishedAt&filters=publishedAt[greater_than]${this.publishedAt}`,
+      `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=publishedAt&filters=category[contains]photograph[and]publishedAt[greater_than]${this.publishedAt}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     ).then(res => res.json())
 

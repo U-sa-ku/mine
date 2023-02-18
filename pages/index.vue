@@ -19,16 +19,34 @@
       :isScrolledWindowHeight="isScrolledWindowHeight"
       @onLoad="onLoad"
     />
-    <sectionsPhotograph/>
-    <sectionsSnapshot/>
+    <sectionsPhotoSlider
+      contentsName="photograph"
+      :photos="photographs"
+    />
+    <sectionsPhotoSlider
+      contentsName="snapshot"
+      :photos="snapshots"
+    />
   </main>
 </template>
 
 <script>
 export default {
   layout: 'no-site-header',
+  async fetch() {
+    this.photographs = await fetch(
+      "https://mine.microcms.io/api/v1/photo?limit=50&filters=category[contains]photograph",
+      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+    ).then(res => res.json())
+    this.snapshots = await fetch(
+      "https://mine.microcms.io/api/v1/photo?limit=50&filters=category[contains]snapshot",
+      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+    ).then(res => res.json())
+  },
   data() {
     return {
+      photographs: [],
+      snapshots: [],
       isLoaded: false,
       isLoadedLogo : false,
       isScrolledWindowHeight: false
@@ -49,7 +67,7 @@ export default {
     },
     onScroll() {
       const windowHeight = window.innerHeight
-      const triggerPosition = windowHeight * 2;
+      const triggerPosition = windowHeight * 2
       let scrollTop = window.scrollY
 
       if(scrollTop >= triggerPosition) {

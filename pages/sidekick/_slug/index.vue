@@ -13,60 +13,66 @@
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since_year }}.{{ since_month }}</p>
     </div>
     <div class="contentsBody">
-      <section :class="['description', 'js-description', {jsAnimation: isLoaded}]">
-        <div
-          class="description__title"
-          v-html="description_title"
-        >
-        </div>
-        <div class="description__bodyWrapper">
+      <div :class="['js-contentsBody', {jsAnimation: isLoaded}]">
+        <section class="description">
           <div
-            class="description__body"
-            v-for="body in description_body"
-            :key="description_body.index"
+            class="description__title"
+            v-html="description_title"
           >
-            <div class="description__imageBox">
-              <img
-                :data-src="`${body.image.url}${descriptionImageParam}`"
-                alt=""
-                class="description__image lazyload lazyloadImage"
-              >
-              <ObjectsImageLoading/>
-            </div>
+          </div>
+          <div class="description__bodyWrapper">
             <div
-              class="description__leadBox"
-              v-html="body.lead"
+              class="description__body"
+              v-for="body in description_body"
+              :key="description_body.index"
             >
+              <div class="description__imageBox">
+                <img
+                  :data-src="`${body.image.url}${descriptionImageParam}`"
+                  alt=""
+                  class="description__image lazyload lazyloadImage"
+                >
+                <ObjectsImageLoading/>
+              </div>
+              <div
+                class="description__leadBox"
+                v-html="body.lead"
+              >
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section
-        class="movie"
-        v-if="movie != null"
-      >
-        <h2 class="movie__title">movie</h2>
-        <ul class="movie__list">
-          <li
-            class="movie__item"
-            v-for="movie in movie"
-            :key="movie.index"
-          >
-            <iframe
-              :data-src="`https://www.youtube.com/embed/${movie.movie_id}`"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
-              class="movie__iframe lazyload lazyloadImage"
+        </section>
+        <section
+          class="movie"
+          v-if="movie != null"
+        >
+          <h2 class="movie__title">movie</h2>
+          <ul class="movie__list">
+            <li
+              class="movie__item"
+              v-for="movie in movie"
+              :key="movie.index"
             >
-            </iframe>
-            <ObjectsImageLoading/>
-          </li>
-        </ul>
-      </section>
-      <sectionsPhotograph :category="id"/>
-      <div class="standaloneContent">
-        <sectionsSnapshot/>
+              <iframe
+                :data-src="`https://www.youtube.com/embed/${movie.movie_id}`"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
+                class="movie__iframe lazyload lazyloadImage"
+              >
+              </iframe>
+              <ObjectsImageLoading/>
+            </li>
+          </ul>
+        </section>
+        <sectionsPhotoSlider
+          contentsName="photograph"
+          :photos="photographs"
+        />
+        <sectionsPhotoSlider
+          contentsName="snapshot"
+          :photos="snapshots"
+        />
       </div>
     </div>
   </main>
@@ -83,6 +89,16 @@ export default {
       }
     )
     return data
+  },
+  async fetch() {
+    this.photographs = await fetch(
+      `https://mine.microcms.io/api/v1/photo?limit=50&filters=category[contains]photograph[and]sidekick[contains]${this.id}`,
+      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+    ).then(res => res.json())
+    this.snapshots = await fetch(
+      `https://mine.microcms.io/api/v1/photo?limit=50&filters=category[contains]snapshot[and]sidekick[contains]${this.id}`,
+      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+    ).then(res => res.json())
   },
   head(){
     return {
@@ -101,7 +117,9 @@ export default {
       isLoaded: false,
       mainvisualUrl: "",
       descriptionImageParam: "",
-      movieLength: this.movie
+      movieLength: this.movie,
+      photographs: [],
+      snapshots: []
     }
   },
   mounted() {
@@ -348,9 +366,9 @@ $mainvisualAnimationStartDelay: 0s;
     }
   }
 }
-.js-description {
+.js-contentsBody {
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateY(50px);
   transition: 1s $mainvisualAnimationStartDelay + 2.5s;
   &.jsAnimation {
     opacity: 1;

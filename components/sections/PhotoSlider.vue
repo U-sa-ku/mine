@@ -1,21 +1,24 @@
 <template>
-  <section class="snapshot">
-    <h2 class="snapshot__title">snapshot</h2>
-    <div class="snapshot__slider">
+  <section
+    class="photoSlider"
+    v-if="photos.totalCount != 0"
+  >
+    <h2 class="photoSlider__title">{{ contentsName }}</h2>
+    <div class="photoSlider__slider">
       <client-only>
         <swiper
-          class="snapshot__slider snapshot__slider--hero"
+          class="photoSlider__slider"
           :options="swiperOption"
         >
           <swiper-slide
-            class="snapshot__slide"
-            v-for="snapshot in snapshots.contents"
-            :key="snapshot.id"
+            class="photoSlider__slide"
+            v-for="photo in photos.contents"
+            :key="photos.contents.id"
           >
             <img
-              :data-src="`${snapshot.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+              :data-src="`${photo.photo.url}?dpr=2&w=${photoWidth}&q=80`"
               alt=""
-              class="snapshot__image lazyload lazyloadImage"
+              class="photoSlider__image lazyload lazyloadImage"
             >
             <ObjectsImageLoading/>
           </swiper-slide>
@@ -32,21 +35,12 @@
         </swiper>
       </client-only>
     </div>
-    <p
-      class="snapshot__noPost"
-      v-if="snapshots.totalCount == 0"
-    >
-      no post
-    </p>
-    <div
-      class="snapshot__moreButton"
-      v-if="snapshots.totalCount != 0"
-    >
+    <div class="photoSlider__moreButton">
       <nuxt-link
-        to="/snapshot/"
-        class="snapshot__moreLink"
+        :to="`/${contentsName}/`"
+        class="photoSlider__moreLink"
       >
-        more snapshot
+        more {{ contentsName }}
       </nuxt-link>
     </div>
   </section>
@@ -54,17 +48,10 @@
 
 <script>
 export default {
-  async fetch() {
-    this.snapshots = await fetch(
-      "https://mine.microcms.io/api/v1/snapshot?limit=50",
-      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-    ).then(res => res.json())
-  },
   data() {
     return {
-      snapshots: [],
       swiperOption: {
-        slidesPerView: 1.3,
+        slidesPerView: 1.2,
         spaceBetween: 10,
         centeredSlides: true,
         navigation: {
@@ -84,7 +71,8 @@ export default {
     }
   },
   props: {
-    category: undefined
+    contentsName: undefined,
+    photos:[]
   },
   mounted() {
     if(window.innerWidth <= 767) {
@@ -97,7 +85,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.snapshot {
+.photoSlider {
   padding-top: 200px;
   @media (max-width: 999px) {
     padding-top: 100px;

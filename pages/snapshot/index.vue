@@ -30,18 +30,24 @@
         <ul class="snapshotList__pagination">
           <li
             class="snapshotList__paginationItem"
-            v-for="n of paginationLength" :key="n">
+            v-for="n of paginationLength"
+            :key="n"
+          >
             <nuxt-link
               :class="['snapshotList__paginationLink', currentPage ==  n ? '--active' : '']"
-              :to="`/snapshot/page/${n}/`">
+              :to="`/snapshot/page/${n}/`"
+            >
               {{ n }}
             </nuxt-link>
           </li>
         </ul>
       </div>
     </section>
-    <div class="standaloneContent">
-      <sectionsPhotograph/>
+    <div :class="['standaloneContent', 'js-contentsBody', {jsAnimation:isLoaded}]">
+      <sectionsPhotoSlider
+        contentsName="photograph"
+        :photos="photographs"
+      />
     </div>
   </main>
 </template>
@@ -53,10 +59,17 @@ export default {
     const page = params.p || '1'
     const limit = 24
     const { data } = await axios.get(
-      `https://mine.microcms.io/api/v1/snapshot?limit=${limit}&orders=-publishedAt&offset=${(page - 1) * limit}`,
+      `https://mine.microcms.io/api/v1/photo?limit=${limit}&filters=category[contains]snapshot&orders=-publishedAt&offset=${(page - 1) * limit}`,
       { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
     )
     return data
+  },
+  async fetch() {
+    const limit = 50
+    this.photographs = await fetch(
+      `https://mine.microcms.io/api/v1/photo?limit=${limit}&filters=category[contains]photograph`,
+      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+    ).then(res => res.json())
   },
   head(){
     return {
@@ -75,7 +88,8 @@ export default {
       isLoaded: false,
       paginationLength: null,
       currentPage: null,
-      photoWidth: null
+      photoWidth: null,
+      photographs: []
     }
   },
   mounted() {
