@@ -1,8 +1,8 @@
 <template>
   <div class="contentsWrapper">
-    <objectsLoading :isLoaded="isLoaded"/>
-    <objectsReloadButton/>
-    <objectsHamburgerMenu/>
+    <ElementsPageLoader :isLoaded="isLoaded"/>
+    <ElementsReloadButton/>
+    <ElementsHamburgerMenu/>
     <LayoutsSiteHeader :isInitShow="isInitShow"/>
     <Nuxt/>
     <LayoutsSiteFooter/>

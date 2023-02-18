@@ -32,7 +32,7 @@
                   alt=""
                   class="description__image lazyload lazyloadImage"
                   >
-                <ObjectsImageLoading/>
+                <ElementsImageLoader/>
               </div>
               <div
                 class="description__leadBox"
@@ -61,7 +61,7 @@
                 class="movie__iframe lazyload lazyloadImage"
                >
               </iframe>
-              <ObjectsImageLoading/>
+              <ElementsImageLoader/>
             </li>
           </ul>
         </section>

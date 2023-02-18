@@ -1,12 +1,12 @@
 <template>
   <header :class="['siteHeader', {jsAnimation: isScrolledWindowHeight}, {jsAnimation: isInitShow}]">
     <div class="siteHeader__logoWrapper">
-      <partsMineLogo
+      <ElementsMineLogo
         class="siteHeader__logo siteHeader__logo--siteHeader"
         :isShowScroll="isScrolledWindowHeight"
         :isInitShow="isInitShow"
         />
-      <partsMineText
+      <ElementsMineText
         class="siteHeader__text siteHeader__text--siteHeader"
         :isShowScroll="isScrolledWindowHeight"
         :isInitShow="isInitShow"

@@ -20,7 +20,7 @@
               alt=""
               class="photoSlider__image lazyload lazyloadImage"
               >
-            <ObjectsImageLoading/>
+            <ElementsImageLoader/>
           </swiper-slide>
           <div
             class="swiper-button-prev"
@@ -51,7 +51,7 @@
     data() {
       return {
         swiperOption: {
-          slidesPerView: 1.2,
+          slidesPerView: 1.3,
           spaceBetween: 10,
           centeredSlides: true,
           navigation: {
@@ -60,10 +60,10 @@
           },
           breakpoints: {
             768: {
-              slidesPerView: 1.5
+              slidesPerView: 1.265
             },
             1921: {
-              slidesPerView: 2.5
+              slidesPerView: 2.225
             }
           }
         },
@@ -130,24 +130,30 @@
         top: 7px;
       }
       &-prev {
+        left: 10vw;
         transition: 0.3s;
         transform: scaleY(2);
         @media (max-width: 768px) {
           display: none;
         }
+        @media (min-width: 1921px) {
+          left: 27vw;
+        }
         &:after {
-          left: 6px;
           transform: rotate(-135deg);
         }
       }
       &-next {
+        right: 10vw;
         transition: 1s;
         transform: scaleY(2);
         @media (max-width: 768px) {
           display: none;
         }
+        @media (min-width: 1921px) {
+          right: 27vw;
+        }
         &:after {
-          right: 6px;
           transform: rotate(45deg);
         }
       }

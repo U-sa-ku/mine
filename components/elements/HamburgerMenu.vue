@@ -5,7 +5,7 @@
       @click="isShow = !isShow"
       >
     </div>
-    <objectsNavigation
+    <BlocksNavigation
       :class="{jsShow: isShow}"
       @initShow="initShow"
       />

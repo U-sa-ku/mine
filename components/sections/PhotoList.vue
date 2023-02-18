@@ -22,7 +22,7 @@
             <figure class="photoList__imageBoxFrame photoList__imageBoxFrame--right"></figure>
             <figure class="photoList__imageBoxFrame photoList__imageBoxFrame--bottom"></figure>
             <figure class="photoList__imageBoxFrame photoList__imageBoxFrame--left"></figure>
-            <ObjectsImageLoading/>
+            <ElementsImageLoader/>
           </nuxt-link>
         </li>
       </ul>

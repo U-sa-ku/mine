@@ -1,6 +1,6 @@
 <template>
   <div class="imageLoading">
-    <partsMineLogo
+    <ElementsMineLogo
       class="imageLoading__logo"
       :isInitShow="true"
       />
