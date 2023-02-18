@@ -9,7 +9,7 @@
           :key="photos.id"
           >
           <nuxt-link
-            :to="`/photograph/${photo.id}/?list=${currentPage}`"
+            :to="`/${sectionName}/${photo.id}/?list=${currentPage}`"
             class="photoList__link"
             >
             <img
@@ -34,7 +34,7 @@
           >
           <nuxt-link
             :class="['photoList__paginationLink', currentPage ==  n ? '--active' : '']"
-            :to="`/photograph/page/${n}/`"
+            :to="`/${sectionName}/page/${n}/`"
             >
             {{ n }}
           </nuxt-link>
