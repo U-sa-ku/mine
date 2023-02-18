@@ -6,21 +6,21 @@
         alt=""
         :class="['snapshot__image',{jsAnimation: isLoaded}]"
         @load="onLoad"
-      >
+        >
     </div>
     <nav class="snapshotNavigation">
       <div class="snapshotNavigation__inner">
         <nuxt-link
-         :to="`/snapshot/${prevsnapshot.id}/?list=${listNumber}`"
-         v-if="isShowPrevsnapshot"
-         class="snapshotNavigation__link snapshotNavigation__link--prev"
-        >
+          :to="`/snapshot/${prevsnapshot.id}/?list=${listNumber}`"
+          v-if="isShowPrevsnapshot"
+          class="snapshotNavigation__link snapshotNavigation__link--prev"
+          >
           <span class="snapshotNavigation__caption">prev</span>
         </nuxt-link>
         <nuxt-link
-         :to="`/snapshot/page/${listNumber}/`"
-         class="snapshotNavigation__link snapshotNavigation__link--list"
-        >
+          :to="`/snapshot/page/${listNumber}/`"
+          class="snapshotNavigation__link snapshotNavigation__link--list"
+          >
           <span class="snapshotNavigation__listIcon">
             <i class="snapshotNavigation__listIconSquare"></i>
             <i class="snapshotNavigation__listIconSquare"></i>
@@ -37,7 +37,7 @@
           :to="`/snapshot/${nextsnapshot.id}/?list=${listNumber}`"
           v-if="isShowNextsnapshot"
           class="snapshotNavigation__link snapshotNavigation__link--next"
-        >
+          >
           <span class="snapshotNavigation__caption">next</span>
         </nuxt-link>
       </div>
@@ -46,77 +46,78 @@
 </template>
 
 <script>
-import axios from 'axios'
-export default {
-  async asyncData({ params }) {
-    const { data } = await axios.get(
-      `https://mine.microcms.io/api/v1/photo/${params.slug}`,
-      {
-        headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' }
+  import axios from 'axios'
+  export default {
+    async asyncData({ params }) {
+      const { data } = await axios.get(
+        `https://mine.microcms.io/api/v1/photo/${params.slug}`,
+        {
+          headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' }
+        }
+      )
+      return data
+    },
+    async fetch() {
+      const prevSnapshotRespons = await fetch(
+        `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=-publishedAt&filters=category[contains]snapshot[and]publishedAt[less_than]${this.publishedAt}`,
+        { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+      ).then(res => res.json())
+      
+      const nextsnapshotRespons = await fetch(
+        `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=publishedAt&filters=category[contains]snapshot[and]publishedAt[greater_than]${this.publishedAt}`,
+        { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+      ).then(res => res.json())
+
+      if(prevSnapshotRespons.contents.length != 0) {
+        this.prevsnapshot = prevSnapshotRespons.contents[0]
+        this.isShowPrevsnapshot = true
       }
-    )
-    return data
-  },
-  async fetch() {
-    const prevSnapshotRespons = await fetch(
-      `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=-publishedAt&filters=category[contains]snapshot[and]publishedAt[less_than]${this.publishedAt}`,
-      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-    ).then(res => res.json())
-    const nextsnapshotRespons = await fetch(
-      `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=publishedAt&filters=category[contains]snapshot[and]publishedAt[greater_than]${this.publishedAt}`,
-      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-    ).then(res => res.json())
 
-    if(prevSnapshotRespons.contents.length != 0) {
-      this.prevsnapshot = prevSnapshotRespons.contents[0]
-      this.isShowPrevsnapshot = true
-    }
+      if(nextsnapshotRespons.contents.length != 0) {
+        this.nextsnapshot = nextsnapshotRespons.contents[0]
+        this.isShowNextsnapshot = true
+      }
+    },
+    head(){
+      return {
+        title: 'snapshot | mine',
+        meta: [
+          { hid: 'description', name: 'description', content: 'iPhoneで撮った写真' },
+          { hid: 'og:type', property: 'og:type', content: 'article' },
+          { hid: 'og:title', property: 'og:title', content: `snapshot | mine` },
+          { hid: 'og:description', property: 'og:description', content: 'iPhoneで撮った写真' },
+          { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` }
+        ]
+      }
+    },
+    data() {
+      return {
+        isLoaded: false,
+        photoUrl: null,
+        prevsnapshot: [],
+        isShowPrevsnapshot: false,
+        nextsnapshot: [],
+        isShowNextsnapshot: false,
+        listNumber: null
+      }
+    },
+    mounted() {
+      if(window.innerWidth <= 767) {
+        this.photoUrl = `${this.photo.url}?dpr=2&w=375`
+      } else {
+        this.photoUrl = `${this.photo.url}?dpr=2&w=1440`
+      }
 
-    if(nextsnapshotRespons.contents.length != 0) {
-      this.nextsnapshot = nextsnapshotRespons.contents[0]
-      this.isShowNextsnapshot = true
-    }
-  },
-  head(){
-    return {
-      title: `snapshot | mine`,
-      meta: [
-        { hid: 'description', name: 'description', content: 'ミラーレス一眼で撮った写真' },
-        { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: `snapshot | mine` },
-        { hid: 'og:description', property: 'og:description', content: 'ミラーレス一眼で撮った写真' },
-        { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` }
-      ]
-    }
-  },
-  data() {
-    return {
-      isLoaded: false,
-      photoUrl: "",
-      prevsnapshot: [],
-      isShowPrevsnapshot: false,
-      nextsnapshot: [],
-      isShowNextsnapshot: false,
-      listNumber: null
-    }
-  },
-  mounted() {
-    if(window.innerWidth <= 767) {
-      this.photoUrl = `${this.photo.url}?dpr=2&w=375`
-    } else {
-      this.photoUrl = `${this.photo.url}?dpr=2&w=1440`
-    }
-
-    this.listNumber = !this.$route.query.list ? '1' : this.$route.query.list
-  },
-  methods: {
-    onLoad() {
-      this.isLoaded = true
-      this.$nuxt.$emit("onLoad", this.isLoaded)
-      this.$nuxt.$emit("initShowSiteHeader")
+      this.listNumber = !this.$route.query.list ? '1' : this.$route.query.list
+    },
+    methods: {
+      onLoad() {
+        this.isLoaded = true
+        this.$nuxt.$emit('onLoad', this.isLoaded)
+        this.$nuxt.$emit('initShowSiteHeader')
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>

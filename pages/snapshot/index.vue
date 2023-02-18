@@ -1,256 +1,84 @@
 <template>
   <main class="mainContents">
-    <section class="snapshotList">
-      <h2 class="snapshotList__title">snapshot</h2>
-      <div :class="['js-contentsBody',{jsAnimation:isLoaded}]">
-        <ul class="snapshotList__list">
-          <li
-            class="snapshotList__listItem"
-            v-for="snapshot in contents"
-            :key="contents.id"
-          >
-            <nuxt-link
-              :to="`/snapshot/${snapshot.id}/?list=${currentPage}`"
-              class="snapshotList__link"
-            >
-              <img
-                :data-src="`${snapshot.photo.url}?dpr=2&w=${photoWidth}&q=80`"
-                alt="snapshot"
-                class="snapshotList__image lazyload lazyloadImage"
-                @load="onLoad"
-              >
-              <figure class="snapshotList__imageBoxFrame snapshotList__imageBoxFrame--top"></figure>
-              <figure class="snapshotList__imageBoxFrame snapshotList__imageBoxFrame--right"></figure>
-              <figure class="snapshotList__imageBoxFrame snapshotList__imageBoxFrame--bottom"></figure>
-              <figure class="snapshotList__imageBoxFrame snapshotList__imageBoxFrame--left"></figure>
-              <ObjectsImageLoading/>
-            </nuxt-link>
-          </li>
-        </ul>
-        <ul class="snapshotList__pagination">
-          <li
-            class="snapshotList__paginationItem"
-            v-for="n of paginationLength"
-            :key="n"
-          >
-            <nuxt-link
-              :class="['snapshotList__paginationLink', currentPage ==  n ? '--active' : '']"
-              :to="`/snapshot/page/${n}/`"
-            >
-              {{ n }}
-            </nuxt-link>
-          </li>
-        </ul>
-      </div>
-    </section>
+    <sectionsPhotoList
+      sectionName="snapshot"
+      :photos="contents"
+      :photosLimit="snapshotLimit"
+      :paginationLength="paginationLength"
+      :currentPage="currentPage"
+      @onLoad="onLoad"
+      />
     <div :class="['standaloneContent', 'js-contentsBody', {jsAnimation:isLoaded}]">
       <sectionsPhotoSlider
-        contentsName="photograph"
+        sectionName="photograph"
         :photos="photographs"
-      />
+        />
     </div>
   </main>
 </template>
 
 <script>
-import axios from 'axios'
-export default {
-  async asyncData({ params }) {
-    const page = params.p || '1'
-    const limit = 24
-    const { data } = await axios.get(
-      `https://mine.microcms.io/api/v1/photo?limit=${limit}&filters=category[contains]snapshot&orders=-publishedAt&offset=${(page - 1) * limit}`,
-      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-    )
-    return data
-  },
-  async fetch() {
-    const limit = 50
-    this.photographs = await fetch(
-      `https://mine.microcms.io/api/v1/photo?limit=${limit}&filters=category[contains]photograph`,
-      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-    ).then(res => res.json())
-  },
-  head(){
-    return {
-      title: `snapshot | mine`,
-      meta: [
-        { hid: 'description', name: 'description', content: 'ミラーレス一眼で撮った写真の一覧' },
-        { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: `snapshot | mine` },
-        { hid: 'og:description', property: 'og:description', content: 'ミラーレス一眼で撮った写真の一覧' },
-        { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` }
-      ]
-    }
-  },
-  data() {
-    return {
-      isLoaded: false,
-      paginationLength: null,
-      currentPage: null,
-      photoWidth: null,
-      photographs: []
-    }
-  },
-  mounted() {
-    this.paginationLength = Math.ceil(this.totalCount / this.limit)
-    this.currentPage = !this.$route.params.p ? '1' : this.$route.params.p
-
-    if(window.innerWidth <= 767) {
-      this.photoWidth = 187
-    } else {
-      this.photoWidth = 480
-    }
-  },
-  methods: {
-    onLoad() {
-      this.isLoaded = true
-      this.$nuxt.$emit("onLoad", this.isLoaded)
-      this.$nuxt.$emit("initShowSiteHeader")
+  import axios from 'axios'
+  export default {
+    async asyncData({ params }) {
+      const page = params.p || '1'
+      const snapshotLimit = 24
+      const { data } = await axios.get(
+        `https://mine.microcms.io/api/v1/photo?limit=${snapshotLimit}&filters=category[contains]snapshot&orders=-publishedAt&offset=${(page - 1) * snapshotLimit}`,
+        { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+      )
+      return data
+    },
+    async fetch() {
+      const photographLimit = 50
+      this.photographs = await fetch(
+        `https://mine.microcms.io/api/v1/photo?limit=${photographLimit}&filters=category[contains]photograph`,
+        { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+      ).then(res => res.json())
+    },
+    head(){
+      return {
+        title: 'snapshot | mine',
+        meta: [
+          { hid: 'description', name: 'description', content: 'iPhoneで撮った写真リスト' },
+          { hid: 'og:type', property: 'og:type', content: 'article' },
+          { hid: 'og:title', property: 'og:title', content: `snapshot | mine` },
+          { hid: 'og:description', property: 'og:description', content: 'iPhoneで撮った写真リスト' },
+          { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` }
+        ]
+      }
+    },
+    data() {
+      return {
+        isLoaded: false,
+        snapshotLimit: 24,
+        paginationLength: null,
+        currentPage: null,
+        photographs: []
+      }
+    },
+    mounted() {
+      this.paginationLength = Math.ceil(this.totalCount / this.snapshotLimit)
+      this.currentPage = !this.$route.params.p ? '1' : this.$route.params.p
+    },
+    methods: {
+      onLoad(isLoaded) {
+        this.isLoaded = isLoaded
+        this.$nuxt.$emit('onLoad', this.isLoaded)
+        this.$nuxt.$emit('initShowSiteHeader')
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
-.snapshotList {
-  padding: 150px 0px 0px;
-  @media (max-width: 999px) {
-    padding-top: 90px;
-  }
-  @media (max-width: 767px) {
-    padding: 90px 0px 0px;
-  }
-  &__title {
-    @include sectionTitle;
-  }
-  &__list {
-    list-style-type: none;
-    margin-bottom: 30px;
-    padding: 0px;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1px;
-    @media (max-width: 767px) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    @media (min-width: 1921px) {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+  .js-contentsBody {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s 0.5s;
+    &.jsAnimation {
+      transform: translateY(0px);
+      opacity: 1;
     }
   }
-  &__listItem {
-    padding-bottom: 100%;
-    position: relative;
-  }
-  &__link {
-    width: 100%;
-    height: 100%;
-    color: inherit;
-    text-decoration: none;
-    background-color: #000000;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    display: block;
-    @media (min-width: 769px) {
-      &:hover {
-        .snapshotList__imageBoxFrame {
-          transform: scale(1);
-        }
-      }
-    }
-  }
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  &__imageBoxFrame {
-    background-color: #ffffff;
-    position: absolute;
-    z-index: 2;
-    transform: scale(0);
-    transition: 0.5s;
-    $borderOffset: 10px;
-    $borderWidth: 1px;
-    &--top {
-      width: calc(100% - #{$borderOffset*2});
-      height: $borderWidth;
-      left: $borderOffset;
-      top: $borderOffset;
-      transform-origin: 0% 0%;
-    }
-    &--right {
-      width: $borderWidth;
-      height: calc(100% - #{$borderOffset*2});
-      right: $borderOffset;
-      top: $borderOffset;
-      transform-origin: 100% 0%;
-    }
-    &--bottom {
-      width: calc(100% - #{$borderOffset*2});
-      height: $borderWidth;
-      left: $borderOffset;
-      bottom: $borderOffset;
-      transform-origin: 100% 100%;
-    }
-    &--left {
-      width: $borderWidth;
-      height: calc(100% - #{$borderOffset*2});
-      left: $borderOffset;
-      top: $borderOffset;
-      transform-origin: 0% 100%;
-    }
-  }
-  &__pagination {
-    list-style-type: none;
-    padding-left: 0px;
-    display: flex;
-    justify-content: center;
-  }
-  &__paginationItem {
-    margin: 0px 10px;
-    @media (max-width: 767px) {
-      margin: 0px 5px;
-    }
-  }
-  &__paginationLink {
-    width: 30px;
-    height: 30px;
-    color: inherit;
-    font-family: $fontFamily_english;
-    font-size: 1.6rem;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-    @media (max-width: 999px) {
-      font-size: 1.4rem;
-    }
-    @mixin paginationHoverActive {
-      color: $color_middleGray;
-      background-color: $color_lightGray;
-    }
-    @media (min-width: 769px) {
-      &:hover {
-        @include paginationHoverActive;
-      }
-    }
-    &.--active {
-      @include paginationHoverActive;
-    }
-  }
-}
-.js-contentsBody {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 1s 0.5s;
-  &.jsAnimation {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
 </style>

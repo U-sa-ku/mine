@@ -10,37 +10,34 @@
 </template>
 
 <script>
-export default {
-  name: 'default',
-  data() {
-    return {
-      isLoaded: false,
-      isInitShow: false,
-    }
-  },
-  created() {
-    this.setListener()
-  },
-  methods: {
-    setListener() {
-      this.$nuxt.$on('onLoad', this.onLoad)
-      this.$nuxt.$on('initShowSiteHeader', this.initShowSiteHeader)
+  export default {
+    name: 'default',
+    data() {
+      return {
+        isLoaded: false,
+        isInitShow: false,
+      }
     },
-    onLoad(isLoaded) {
-      this.isLoaded = isLoaded
+    created() {
+      this.setListener()
     },
-    initShowSiteHeader() {
-      this.isInitShow = true
-    }
-  },
-  watch: {
-    $route() {
-      this.isLoaded = false
-      this.isInitShow = false
+    methods: {
+      setListener() {
+        this.$nuxt.$on('onLoad', this.onLoad)
+        this.$nuxt.$on('initShowSiteHeader', this.initShowSiteHeader)
+      },
+      onLoad(isLoaded) {
+        this.isLoaded = isLoaded
+      },
+      initShowSiteHeader() {
+        this.isInitShow = true
+      }
+    },
+    watch: {
+      $route() {
+        this.isLoaded = false
+        this.isInitShow = false
+      }
     }
   }
-}
 </script>
-
-<style lang="scss" scoped>
-</style>

@@ -5,7 +5,7 @@
         :alt="name"
         :class="['mainvisual__image', {jsAnimation: isLoaded}]"
         @load="onLoad"
-      >
+        >
       <p :class="['mainvisual__category', {jsAnimation: isLoaded}]">{{ id }}</p>
       <h1 :class="['mainvisual__title', {jsAnimation: isLoaded}]">
         <span class="mainvisual__titleInner">{{ maker }} {{ name }}</span>
@@ -18,26 +18,26 @@
           <div
             class="description__title"
             v-html="description_title"
-          >
+            >
           </div>
           <div class="description__bodyWrapper">
             <div
               class="description__body"
               v-for="body in description_body"
               :key="description_body.index"
-            >
+              >
               <div class="description__imageBox">
                 <img
                   :data-src="`${body.image.url}${descriptionImageParam}`"
                   alt=""
                   class="description__image lazyload lazyloadImage"
-                >
+                  >
                 <ObjectsImageLoading/>
               </div>
               <div
                 class="description__leadBox"
                 v-html="body.lead"
-              >
+                >
               </div>
             </div>
           </div>
@@ -45,377 +45,378 @@
         <section
           class="movie"
           v-if="movie != null"
-        >
+          >
           <h2 class="movie__title">movie</h2>
           <ul class="movie__list">
             <li
               class="movie__item"
               v-for="movie in movie"
               :key="movie.index"
-            >
+              >
               <iframe
                 :data-src="`https://www.youtube.com/embed/${movie.movie_id}`"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
                 class="movie__iframe lazyload lazyloadImage"
-              >
+               >
               </iframe>
               <ObjectsImageLoading/>
             </li>
           </ul>
         </section>
         <sectionsPhotoSlider
-          contentsName="photograph"
+          sectionName="photograph"
           :photos="photographs"
-        />
+          />
         <sectionsPhotoSlider
-          contentsName="snapshot"
+          sectionName="snapshot"
           :photos="snapshots"
-        />
+          />
       </div>
     </div>
   </main>
 </template>
 
 <script>
-import axios from 'axios'
-export default {
-  async asyncData({ params }) {
-    const { data } = await axios.get(
-      `https://mine.microcms.io/api/v1/sidekick/${params.slug}`,
-      {
-        headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' }
+  import axios from 'axios'
+  export default {
+    async asyncData({ params }) {
+      const { data } = await axios.get(
+        `https://mine.microcms.io/api/v1/sidekick/${params.slug}`,
+        {
+          headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' }
+        }
+      )
+      return data
+    },
+    async fetch() {
+      this.photographs = await fetch(
+        `https://mine.microcms.io/api/v1/photo?limit=50&filters=category[contains]photograph[and]sidekick[contains]${this.id}`,
+        { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+      ).then(res => res.json())
+
+      this.snapshots = await fetch(
+        `https://mine.microcms.io/api/v1/photo?limit=50&filters=category[contains]snapshot[and]sidekick[contains]${this.id}`,
+        { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+      ).then(res => res.json())
+    },
+    head(){
+      return {
+        title: `${this.maker} ${this.name} | Sidekick | mine`,
+        meta: [
+          { hid: 'description', name: 'description', content: `${this.since_year}年${this.since_month}月から所有している${this.maker}の${this.name}。` },
+          { hid: 'og:type', property: 'og:type', content: 'article' },
+          { hid: 'og:title', property: 'og:title', content: `${this.maker} ${this.name} | Sidekick | mine` },
+          { hid: 'og:description', property: 'og:description', content: `${this.since_year}年${this.since_month}月から所有している${this.maker}の${this.name}。` },
+          { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` }
+        ]
       }
-    )
-    return data
-  },
-  async fetch() {
-    this.photographs = await fetch(
-      `https://mine.microcms.io/api/v1/photo?limit=50&filters=category[contains]photograph[and]sidekick[contains]${this.id}`,
-      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-    ).then(res => res.json())
-    this.snapshots = await fetch(
-      `https://mine.microcms.io/api/v1/photo?limit=50&filters=category[contains]snapshot[and]sidekick[contains]${this.id}`,
-      { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-    ).then(res => res.json())
-  },
-  head(){
-    return {
-      title: `${this.maker} ${this.name} | Sidekick | mine`,
-      meta: [
-        { hid: 'description', name: 'description', content: `${this.since_year}年${this.since_month}月から所有している${this.maker}の${this.name}。` },
-        { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: `${this.maker} ${this.name} | Sidekick | mine` },
-        { hid: 'og:description', property: 'og:description', content: `${this.since_year}年${this.since_month}月から所有している${this.maker}の${this.name}。` },
-        { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` }
-      ]
-    }
-  },
-  data() {
-    return {
-      isLoaded: false,
-      mainvisualUrl: "",
-      descriptionImageParam: "",
-      movieLength: this.movie,
-      photographs: [],
-      snapshots: []
-    }
-  },
-  mounted() {
-    if(window.innerWidth <= 767) {
-      this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=365`
-      this.descriptionImageParam = '?dpr=2&w=375'
-    } else {
-      this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1440`
-      this.descriptionImageParam = '?dpr=2&w=640'
-    }
-  },
-  methods: {
-    onLoad() {
-      this.isLoaded = true
-      this.$nuxt.$emit("onLoad", this.isLoaded)
+    },
+    data() {
+      return {
+        isLoaded: false,
+        mainvisualUrl: null,
+        descriptionImageParam: null,
+        movieLength: this.movie,
+        photographs: [],
+        snapshots: []
+      }
+    },
+    mounted() {
+      if(window.innerWidth <= 767) {
+        this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=365`
+        this.descriptionImageParam = '?dpr=2&w=375'
+      } else {
+        this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1440`
+        this.descriptionImageParam = '?dpr=2&w=640'
+      }
+    },
+    methods: {
+      onLoad() {
+        this.isLoaded = true
+        this.$nuxt.$emit('onLoad', this.isLoaded)
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
-$mainvisualAnimationStartDelay: 0s;
-.mainvisual {
-  height: 65vw;
-  background: $gradient_primary;
-  padding: 10px;
-  position: relative;
-  @media (max-width: 1920px) {
-    width: 100%;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    z-index: 0;
-  }
-  @media (max-width: 999px) {
-    padding: 5px;
-  }
-  @media (max-width: 767px) {
-    height: 140vw;
-  }
-  @media (min-width: 1921px) {
-    height: 100vh;
-  }
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: 1s;
-    &.jsAnimation {
-      opacity: 1;
+  $mainvisualAnimationStartDelay: 0s;
+  .mainvisual {
+    height: 65vw;
+    background: $gradient_primary;
+    padding: 10px;
+    position: relative;
+    @media (max-width: 1920px) {
+      width: 100%;
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      z-index: 0;
     }
-  }
-  &__category {
-    width: 60%;
-    color: $color_lightGray;
-    font-family: $fontFamily_english;
-    font-size: 6vw;
-    font-weight: 100;
-    line-height: 1;
-    text-align: right;
-    mix-blend-mode: exclusion;
-    position: absolute;
-    right: 100vw;
-    top: 0vw;
-    z-index: 1;
-    opacity: 0;
-    transform: rotate(-90deg);
-    transform-origin: 100% 0%;
-    transition: 1s $mainvisualAnimationStartDelay + 1s;
+    @media (max-width: 999px) {
+      padding: 5px;
+    }
     @media (max-width: 767px) {
-      width: 90%;
-      font-size: 9vw;
-      transform: translateY(10vw) rotate(-90deg);
+      height: 140vw;
     }
-    &.jsAnimation {
-      opacity: 1;
+    @media (min-width: 1921px) {
+      height: 100vh;
+    }
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: 1s;
+      &.jsAnimation {
+        opacity: 1;
+      }
+    }
+    &__category {
+      width: 60%;
+      color: $color_lightGray;
+      font-family: $fontFamily_english;
+      font-size: 6vw;
+      font-weight: 100;
+      line-height: 1;
+      text-align: right;
+      mix-blend-mode: exclusion;
+      position: absolute;
+      right: 100vw;
+      top: 0vw;
+      z-index: 1;
+      opacity: 0;
+      transform: rotate(-90deg);
+      transform-origin: 100% 0%;
+      transition: 1s $mainvisualAnimationStartDelay + 1s;
       @media (max-width: 767px) {
-        transform: translateY(0vw) rotate(-90deg);
+        width: 90%;
+        font-size: 9vw;
+        transform: translateY(10vw) rotate(-90deg);
+      }
+      &.jsAnimation {
+        opacity: 1;
+        @media (max-width: 767px) {
+          transform: translateY(0vw) rotate(-90deg);
+        }
+      }
+    }
+    &__title {
+      width: 100%;
+      color: $color_lightGray;
+      font-family: $fontFamily_english;
+      font-size: 6vw;
+      font-weight: 300;
+      line-height: 1;
+      text-align: right;
+      mix-blend-mode: exclusion;
+      position: absolute;
+      right: 0vw;
+      bottom: 0vw;
+      z-index: 1;
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: 0% 100%;
+      transition: 1s $mainvisualAnimationStartDelay + 1.5s;
+      @media (max-width: 767px) {
+        font-size: 10.5vw;
+      }
+      &.jsAnimation {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+    &__titleInner {
+      display: inline-block;
+    }
+    &__since {
+      color: $color_lightGray;
+      font-family: $fontFamily_english;
+      font-size: 1.6vw;
+      font-weight: 100;
+      letter-spacing: 0.1em;
+      position: absolute;
+      right: 0px;
+      bottom: -2vw;
+      z-index: 1;
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: 0% 100%;
+      transition: 1s $mainvisualAnimationStartDelay + 2s;
+      @media (max-width: 767px) {
+        font-size: 3.4vw;
+        bottom: -6vw;
+      }
+      &.jsAnimation {
+        opacity: 1;
+        transform: scaleY(1);
       }
     }
   }
-  &__title {
-    width: 100%;
-    color: $color_lightGray;
-    font-family: $fontFamily_english;
-    font-size: 6vw;
-    font-weight: 300;
-    line-height: 1;
-    text-align: right;
-    mix-blend-mode: exclusion;
-    position: absolute;
-    right: 0vw;
-    bottom: 0vw;
-    z-index: 1;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: 0% 100%;
-    transition: 1s $mainvisualAnimationStartDelay + 1.5s;
-    @media (max-width: 767px) {
-      font-size: 10.5vw;
-    }
-    &.jsAnimation {
-      opacity: 1;
-      transform: scaleY(1);
-    }
-  }
-  &__titleInner {
-    display: inline-block;
-  }
-  &__since {
-    color: $color_lightGray;
-    font-family: $fontFamily_english;
-    font-size: 1.6vw;
-    font-weight: 100;
-    letter-spacing: 0.1em;
-    position: absolute;
-    right: 0px;
-    bottom: -2vw;
-    z-index: 1;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: 0% 100%;
-    transition: 1s $mainvisualAnimationStartDelay + 2s;
-    @media (max-width: 767px) {
-      font-size: 3.4vw;
-      bottom: -6vw;
-    }
-    &.jsAnimation {
-      opacity: 1;
-      transform: scaleY(1);
-    }
-  }
-}
-.contentsBody {
-  @media (max-width: 1920px) {
-    background-color: $color_middleGray;
-    margin-top: 70vw;
-    margin-bottom: -300px;
-    padding-top: 5vw;
-    padding-bottom: 300px;
-    position: relative;
-  }
-  @media (max-width: 767px) {
-    margin-top: 150vw;
-    margin-bottom: -200px;
-    padding-top: 10vw;
-    padding-bottom: 200px;
-  }
-}
-.description {
-  max-width: 1600px;
-  margin: 0px auto;
-  &__title {
-    @include sectionTitle;
-    font-family: $fontFamily_japanese;
-    font-size: 2.6rem;
-    line-height: 1.8;
-    @media (max-width: 767px) {
-      font-size: 1.6rem;
-    }
-    @media (min-width: 1921px) {
-      margin-top: 10vw;
-    }
-  }
-  &__body {
-    height: 50vw;
-    display: flex;
-    justify-content: space-between;
-    @media (min-width: 1601px) {
-      height: 800px;
+  .contentsBody {
+    @media (max-width: 1920px) {
+      background-color: $color_middleGray;
+      margin-top: 70vw;
+      margin-bottom: -300px;
+      padding-top: 5vw;
+      padding-bottom: 300px;
+      position: relative;
     }
     @media (max-width: 767px) {
-      height: auto;
-      margin-bottom: 60px;
-      display: block;
-      &:last-child {
+      margin-top: 150vw;
+      margin-bottom: -200px;
+      padding-top: 10vw;
+      padding-bottom: 200px;
+    }
+  }
+  .description {
+    max-width: 1600px;
+    margin: 0px auto;
+    &__title {
+      @include sectionTitle;
+      font-family: $fontFamily_japanese;
+      font-size: 2.6rem;
+      line-height: 1.8;
+      @media (max-width: 767px) {
+        font-size: 1.6rem;
+      }
+      @media (min-width: 1921px) {
+        margin-top: 10vw;
+      }
+    }
+    &__body {
+      height: 50vw;
+      display: flex;
+      justify-content: space-between;
+      @media (min-width: 1601px) {
+        height: 800px;
+      }
+      @media (max-width: 767px) {
+        height: auto;
+        margin-bottom: 60px;
+        display: block;
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+      &:nth-child(2n) {
+        flex-direction: row-reverse;
+      }
+    }
+    &__imageBox {
+      width: 50%;
+      background-color: #000000;
+      position: relative;
+      @media (max-width: 767px) {
+        width: 100%;
+        height: 100vw;
         margin-bottom: 0px;
       }
     }
-    &:nth-child(2n) {
-      flex-direction: row-reverse;
-    }
-  }
-  &__imageBox {
-    width: 50%;
-    background-color: #000000;
-    position: relative;
-    @media (max-width: 767px) {
+    &__image {
       width: 100%;
-      height: 100vw;
-      margin-bottom: 0px;
+      height: 100%;
+      object-fit: cover;
     }
-  }
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  &__leadBox {
-    width: 50%;
-    background-color: $color_darkGray;
-    display: flex;
-    align-items: center;
-    @media (max-width: 767px) {
-      width: 85%;
-      background-color: transparent;
-      border-width: 1px 0px 1px 0px;
-      border-style: solid;
-      border-color: rgba(222,222,222,0.6);
-      margin: -10px auto 0px;
-      padding: 20px 0px;
-      position: relative;
-      &:before,
-      &:after {
-        content: "";
-        width: 1px;
-        height: calc(100% - 30px);
-        background-color: rgba(222,222,222,0.6);
-        position: absolute;
-        top: 15px;
-        z-index: 1;
+    &__leadBox {
+      width: 50%;
+      background-color: $color_darkGray;
+      display: flex;
+      align-items: center;
+      @media (max-width: 767px) {
+        width: 85%;
+        background-color: transparent;
+        border-width: 1px 0px 1px 0px;
+        border-style: solid;
+        border-color: rgba(222,222,222,0.6);
+        margin: -10px auto 0px;
+        padding: 20px 0px;
+        position: relative;
+        &:before,
+        &:after {
+          content: "";
+          width: 1px;
+          height: calc(100% - 30px);
+          background-color: rgba(222,222,222,0.6);
+          position: absolute;
+          top: 15px;
+          z-index: 1;
+        }
+        &:before {
+          left: -15px;
+        }
+        &:after {
+          right: -15px;
+        }
       }
-      &:before {
-        left: -15px;
-      }
-      &:after {
-        right: -15px;
-      }
-    }
-    /deep/ p {
-      width: 100%;
-      color: $color_lightGray !important;
-      font-size: 1.8rem;
-      font-weight: normal;
-      line-height: 2.2;
-      letter-spacing: 0.2em;
-      text-align: center !important;
-      @media (max-width: 999px) {
-        font-size: 1.3rem;
-        letter-spacing: 0.15em;
+      /deep/ p {
+        width: 100%;
+        color: $color_lightGray !important;
+        font-size: 1.8rem;
+        font-weight: normal;
+        line-height: 2.2;
+        letter-spacing: 0.2em;
         text-align: center !important;
+        @media (max-width: 999px) {
+          font-size: 1.3rem;
+          letter-spacing: 0.15em;
+          text-align: center !important;
+        }
       }
     }
   }
-}
-.js-contentsBody {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 1s $mainvisualAnimationStartDelay + 2.5s;
-  &.jsAnimation {
-    opacity: 1;
-    transform: translateY(0px);
+  .js-contentsBody {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s $mainvisualAnimationStartDelay + 2.5s;
+    &.jsAnimation {
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
-}
-.movie {
-  max-width: 1600px;
-  margin: 0px auto -50px;
-  padding: 150px 10px 0px;
-  @media (max-width: 999px) {
-    margin-bottom: -20px;
-    padding-top: 80px;
-  }
-  &__title {
-    @include sectionTitle;
-  }
-  &__list {
-    list-style-type: none;
-    margin-bottom: -10px;
-    padding: 0px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  &__item {
-    width: calc(50% - 5px);
-    background-color: #000000;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 30%;
-    position: relative;
-    @media (max-width: 767px) {
+  .movie {
+    max-width: 1600px;
+    margin: 0px auto -50px;
+    padding: 150px 10px 0px;
+    @media (max-width: 999px) {
+      margin-bottom: -20px;
+      padding-top: 80px;
+    }
+    &__title {
+      @include sectionTitle;
+    }
+    &__list {
+      list-style-type: none;
+      margin-bottom: -10px;
+      padding: 0px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__item {
+      width: calc(50% - 5px);
+      background-color: #000000;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 30%;
+      position: relative;
+      @media (max-width: 767px) {
+        width: 100%;
+        margin-right: 0%;
+        padding-bottom: 60%;
+      }
+      &:nth-child(2n) {
+        margin-right: 0%;
+      }
+    }
+    &__iframe {
       width: 100%;
-      margin-right: 0%;
-      padding-bottom: 60%;
-    }
-    &:nth-child(2n) {
-      margin-right: 0%;
+      height: 100%;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 1;
     }
   }
-  &__iframe {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 1;
-  }
-}
 </style>

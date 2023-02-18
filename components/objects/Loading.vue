@@ -10,110 +10,110 @@
 </template>
 
 <script>
-export default {
-  props: {
-    isLoaded: Boolean
+  export default {
+    props: {
+      isLoaded: Boolean
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>
-.loading {
-  width: 100%;
-  height: 100%;
-  background: $gradient_primary;
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  z-index: 9;
-  &.jsHidden {
-    animation: fadeOut 2s forwards;
-  }
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-      z-index: -1;
-    }
-  }
-  &__logo {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg) scale(0.8);
-    @media (max-width: 999px) {
-      transform: translate(-50%, -50%) rotate(45deg) scale(0.5);
-    }
-  }
-  &__image {
-    height: 60px;
-    position: absolute;
+  .loading {
+    width: 100%;
+    height: 100%;
+    background: $gradient_primary;
+    position: fixed;
     left: 0px;
     top: 0px;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    &--m {
-      animation-name: m;
+    z-index: 9;
+    &.jsHidden {
+      animation: fadeOut 2s forwards;
     }
-    @keyframes m {
-      0%,
-      20% {
-        transform: translate(0px, 0px);
-        
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
       }
       100% {
-        transform: translate(-50px, 50px) rotate(-45deg);
+        opacity: 0;
+        z-index: -1;
       }
     }
-    &--i {
-      height: 76px;
-      left: 24px;
-      top: -16px;
-      animation-name: i;
-    }
-    @keyframes i {
-      0%,
-      20% {
-        transform: translate(0px, 0px);
-      }
-      100% {
-        transform: translate(-22px, 19px) rotate(-45deg);
+    &__logo {
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg) scale(0.8);
+      @media (max-width: 999px) {
+        transform: translate(-50%, -50%) rotate(45deg) scale(0.5);
       }
     }
-    &--n {
-      animation-name: n;
-    }
-    @keyframes n {
-      0%,
-      20% {
-        transform: translate(0px, 0px);
+    &__image {
+      height: 60px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      animation-duration: 1.5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      &--m {
+        animation-name: m;
       }
-      100% {
-        transform: translate(15px, -15px) rotate(-45deg);
+      @keyframes m {
+        0%,
+        20% {
+          transform: translate(0px, 0px);
+          
+        }
+        100% {
+          transform: translate(-50px, 50px) rotate(-45deg);
+        }
       }
-    }
-    &--e {
-      transform: rotate(90deg);
-      animation-name: e;
-    }
-    @keyframes e {
-      0%,
-      20% {
-        transform: translate(0px, 0px) rotate(90deg);
+      &--i {
+        height: 76px;
+        left: 24px;
+        top: -16px;
+        animation-name: i;
       }
-      100% {
-        transform: translate(65px, -65px) rotate(-45deg);
+      @keyframes i {
+        0%,
+        20% {
+          transform: translate(0px, 0px);
+        }
+        100% {
+          transform: translate(-22px, 19px) rotate(-45deg);
+        }
+      }
+      &--n {
+        animation-name: n;
+      }
+      @keyframes n {
+        0%,
+        20% {
+          transform: translate(0px, 0px);
+        }
+        100% {
+          transform: translate(15px, -15px) rotate(-45deg);
+        }
+      }
+      &--e {
+        transform: rotate(90deg);
+        animation-name: e;
+      }
+      @keyframes e {
+        0%,
+        20% {
+          transform: translate(0px, 0px) rotate(90deg);
+        }
+        100% {
+          transform: translate(65px, -65px) rotate(-45deg);
+        }
       }
     }
   }
-}
 </style>
