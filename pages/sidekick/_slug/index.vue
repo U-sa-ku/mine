@@ -13,6 +13,9 @@
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since_year }}.{{ since_month }}</p>
     </div>
     <div class="contentsBody">
+      <i :class="[`scrollIcon`, {jsAnimation: isLoaded}]">
+        <i class="scrollIcon__border"></i>
+      </i>
       <div :class="['js-contentsBody', {jsAnimation: isLoaded}]">
         <section class="description">
           <div
@@ -162,7 +165,7 @@
       height: 140vw;
     }
     @media (min-width: 1921px) {
-      height: 100vh;
+      height: 95vh;
     }
     &__image {
       width: 100%;
@@ -188,19 +191,16 @@
       top: 0vw;
       z-index: 1;
       opacity: 0;
-      transform: rotate(-90deg);
+      transform: translateY(5vw) rotate(-90deg);
       transform-origin: 100% 0%;
       transition: 1s $mainvisualAnimationStartDelay + 1s;
       @media (max-width: 767px) {
         width: 90%;
         font-size: 9vw;
-        transform: translateY(10vw) rotate(-90deg);
       }
       &.jsAnimation {
         opacity: 1;
-        @media (max-width: 767px) {
-          transform: translateY(0vw) rotate(-90deg);
-        }
+        transform: translateY(0vw) rotate(-90deg);
       }
     }
     &__title {
@@ -256,6 +256,7 @@
     }
   }
   .contentsBody {
+    position: relative;
     @media (max-width: 1920px) {
       background-color: $color_middleGray;
       margin-top: 70vw;
@@ -271,6 +272,43 @@
       padding-bottom: 200px;
     }
   }
+  .scrollIcon {
+    width: 1px;
+    height: 7vw;
+    position: absolute;
+    left: 50%;
+    top: -5vw;
+    z-index: 1;
+    transform: translateX(-50%);
+    overflow: hidden;
+    opacity: 0;
+    transition: 1s $mainvisualAnimationStartDelay + 0.5s;
+    @media (max-width: 767px) {
+      height: 15vw;
+      top: -10vw;
+    }
+    @media (min-width: 1921px) {
+      top: -10vw;
+    }
+    &__border {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      display: block;
+      animation: 2s scrollIconBorder infinite;
+    }
+    @keyframes scrollIconBorder {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(100%);
+      }
+    }
+    &.jsAnimation {
+      opacity: 1;
+    }
+  }
   .description {
     max-width: 1600px;
     margin: 0px auto;
@@ -279,7 +317,7 @@
       font-family: $fontFamily_japanese;
       font-size: 2.6rem;
       line-height: 1.8;
-      @media (max-width: 767px) {
+      @media (max-width: 999px) {
         font-size: 1.6rem;
       }
       @media (min-width: 1921px) {
