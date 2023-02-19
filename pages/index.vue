@@ -139,23 +139,24 @@
       @media (max-width: 768px) {
         bottom: 5px;
       }
+      &:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        display: block;
+        animation: 2s scrollIconBorder infinite;
+      }
+      @keyframes scrollIconBorder {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(100%);
+        }
+      }
       &.jsAnimation {
         opacity: 1;
-      }
-    }
-    &__scrollIconBorder {
-      width: 100%;
-      height: 100%;
-      background-color: #ffffff;
-      display: block;
-      animation: 2s scrollIconBorder infinite;
-    }
-    @keyframes scrollIconBorder {
-      0% {
-        transform: translateY(-100%);
-      }
-      100% {
-        transform: translateY(100%);
       }
     }
     &__frame {

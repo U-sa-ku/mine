@@ -13,9 +13,7 @@
       <p :class="['mainvisual__since', {jsAnimation: isLoaded}]">since {{ since_year }}.{{ since_month }}</p>
     </div>
     <div class="contentsBody">
-      <i :class="[`scrollIcon`, {jsAnimation: isLoaded}]">
-        <i class="scrollIcon__border"></i>
-      </i>
+      <i :class="[`scrollIcon`, {jsAnimation: isLoaded}]"></i>
       <div :class="['js-contentsBody', {jsAnimation: isLoaded}]">
         <section class="description">
           <div
@@ -282,7 +280,7 @@
     transform: translateX(-50%);
     overflow: hidden;
     opacity: 0;
-    transition: 1s $mainvisualAnimationStartDelay + 0.5s;
+    transition: 1s $mainvisualAnimationStartDelay + 2.5s;
     @media (max-width: 767px) {
       height: 15vw;
       top: -10vw;
@@ -290,10 +288,11 @@
     @media (min-width: 1921px) {
       top: -10vw;
     }
-    &__border {
+    &:before {
+      content: "";
       width: 100%;
       height: 100%;
-      background-color: #ffffff;
+      background-color: $color_lightGray;
       display: block;
       animation: 2s scrollIconBorder infinite;
     }
