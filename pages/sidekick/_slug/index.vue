@@ -145,24 +145,21 @@
 <style lang="scss" scoped>
   $mainvisualAnimationStartDelay: 0s;
   .mainvisual {
+    width: 100%;
     height: 65vw;
     background: $gradient_primary;
     padding: 10px;
-    position: relative;
-    @media (max-width: 1920px) {
-      width: 100%;
-      position: fixed;
-      left: 0px;
-      top: 0px;
-      z-index: 0;
-    }
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
     @media (max-width: 999px) {
       padding: 5px;
     }
     @media (max-width: 767px) {
       height: 140vw;
     }
-    @media (min-width: 1921px) {
+    @media (min-width: 1440px) {
       height: 95vh;
     }
     &__image {
@@ -254,20 +251,20 @@
     }
   }
   .contentsBody {
+    background-color: $color_middleGray;
+    margin-top: 70vw;
+    margin-bottom: -300px;
+    padding-top: 5vw;
+    padding-bottom: 300px;
     position: relative;
-    @media (max-width: 1920px) {
-      background-color: $color_middleGray;
-      margin-top: 70vw;
-      margin-bottom: -300px;
-      padding-top: 5vw;
-      padding-bottom: 300px;
-      position: relative;
-    }
     @media (max-width: 767px) {
       margin-top: 150vw;
       margin-bottom: -200px;
       padding-top: 10vw;
       padding-bottom: 200px;
+    }
+    @media (min-width: 1440px) {
+      margin-top: 100vh;
     }
   }
   .scrollIcon {
@@ -285,8 +282,8 @@
       height: 15vw;
       top: -10vw;
     }
-    @media (min-width: 1921px) {
-      top: -10vw;
+    @media (min-width: 1440px) {
+      top: -5vh;
     }
     &:before {
       content: "";
@@ -318,9 +315,6 @@
       line-height: 1.8;
       @media (max-width: 999px) {
         font-size: 1.6rem;
-      }
-      @media (min-width: 1921px) {
-        margin-top: 10vw;
       }
     }
     &__body {
