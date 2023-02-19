@@ -289,7 +289,7 @@
       content: "";
       width: 100%;
       height: 100%;
-      background-color: $color_lightGray;
+      background: rgba(222,222,222,0.6);
       display: block;
       animation: 2s scrollIconBorder infinite;
     }
