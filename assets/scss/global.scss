@@ -50,6 +50,7 @@ body {
 //////////////////////////////////////////////////////////////////////
 .lazyloadImage {
   opacity: 0;
+  transform: translateZ(1px);
   transition: 1s;
 }
 .lazyloaded {
