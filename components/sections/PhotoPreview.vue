@@ -90,8 +90,8 @@
         margin-top: 70px;
       }
       @media (max-width: 999px) {
-        height: calc(100vh - 93px);
-        height: calc(100dvh - 93px);
+        height: calc(100vh - 130px);
+        height: calc(100dvh - 130px);
         margin-top: 40px;
         margin-bottom: 10px;
       }
