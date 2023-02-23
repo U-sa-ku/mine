@@ -10,7 +10,7 @@
         >
         <p class="navigation__caption">2wheels</p>
         <img
-          :src="`https://images.microcms-assets.io/assets/7d34d4e4f5c644a5bdf1dcb3cbe69450/2e3b7f0d11de4b75aea928c30265ffee/img_navigation_2wheels.jpg?dpr=2&w=${imageWidth}&q=80`"
+          src="@/assets/img/img_navigation_2wheels.jpg"
           alt="2wheels"
           :class="['navigation__image', {jsAnimation: isLoaded}]"
           @load="onLoad"
@@ -27,7 +27,7 @@
         >
         <p class="navigation__caption">mirrorless</p>
         <img
-          :src="`https://images.microcms-assets.io/assets/7d34d4e4f5c644a5bdf1dcb3cbe69450/6f8c1337db264641adaf4f3215a8067c/img_navigation_mirrorless.jpg?dpr=2&w=${imageWidth}&q=80`"
+          src="@/assets/img/img_navigation_mirrorless.jpg"
           alt="mirrorless"
           :class="['navigation__image', {jsAnimation: isLoaded}]"
           @load="onLoad"
@@ -44,7 +44,7 @@
         >
         <p class="navigation__caption">4wheels</p>
         <img
-          :src="`https://images.microcms-assets.io/assets/7d34d4e4f5c644a5bdf1dcb3cbe69450/65edafdbec594acf9913defb76711138/img_navigation_4wheels.jpg?dpr=2&w=${imageWidth}&q=80`"
+          src="@/assets/img/img_navigation_4wheels.jpg"
           alt="4wheels"
           :class="['navigation__image', {jsAnimation: isLoaded}]"
           @load="onLoad"
@@ -58,19 +58,11 @@
   export default {
     data() {
       return {
-        imageWidth: null,
         isLoaded: false
       }
     },
     props: {
       isScrolledWindowHeight: Boolean
-    },
-    mounted() {
-      if(window.innerWidth <= 767) {
-        this.imageWidth = 635
-      } else {
-        this.imageWidth = 698
-      }
     },
     methods: {
       onLoad() {
