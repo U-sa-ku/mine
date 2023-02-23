@@ -120,6 +120,7 @@
       pointer-events: none;
       position: relative;
       z-index: 1;
+      transform: translateZ(1px);
     }
     .swiper-button {
       &-prev:after,

@@ -16,7 +16,7 @@
     left: 50%;
     top: 50%;
     z-index: 0;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 1px);
     @media (max-width: 999px) {
       max-width: 60px;
     }
