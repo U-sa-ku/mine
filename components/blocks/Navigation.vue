@@ -90,7 +90,7 @@
     position: fixed;
     left: 0px;
     top: 0px;
-    z-index: 8;
+    z-index: 9;
     box-sizing: border-box;
     @media (max-width: 767px) {
       padding: 5px;

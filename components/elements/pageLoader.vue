@@ -25,7 +25,7 @@
     position: fixed;
     left: 0px;
     top: 0px;
-    z-index: 9;
+    z-index: 8;
     &.jsHidden {
       animation: fadeOut 2s forwards;
     }

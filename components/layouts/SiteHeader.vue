@@ -57,7 +57,7 @@
     position: fixed;
     left: 0px;
     top: 0px;
-    z-index: 6;
+    z-index: 7;
     opacity: 0;
     transition: 1s;
     @media (max-width: 999px) {
