@@ -13,9 +13,9 @@
             class="photoList__link"
             >
             <picture>
-              <source :srcset="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80&fm=webp`" type="image/webp"/>
+              <source :srcset="`${photo.photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=80&fm=webp`" type="image/webp"/>
               <img
-                :data-src="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80`"
+                :data-src="`${photo.photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=80`"
                 alt="photograph"
                 class="photoList__image lazyload lazyloadImage"
                 @load="onLoad"
@@ -52,7 +52,8 @@
     data() {
       return {
         isLoaded: false,
-        imageWidth: null,
+        imageDevicePixelRatio: null,
+        imageWidth: null
       }
     },
     props: {
@@ -64,8 +65,10 @@
     },
     mounted() {
       if(window.innerWidth <= 767) {
-        this.imageWidth = 215
+        this.imageDevicePixelRatio = 3
+        this.imageWidth = 130
       } else {
+        this.imageDevicePixelRatio = 2
         this.imageWidth = 356
       }
     },

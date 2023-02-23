@@ -16,9 +16,9 @@
             :key="photos.contents.id"
             >
             <picture>
-              <source :srcset="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80&fm=webp`" type="image/webp"/>
+              <source :srcset="`${photo.photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=80&fm=webp`" type="image/webp"/>
               <img
-                :data-src="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80`"
+                :data-src="`${photo.photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=80`"
                 alt=""
                 class="photoSlider__image lazyload lazyloadImage"
                 >
@@ -70,6 +70,7 @@
             }
           }
         },
+        imageDevicePixelRatio: null,
         imageWidth: null
       }
     },
@@ -79,8 +80,10 @@
     },
     mounted() {
       if(window.innerWidth <= 767) {
-        this.imageWidth = 494
+        this.imageDevicePixelRatio = 3
+        this.imageWidth = 298
       } else {
+        this.imageDevicePixelRatio = 2
         this.imageWidth = 1125
       }
     }

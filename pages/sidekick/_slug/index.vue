@@ -32,9 +32,9 @@
               >
               <div class="description__imageBox">
                 <picture>
-                  <source :srcset="`${body.image.url}?dpr=2&w=${descriptionImageWidth}&fm=webp`" type="image/webp"/>
+                  <source :srcset="`${body.image.url}?dpr=${descriptionImageDevicePixelRatio}&w=${descriptionImageWidth}&fm=webp`" type="image/webp"/>
                   <img
-                    :data-src="`${body.image.url}?dpr=2&w=${descriptionImageWidth}`"
+                    :data-src="`${body.image.url}?dpr=${descriptionImageDevicePixelRatio}&w=${descriptionImageWidth}`"
                     alt=""
                     class="description__image lazyload lazyloadImage"
                     >
@@ -124,6 +124,7 @@
       return {
         isLoaded: false,
         mainvisualUrl: null,
+        descriptionImageDevicePixelRatio: null,
         descriptionImageWidth: null,
         movieLength: this.movie,
         photographs: [],
@@ -132,10 +133,12 @@
     },
     mounted() {
       if(window.innerWidth <= 767) {
-        this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=635`
-        this.descriptionImageWidth = 645
+        this.descriptionImageDevicePixelRatio = 3
+        this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=${this.descriptionImageDevicePixelRatio}&w=380`
+        this.descriptionImageWidth = 390
       } else {
-        this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1405`
+        this.descriptionImageDevicePixelRatio = 2
+        this.mainvisualUrl = `${this.mainvisual.url}?dpr=${this.descriptionImageDevicePixelRatio}&w=1405`
         this.descriptionImageWidth = 713
       }
     },

@@ -2,7 +2,7 @@
   <div class="photoPreview">
     <div class="photoPreview__imageWrapper">
       <picture>
-        <source :srcset="`${photo.url}?dpr=2&w=${imageWidth}&fm=webp`" type="image/webp"/>
+        <source :srcset="`${photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&fm=webp`" type="image/webp"/>
         <img
           :src="`${photo.url}?dpr=2&w=${imageWidth}`"
           alt=""
@@ -53,7 +53,8 @@
     data() {
       return {
         isLoaded: false,
-        imageWidth: null,
+        imageDevicePixelRatio: null,
+        imageWidth: null
       }
     },
     props: {
@@ -67,8 +68,10 @@
     },
     mounted() {
       if(window.innerWidth <= 767) {
-        this.imageWidth = 645
+        this.imageDevicePixelRatio = 3
+        this.imageWidth = 390
       } else {
+        this.imageDevicePixelRatio = 2
         this.imageWidth = 1440
       }
     },
