@@ -29,7 +29,7 @@
               >
               <div class="description__imageBox">
                 <img
-                  :data-src="`${body.image.url}${descriptionImageParam}`"
+                  :data-src="`${body.image.url}?dpr=2&w=${descriptionImageWidth}`"
                   alt=""
                   class="description__image lazyload lazyloadImage"
                   >
@@ -118,7 +118,7 @@
       return {
         isLoaded: false,
         mainvisualUrl: null,
-        descriptionImageParam: null,
+        descriptionImageWidth: null,
         movieLength: this.movie,
         photographs: [],
         snapshots: []
@@ -126,11 +126,11 @@
     },
     mounted() {
       if(window.innerWidth <= 767) {
-        this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=365`
-        this.descriptionImageParam = '?dpr=2&w=375'
+        this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=2&w=635`
+        this.descriptionImageWidth = 645
       } else {
-        this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1440`
-        this.descriptionImageParam = '?dpr=2&w=640'
+        this.mainvisualUrl = `${this.mainvisual.url}?dpr=2&w=1405`
+        this.descriptionImageWidth = 713
       }
     },
     methods: {

@@ -16,7 +16,7 @@
             :key="photos.contents.id"
             >
             <img
-              :data-src="`${photo.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+              :data-src="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80`"
               alt=""
               class="photoSlider__image lazyload lazyloadImage"
               >
@@ -67,7 +67,7 @@
             }
           }
         },
-        photoWidth: null
+        imageWidth: null
       }
     },
     props: {
@@ -76,9 +76,9 @@
     },
     mounted() {
       if(window.innerWidth <= 767) {
-        this.photoWidth = 340
+        this.imageWidth = 494
       } else {
-        this.photoWidth = 1440
+        this.imageWidth = 1125
       }
     }
   }

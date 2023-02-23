@@ -13,7 +13,7 @@
             class="photoList__link"
             >
             <img
-              :data-src="`${photo.photo.url}?dpr=2&w=${photoWidth}&q=80`"
+              :data-src="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80`"
               alt="photograph"
               class="photoList__image lazyload lazyloadImage"
               @load="onLoad"
@@ -49,7 +49,7 @@
     data() {
       return {
         isLoaded: false,
-        photoWidth: null,
+        imageWidth: null,
       }
     },
     props: {
@@ -61,9 +61,9 @@
     },
     mounted() {
       if(window.innerWidth <= 767) {
-        this.photoWidth = 187
+        this.imageWidth = 215
       } else {
-        this.photoWidth = 480
+        this.imageWidth = 356
       }
     },
     methods: {

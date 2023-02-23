@@ -67,9 +67,9 @@
     },
     mounted() {
       if(window.innerWidth <= 767) {
-        this.imageWidth = 355
+        this.imageWidth = 635
       } else {
-        this.imageWidth = 912
+        this.imageWidth = 698
       }
     },
     methods: {

@@ -2,7 +2,7 @@
   <div class="photoPreview">
     <div class="photoPreview__imageWrapper">
       <img
-        :src="`${photo.url}?dpr=2&w=${photoWidth}`"
+        :src="`${photo.url}?dpr=2&w=${imageWidth}`"
         alt=""
         :class="['photoPreview__image', {jsAnimation: isLoaded}]"
         @load="onLoad"
@@ -50,7 +50,7 @@
     data() {
       return {
         isLoaded: false,
-        photoWidth: null,
+        imageWidth: null,
       }
     },
     props: {
@@ -64,9 +64,9 @@
     },
     mounted() {
       if(window.innerWidth <= 767) {
-        this.photoWidth = 375
+        this.imageWidth = 645
       } else {
-        this.photoWidth = 1440
+        this.imageWidth = 1440
       }
     },
     methods: {
