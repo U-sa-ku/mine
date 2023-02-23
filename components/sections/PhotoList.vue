@@ -12,12 +12,15 @@
             :to="`/${sectionName}/${photo.id}/?list=${currentPage}`"
             class="photoList__link"
             >
-            <img
-              :data-src="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80`"
-              alt="photograph"
-              class="photoList__image lazyload lazyloadImage"
-              @load="onLoad"
-              >
+            <picture>
+              <source :srcset="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80&fm=webp`" type="image/webp"/>
+              <img
+                :data-src="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80`"
+                alt="photograph"
+                class="photoList__image lazyload lazyloadImage"
+                @load="onLoad"
+                >
+            </picture>
             <figure class="photoList__imageBoxFrame photoList__imageBoxFrame--top"></figure>
             <figure class="photoList__imageBoxFrame photoList__imageBoxFrame--right"></figure>
             <figure class="photoList__imageBoxFrame photoList__imageBoxFrame--bottom"></figure>
@@ -128,6 +131,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      position: relative;
+      z-index: 1;
     }
     &__imageBoxFrame {
       background-color: #ffffff;

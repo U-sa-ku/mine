@@ -1,12 +1,15 @@
 <template>
   <div class="photoPreview">
     <div class="photoPreview__imageWrapper">
-      <img
-        :src="`${photo.url}?dpr=2&w=${imageWidth}`"
-        alt=""
-        :class="['photoPreview__image', {jsAnimation: isLoaded}]"
-        @load="onLoad"
-        >
+      <picture>
+        <source :srcset="`${photo.url}?dpr=2&w=${imageWidth}&fm=webp`" type="image/webp"/>
+        <img
+          :src="`${photo.url}?dpr=2&w=${imageWidth}`"
+          alt=""
+          :class="['photoPreview__image', {jsAnimation: isLoaded}]"
+          @load="onLoad"
+          >
+      </picture>
     </div>
     <nav class="photoPreviewNavigation">
       <div class="photoPreviewNavigation__inner">

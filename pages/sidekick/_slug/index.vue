@@ -1,11 +1,14 @@
 <template>
   <main class="mainContents">
     <div class="mainvisual">
-      <img :src="mainvisualUrl"
-        :alt="name"
-        :class="['mainvisual__image', {jsAnimation: isLoaded}]"
-        @load="onLoad"
-        >
+      <picture>
+        <source :srcset="`${mainvisualUrl}&fm=webp`" type="image/webp"/>
+        <img :src="mainvisualUrl"
+          :alt="name"
+          :class="['mainvisual__image', {jsAnimation: isLoaded}]"
+          @load="onLoad"
+          >
+      </picture>
       <p :class="['mainvisual__category', {jsAnimation: isLoaded}]">{{ id }}</p>
       <h1 :class="['mainvisual__title', {jsAnimation: isLoaded}]">
         <span class="mainvisual__titleInner">{{ maker }} {{ name }}</span>
@@ -28,11 +31,14 @@
               :key="description_body.index"
               >
               <div class="description__imageBox">
-                <img
-                  :data-src="`${body.image.url}?dpr=2&w=${descriptionImageWidth}`"
-                  alt=""
-                  class="description__image lazyload lazyloadImage"
-                  >
+                <picture>
+                  <source :srcset="`${body.image.url}?dpr=2&w=${descriptionImageWidth}&fm=webp`" type="image/webp"/>
+                  <img
+                    :data-src="`${body.image.url}?dpr=2&w=${descriptionImageWidth}`"
+                    alt=""
+                    class="description__image lazyload lazyloadImage"
+                    >
+                </picture>
                 <ElementsImageLoader/>
               </div>
               <div
@@ -350,6 +356,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      position: relative;
+      z-index: 1;
     }
     &__leadBox {
       width: 50%;

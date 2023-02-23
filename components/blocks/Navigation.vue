@@ -9,12 +9,15 @@
         class="navigation__link"
         >
         <p class="navigation__caption">2wheels</p>
-        <img
-          src="@/assets/img/img_navigation_2wheels.jpg"
-          alt="2wheels"
-          :class="['navigation__image', {jsAnimation: isLoaded}]"
-          @load="onLoad"
-          >
+        <picture>
+          <source srcset="@/assets/img/img_navigation_2wheels.webp" type="image/webp"/>
+          <img
+            src="@/assets/img/img_navigation_2wheels.jpg"
+            alt="2wheels"
+            :class="['navigation__image', {jsAnimation: isLoaded}]"
+            @load="onLoad"
+            >
+        </picture>
       </nuxt-link>
     </div>
     <div
@@ -26,12 +29,15 @@
         class="navigation__link"
         >
         <p class="navigation__caption">mirrorless</p>
-        <img
-          src="@/assets/img/img_navigation_mirrorless.jpg"
-          alt="mirrorless"
-          :class="['navigation__image', {jsAnimation: isLoaded}]"
-          @load="onLoad"
-          >
+        <picture>
+          <source srcset="@/assets/img/img_navigation_mirrorless.webp" type="image/webp"/>
+          <img
+            src="@/assets/img/img_navigation_mirrorless.jpg"
+            alt="mirrorless"
+            :class="['navigation__image', {jsAnimation: isLoaded}]"
+            @load="onLoad"
+            >
+        </picture>
       </nuxt-link>
     </div>
     <div
@@ -43,12 +49,15 @@
         class="navigation__link"
         >
         <p class="navigation__caption">4wheels</p>
-        <img
-          src="@/assets/img/img_navigation_4wheels.jpg"
-          alt="4wheels"
-          :class="['navigation__image', {jsAnimation: isLoaded}]"
-          @load="onLoad"
-          >
+        <picture>
+          <source srcset="@/assets/img/img_navigation_4wheels.webp" type="image/webp"/>
+          <img
+            src="@/assets/img/img_navigation_4wheels.jpg"
+            alt="4wheels"
+            :class="['navigation__image', {jsAnimation: isLoaded}]"
+            @load="onLoad"
+            >
+        </picture>
       </nuxt-link>
     </div>
   </nav>

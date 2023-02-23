@@ -15,11 +15,14 @@
             v-for="photo in photos.contents"
             :key="photos.contents.id"
             >
-            <img
-              :data-src="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80`"
-              alt=""
-              class="photoSlider__image lazyload lazyloadImage"
-              >
+            <picture>
+              <source :srcset="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80&fm=webp`" type="image/webp"/>
+              <img
+                :data-src="`${photo.photo.url}?dpr=2&w=${imageWidth}&q=80`"
+                alt=""
+                class="photoSlider__image lazyload lazyloadImage"
+                >
+            </picture>
             <ElementsImageLoader/>
           </swiper-slide>
           <div
@@ -115,6 +118,8 @@
       height: 100%;
       object-fit: contain;
       pointer-events: none;
+      position: relative;
+      z-index: 1;
     }
     .swiper-button {
       &-prev:after,
