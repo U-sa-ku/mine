@@ -377,6 +377,7 @@
         padding: 20px 0px;
         position: relative;
         z-index: 1;
+        transform: translateZ(1px);
         &:before,
         &:after {
           content: "";
