@@ -1,12 +1,23 @@
 <template>
   <main class="mainContents">
     <div class="mainvisual">
+      <div
+        :class="['initMainvisual__wrapper', {jsAnimation: isLoaded}]"
+        >
+        <picture>
+          <source :srcset="`${initMainvisualPath}&fm=webp`" type="image/webp"/>
+          <img :src="initMainvisualPath"
+            :alt="name"
+            class="initMainvisual__image"
+            @load="onLoad"
+            >
+        </picture>
+      </div>
       <picture>
-        <source :srcset="`${mainvisualUrl}&fm=webp`" type="image/webp"/>
-        <img :src="mainvisualUrl"
+        <source :srcset="`${mainvisualPath}&fm=webp`" type="image/webp"/>
+        <img :src="mainvisualPath"
           :alt="name"
-          :class="['mainvisual__image', {jsAnimation: isLoaded}]"
-          @load="onLoad"
+          class="mainvisual__image"
           >
       </picture>
       <p :class="['mainvisual__category', {jsAnimation: isLoaded}]">{{ id }}</p>
@@ -32,9 +43,9 @@
               >
               <div class="description__imageBox">
                 <picture>
-                  <source :srcset="`${body.image.url}?dpr=${descriptionImageDevicePixelRatio}&w=${descriptionImageWidth}&fm=webp`" type="image/webp"/>
+                  <source :srcset="`${body.image.url}?dpr=${imageDevicePixelRatio}&w=${descriptionImageWidth}&fm=webp`" type="image/webp"/>
                   <img
-                    :data-src="`${body.image.url}?dpr=${descriptionImageDevicePixelRatio}&w=${descriptionImageWidth}`"
+                    :data-src="`${body.image.url}?dpr=${imageDevicePixelRatio}&w=${descriptionImageWidth}`"
                     alt=""
                     class="description__image lazyload lazyloadImage"
                     >
@@ -123,8 +134,10 @@
     data() {
       return {
         isLoaded: false,
-        mainvisualUrl: null,
-        descriptionImageDevicePixelRatio: null,
+        imageDevicePixelRatio: null,
+        initMainvisualPath: null,
+        mainvisualPath: null,
+        mainvisualWidth: null,
         descriptionImageWidth: null,
         movieLength: this.movie,
         photographs: [],
@@ -133,12 +146,16 @@
     },
     mounted() {
       if(window.innerWidth <= 767) {
-        this.descriptionImageDevicePixelRatio = 3
-        this.mainvisualUrl = `${this.mainvisual_sp.url}?dpr=${this.descriptionImageDevicePixelRatio}&w=380`
+        this.imageDevicePixelRatio = 3
+        this.mainvisualWidth = 380
+        this.initMainvisualPath = `${this.init_mainvisual_sp.url}?dpr=${this.imageDevicePixelRatio}&w=${this.mainvisualWidth}`
+        this.mainvisualPath = `${this.mainvisual_sp.url}?dpr=${this.imageDevicePixelRatio}&w=${this.mainvisualWidth}`
         this.descriptionImageWidth = 390
       } else {
-        this.descriptionImageDevicePixelRatio = 2
-        this.mainvisualUrl = `${this.mainvisual.url}?dpr=${this.descriptionImageDevicePixelRatio}&w=1405`
+        this.imageDevicePixelRatio = 2
+        this.mainvisualWidth = 1405
+        this.initMainvisualPath = `${this.init_mainvisual.url}?dpr=${this.imageDevicePixelRatio}&w=${this.mainvisualWidth}`
+        this.mainvisualPath = `${this.mainvisual.url}?dpr=${this.imageDevicePixelRatio}&w=${this.mainvisualWidth}`
         this.descriptionImageWidth = 713
       }
     },
@@ -175,11 +192,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0;
-      transition: 1s;
-      &.jsAnimation {
-        opacity: 1;
-      }
     }
     &__category {
       width: 60%;
@@ -193,7 +205,7 @@
       position: absolute;
       right: 100vw;
       top: 0vw;
-      z-index: 1;
+      z-index: 2;
       opacity: 0;
       transform: translateY(5vw) rotate(-90deg);
       transform-origin: 100% 0%;
@@ -219,7 +231,7 @@
       position: absolute;
       right: 0vw;
       bottom: 0vw;
-      z-index: 1;
+      z-index: 2;
       opacity: 0;
       transform: scaleY(0);
       transform-origin: 0% 100%;
@@ -257,6 +269,34 @@
         opacity: 1;
         transform: scaleY(1);
       }
+    }
+  }
+  .initMainvisual {
+    &__wrapper {
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      background-color: #000000;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      z-index: 1;
+      opacity: 1;
+      transition: 2s $mainvisualAnimationStartDelay + 2.5s;
+      @media (max-width: 999px) {
+        width: calc(100% - 10px);
+        height: calc(100% - 10px);
+        left: 5px;
+        top: 5px;
+      }
+      &.jsAnimation {
+        opacity: 0;
+      }
+    }
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
     }
   }
   .contentsBody {
