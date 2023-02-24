@@ -376,6 +376,7 @@
         margin: -10px auto 0px;
         padding: 20px 0px;
         position: relative;
+        z-index: 1;
         &:before,
         &:after {
           content: "";
