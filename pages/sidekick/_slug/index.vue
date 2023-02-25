@@ -62,7 +62,7 @@
         </section>
         <section
           class="movie"
-          v-if="movie != null"
+          v-if="movie.length != 0"
           >
           <h2 class="movie__title">movie</h2>
           <ul class="movie__list">
