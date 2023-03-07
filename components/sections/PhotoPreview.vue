@@ -6,10 +6,10 @@
         <img
           :src="`${photo.url}?dpr=2&w=${imageWidth}`"
           alt=""
-          :class="['photoPreview__image', {jsAnimation: isLoaded}]"
-          @load="onLoad"
+          class="photoPreview__image lazyload lazyloadImage"
           >
       </picture>
+      <ElementsImageLoader/>
     </div>
     <nav class="photoPreviewNavigation">
       <div class="photoPreviewNavigation__inner">
@@ -67,19 +67,14 @@
       listNumber: null
     },
     mounted() {
+      this.$nuxt.$emit('initShowSiteHeader')
+
       if(window.innerWidth <= 767) {
         this.imageDevicePixelRatio = 3
         this.imageWidth = 390
       } else {
         this.imageDevicePixelRatio = 2
         this.imageWidth = 1440
-      }
-    },
-    methods: {
-      onLoad() {
-        this.isLoaded = true
-        this.$nuxt.$emit('onLoad', this.isLoaded)
-        this.$nuxt.$emit('initShowSiteHeader')
       }
     }
   }
@@ -110,11 +105,6 @@
       top: 50%;
       z-index: 1;
       transform: translate(-50%, -50%);
-      opacity: 0;
-      transition: 1s;
-      &.jsAnimation {
-        opacity: 1;
-      }
     }
   }
   .photoPreviewNavigation {
