@@ -66,7 +66,7 @@
     mounted() {
       if(window.innerWidth <= 767) {
         this.imageDevicePixelRatio = 3
-        this.imageWidth = 130
+        this.imageWidth = 195
       } else {
         this.imageDevicePixelRatio = 2
         this.imageWidth = 540
