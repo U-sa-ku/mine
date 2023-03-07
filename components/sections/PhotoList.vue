@@ -69,7 +69,7 @@
         this.imageWidth = 130
       } else {
         this.imageDevicePixelRatio = 2
-        this.imageWidth = 712
+        this.imageWidth = 540
       }
     },
     methods: {
