@@ -493,7 +493,7 @@
   .js-contentsBody {
     opacity: 0;
     transform: translateY(50px);
-    transition: 1s $mainvisualAnimationStartDelay + 2.5s;
+    transition: 1s $mainvisualAnimationStartDelay + 1.5s;
     &.jsAnimation {
       opacity: 1;
       transform: translateY(0px);
