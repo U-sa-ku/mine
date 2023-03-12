@@ -20,7 +20,9 @@
           class="mainvisual__image"
           >
       </picture>
-      <p :class="['mainvisual__category', {jsAnimation: isLoaded}]">{{ id }}</p>
+      <!-- <p :class="['mainvisual__category', {jsAnimation: isLoaded}]">{{ id }}</p> -->
+      <p :class="['mainvisual__catch', 'mainvisual__catch--row1', {jsAnimation: isLoaded}]">{{ catchphrase.catchphrase1 }}</p>
+      <p :class="['mainvisual__catch', 'mainvisual__catch--row2', {jsAnimation: isLoaded}]">{{ catchphrase.catchphrase2 }}</p>
       <h1 :class="['mainvisual__title', {jsAnimation: isLoaded}]">
         <span class="mainvisual__titleInner">{{ maker }} {{ name }}</span>
       </h1>
@@ -219,6 +221,44 @@
         transform: translateY(0vw) rotate(-90deg);
       }
     }
+    &__catch {
+      width: calc(100% - 300px);
+      color: $color_lightGray;
+      font-family: $fontFamily_english;
+      font-size: 2.4vw;
+      line-height: 1;
+      letter-spacing: -0.5em;
+      mix-blend-mode: exclusion;
+      position: absolute;
+      left: 3vw;
+      z-index: 2;
+      opacity: 0;
+      transform-origin: 100% 0%;
+      transition: 1s $mainvisualAnimationStartDelay;
+      @media (max-width: 767px) {
+        left: 6vw;
+      }
+      &--row1 {
+        top: 3vw;
+        @media (max-width: 767px) {
+          top: 6vw;
+        }
+      }
+      &--row2 {
+        top: 6vw;
+        @media (max-width: 767px) {
+          top: 13vw;
+        }
+      }
+      @media (max-width: 767px) {
+        width: calc(100% - 120px);
+        font-size: 4.5vw;
+      }
+      &.jsAnimation {
+        letter-spacing: 0.2em;
+        opacity: 1;
+      }
+    }
     &__title {
       width: 100%;
       color: $color_lightGray;
@@ -235,9 +275,9 @@
       opacity: 0;
       transform: scaleY(0);
       transform-origin: 0% 100%;
-      transition: 1s $mainvisualAnimationStartDelay + 1.5s;
+      transition: 1s $mainvisualAnimationStartDelay + 0.5s;
       @media (max-width: 767px) {
-        font-size: 10.5vw;
+        font-size: 10.4vw;
       }
       &.jsAnimation {
         opacity: 1;
@@ -260,7 +300,7 @@
       opacity: 0;
       transform: scaleY(0);
       transform-origin: 0% 100%;
-      transition: 1s $mainvisualAnimationStartDelay + 2s;
+      transition: 1s $mainvisualAnimationStartDelay + 1s;
       @media (max-width: 767px) {
         font-size: 3.4vw;
         bottom: -6vw;
