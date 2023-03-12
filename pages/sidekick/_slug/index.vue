@@ -241,13 +241,13 @@
       &--row1 {
         top: 3vw;
         @media (max-width: 767px) {
-          top: 6vw;
+          top: 12vw;
         }
       }
       &--row2 {
         top: 6vw;
         @media (max-width: 767px) {
-          top: 13vw;
+          top: 20vw;
         }
       }
       @media (max-width: 767px) {
