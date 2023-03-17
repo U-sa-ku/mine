@@ -97,7 +97,7 @@
 <style lang="scss" scoped>
   .photoPreview {
     &__imageWrapper {
-      height: calc(100vh - 250px);
+      height: calc(100vh - 200px);
       background-color: #000000;
       margin-top: 70px;
       margin-bottom: 15px;
