@@ -78,8 +78,6 @@
         this.imageDevicePixelRatio = 2
         this.imageWidth = 1440
       }
-
-      document.querySelector('body').style.overflow = 'hidden'
     },
     methods: {
       linkToPrev() {
