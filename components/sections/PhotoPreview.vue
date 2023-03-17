@@ -1,6 +1,10 @@
 <template>
   <div class="photoPreview">
-    <div class="photoPreview__imageWrapper">
+    <div
+      class="photoPreview__imageWrapper"
+      v-touch:swipe.right="linkToPrev"
+      v-touch:swipe.left="linkToNext"
+      >
       <picture>
         <source :srcset="`${photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&fm=webp`" type="image/webp"/>
         <img
@@ -15,7 +19,7 @@
       <div class="photoPreviewNavigation__inner">
         <nuxt-link
          :to="`/${sectionName}/${prevPhotoId}/?list=${listNumber}`"
-         v-if="isShowPrevPhoto"
+         v-if="prevPhotoId"
          class="photoPreviewNavigation__link photoPreviewNavigation__link--prev"
          >
           <span class="photoPreviewNavigation__caption">prev</span>
@@ -38,7 +42,7 @@
         </nuxt-link>
         <nuxt-link
           :to="`/${sectionName}/${nextPhotoId}/?list=${listNumber}`"
-          v-if="isShowNextPhoto"
+          v-if="nextPhotoId"
           class="photoPreviewNavigation__link photoPreviewNavigation__link--next"
           >
           <span class="photoPreviewNavigation__caption">next</span>
@@ -61,9 +65,7 @@
       sectionName: undefined,
       photo: null,
       prevPhotoId: null,
-      isShowPrevPhoto: false,
       nextPhotoId: null,
-      isShowNextPhoto: false,
       listNumber: null
     },
     mounted() {
@@ -75,6 +77,18 @@
       } else {
         this.imageDevicePixelRatio = 2
         this.imageWidth = 1440
+      }
+    },
+    methods: {
+      linkToPrev() {
+        if(this.prevPhotoId) {
+          this.$router.push(`/${this.sectionName}/${this.prevPhotoId}/?list=${this.listNumber}`);
+        }
+      },
+      linkToNext() {
+        if(this.nextPhotoId) {
+          this.$router.push(`/${this.sectionName}/${this.nextPhotoId}/?list=${this.listNumber}`);
+        }
       }
     }
   }
@@ -91,8 +105,8 @@
         margin-top: 70px;
       }
       @media (max-width: 999px) {
-        height: calc(100vh - 130px);
-        height: calc(100dvh - 130px);
+        height: calc(100vh - 160px);
+        height: calc(100dvh - 160px);
         margin-top: 40px;
         margin-bottom: 10px;
       }

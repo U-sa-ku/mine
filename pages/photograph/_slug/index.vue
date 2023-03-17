@@ -4,9 +4,7 @@
       sectionName="photograph"
       :photo="photo"
       :prevPhotoId="prevPhotoId"
-      :isShowPrevPhoto="isShowPrevPhoto"
       :nextPhotoId="nextPhotoId"
-      :isShowNextPhoto="isShowNextPhoto"
       :listNumber="listNumber"
       />
   </main>
@@ -38,12 +36,10 @@
 
       if(prevPhotoRespons.contents.length != 0) {
         this.prevPhotoId = prevPhotoRespons.contents[0].id
-        this.isShowPrevPhoto = true
       }
 
       if(nextPhotoRespons.contents.length != 0) {
         this.nextPhotoId = nextPhotoRespons.contents[0].id
-        this.isShowNextPhoto = true
       }
     },
     head(){
@@ -63,9 +59,7 @@
         contents: this.contents,
         isLoaded: false,
         prevPhotoId: this.prevPhoto,
-        isShowPrevPhoto: false,
         nextPhotoId: this.nextPhoto,
-        isShowNextPhoto: false,
         listNumber: null
       }
     },

@@ -1,5 +1,5 @@
 <template>
-  <div class="contentsWrapper">
+  <div class="contentsWrapper contentsWrapper--noBottomSpace">
     <ElementsReloadButton/>
     <ElementsHamburgerMenu/>
     <LayoutsSiteHeader :isInitShow="isInitShow"/>
