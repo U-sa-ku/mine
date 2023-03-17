@@ -18,14 +18,14 @@
   .siteFooter {
     width: 100%;
     background: $gradient_primary;
-    padding: 32px 0px;
+    padding: 20px 0px;
     position: absolute;
     left: 0px;
     bottom: 0px;
     z-index: 1;
     @media (max-width: 999px) {
       text-align: center;
-      padding: 17px 0px;
+      padding: 10px 0px;
       display: block;
     }
     &__copyright {

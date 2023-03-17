@@ -97,12 +97,14 @@
 <style lang="scss" scoped>
   .photoPreview {
     &__imageWrapper {
-      height: calc(100vh - 145px);
+      height: calc(100vh - 250px);
       background-color: #000000;
       margin-top: 70px;
       margin-bottom: 15px;
       position: relative;
       @media (max-width: 999px) {
+        height: calc(100vh - 130px);
+        height: calc(100dvh - 130px);
         margin-top: 40px;
         margin-bottom: 10px;
       }
