@@ -97,7 +97,7 @@
 
         return function(direction, event) {
           const target = direction.target
-          let currentScreenX = direction.changedTouches[0].screenX
+          let currentScreenX = direction.screenX
           let offsetX
 
           if(!temporaryScreenX) {
@@ -110,7 +110,6 @@
       },
       resetImageSwipe(param) {
         return function(direction, event) {
-          console.log(direction)
           direction.target.style.webkitTransform = 'translateX(0px)'
         }
       }
