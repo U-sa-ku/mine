@@ -131,7 +131,7 @@
         height: calc(100dvh - 130px);
         margin-top: 40px;
         margin-bottom: 10px;
-        transition: 0.3s;
+        transition: 0.1s;
       }
     }
     &__image {
