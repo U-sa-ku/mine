@@ -84,21 +84,31 @@
     methods: {
       linkToPrev() {
         if(this.prevPhotoId) {
-          this.$router.push(`/${this.sectionName}/${this.prevPhotoId}/?list=${this.listNumber}`);
+          this.$router.push(`/${this.sectionName}/${this.prevPhotoId}/?list=${this.listNumber}`)
         }
       },
       linkToNext() {
         if(this.nextPhotoId) {
-          this.$router.push(`/${this.sectionName}/${this.nextPhotoId}/?list=${this.listNumber}`);
+          this.$router.push(`/${this.sectionName}/${this.nextPhotoId}/?list=${this.listNumber}`)
         }
       },
       swipeImage(param) {
         let temporaryScreenX
 
         return function(direction, event) {
+          const eventType = direction.type
           const target = direction.target
-          let currentScreenX = direction.screenX
+          let currentScreenX
           let offsetX
+
+          switch(eventType) {
+            case 'mousemove':
+              currentScreenX = direction.screenX
+              break
+            case 'touchmove':
+              currentScreenX = direction.touches[0].screenX
+              break
+          }
 
           if(!temporaryScreenX) {
             temporaryScreenX = currentScreenX
