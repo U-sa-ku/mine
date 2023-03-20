@@ -1,21 +1,23 @@
 <template>
-  <div class="photoPreview">
-    <div
-      class="photoPreview__imageWrapper"
-      v-touch:swipe.right="linkToPrev"
-      v-touch:swipe.left="linkToNext"
-      v-touch:moving="swipeImage('param')"
-      v-touch:end="resetImageSwipe('param')"
-      >
-      <picture>
-        <source :srcset="`${photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&fm=webp`" type="image/webp"/>
-        <img
-          :src="`${photo.url}?dpr=2&w=${imageWidth}`"
-          alt=""
-          class="photoPreview__image lazyload lazyloadImage"
-          >
-      </picture>
-      <ElementsImageLoader/>
+  <section class="photoPreview">
+    <div class="photoPreview__stage">
+      <h1
+        class="photoPreview__imageWrapper"
+        v-touch:swipe.right="linkToPrev"
+        v-touch:swipe.left="linkToNext"
+        v-touch:moving="swipeImage('param')"
+        v-touch:end="resetImageSwipe('param')"
+        >
+        <picture>
+          <source :srcset="`${photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&fm=webp`" type="image/webp"/>
+          <img
+            :src="`${photo.url}?dpr=2&w=${imageWidth}`"
+            alt="Photo Preview"
+            class="photoPreview__image lazyload lazyloadImage"
+            >
+        </picture>
+        <ElementsImageLoader/>
+      </h1>
     </div>
     <nav class="photoPreviewNavigation">
       <div class="photoPreviewNavigation__inner">
@@ -51,7 +53,7 @@
         </nuxt-link>
       </div>
     </nav>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -129,17 +131,23 @@
 
 <style lang="scss" scoped>
   .photoPreview {
-    &__imageWrapper {
+    &__stage {
       height: calc(100vh - 200px);
       background-color: #000000;
       margin-top: 70px;
       margin-bottom: 15px;
-      position: relative;
       @media (max-width: 999px) {
         height: calc(100vh - 130px);
         height: calc(100dvh - 130px);
         margin-top: 40px;
         margin-bottom: 10px;
+      }
+    }
+    &__imageWrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      @media (max-width: 999px) {
         transition: 0.1s;
       }
     }
