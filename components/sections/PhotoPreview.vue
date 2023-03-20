@@ -5,6 +5,7 @@
       v-touch:swipe.right="linkToPrev"
       v-touch:swipe.left="linkToNext"
       v-touch:moving="swipeImage('param')"
+      v-touch:end="resetImageSwipe('param')"
       >
       <picture>
         <source :srcset="`${photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&fm=webp`" type="image/webp"/>
@@ -92,19 +93,25 @@
         }
       },
       swipeImage(param) {
-        let screenXTemporary
+        let temporaryScreenX
 
         return function(direction, event) {
-          const screenX = direction.changedTouches[0].screenX
           const target = direction.target
-          let translateX
+          let currentScreenX = direction.changedTouches[0].screenX
+          let offsetX
 
-          if(!screenXTemporary) {
-            screenXTemporary = screenX
+          if(!temporaryScreenX) {
+            temporaryScreenX = currentScreenX
           }
 
-          translateX = screenX - screenXTemporary
-          target.style.webkitTransform = `translateX(${translateX}px)`
+          offsetX = currentScreenX - temporaryScreenX
+          target.style.webkitTransform = `translateX(${offsetX}px)`
+        }
+      },
+      resetImageSwipe(param) {
+        return function(direction, event) {
+          console.log(direction)
+          direction.target.style.webkitTransform = 'translateX(0px)'
         }
       }
     }
