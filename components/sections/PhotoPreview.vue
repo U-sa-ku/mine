@@ -4,6 +4,7 @@
       class="photoPreview__imageWrapper"
       v-touch:swipe.right="linkToPrev"
       v-touch:swipe.left="linkToNext"
+      v-touch:moving="swipeImage('param')"
       >
       <picture>
         <source :srcset="`${photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&fm=webp`" type="image/webp"/>
@@ -89,6 +90,22 @@
         if(this.nextPhotoId) {
           this.$router.push(`/${this.sectionName}/${this.nextPhotoId}/?list=${this.listNumber}`);
         }
+      },
+      swipeImage(param) {
+        let screenXTemporary
+
+        return function(direction, event) {
+          const screenX = direction.changedTouches[0].screenX
+          const target = direction.target
+          let translateX
+
+          if(!screenXTemporary) {
+            screenXTemporary = screenX
+          }
+
+          translateX = screenX - screenXTemporary
+          target.style.webkitTransform = `translateX(${translateX}px)`
+        }
       }
     }
   }
@@ -107,6 +124,7 @@
         height: calc(100dvh - 130px);
         margin-top: 40px;
         margin-bottom: 10px;
+        transition: 0.1s;
       }
     }
     &__image {
@@ -116,7 +134,8 @@
       left: 50%;
       top: 50%;
       z-index: 1;
-      transform: translate(-50%, -50%);
+      transform: translate3d(-50%, -50%, 1px);
+      pointer-events: none;
     }
   }
   .photoPreviewNavigation {
