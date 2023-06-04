@@ -16,9 +16,9 @@
             :key="photos.contents.id"
             >
             <picture>
-              <source :srcset="`${photo.photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=80&fm=webp`" type="image/webp"/>
+              <source :srcset="`${photo.photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=${imageQuality}&fm=webp`" type="image/webp"/>
               <img
-                :data-src="`${photo.photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=80`"
+                :data-src="`${photo.photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=${imageQuality}`"
                 alt=""
                 class="photoSlider__image lazyload lazyloadImage"
                 >
@@ -71,7 +71,8 @@
           }
         },
         imageDevicePixelRatio: null,
-        imageWidth: null
+        imageWidth: null,
+        imageQuality: 80
       }
     },
     props: {

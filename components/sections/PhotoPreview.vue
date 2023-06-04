@@ -9,9 +9,9 @@
         v-touch:end="resetImageSwipe('param')"
         >
         <picture>
-          <source :srcset="`${photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&fm=webp`" type="image/webp"/>
+          <source :srcset="`${photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=${imageQuality}&fm=webp`" type="image/webp"/>
           <img
-            :src="`${photo.url}?dpr=2&w=${imageWidth}`"
+            :src="`${photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=${imageQuality}`"
             alt="Photo Preview"
             class="photoPreview__image lazyload lazyloadImage"
             >
@@ -62,7 +62,8 @@
       return {
         isLoaded: false,
         imageDevicePixelRatio: null,
-        imageWidth: null
+        imageWidth: null,
+        imageQuality: 80
       }
     },
     props: {
