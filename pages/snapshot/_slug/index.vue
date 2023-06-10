@@ -14,6 +14,7 @@
 
 <script>
   import axios from 'axios'
+  import { createClient } from 'microcms-js-sdk';
   export default {
     layout: 'no-page-loader',
     async asyncData({ params }) {
@@ -26,24 +27,47 @@
       return data
     },
     async fetch() {
-      const prevPhotoRespons = await fetch(
-        `https://mine.microcms.io/api/v1/photo?limit=10&fields=id&orders=-publishedAt&filters=category[contains]snapshot[and]publishedAt[less_than]${this.publishedAt}`,
-        { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-      ).then(res => res.json())
+      // const prevPhotoRespons = await fetch(
+      //   `https://mine.microcms.io/api/v1/photo?limit=10&fields=id&orders=-publishedAt&filters=category[contains]snapshot[and]publishedAt[less_than]${this.publishedAt}`,
+      //   { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+      // ).then(res => res.json())
 
-      const nextPhotoRespons = await fetch(
-        `https://mine.microcms.io/api/v1/photo?limit=10&fields=id&orders=publishedAt&filters=category[contains]snapshot[and]publishedAt[greater_than]${this.publishedAt}`,
-        { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-      ).then(res => res.json())
+      // const nextPhotoRespons = await fetch(
+      //   `https://mine.microcms.io/api/v1/photo?limit=10&fields=id&orders=publishedAt&filters=category[contains]snapshot[and]publishedAt[greater_than]${this.publishedAt}`,
+      //   { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+      // ).then(res => res.json())
 
-      if(prevPhotoRespons.contents.length != 0) {
-        this.prevPhotoId = prevPhotoRespons.contents[0].id
-        this.isShowPrevPhoto = true
+      // if(prevPhotoRespons.contents.length != 0) {
+      //   this.prevPhotoId = prevPhotoRespons.contents[0].id
+      //   this.isShowPrevPhoto = true
+      // }
+
+      // if(nextPhotoRespons.contents.length != 0) {
+      //   this.nextPhotoId = nextPhotoRespons.contents[0].id
+      //   this.isShowNextPhoto = true
+      // }
+
+      const client = createClient({
+        serviceDomain: 'mine',
+        apiKey: '777407c0-ad7a-4703-a5dc-4a999f7ccddc',
+        retry: true
+      })
+      const { contents } = await client
+        .get({
+          endpoint: 'photo',
+          queries: {limit: 1000, fields: 'id', orders: 'publishedAt', filters: 'category[contains]snapshot'}
+        })
+      const contentsLength = contents.length
+      const index = contents.findIndex((content) => content.id === this.id)
+      const prevIndex = index - 1
+      const nextIndex = index + 1
+
+      if(prevIndex >= 0) {
+        this.prevPhotoId = contents[prevIndex].id
       }
 
-      if(nextPhotoRespons.contents.length != 0) {
-        this.nextPhotoId = nextPhotoRespons.contents[0].id
-        this.isShowNextPhoto = true
+      if(nextIndex < contentsLength) {
+        this.nextPhotoId = contents[nextIndex].id
       }
     },
     head(){
