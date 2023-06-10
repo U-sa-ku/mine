@@ -45,7 +45,6 @@
         .get({
           endpoint: 'photo',
           queries: { limit: 1, fields: 'id', orders: '-publishedAt', filters: `category[contains]photograph[and]publishedAt[less_than]${this.publishedAt}` }
-      })
         })
         .then((res) => {
           const prevPhotoRespons = res
