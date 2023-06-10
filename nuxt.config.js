@@ -132,6 +132,7 @@ export default {
 
   generate: {
     fallback: true,
+    middleware: 'client',
     async routes() {
       const range = (start, end) =>
         [...Array(end - start + 1)].map((_, i) => start + i)
@@ -166,7 +167,7 @@ export default {
 
   router: {
     trailingSlash: true,
-    middleware: "redirect",
+    middleware: 'redirect',
     linkActiveClass: '--active',
     extendRoutes(routes, resolve) {
       routes.push(
