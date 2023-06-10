@@ -25,10 +25,10 @@
       return data
     },
     async fetch() {
-      // const prevPhotoRespons = await fetch(
-      //   `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=-publishedAt&filters=category[contains]photograph[and]publishedAt[less_than]${this.publishedAt}`,
-      //   { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-      // ).then(res => res.json())
+      const prevPhotoRespons = await fetch(
+        `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=-publishedAt&filters=category[contains]photograph[and]publishedAt[less_than]${this.publishedAt}`,
+        { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
+      ).then(res => res.json())
 
       // const nextPhotoRespons = await fetch(
       //   `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=publishedAt&filters=category[contains]photograph[and]publishedAt[greater_than]${this.publishedAt}`,
@@ -48,13 +48,13 @@
             limit: 1,
             fields: 'id',
             orders: '-publishedAt',
-            filters: `filters=category[contains]photograph[and]publishedAt[less_than]${this.publishedAt}`
+            filters: `category[contains]photograph[and]publishedAt[less_than]${this.publishedAt}`
           }
         })
         .then((res) => {
           const prevPhotoRespons = res
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
 
       client
         .get({
@@ -63,13 +63,13 @@
             limit: 1,
             fields: 'id',
             orders: 'publishedAt',
-            filters: `filters=category[contains]photograph[and]publishedAt[less_than]${this.publishedAt}`
+            filters: `category[contains]photograph[and]publishedAt[less_than]${this.publishedAt}`
           }
         })
         .then((res) => {
           const nextPhotoRespons = res
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
 
       if(prevPhotoRespons.contents.length != 0) {
         this.prevPhotoId = prevPhotoRespons.contents[0].id
