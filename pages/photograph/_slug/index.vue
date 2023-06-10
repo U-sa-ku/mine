@@ -52,7 +52,7 @@
           }
         })
         .then((res) => {
-          prevPhotoRespons = res
+          const prevPhotoRespons = res
         })
         .catch((err) => console.error(err));
 
@@ -67,7 +67,7 @@
           }
         })
         .then((res) => {
-          nextPhotoRespons = res
+          const nextPhotoRespons = res
         })
         .catch((err) => console.error(err));
 
