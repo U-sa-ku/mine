@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  //import axios from 'axios'
+  import axios from 'axios'
   import { createClient } from 'microcms-js-sdk'
   export default {
     layout: 'no-page-loader',
