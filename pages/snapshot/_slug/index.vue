@@ -27,12 +27,12 @@
     },
     async fetch() {
       const prevPhotoRespons = await fetch(
-        `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=-publishedAt&filters=category[contains]snapshot[and]publishedAt[less_than]${this.publishedAt}`,
+        `https://mine.microcms.io/api/v1/photo?limit=10&fields=id&orders=-publishedAt&filters=category[contains]snapshot[and]publishedAt[less_than]${this.publishedAt}`,
         { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
       ).then(res => res.json())
 
       const nextPhotoRespons = await fetch(
-        `https://mine.microcms.io/api/v1/photo?limit=1&fields=id&orders=publishedAt&filters=category[contains]snapshot[and]publishedAt[greater_than]${this.publishedAt}`,
+        `https://mine.microcms.io/api/v1/photo?limit=10&fields=id&orders=publishedAt&filters=category[contains]snapshot[and]publishedAt[greater_than]${this.publishedAt}`,
         { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
       ).then(res => res.json())
 
