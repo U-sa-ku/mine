@@ -14,6 +14,7 @@
   import axios from 'axios'
   export default {
     layout: 'no-page-loader',
+    middleware: 'client',
     async asyncData({ params }) {
       const { data } = await axios.get(
         `https://mine.microcms.io/api/v1/photo/${params.slug}`,
