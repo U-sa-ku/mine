@@ -4,9 +4,7 @@
       sectionName="snapshot"
       :photo="photo"
       :prevPhotoId="prevPhotoId"
-      :isShowPrevPhoto="isShowPrevPhoto"
       :nextPhotoId="nextPhotoId"
-      :isShowNextPhoto="isShowNextPhoto"
       :listNumber="listNumber"
       />
   </main>
