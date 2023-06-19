@@ -19,7 +19,7 @@ export default {
       { hid: 'og:title', property: 'og:title', content: 'mine' },
       { hid: 'og:description', property: 'og:description', content: '車とバイクとカメラ' },
       { hid: 'og:image', property: 'og:image', content: 'https://mine-u-saku.netlify.app/ogp.png' },
-      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'format-detection', content: 'telephone=no' }
 
 
