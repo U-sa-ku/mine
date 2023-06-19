@@ -37,12 +37,10 @@
 
       // if(prevPhotoRespons.contents.length != 0) {
       //   this.prevPhotoId = prevPhotoRespons.contents[0].id
-      //   this.isShowPrevPhoto = true
       // }
 
       // if(nextPhotoRespons.contents.length != 0) {
       //   this.nextPhotoId = nextPhotoRespons.contents[0].id
-      //   this.isShowNextPhoto = true
       // }
 
       const client = createClient({
@@ -76,7 +74,8 @@
           { hid: 'og:type', property: 'og:type', content: 'article' },
           { hid: 'og:title', property: 'og:title', content: `snapshot | mine` },
           { hid: 'og:description', property: 'og:description', content: 'iPhoneで撮った写真' },
-          { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` }
+          { hid: 'og:url', property: 'og:url', content: `https://mine-u-saku.netlify.app${this.$route.fullPath}` },
+          { hid: 'og:image', property: 'og:image', content: this.photo.url }
         ]
       }
     },
