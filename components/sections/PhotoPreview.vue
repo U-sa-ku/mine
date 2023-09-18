@@ -83,8 +83,6 @@
         this.imageDevicePixelRatio = 2
         this.imageWidth = 1440
       }
-
-      this.windowWidth = window.innerWidth
     },
     methods: {
       linkToPrev() {
