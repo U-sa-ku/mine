@@ -63,8 +63,7 @@
         isLoaded: false,
         imageDevicePixelRatio: null,
         imageWidth: null,
-        imageQuality: 80,
-        windowWidth: null
+        imageQuality: 80
       }
     },
     props: {
@@ -120,10 +119,8 @@
             temporaryScreenX = currentScreenX
           }
 
-          if(this.windowWidth <= 767) {
-            offsetX = currentScreenX - temporaryScreenX
-            target.style.webkitTransform = `translateX(${offsetX}px)`
-          }
+          offsetX = currentScreenX - temporaryScreenX
+          target.style.webkitTransform = `translateX(${offsetX}px)`
         }
       },
       resetImageSwipe(param) {
@@ -153,6 +150,9 @@
       width: 100%;
       height: 100%;
       position: relative;
+      @media (min-width: 1000px) {
+        transform: translateX(0px) !important;
+      }
       @media (max-width: 999px) {
         transition: 0.1s;
       }
