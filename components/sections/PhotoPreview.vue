@@ -22,10 +22,10 @@
     <nav class="photoPreviewNavigation">
       <div class="photoPreviewNavigation__inner">
         <nuxt-link
-         :to="`/${sectionName}/${prevPhotoId}/?list=${listNumber}`"
-         v-if="prevPhotoId"
-         class="photoPreviewNavigation__link photoPreviewNavigation__link--prev"
-         >
+          :to="`/${sectionName}/${prevPhotoId}/?list=${listNumber}`"
+          v-if="prevPhotoId"
+          class="photoPreviewNavigation__link photoPreviewNavigation__link--prev"
+          >
           <span class="photoPreviewNavigation__caption">prev</span>
         </nuxt-link>
         <nuxt-link
@@ -63,7 +63,8 @@
         isLoaded: false,
         imageDevicePixelRatio: null,
         imageWidth: null,
-        imageQuality: 80
+        imageQuality: 80,
+        windowWidth: null
       }
     },
     props: {
@@ -83,6 +84,8 @@
         this.imageDevicePixelRatio = 2
         this.imageWidth = 1440
       }
+
+      this.windowWidth = window.innerWidth
     },
     methods: {
       linkToPrev() {
@@ -117,8 +120,10 @@
             temporaryScreenX = currentScreenX
           }
 
-          offsetX = currentScreenX - temporaryScreenX
-          target.style.webkitTransform = `translateX(${offsetX}px)`
+          if(this.windowWidth <= 767) {
+            offsetX = currentScreenX - temporaryScreenX
+            target.style.webkitTransform = `translateX(${offsetX}px)`
+          }
         }
       },
       resetImageSwipe(param) {

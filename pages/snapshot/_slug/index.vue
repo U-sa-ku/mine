@@ -25,24 +25,6 @@
       return data
     },
     async fetch() {
-      // const prevPhotoRespons = await fetch(
-      //   `https://mine.microcms.io/api/v1/photo?limit=10&fields=id&orders=-publishedAt&filters=category[contains]snapshot[and]publishedAt[less_than]${this.publishedAt}`,
-      //   { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-      // ).then(res => res.json())
-
-      // const nextPhotoRespons = await fetch(
-      //   `https://mine.microcms.io/api/v1/photo?limit=10&fields=id&orders=publishedAt&filters=category[contains]snapshot[and]publishedAt[greater_than]${this.publishedAt}`,
-      //   { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
-      // ).then(res => res.json())
-
-      // if(prevPhotoRespons.contents.length != 0) {
-      //   this.prevPhotoId = prevPhotoRespons.contents[0].id
-      // }
-
-      // if(nextPhotoRespons.contents.length != 0) {
-      //   this.nextPhotoId = nextPhotoRespons.contents[0].id
-      // }
-
       const client = createClient({
         serviceDomain: 'mine',
         apiKey: '777407c0-ad7a-4703-a5dc-4a999f7ccddc',
@@ -84,9 +66,7 @@
         contents: this.contents,
         isLoaded: false,
         prevPhotoId: this.prevPhoto,
-        isShowPrevPhoto: false,
         nextPhotoId: this.nextPhoto,
-        isShowNextPhoto: false,
         listNumber: null
       }
     },
