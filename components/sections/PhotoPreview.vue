@@ -5,8 +5,8 @@
         class="photoPreview__imageWrapper"
         v-touch:swipe.right="linkToPrev"
         v-touch:swipe.left="linkToNext"
-        v-touch:moving="swipeImage('param')"
-        v-touch:end="resetImageSwipe('param')"
+        v-touch:moving="swipingImage('param')"
+        v-touch:end="swipedImage('param')"
         >
         <picture>
           <source :srcset="`${photo.url}?dpr=${imageDevicePixelRatio}&w=${imageWidth}&q=${imageQuality}&fm=webp`" type="image/webp"/>
@@ -95,7 +95,7 @@
           this.$router.push(`/${this.sectionName}/${this.nextPhotoId}/?list=${this.listNumber}`)
         }
       },
-      swipeImage(param) {
+      swipingImage(param) {
         let temporaryScreenX
 
         return function(direction, event) {
@@ -121,7 +121,7 @@
           target.style.webkitTransform = `translateX(${offsetX}px)`
         }
       },
-      resetImageSwipe(param) {
+      swipedImage(param) {
         return function(direction, event) {
           direction.target.style.webkitTransform = 'translateX(0px)'
         }

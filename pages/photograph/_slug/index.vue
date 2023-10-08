@@ -63,10 +63,8 @@
     },
     data() {
       return {
-        contents: this.contents,
-        isLoaded: false,
-        prevPhotoId: this.prevPhoto,
-        nextPhotoId: this.nextPhoto,
+        prevPhotoId: null,
+        nextPhotoId: null,
         listNumber: null
       }
     },
