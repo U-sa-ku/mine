@@ -13,7 +13,7 @@
           <source srcset="@/assets/img/img_navigation_2wheels.webp" type="image/webp"/>
           <img
             src="@/assets/img/img_navigation_2wheels.jpg"
-            alt="2wheels"
+            alt=""
             :class="['navigation__image', {jsAnimation: isLoaded}]"
             @load="onLoad"
             >
@@ -33,7 +33,7 @@
           <source srcset="@/assets/img/img_navigation_mirrorless.webp" type="image/webp"/>
           <img
             src="@/assets/img/img_navigation_mirrorless.jpg"
-            alt="mirrorless"
+            alt=""
             :class="['navigation__image', {jsAnimation: isLoaded}]"
             @load="onLoad"
             >
@@ -53,7 +53,7 @@
           <source srcset="@/assets/img/img_navigation_4wheels.webp" type="image/webp"/>
           <img
             src="@/assets/img/img_navigation_4wheels.jpg"
-            alt="4wheels"
+            alt=""
             :class="['navigation__image', {jsAnimation: isLoaded}]"
             @load="onLoad"
             >
