@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export default function ({ $axios }) {
   let lastRequestTime = null;
   const MIN_REQUEST_INTERVAL = 1000; // 1秒ごとにリクエストを送信
