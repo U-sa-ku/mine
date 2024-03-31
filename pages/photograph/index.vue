@@ -30,7 +30,7 @@
       return data
     },
     async fetch() {
-      const snapshotLimit = 50
+      const snapshotLimit = 10
       this.snapshots = await fetch(
         `https://mine.microcms.io/api/v1/photo?limit=${snapshotLimit}&filters=category[contains]snapshot`,
         { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }

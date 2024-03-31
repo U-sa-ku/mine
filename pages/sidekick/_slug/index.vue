@@ -112,12 +112,12 @@
     },
     async fetch() {
       this.photographs = await fetch(
-        `https://mine.microcms.io/api/v1/photo?limit=50&filters=category[contains]photograph[and]sidekick[contains]${this.id}`,
+        `https://mine.microcms.io/api/v1/photo?limit=${this.photographsLimit}&filters=category[contains]photograph[and]sidekick[contains]${this.id}`,
         { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
       ).then(res => res.json())
 
       this.snapshots = await fetch(
-        `https://mine.microcms.io/api/v1/photo?limit=50&filters=category[contains]snapshot[and]sidekick[contains]${this.id}`,
+        `https://mine.microcms.io/api/v1/photo?limit=${this.snapshotsLimit}&filters=category[contains]snapshot[and]sidekick[contains]${this.id}`,
         { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
       ).then(res => res.json())
     },
@@ -144,7 +144,9 @@
         descriptionImageWidth: null,
         movieLength: this.movie,
         photographs: [],
-        snapshots: []
+        photographsLimit: 10,
+        snapshots: [],
+        snapshotsLimit: 10
       }
     },
     mounted() {

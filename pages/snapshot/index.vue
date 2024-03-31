@@ -30,7 +30,7 @@
       return data
     },
     async fetch() {
-      const photographLimit = 50
+      const photographLimit = 10
       this.photographs = await fetch(
         `https://mine.microcms.io/api/v1/photo?limit=${photographLimit}&filters=category[contains]photograph`,
         { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
