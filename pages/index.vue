@@ -35,21 +35,19 @@
     layout: 'no-site-header',
     async fetch() {
       this.photographs = await fetch(
-        `https://mine.microcms.io/api/v1/photo?limit=${this.photographsLimit}&filters=category[contains]photograph`,
+        `https://mine.microcms.io/api/v1/photo?limit=10&filters=category[contains]photograph`,
         { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
       ).then(res => res.json())
 
       this.snapshots = await fetch(
-        `https://mine.microcms.io/api/v1/photo?limit=${this.snapshotsLimit}&filters=category[contains]snapshot`,
+        `https://mine.microcms.io/api/v1/photo?limit=10&filters=category[contains]snapshot`,
         { headers: { 'X-API-KEY': '777407c0-ad7a-4703-a5dc-4a999f7ccddc' } }
       ).then(res => res.json())
     },
     data() {
       return {
         photographs: [],
-        photographsLimit: 10,
         snapshots: [],
-        snapshotsLimit: 10,
         isLoaded: false,
         isLoadedLogo : false,
         isScrolledWindowHeight: false
