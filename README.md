@@ -9,9 +9,9 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 ※下記のバージョンのnodeでないとビルドできない
-nvm use 14.18.0
-nvm use 14.18.1
-nvm use 14.21.3
+$ nvm use 14.18.0
+$ nvm use 14.18.1
+$ nvm use 14.21.3
 
 # build for production and launch server
 $ npm run build
