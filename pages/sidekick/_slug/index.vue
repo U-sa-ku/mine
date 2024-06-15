@@ -399,7 +399,7 @@
   .description {
     max-width: 1600px;
     margin: 0px auto;
-    &__title /deep/ * {
+    &__title /deep/ h2 {
       @include sectionTitle;
       font-family: $fontFamily_japanese;
       font-size: 2.6rem;
